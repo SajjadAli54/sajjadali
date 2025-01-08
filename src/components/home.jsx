@@ -1,4 +1,4 @@
-export default function About() {
+export default function Home() {
   return (
     <section id="about" className="py-5 bg-light">
       <div className="container">
