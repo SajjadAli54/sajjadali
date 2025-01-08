@@ -79,3 +79,13 @@ body {
 .card-body {
   text-align: left;
 }
+
+#myBadges img {
+  width: auto;
+  height: 40px;
+  transition: transform 0.3s ease;
+}
+
+#myBadges img:hover {
+  transform: scale(1.1);
+}
