@@ -1,6 +1,8 @@
 import React from "react";
 import { Link } from "react-router-dom";
 
+import logo from "./../assets/logo.png";
+
 const navLinks = [
   { path: "/", label: "Home" },
   { path: "/projects", label: "Projects" },
@@ -13,7 +15,7 @@ function NavBar() {
   return (
     <nav className="navbar navbar-expand-lg navbar-light bg-light">
       <Link className="navbar-brand" to="/">
-        <img src="/src/assets/logo.png" alt="Logo" width="200" height="150" />
+        <img src={logo} alt="Logo" width="200" height="150" />
       </Link>
       <button
         className="navbar-toggler"
