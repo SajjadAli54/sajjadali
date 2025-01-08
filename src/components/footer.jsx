@@ -28,16 +28,17 @@ function Footer() {
     <footer className="py-3 bg-light">
       <div className="container text-center">
         <p className="mb-3">&copy; 2024 My Portfolio. All rights reserved.</p>
-        <div id="myBadges" className="d-flex justify-content-center gap-3">
+        <div className="row justify-content-center">
           {badges.map((badge, index) => (
-            <a
+            <div
+              id="myBadges"
               key={index}
-              href={badge.href}
-              target="_blank"
-              rel="noopener noreferrer"
+              className="col-3 col-sm-3 col-md-1 d-flex justify-content-center  mb-3"
             >
-              <img src={badge.src} alt={badge.alt} />
-            </a>
+              <a href={badge.href} target="_blank" rel="noopener noreferrer">
+                <img src={badge.src} alt={badge.alt} className="img-fluid" />
+              </a>
+            </div>
           ))}
         </div>
       </div>
