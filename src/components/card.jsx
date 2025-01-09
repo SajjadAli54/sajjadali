@@ -1,5 +1,22 @@
 import React from "react";
 
+function calculateExperience(startDate, endDate) {
+  const start = new Date(startDate);
+  const end = endDate ? new Date(endDate) : new Date(); // If no end date, use the current date
+  const diffInMs = end - start;
+  const diffInMonths = Math.ceil(diffInMs / (1000 * 60 * 60 * 24 * 30)); // Approximate months
+  const years = Math.floor(diffInMonths / 12);
+  const months = diffInMonths % 12;
+
+  if (years > 0) {
+    return `${years} year${years > 1 ? "s" : ""}${
+      months > 0 ? ` and ${months} month${months > 1 ? "s" : ""}` : ""
+    }`;
+  } else {
+    return `${months} month${months > 1 ? "s" : ""}`;
+  }
+}
+
 function JobCard({
   title,
   companyName,
@@ -9,8 +26,10 @@ function JobCard({
   subtitle,
   duties,
   tags = [],
-  image = "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTa_Upz1wUzZ05xdUafznHl79IbWrjzHk6cfA&s", // Optional image URL for the right side of the card
+  image = "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTa_Upz1wUzZ05xdUafznHl79IbWrjzHk6cfA&s",
 }) {
+  const experience = calculateExperience(startDate, endDate);
+
   return (
     <div className="card shadow-sm border-0 mb-3">
       <div className="row g-0">
@@ -33,11 +52,20 @@ function JobCard({
               </a>
             </p>
             {subtitle && <p className="text-secondary mb-3">{subtitle}</p>}
+            <p className="text-success mb-2">
+              <strong>Experience:</strong> {experience}
+            </p>
             {duties && duties.length > 0 && (
               <ul className="list-unstyled">
                 {duties.map((item, index) => (
-                  <li key={index} className="mb-1">
-                    {item}
+                  <li key={index} className="mb-2 d-flex align-items-start">
+                    <span
+                      className="me-2 text-primary"
+                      style={{ fontSize: "1.2rem" }}
+                    >
+                      •
+                    </span>
+                    <span>{item}</span>
                   </li>
                 ))}
               </ul>

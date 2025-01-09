@@ -10,7 +10,6 @@ const jobs = [
     companyName: "Badri Management Consultancy",
     companyUrl: "https://badriconsultancy.com/",
     startDate: "Nov 2024",
-    endDate: "Present",
     subtitle: "Building Financial & Actuarial Solutions for Global Clients.",
     duties: [
       "🚀 Designed and implemented seamless integration of machine learning models for end-to-end financial systems.",
@@ -44,7 +43,7 @@ const jobs = [
     companyUrl:
       "https://www.linkedin.com/company/syzen-technologies/posts/?feedView=all",
     startDate: "Aug 2023",
-    endDate: "Feb 2024",
+    endDate: "Oct 2023",
     duties: [
       "🤖 Developed and fine-tuned state-of-the-art ML models, leveraging advanced techniques such as diffusion models and transformers.",
       "🌐 Collaborated with web development teams to integrate ML models into backend systems, ensuring seamless deployment.",
@@ -66,7 +65,7 @@ const jobs = [
 function Jobs() {
   return (
     <div className="mb-5">
-      <h2 className="text-center text-primary mb-4">🌟 Experience</h2>
+      <h2 className="text-primary mb-4">🌟 Experience</h2>
       {jobs.map((job, index) => (
         <JobCard key={index} {...job} />
       ))}
