@@ -2,12 +2,13 @@ import React from "react";
 import { BrowserRouter as Router, Route, Routes } from "react-router-dom";
 
 import NavBar from "./components/navbar";
-import Home from "./components/home";
-import Projects from "./components/projects";
-import Certifications from "./components/certifications";
-import Blogs from "./components/blogs";
-import Contact from "./components/contact";
 import Footer from "./components/footer";
+
+import Home from "./pages/home";
+import Projects from "./pages/projects";
+import Certifications from "./pages/certifications";
+import Blogs from "./pages/blogs";
+import Contact from "./pages/contact";
 
 import "./App.css";
 
