@@ -1,9 +1,9 @@
 import React from "react";
-import JobCard from "./job-card";
+import JobCard from "../components/job-card";
 
 import badri from "../assets/job/badri.jpg";
 
-import List from "./list";
+import List from "../components/list";
 
 const jobs = [
   {
@@ -66,8 +66,8 @@ const jobs = [
 
 function Jobs() {
   return (
-    <div className="mb-5">
-      <h2 className="text-primary mb-4">🌟 Experience</h2>
+    <div className="py-5 bg-light">
+      <h2 className="text-center text-primary mb-4">🌟 Experience</h2>
       {jobs.map((job, index) => (
         <JobCard key={index} {...job} />
       ))}

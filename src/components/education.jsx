@@ -43,7 +43,7 @@ const list = [
 function Education() {
   return (
     <div className="mb-5">
-      <h2 className="text-warning mb-4">🎓 Education</h2>
+      <h2 className="text-center text-warning mb-4">🎓 Education</h2>
       {list.map((item, index) => (
         <EducationCard key={index} {...item} />
       ))}

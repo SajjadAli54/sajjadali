@@ -1,5 +1,7 @@
 import React from "react";
 
+import Education from "../components/education";
+
 const certifications = [
   { src: "/src/assets/certs/vcs.png", alt: "Version Control Systems" },
   { src: "/src/assets/certs/ml.jpg", alt: "Machine Learning with Python" },
@@ -27,6 +29,7 @@ function Certifications() {
             </div>
           ))}
         </div>
+        <Education />
       </div>
     </section>
   );

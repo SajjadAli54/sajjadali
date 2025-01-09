@@ -1,6 +1,6 @@
 import React from "react";
 
-import Jobs from "../components/jobs";
+import Jobs from "./jobs";
 import EducationCard from "../components/edu-card";
 import Education from "../components/education";
 
@@ -15,11 +15,6 @@ export default function Home() {
           solving challenging problems.
         </p>
         <hr className="my-5" />
-
-        <Jobs />
-
-        {/* Education */}
-        <Education />
 
         {/* Tech Stack */}
         <div className="mb-5">

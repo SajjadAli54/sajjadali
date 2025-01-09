@@ -11,6 +11,7 @@ import Blogs from "./pages/blogs";
 import Contact from "./pages/contact";
 
 import "./App.css";
+import Jobs from "./pages/jobs";
 
 function App() {
   return (
@@ -18,6 +19,7 @@ function App() {
       <NavBar />
       <Routes>
         <Route path="/" element={<Home />} />
+        <Route path="/experience" element={<Jobs />} />
         <Route path="/projects" element={<Projects />} />
         <Route path="/certifications" element={<Certifications />} />
         <Route path="/blogs" element={<Blogs />} />

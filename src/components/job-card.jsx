@@ -31,7 +31,7 @@ function JobCard({
   const experience = calculateExperience(startDate, endDate);
 
   return (
-    <div className="card shadow-sm border-0 mb-3">
+    <div className="card shadow-sm border-0 m-3">
       <div className="row g-0">
         <div className="col-md-8">
           <div className="card-body">
