@@ -9,6 +9,7 @@ import Mongodb from "../assets/certs/mongodb.jpg";
 import Maths from "../assets/certs/math-image.jpeg";
 
 import Container from "../components/container";
+import Card from "../components/card";
 
 const certifications = [
   { src: VCS, alt: "Version Control" },
@@ -28,17 +29,7 @@ function Certifications() {
       <div className="row">
         {certifications.map((cert, index) => (
           <div key={index} className="col-md-4 col-sm-6 mb-4 bg-dark">
-            <div className="card h-100 bg-dark">
-              <img
-                src={cert.src}
-                className="card-img-top"
-                alt={cert.alt}
-                style={{ maxHeight: "200px", objectFit: "contain" }}
-              />
-              <div className="card-body text-center bg-dark">
-                <p className="card-text text-light">{cert.alt}</p>
-              </div>
-            </div>
+            <Card key={index} image={cert.src} title={cert.alt} />
           </div>
         ))}
       </div>

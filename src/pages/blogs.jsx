@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from "react";
 import Container from "../components/container";
+import Card from "../components/card";
 
 const Blogs = () => {
   const [posts, setPosts] = useState([]);
@@ -32,27 +33,13 @@ const Blogs = () => {
         <div className="row">
           {posts.map((post, index) => (
             <div key={index} className="col-md-4 col-sm-12 mb-4">
-              <div className="card project-card h-100 bg-dark">
-                <img
-                  src={post.cover_image || "https://via.placeholder.com/300"}
-                  className="card-img-top"
-                  alt={post.slug}
-                />
-                <div className="card-body d-flex flex-column bg-dark">
-                  <h5 className="card-title text-light">{post.title}</h5>
-                  <p className="card-text text-light">{post.description}</p>
-                  <div className="mt-auto">
-                    <a
-                      href={post.url}
-                      target="_blank"
-                      rel="noopener noreferrer"
-                      className="btn btn-primary"
-                    >
-                      Read More
-                    </a>
-                  </div>
-                </div>
-              </div>
+              <Card
+                image={post.cover_image}
+                title={post.title}
+                description={post.description}
+                link={post.url}
+                buttonText="Read More"
+              />
             </div>
           ))}
         </div>
