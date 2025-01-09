@@ -62,7 +62,7 @@ function JobCard({
               src={image}
               alt={title}
               className="img-fluid rounded-end w-100"
-              style={{ objectFit: "cover", height: "100%" }}
+              style={{ objectFit: "cover", height: "70%" }}
             />
           </div>
         )}

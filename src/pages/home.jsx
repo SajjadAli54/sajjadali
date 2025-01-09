@@ -1,6 +1,7 @@
 import React from "react";
 
 import JobCard from "../components/card";
+import Jobs from "../components/jobs";
 
 export default function Home() {
   return (
@@ -14,77 +15,7 @@ export default function Home() {
         </p>
         <hr className="my-5" />
 
-        {/* Current Role */}
-        <div className="mb-5">
-          <h2 className="text-center text-primary mb-4">🌟 Current Role</h2>
-          <JobCard
-            title="Software Developer"
-            companyName="Badri Management Consultancy"
-            companyUrl="https://badri.com"
-            startDate="Nov 2024"
-            endDate="Present"
-            subtitle="Building financial solutions for IFRS 17 compliance."
-            duties={[
-              "Front-end & Back-end integration for machine learning models.",
-              "Developing desktop applications using PyQt5, PyQt6, and PySide6.",
-              "Implementing IFRS 17 Insurance Models in Python.",
-              "Creating dashboards using Plotly and Apexcharts.",
-            ]}
-            tags={["Python", "PyQt", "Plotly", "Machine Learning", "IFRS 17"]}
-          />
-
-          <JobCard
-            title="Software Developer @ Badri Management Consultancy"
-            subtitle="Karachi (Nov 2024 - Present)"
-            list={[
-              "🚀 Front-end & Back-end integration for machine learning models.",
-              "📱 Developing Desktop Apps using PyQt5, PyQt6, and PySide6.",
-              "💡 Implementing IFRS 17 Insurance Models in Python.",
-              "📊 Creating Dashboards using Plotly and Apexcharts.",
-            ]}
-          />
-          {/* <div className="card shadow-sm p-4 border-0">
-            <h4>Software Developer @ Badri Management Consultancy</h4>
-            <p className="text-muted">Karachi (Nov 2024 - Present)</p>
-            <ul className="list-unstyled">
-              <li>
-                🚀 Front-end & Back-end integration for machine learning models.
-              </li>
-              <li>
-                📱 Developing Desktop Apps using PyQt5, PyQt6, and PySide6.
-              </li>
-              <li>💡 Implementing IFRS 17 Insurance Models in Python.</li>
-              <li>📊 Creating Dashboards using Plotly and Apexcharts.</li>
-            </ul>
-          </div> */}
-        </div>
-
-        {/* Previous Experience */}
-        <div className="mb-5">
-          <h2 className="text-center text-success mb-4">
-            💻 Previous Experience
-          </h2>
-          <div className="card shadow-sm p-4 border-0 mb-3">
-            <h4>MERN Stack Developer @ Solspro</h4>
-            <p className="text-muted">Karachi (Jul 2024 - Oct 2024)</p>
-            <ul className="list-unstyled">
-              <li>
-                🌐 Developed web & mobile apps with smooth stack transitions.
-              </li>
-              <li>🔐 Implemented secure REST APIs.</li>
-            </ul>
-          </div>
-          <div className="card shadow-sm p-4 border-0">
-            <h4>Master Exchange Project @ NTNU</h4>
-            <p className="text-muted">Norway (Aug 2023 - Feb 2024)</p>
-            <ul className="list-unstyled">
-              <li>
-                🤖 Advanced ML research on diffusion models, transformers, and
-                FER.
-              </li>
-            </ul>
-          </div>
-        </div>
+        <Jobs />
 
         {/* Education */}
         <div className="mb-5">
