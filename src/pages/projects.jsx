@@ -34,7 +34,9 @@ const Projects = () => {
       className="py-5 bg-light animate__animated animate__fadeIn"
     >
       <div className="container">
-        <h2 className="section-title text-center mb-4">Projects</h2>
+        <h2 className="text-center text-primary mb-4 display-4 fw-bold">
+          Projects
+        </h2>
         <div className="row">
           {projects.map((project, index) => (
             <div key={index} className="col-md-4 col-sm-12 col-lg-4 mb-4">

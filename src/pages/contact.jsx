@@ -28,7 +28,9 @@ function Contact() {
       className="py-5 bg-light animate__animated animate__fadeIn"
     >
       <div className="container">
-        <h2 className="section-title text-center mb-4">Contact</h2>
+        <h2 className="text-center text-primary mb-4 display-4 fw-bold">
+          Contact
+        </h2>
         <form onSubmit={handleSubmit}>
           <div className="mb-3">
             <label htmlFor="name" className="form-label">

@@ -29,10 +29,10 @@ export default function Home() {
         <TechStack />
 
         {/* Education */}
-        <Education />
+        {/* <Education /> */}
 
         {/* Jobs */}
-        <Jobs />
+        {/* <Jobs /> */}
       </div>
     </section>
   );

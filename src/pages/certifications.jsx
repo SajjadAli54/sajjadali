@@ -11,7 +11,10 @@ function Certifications() {
   return (
     <section className="py-5 bg-light animate__animated animate__fadeIn">
       <div className="container">
-        <h2 className="section-title text-center mb-4">Certifications</h2>
+        <Education />
+        <h2 className="text-center text-primary mb-4 display-4 fw-bold">
+          🎓 Certifications
+        </h2>
         <div className="row">
           {certifications.map((cert, index) => (
             <div key={index} className="col-md-4 col-sm-6 mb-4">
@@ -29,7 +32,6 @@ function Certifications() {
             </div>
           ))}
         </div>
-        <Education />
       </div>
     </section>
   );

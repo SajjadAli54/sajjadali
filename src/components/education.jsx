@@ -2,6 +2,7 @@ import React from "react";
 import EducationCard from "./edu-card";
 
 import NtnuImage from "../assets/job/ntnu-image.jpg";
+import SibaImage from "../assets/job/iba-image.jpg";
 
 const list = [
   {
@@ -35,15 +36,16 @@ const list = [
       "📈 Excelled in academic and extracurricular activities, showcasing leadership and innovation.",
     ],
     tags: ["CGPA: 3.62", "Silver Medalist", "Data Science", "AI"],
-    image:
-      "https://upload.wikimedia.org/wikipedia/commons/8/8a/Sukkur_IBA_University_logo.png", // Sukkur IBA logo
+    image: SibaImage,
   },
 ];
 
 function Education() {
   return (
     <div className="mb-5">
-      <h2 className="text-center text-warning mb-4">🎓 Education</h2>
+      <h2 className="text-center text-primary mb-4 display-4 fw-bold">
+        🎓 Education
+      </h2>
       {list.map((item, index) => (
         <EducationCard key={index} {...item} />
       ))}
