@@ -1,7 +1,8 @@
 import React from "react";
 
-import JobCard from "../components/card";
 import Jobs from "../components/jobs";
+import EducationCard from "../components/edu-card";
+import Education from "../components/education";
 
 export default function Home() {
   return (
@@ -18,24 +19,11 @@ export default function Home() {
         <Jobs />
 
         {/* Education */}
-        <div className="mb-5">
-          <h2 className="text-center text-warning mb-4">🎓 Education</h2>
-          <div className="card shadow-sm p-4 border-0">
-            <h4>Sukkur IBA University</h4>
-            <p className="text-muted">Batch 2019-2023</p>
-            <ul className="list-unstyled">
-              <li>🏅 Silver Medalist | Second Highest CGPA.</li>
-              <li>
-                💼 Awarded multiple scholarships, including NORPART CONNECT
-                Scholarship.
-              </li>
-            </ul>
-          </div>
-        </div>
+        <Education />
 
         {/* Tech Stack */}
         <div className="mb-5">
-          <h2 className="text-center text-info mb-4">🛠️ My Tech Stack</h2>
+          <h2 className="text-info mb-4">🛠️ My Tech Stack</h2>
           <div className="row">
             {[
               {

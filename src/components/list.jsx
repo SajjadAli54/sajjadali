@@ -1,6 +1,6 @@
 import React from "react";
 
-import JobCard from "./card";
+import JobCard from "./job-card";
 
 function List({ title, data }) {
   return (

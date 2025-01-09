@@ -1,7 +1,8 @@
 import React from "react";
-import JobCard from "./card";
+import JobCard from "./job-card";
 
 import badri from "../assets/job/badri.jpg";
+
 import List from "./list";
 
 const jobs = [
@@ -64,7 +65,14 @@ const jobs = [
 ];
 
 function Jobs() {
-  return <List title="🌟 Experience" data={jobs} />;
+  return (
+    <div className="mb-5">
+      <h2 className="text-primary mb-4">🌟 Experience</h2>
+      {jobs.map((job, index) => (
+        <JobCard key={index} {...job} />
+      ))}
+    </div>
+  );
 }
 
 export default Jobs;
