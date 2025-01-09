@@ -16,7 +16,7 @@ export default function Home() {
           <h1 className="display-4 fw-bold mb-3 animate__animated animate__fadeIn">
             Hi, I'm Sajjad Ali 👋
           </h1>
-          <p className="lead mb-4 ">
+          <p className="lead mb-4 animate__fadeIn">
             Software Developer specializing in Web Development, Data Science,
             and Machine Learning. I love solving challenging problems and
             creating seamless user experiences.

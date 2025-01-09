@@ -12,18 +12,19 @@ import Contact from "./pages/contact";
 
 import "./App.css";
 import Jobs from "./pages/jobs";
+import { routes } from "./data/routes";
 
 function App() {
   return (
     <Router>
       <NavBar />
       <Routes>
-        <Route path="/" element={<Home />} />
-        <Route path="/experience" element={<Jobs />} />
-        <Route path="/projects" element={<Projects />} />
-        <Route path="/education" element={<Certifications />} />
-        <Route path="/blogs" element={<Blogs />} />
-        <Route path="/contact" element={<Contact />} />
+        <Route path={routes.home} element={<Home />} />
+        <Route path={routes.experience} element={<Jobs />} />
+        <Route path={routes.projects} element={<Projects />} />
+        <Route path={routes.education} element={<Certifications />} />
+        <Route path={routes.blogs} element={<Blogs />} />
+        <Route path={routes.contact} element={<Contact />} />
       </Routes>
       <Footer />
     </Router>

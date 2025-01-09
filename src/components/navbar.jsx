@@ -3,13 +3,15 @@ import { Link, NavLink } from "react-router-dom";
 
 import logo from "./../assets/logo.png";
 
+import { routes } from "../data/routes";
+
 const navLinks = [
-  { path: "/", label: "Home" },
-  { path: "/experience", label: "Experience" },
-  { path: "/projects", label: "Projects" },
-  { path: "/education", label: "Education" },
-  { path: "/blogs", label: "Blogs" },
-  { path: "/contact", label: "Contact" },
+  { path: routes.home, label: "Home" },
+  { path: routes.experience, label: "Experience" },
+  { path: routes.projects, label: "Projects" },
+  { path: routes.education, label: "Education" },
+  { path: routes.blogs, label: "Blogs" },
+  { path: routes.contact, label: "Contact" },
 ];
 
 function NavBar() {
@@ -44,10 +46,10 @@ function NavBar() {
                   exact
                   className="nav-link"
                   to={link.path}
-                  activeClassName="active" // Highlight active link
+                  activeClassName="active"
                   style={({ isActive }) => ({
-                    fontWeight: isActive ? "bold" : "normal", // Apply bold style to active link
-                    color: isActive ? "#007bff" : "#fff", // Change color of active link
+                    fontWeight: isActive ? "bold" : "normal",
+                    color: isActive ? "#007bff" : "#fff",
                     transition: "all 0.3s ease",
                   })}
                 >
