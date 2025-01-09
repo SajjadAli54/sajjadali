@@ -2,9 +2,18 @@ import React from "react";
 
 import Education from "../components/education";
 
+import VCS from "../assets/certs/vcs.png";
+import ML from "../assets/certs/ml.jpg";
+import Networking from "../assets/certs/networking.png";
+import Mongodb from "../assets/certs/mongodb.jpg";
+import Maths from "../assets/certs/math-image.jpeg";
+
 const certifications = [
-  { src: "/src/assets/certs/vcs.png", alt: "Version Control Systems" },
-  { src: "/src/assets/certs/ml.jpg", alt: "Machine Learning with Python" },
+  { src: VCS, alt: "Version Control" },
+  { src: Mongodb, alt: "MongoDB Node.js Developer Path" },
+  { src: ML, alt: "Machine Learning From Basics to Advanced" },
+  { src: Networking, alt: "Bits and Bytes of Networking" },
+  { src: Maths, alt: "Mathematical Thinking in Computer Science" },
 ];
 
 function Certifications() {
