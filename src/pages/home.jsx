@@ -7,7 +7,10 @@ import TechStack from "../components/stack";
 
 export default function Home() {
   return (
-    <section id="about" className="py-5 bg-light">
+    <section
+      id="about"
+      className="py-5 bg-light animate__animated animate__fadeIn"
+    >
       <div className="container">
         {/* Introduction */}
         <div className="text-center mb-5">

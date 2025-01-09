@@ -1,9 +1,6 @@
 import React from "react";
 import JobCard from "../components/job-card";
-
 import badri from "../assets/job/badri.jpg";
-
-import List from "../components/list";
 
 const jobs = [
   {
@@ -66,11 +63,22 @@ const jobs = [
 
 function Jobs() {
   return (
-    <div className="py-5 bg-light">
-      <h2 className="text-center text-primary mb-4">🌟 Experience</h2>
-      {jobs.map((job, index) => (
-        <JobCard key={index} {...job} />
-      ))}
+    <div className="py-5 bg-light animate__animated animate__fadeIn">
+      <div className="container">
+        <h2 className="text-center text-primary mb-4 display-4 fw-bold">
+          🌟 Experience
+        </h2>
+        <p className="text-center mb-5 lead text-muted">
+          Here are some of the exciting roles I've had, where I've grown my
+          skills and contributed to impactful projects.
+        </p>
+        {/* Vertical Layout */}
+        <div className="d-flex flex-column align-items-stretch gap-4">
+          {jobs.map((job, index) => (
+            <JobCard key={index} {...job} />
+          ))}
+        </div>
+      </div>
     </div>
   );
 }

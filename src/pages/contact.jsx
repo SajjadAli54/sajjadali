@@ -23,7 +23,10 @@ function Contact() {
   };
 
   return (
-    <section id="contact" className="py-5 bg-light">
+    <section
+      id="contact"
+      className="py-5 bg-light animate__animated animate__fadeIn"
+    >
       <div className="container">
         <h2 className="section-title text-center mb-4">Contact</h2>
         <form onSubmit={handleSubmit}>

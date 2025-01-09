@@ -9,7 +9,7 @@ const certifications = [
 
 function Certifications() {
   return (
-    <section className="py-5 bg-light">
+    <section className="py-5 bg-light animate__animated animate__fadeIn">
       <div className="container">
         <h2 className="section-title text-center mb-4">Certifications</h2>
         <div className="row">
