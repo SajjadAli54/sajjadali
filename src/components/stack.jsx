@@ -9,6 +9,7 @@ import {
   FaCogs,
   FaDesktop,
 } from "react-icons/fa"; // Icons for each tech category
+import Container from "./container";
 
 function TechStack() {
   const techItems = [
@@ -63,7 +64,7 @@ function TechStack() {
   ];
 
   return (
-    <section id="tech-stack" className="py-5 bg-light">
+    <Container>
       <div className="container">
         <h3 className="text-center text-primary mb-5">
           The technologies I work with to bring ideas to life
@@ -96,7 +97,7 @@ function TechStack() {
           ))}
         </div>
       </div>
-    </section>
+    </Container>
   );
 }
 

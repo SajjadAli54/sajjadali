@@ -1,5 +1,7 @@
 import React from "react";
 
+import Container from "./container";
+
 function calculateExperience(startDate, endDate) {
   const start = new Date(startDate);
   const end = endDate ? new Date(endDate) : new Date(); // If no end date, use the current date
@@ -31,13 +33,13 @@ function JobCard({
   const experience = calculateExperience(startDate, endDate);
 
   return (
-    <div className="card shadow-sm border-0 m-3">
+    <Container className="card shadow-sm py-0">
       <div className="row g-0">
         <div className="col-md-8">
-          <div className="card-body">
+          <div className="card-body bg-dark">
             <div className="d-flex justify-content-between align-items-center">
               <h4 className="card-title mb-0">{title}</h4>
-              <small className="text-muted">{`${startDate} - ${
+              <small className="text-light">{`${startDate} - ${
                 endDate || "Present"
               }`}</small>
             </div>
@@ -95,7 +97,7 @@ function JobCard({
           </div>
         )}
       </div>
-    </div>
+    </Container>
   );
 }
 

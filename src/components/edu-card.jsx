@@ -1,4 +1,5 @@
 import React from "react";
+import Container from "./container";
 
 function EducationCard({
   degree,
@@ -12,13 +13,13 @@ function EducationCard({
   image = "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTa_Upz1wUzZ05xdUafznHl79IbWrjzHk6cfA&s", // Optional image of the institution or degree
 }) {
   return (
-    <div className="card shadow-sm border-0 mb-3">
-      <div className="row g-0">
+    <Container className="card shadow-sm py-0">
+      <div className="row g-0 bg-dark">
         <div className="col-md-8">
-          <div className="card-body">
+          <div className="card-body bg-dark">
             <div className="d-flex justify-content-between align-items-center">
-              <h4 className="card-title mb-0">{degree}</h4>
-              <small className="text-muted">{`${startDate} - ${
+              <h4 className="card-title mb-0 text-light">{degree}</h4>
+              <small className="text-light">{`${startDate} - ${
                 endDate || "Present"
               }`}</small>
             </div>
@@ -45,7 +46,7 @@ function EducationCard({
                     >
                       •
                     </span>
-                    <span>{item}</span>
+                    <span className="text-light">{item}</span>
                   </li>
                 ))}
               </ul>
@@ -69,13 +70,16 @@ function EducationCard({
             <img
               src={image}
               alt={degree}
-              className="img-fluid rounded-end w-100"
-              style={{ objectFit: "cover", height: "70%" }}
+              className="img-fluid rounded-end w-100 h-100 object-cover"
+              style={{
+                objectFit: "cover",
+                height: "70%",
+              }}
             />
           </div>
         )}
       </div>
-    </div>
+    </Container>
   );
 }
 

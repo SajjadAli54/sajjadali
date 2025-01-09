@@ -14,14 +14,15 @@ const navLinks = [
 
 function NavBar() {
   return (
-    <nav className="navbar navbar-expand-lg navbar-light bg-light shadow-sm">
+    <nav className="navbar navbar-expand-lg navbar-light bg-dark shadow-sm">
       <div className="container">
         <Link className="navbar-brand" to="/">
           <img
             src={logo}
+            style={{ borderRadius: "50%" }}
             alt="Logo Image named Sajjad Ali"
-            width="200"
-            height="200"
+            width="100px"
+            height="80px"
           />
         </Link>
         <button
@@ -46,7 +47,7 @@ function NavBar() {
                   activeClassName="active" // Highlight active link
                   style={({ isActive }) => ({
                     fontWeight: isActive ? "bold" : "normal", // Apply bold style to active link
-                    color: isActive ? "#007bff" : "", // Change color of active link
+                    color: isActive ? "#007bff" : "#fff", // Change color of active link
                     transition: "all 0.3s ease",
                   })}
                 >

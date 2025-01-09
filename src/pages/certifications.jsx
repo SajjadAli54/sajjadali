@@ -8,6 +8,8 @@ import Networking from "../assets/certs/networking.png";
 import Mongodb from "../assets/certs/mongodb.jpg";
 import Maths from "../assets/certs/math-image.jpeg";
 
+import Container from "../components/container";
+
 const certifications = [
   { src: VCS, alt: "Version Control" },
   { src: Mongodb, alt: "MongoDB Node.js Developer Path" },
@@ -18,31 +20,29 @@ const certifications = [
 
 function Certifications() {
   return (
-    <section className="py-5 bg-light animate__animated animate__fadeIn">
-      <div className="container">
-        <Education />
-        <h2 className="text-center text-primary mb-4 display-4 fw-bold">
-          🎓 Certifications
-        </h2>
-        <div className="row">
-          {certifications.map((cert, index) => (
-            <div key={index} className="col-md-4 col-sm-6 mb-4">
-              <div className="card shadow-sm h-100">
-                <img
-                  src={cert.src}
-                  className="card-img-top"
-                  alt={cert.alt}
-                  style={{ maxHeight: "200px", objectFit: "contain" }}
-                />
-                <div className="card-body text-center">
-                  <p className="card-text">{cert.alt}</p>
-                </div>
+    <Container>
+      <Education />
+      <h2 className="text-center text-primary mb-4 display-4 fw-bold">
+        🎓 Certifications
+      </h2>
+      <div className="row">
+        {certifications.map((cert, index) => (
+          <div key={index} className="col-md-4 col-sm-6 mb-4 bg-dark">
+            <div className="card h-100 bg-dark">
+              <img
+                src={cert.src}
+                className="card-img-top"
+                alt={cert.alt}
+                style={{ maxHeight: "200px", objectFit: "contain" }}
+              />
+              <div className="card-body text-center bg-dark">
+                <p className="card-text text-light">{cert.alt}</p>
               </div>
             </div>
-          ))}
-        </div>
+          </div>
+        ))}
       </div>
-    </section>
+    </Container>
   );
 }
 

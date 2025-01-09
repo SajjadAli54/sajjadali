@@ -1,4 +1,5 @@
 import React, { useState, useEffect } from "react";
+import Container from "../components/container";
 
 const Blogs = () => {
   const [posts, setPosts] = useState([]);
@@ -23,49 +24,42 @@ const Blogs = () => {
   }, []);
 
   return (
-    <section
-      id="blogs"
-      className="py-5 bg-light animate__animated animate__fadeIn"
-    >
-      <div className="container">
-        <h2 className="text-center text-primary mb-4 display-4 fw-bold">
-          Blogs
-        </h2>
-        {loading ? (
-          <p className="text-center">Loading...</p>
-        ) : posts.length > 0 ? (
-          <div className="row">
-            {posts.map((post, index) => (
-              <div key={index} className="col-md-4 col-sm-12 mb-4">
-                <div className="card project-card h-100 shadow-sm">
-                  <img
-                    src={post.cover_image || "https://via.placeholder.com/300"}
-                    className="card-img-top"
-                    alt={post.slug}
-                  />
-                  <div className="card-body d-flex flex-column">
-                    <h5 className="card-title">{post.title}</h5>
-                    <p className="card-text">{post.description}</p>
-                    <div className="mt-auto">
-                      <a
-                        href={post.url}
-                        target="_blank"
-                        rel="noopener noreferrer"
-                        className="btn btn-primary"
-                      >
-                        Read More
-                      </a>
-                    </div>
+    <Container>
+      <h2 className="text-center text-primary mb-4 display-4 fw-bold">Blogs</h2>
+      {loading ? (
+        <p className="text-center">Loading...</p>
+      ) : posts.length > 0 ? (
+        <div className="row">
+          {posts.map((post, index) => (
+            <div key={index} className="col-md-4 col-sm-12 mb-4">
+              <div className="card project-card h-100 bg-dark">
+                <img
+                  src={post.cover_image || "https://via.placeholder.com/300"}
+                  className="card-img-top"
+                  alt={post.slug}
+                />
+                <div className="card-body d-flex flex-column bg-dark">
+                  <h5 className="card-title text-light">{post.title}</h5>
+                  <p className="card-text text-light">{post.description}</p>
+                  <div className="mt-auto">
+                    <a
+                      href={post.url}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className="btn btn-primary"
+                    >
+                      Read More
+                    </a>
                   </div>
                 </div>
               </div>
-            ))}
-          </div>
-        ) : (
-          <p className="text-center">No posts available.</p>
-        )}
-      </div>
-    </section>
+            </div>
+          ))}
+        </div>
+      ) : (
+        <p className="text-center">No posts available.</p>
+      )}
+    </Container>
   );
 };
 
