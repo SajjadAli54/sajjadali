@@ -82,6 +82,7 @@ function JobCard({
           </div>
         )}
       </div>
+      <div className="border-top border-primary "></div>
     </Container>
   );
 }
