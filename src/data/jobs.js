@@ -9,7 +9,6 @@ export const jobs = [
     startDate: "Nov 2024",
     subtitle: "Building Financial & Actuarial Solutions for Global Clients.",
     duties: [
-      "🚀 Designed and implemented seamless integration of machine learning models for end-to-end financial systems.",
       "📱 Developed advanced desktop applications using PyQt5, PyQt6, and PySide6, improving workflow efficiency by 40%.",
       "💡 Engineered IFRS 17 Insurance Models using Python, ensuring compliance with international financial standards.",
       "📊 Built interactive dashboards using Plotly and Apexcharts, enabling real-time data visualization for key stakeholders.",

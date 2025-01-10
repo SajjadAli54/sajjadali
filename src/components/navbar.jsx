@@ -1,8 +1,6 @@
 import React from "react";
 import { Link, NavLink } from "react-router-dom";
-
 import logo from "./../assets/logo.png";
-
 import { routes } from "../data/routes";
 
 const navLinks = [
@@ -16,17 +14,18 @@ const navLinks = [
 
 function NavBar() {
   return (
-    <nav className="navbar navbar-expand-lg navbar-light bg-dark shadow-sm">
+    <nav className="navbar navbar-expand-lg navbar-dark bg-dark shadow-sm">
       <div className="container">
+        {/* Logo */}
         <Link className="navbar-brand" to="/">
           <img
             src={logo}
-            style={{ borderRadius: "50%" }}
-            alt="Logo Image named Sajjad Ali"
-            width="100px"
-            height="80px"
+            alt="Logo"
+            style={{ borderRadius: "50%", width: "80px", height: "80px" }}
           />
         </Link>
+
+        {/* Toggle button for mobile */}
         <button
           className="navbar-toggler"
           type="button"
@@ -38,19 +37,20 @@ function NavBar() {
         >
           <span className="navbar-toggler-icon"></span>
         </button>
+
+        {/* Navbar links */}
         <div className="collapse navbar-collapse" id="navbarNav">
           <ul className="navbar-nav ms-auto">
             {navLinks.map((link, index) => (
               <li key={index} className="nav-item">
                 <NavLink
                   exact
-                  className="nav-link"
                   to={link.path}
-                  activeClassName="active"
+                  className="nav-link"
                   style={({ isActive }) => ({
+                    color: isActive ? "#00bfff" : "#fff",
                     fontWeight: isActive ? "bold" : "normal",
-                    color: isActive ? "#007bff" : "#fff",
-                    transition: "all 0.3s ease",
+                    transition: "color 0.3s ease",
                   })}
                 >
                   {link.label}
