@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import Page from "../components/container";
+import Container from "../components/container";
 
 function Contact() {
   const [formData, setFormData] = useState({
@@ -24,7 +24,7 @@ function Contact() {
   };
 
   return (
-    <Page
+    <Container
       id="contact"
       className="py-5 bg-light animate__animated animate__fadeIn"
     >
@@ -38,7 +38,7 @@ function Contact() {
           </label>
           <input
             type="text"
-            className="form-control"
+            className="form-control bg-secondary text-light"
             id="name"
             value={formData.name}
             onChange={handleChange}
@@ -51,7 +51,7 @@ function Contact() {
           </label>
           <input
             type="email"
-            className="form-control"
+            className="form-control bg-secondary"
             id="email"
             value={formData.email}
             onChange={handleChange}
@@ -63,7 +63,7 @@ function Contact() {
             Message
           </label>
           <textarea
-            className="form-control"
+            className="form-control bg-secondary"
             id="message"
             rows="4"
             value={formData.message}
@@ -75,7 +75,7 @@ function Contact() {
           Send
         </button>
       </form>
-    </Page>
+    </Container>
   );
 }
 
