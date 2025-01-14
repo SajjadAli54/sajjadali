@@ -5,7 +5,7 @@ import TechStack from "../components/stack";
 import Projects from "../pages/projects"; // Assuming you have a 'Projects' component
 import Page from "../components/container";
 
-import Image from "../assets/profile.jpeg";
+import Image from "../assets/profile.png";
 
 export default function Home() {
   return (
@@ -30,6 +30,7 @@ export default function Home() {
         </div>
         <div className="col-lg-6 text-center">
           <img
+            id="myImage"
             src={Image} // Add your image here
             style={{ maxWidth: "300px", backgroundColor: "transparent" }}
             height={"300px"}
