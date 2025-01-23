@@ -5,7 +5,7 @@ import TechStack from "../components/stack";
 import Projects from "../pages/projects"; // Assuming you have a 'Projects' component
 import Page from "../components/container";
 
-import Image from "../assets/profile.png";
+import ProfileImage from "../assets/picofme.png";
 
 export default function Home() {
   return (
@@ -17,9 +17,9 @@ export default function Home() {
             Hi, I'm Sajjad Ali 👋
           </h1>
           <p className="lead mb-4 animate__fadeIn">
-            Software Developer specializing in Web Development, Data Science,
-            and Machine Learning. I love solving challenging problems and
-            creating seamless user experiences.
+            Software Developer specializing in Web, Mobile and Desktop App
+            Development, Data Science, and Machine Learning. I love solving
+            challenging problems and creating seamless user experiences.
           </p>
           <Link to="/projects" className="btn btn-primary btn-lg me-3">
             View My Work
@@ -31,19 +31,18 @@ export default function Home() {
         <div className="col-lg-6 text-center">
           <img
             id="myImage"
-            src={Image} // Add your image here
+            src={ProfileImage} // Add your image here
             style={{ maxWidth: "300px", backgroundColor: "transparent" }}
             height={"300px"}
             alt="Sajjad Ali"
-            className="img-fluid rounded-circle animate__animated animate__fadeIn"
+            className="img-fluid rounded-circle mb-4 animate__animated animate__fadeIn"
           />
         </div>
       </div>
-      <hr className="my-5 text-light" />
+      <hr className="my-1 text-light" />
       {/* Tech Stack Section */}
       <div className="text-center mb-5">
-        <h2 className="display-5 mb-3">Tech Stack</h2>
-        <p className="lead text-muted">Technologies I work with</p>
+        <h2 className="display-5">Tech Stack</h2>
         <TechStack />
       </div>
       {/* Projects Section */}

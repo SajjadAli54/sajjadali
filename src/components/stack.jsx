@@ -32,6 +32,13 @@ function TechStack() {
       color: "#68A063", // Node.js Color
     },
     {
+      category: "Desktop Development",
+      items: "PyQt, PySide, Dotnet, Java Swing",
+      icon: <FaDesktop />,
+      color: "#165B8C", // Desktop Color
+    },
+
+    {
       category: "Data Science",
       items: "Pandas, Polars, NumPy, TensorFlow, PyTorch, OpenCV",
       icon: <FaCogs />,
@@ -55,12 +62,6 @@ function TechStack() {
     //   icon: <FaCloud />,
     //   color: "#FF9F00", // Cloud Color
     // },
-    {
-      category: "Desktop Development",
-      items: "PyQt, PySide, Dotnet, Java Swing",
-      icon: <FaDesktop />,
-      color: "#165B8C", // Desktop Color
-    },
   ];
 
   return (
