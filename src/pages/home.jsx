@@ -24,9 +24,9 @@ export default function Home() {
           <Link to="/projects" className="btn btn-primary btn-lg me-3">
             View My Work
           </Link>
-          <Link to="/contact" className="btn btn-outline-light btn-lg">
+          <a href="#contact" className="btn btn-outline-light btn-lg">
             Contact Me
-          </Link>
+          </a>
         </div>
         <div className="col-lg-6 text-center">
           <img
@@ -48,7 +48,7 @@ export default function Home() {
       {/* Projects Section */}
       <Projects /> {/* This should display your project cards */}
       {/* Contact Section */}
-      <div className="text-center">
+      <div id="contact" className="text-center">
         <h2 className="display-5 mb-3">Let's Connect</h2>
         <p className="lead">
           I'm always open to new opportunities and collaborations.
