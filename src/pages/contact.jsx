@@ -84,7 +84,7 @@ function Contact() {
       <h2 className="text-center text-primary mb-4 display-4 fw-bold">
         Contact Me
       </h2>
-      <p className="text-center text-muted mb-5">
+      <p className="text-center text-light mb-5">
         Feel free to reach out! Fill in the form below and I’ll get back to you
         as soon as possible.
       </p>
