@@ -1,5 +1,6 @@
 import React from "react";
 import Container from "./container";
+import Tags from "./tags";
 
 function EducationCard({
   degree,
@@ -51,18 +52,7 @@ function EducationCard({
                 ))}
               </ul>
             )}
-            {tags.length > 0 && (
-              <div className="mt-3">
-                {tags.map((tag, index) => (
-                  <span
-                    key={index}
-                    className="badge bg-secondary text-white me-2 mb-1"
-                  >
-                    {tag}
-                  </span>
-                ))}
-              </div>
-            )}
+            <Tags tags={tags} />
           </div>
         </div>
         {image && (

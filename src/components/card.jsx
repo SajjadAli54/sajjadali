@@ -1,11 +1,12 @@
 import React from "react";
 import Tags from "./tags";
 
-const Card = ({ image, title, description, link, buttonText, tags }) => {
+const Card = ({ image, title, description, links, tags }) => {
   return (
     <div className="card project-card h-100 bg-dark">
       <img
         src={image || "https://via.placeholder.com/300"}
+        height={"200px"}
         className="card-img-top"
         alt={title}
       />
@@ -15,16 +16,19 @@ const Card = ({ image, title, description, link, buttonText, tags }) => {
       </div>
       <div className="card-footer bg-dark d-flex flex-column">
         <Tags tags={tags} />
-        {link && (
+        {links && links.length > 0 && (
           <div className="mt-auto">
-            <a
-              href={link}
-              target="_blank"
-              rel="noopener noreferrer"
-              className="btn btn-success me-2"
-            >
-              {buttonText || "Learn More"}
-            </a>
+            {links.map((link, index) => (
+              <a
+                key={index}
+                href={link.url}
+                target="_blank"
+                rel="noopener noreferrer"
+                className={link.className || "btn btn-secondary me-2"}
+              >
+                {link.label}
+              </a>
+            ))}
           </div>
         )}
       </div>

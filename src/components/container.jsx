@@ -7,7 +7,7 @@ function Container({ children, className = "" }) {
         className ? "" : "py-5"
       } animate__animated animate__fadeIn ${className}`}
     >
-      <div className="container">{children}</div>
+      <div className="container bg-dark">{children}</div>
     </div>
   );
 }

@@ -15,25 +15,25 @@ function TechStack() {
   const techItems = [
     {
       category: "Languages",
-      items: "Python, JavaScript, Java, R, C++, Dart, Kotlin",
+      items: "Python, JavaScript, Java, Dart, Kotlin",
       icon: <FaPython />,
       color: "#306998", // Python Color
     },
     {
       category: "Web Frontend",
-      items: "React, Next.js, Bootstrap, Chakra UI, Tailwind",
+      items: "React, Next.js, Bootstrap, Chakra UI, Tailwind CSS",
       icon: <FaHtml5 />,
       color: "#E34F26", // HTML5 Color
     },
     {
       category: "Web Backend",
-      items: "Node.js, Express, Django, Flask, FastAPI",
+      items: "Node.js, Express, Django, FastAPI",
       icon: <FaNodeJs />,
       color: "#68A063", // Node.js Color
     },
     {
       category: "Data Science",
-      items: "Pandas, NumPy, TensorFlow, PyTorch, OpenCV",
+      items: "Pandas, Polars, NumPy, TensorFlow, PyTorch, OpenCV",
       icon: <FaCogs />,
       color: "#f5b842", // Data Science Yellow
     },
@@ -49,17 +49,17 @@ function TechStack() {
       icon: <FaMobileAlt />,
       color: "#02569B", // Mobile Color
     },
-    {
-      category: "Hosting",
-      items: "Firebase, Vercel, Heroku, Netlify",
-      icon: <FaCloud />,
-      color: "#FF9F00", // Cloud Color
-    },
+    // {
+    //   category: "Hosting",
+    //   items: "Firebase, Vercel, Heroku, Netlify",
+    //   icon: <FaCloud />,
+    //   color: "#FF9F00", // Cloud Color
+    // },
     {
       category: "Desktop Development",
-      items: "PyQt, C#, Electron, JavaFX",
+      items: "PyQt, PySide, Dotnet, Java Swing",
       icon: <FaDesktop />,
-      color: "#343a40", // Desktop Color
+      color: "#165B8C", // Desktop Color
     },
   ];
 

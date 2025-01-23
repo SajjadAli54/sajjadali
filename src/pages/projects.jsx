@@ -2,7 +2,7 @@ import React from "react";
 import Container from "../components/container";
 
 import { projects } from "../data/projects";
-import Tags from "../components/tags";
+import Card from "../components/card";
 
 const Projects = () => {
   return (
@@ -13,39 +13,24 @@ const Projects = () => {
       <div className="row">
         {projects.map((project, index) => (
           <div key={index} className="col-md-4 col-sm-12 col-lg-4 mb-4">
-            <div className="card project-card h-100 bg-dark">
-              <img
-                src={project.src}
-                height={"200px"}
-                className="card-img-top"
-                alt={`${project.name} Image`}
-              />
-              <div className="card-body d-flex flex-column bg-dark">
-                <h5 className="card-title text-light">{project.name}</h5>
-                <p className="card-text text-light">{project.description}</p>
-              </div>
-              <div className="card-footer bg-dark d-flex flex-column">
-                <Tags tags={project.tags} />
-                <div className="mt-auto">
-                  <a
-                    href={project.live}
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    className="btn btn-success me-2"
-                  >
-                    Live Demo
-                  </a>
-                  <a
-                    href={project.href}
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    className="btn btn-secondary"
-                  >
-                    Source Code
-                  </a>
-                </div>
-              </div>
-            </div>
+            <Card
+              image={project.src}
+              title={project.name}
+              description={project.description}
+              tags={project.tags}
+              links={[
+                {
+                  label: "Live Demo",
+                  url: project.live,
+                  className: "btn btn-success me-2",
+                },
+                {
+                  label: "Source Code",
+                  url: project.href,
+                  className: "btn btn-secondary me-2",
+                },
+              ]}
+            />
           </div>
         ))}
       </div>

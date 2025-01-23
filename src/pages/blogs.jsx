@@ -26,9 +26,11 @@ const Blogs = () => {
 
   return (
     <Container>
-      <h2 className="text-center text-primary mb-4 display-4 fw-bold">Blogs</h2>
+      <h2 className="text-center text-primary mb-4 display-4 fw-bold bg-dark">
+        Blogs
+      </h2>
       {loading ? (
-        <p className="text-center">Loading...</p>
+        <p className="text-center bg-dark">Loading...</p>
       ) : posts.length > 0 ? (
         <div className="row">
           {posts.map((post, index) => (
@@ -37,15 +39,14 @@ const Blogs = () => {
                 image={post.cover_image}
                 title={post.title}
                 description={post.description}
-                link={post.url}
+                links={[{ url: post.canonical_url, label: "Read More" }]}
                 tags={post.tag_list}
-                buttonText="Read More"
               />
             </div>
           ))}
         </div>
       ) : (
-        <p className="text-center">No posts available.</p>
+        <p className="text-center">No Blogs available.</p>
       )}
     </Container>
   );
