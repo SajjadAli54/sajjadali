@@ -3,6 +3,7 @@ import React from "react";
 import Container from "./container";
 
 import { calculateExperience } from "../utils/utils";
+import Tags from "./tags";
 
 function JobCard({
   title,
@@ -57,18 +58,7 @@ function JobCard({
                 ))}
               </ul>
             )}
-            {tags.length > 0 && (
-              <div className="mt-3">
-                {tags.map((tag, index) => (
-                  <span
-                    key={index}
-                    className="badge bg-primary text-white me-2 mb-1"
-                  >
-                    {tag}
-                  </span>
-                ))}
-              </div>
-            )}
+            <Tags tags={tags} />
           </div>
         </div>
         {image && (

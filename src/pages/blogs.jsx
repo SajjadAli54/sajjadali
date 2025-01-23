@@ -38,6 +38,7 @@ const Blogs = () => {
                 title={post.title}
                 description={post.description}
                 link={post.url}
+                tags={post.tag_list}
                 buttonText="Read More"
               />
             </div>

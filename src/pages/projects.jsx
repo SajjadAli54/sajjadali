@@ -2,6 +2,7 @@ import React from "react";
 import Container from "../components/container";
 
 import { projects } from "../data/projects";
+import Tags from "../components/tags";
 
 const Projects = () => {
   return (
@@ -22,6 +23,9 @@ const Projects = () => {
               <div className="card-body d-flex flex-column bg-dark">
                 <h5 className="card-title text-light">{project.name}</h5>
                 <p className="card-text text-light">{project.description}</p>
+              </div>
+              <div className="card-footer bg-dark d-flex flex-column">
+                <Tags tags={project.tags} />
                 <div className="mt-auto">
                   <a
                     href={project.live}

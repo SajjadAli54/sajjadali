@@ -6,6 +6,7 @@ export const projects = [
     live: "https://sajjadali54.github.io/countrycharm/",
     href: "https://github.com/SajjadAli54/countrycharm",
     src: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcR-HLuo6T3OsMCMOTovQy8Q8cccLTEuikxekcXiaxCJ&s",
+    tags: ["React", "JavaScript", "CSS", "HTML", "Bootstrap"],
   },
   {
     name: "Robo Friends",
@@ -15,6 +16,7 @@ export const projects = [
     live: "https://sajjadali54.github.io/robofriends/",
     href: "https://github.com/SajjadAli54/robofriends",
     src: "https://robohash.org/3?200x200",
+    tags: ["React", "JavaScript", "CSS", "HTML", "Bootstrap"],
   },
   {
     name: "Vidly",
@@ -22,5 +24,6 @@ export const projects = [
     live: "https://sajjadali54.github.io/vidly/",
     href: "https://github.com/SajjadAli54/vidly",
     src: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQpLGbzwK8xGCsUQvhfEby57Qm5gULxckCI2Q&s",
+    tags: ["React", "JavaScript", "CSS", "HTML", "Bootstrap"],
   },
 ];
