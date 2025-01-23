@@ -20,7 +20,9 @@ const list = [
       "🗺️ Explored European culture through visits to cities like Oslo, Warsaw, Prague, and Milan.",
     ],
     tags: ["Diffusion Models", "Transfer Learning", "International Exposure"],
-    image: NtnuImage,
+    // image: NtnuImage,
+    image:
+      "https://www.ntnu.edu/documents/1265708073/1266886158/bygg-5.jpg/0acaaba8-2ac1-4231-af69-85c32e726b3a?t=1501754425569",
   },
   {
     degree: "Bachelor of Science in Computer Science",
@@ -36,7 +38,9 @@ const list = [
       "📈 Excelled in academic and extracurricular activities, showcasing leadership and innovation.",
     ],
     tags: ["CGPA: 3.62", "Silver Medalist", "Data Science", "AI"],
-    image: SibaImage,
+    // image: SibaImage,
+    image:
+      "https://i0.wp.com/jaamiah.com/wp-content/uploads/2019/05/IBA-Sukhur-Free-Admissions-600x300.jpg",
   },
 ];
 
