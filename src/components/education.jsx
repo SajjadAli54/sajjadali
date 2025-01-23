@@ -1,9 +1,6 @@
 import React from "react";
 import EducationCard from "./edu-card";
 
-import NtnuImage from "../assets/job/ntnu-image.jpg";
-import SibaImage from "../assets/job/iba-image.jpg";
-
 const list = [
   {
     degree: "Exchange Semester - Research in AI and Data Science",
