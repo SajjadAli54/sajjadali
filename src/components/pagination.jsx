@@ -9,7 +9,7 @@ const Pagination = ({ itemsCount, pageSize, currentPage, onPageChange }) => {
   const pages = _.range(1, pagesCount + 1);
   return (
     <nav>
-      <ul className="pagination justify-content-center">
+      <ul className="pagination justify-content-center mt-4 mb-4">
         {pages.map((page) => (
           <li
             key={page}
@@ -31,4 +31,5 @@ Pagination.propTypes = {
   currentPage: PropTypes.number.isRequired,
   onPageChange: PropTypes.func.isRequired,
 };
+
 export default Pagination;

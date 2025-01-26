@@ -17,9 +17,9 @@ export default function Home() {
             Hi, I'm Sajjad Ali 👋
           </h1>
           <p className="lead mb-4 animate__fadeIn">
-            Software Developer specializing in Web, Mobile and Desktop App
-            Development, Data Science, and Machine Learning. I love solving
-            challenging problems and creating seamless user experiences.
+            Software Developer specializing in Web, Mobile, Desktop App
+            Development, and Data Science. I love solving challenging problems
+            and creating seamless user experiences.
           </p>
           <Link to="/projects" className="btn btn-primary btn-lg me-3">
             View My Work
