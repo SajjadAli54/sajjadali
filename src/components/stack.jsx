@@ -21,14 +21,14 @@ function TechStack() {
     },
     {
       category: "Web Frontend",
-      items: "React, Next.js, Bootstrap, Chakra UI, Tailwind CSS",
+      items: "React and Next.js",
       icon: <FaHtml5 />,
       color: "#E34F26", // HTML5 Color
     },
     {
       category: "Web Backend",
-      items: "Node.js, Express, Django, FastAPI",
-      icon: <FaNodeJs />,
+      items: "Node.js, Django, FastAPI, MySQL, MongoDB",
+      icon: <FaDatabase />,
       color: "#68A063", // Node.js Color
     },
     {
@@ -44,12 +44,12 @@ function TechStack() {
       icon: <FaCogs />,
       color: "#f5b842", // Data Science Yellow
     },
-    {
-      category: "Databases",
-      items: "MongoDB, MySQL, SQLite, PostgreSQL",
-      icon: <FaDatabase />,
-      color: "#006747", // Database Green
-    },
+    // {
+    //   category: "Databases",
+    //   items: "MongoDB, MySQL, SQLite, PostgreSQL",
+    //   icon: <FaDatabase />,
+    //   color: "#006747", // Database Green
+    // },
     {
       category: "Mobile Development",
       items: "Flutter, React Native, Android Studio",
@@ -72,7 +72,7 @@ function TechStack() {
         </h3>
         <div className="row">
           {techItems.map((tech, index) => (
-            <div className="col-md-6 col-lg-4 mb-4" key={index}>
+            <div className="col-sm-6 col-md-6 col-lg-4 mb-4" key={index}>
               <div
                 className="card shadow-sm rounded-3 p-4 text-center"
                 style={{

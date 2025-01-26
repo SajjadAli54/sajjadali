@@ -17,16 +17,16 @@ export default function Home() {
             Hi, I'm Sajjad Ali 👋
           </h1>
           <p className="lead mb-4 animate__fadeIn">
-            Software Developer specializing in Web, Mobile, Desktop App
-            Development, and Data Science. I love solving challenging problems
-            and creating seamless user experiences.
+            Software Developer specializing in multiple stacks including Web,
+            Mobile, Desktop. I love solving challenging problems and creating
+            seamless user experiences.
           </p>
-          <Link to="/projects" className="btn btn-primary btn-lg me-3">
+          <Link to="/projects" className="btn btn-primary btn-lg m-2">
             View My Work
           </Link>
-          <a href="#contact" className="btn btn-outline-light btn-lg">
+          <Link to="/contact" className="btn btn-secondary btn-lg m-2">
             Contact Me
-          </a>
+          </Link>
         </div>
         <div className="col-lg-6 text-center">
           <img
@@ -35,7 +35,7 @@ export default function Home() {
             style={{ maxWidth: "300px", backgroundColor: "transparent" }}
             height={"300px"}
             alt="Sajjad Ali"
-            className="img-fluid rounded-circle mb-4 animate__animated animate__fadeIn"
+            className="img-fluid rounded-circle mb-4 mt-4 animate__animated animate__fadeIn"
           />
         </div>
       </div>
