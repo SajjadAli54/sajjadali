@@ -35,12 +35,12 @@ function TechStack() {
       category: "Desktop Development",
       items: "PyQt, PySide, Dotnet, Java Swing",
       icon: <FaDesktop />,
-      color: "#165B8C", // Desktop Color
+      color: "#1E1E1E", // Desktop Color
     },
 
     {
       category: "Data Science",
-      items: "Pandas, Polars, NumPy, TensorFlow, PyTorch, OpenCV",
+      items: "Pandas, Polars, NumPy, Matplotlib, Seaborn",
       icon: <FaCogs />,
       color: "#f5b842", // Data Science Yellow
     },
@@ -54,7 +54,7 @@ function TechStack() {
       category: "Mobile Development",
       items: "Flutter, React Native, Android Studio",
       icon: <FaMobileAlt />,
-      color: "#02569B", // Mobile Color
+      color: "#2196F3", // Mobile Color
     },
     // {
     //   category: "Hosting",

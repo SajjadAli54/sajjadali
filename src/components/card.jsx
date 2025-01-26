@@ -19,15 +19,17 @@ const Card = ({ image, title, description, links, tags }) => {
         {links && links.length > 0 && (
           <div className="mt-auto">
             {links.map((link, index) => (
-              <a
-                key={index}
-                href={link.url}
-                target="_blank"
-                rel="noopener noreferrer"
-                className={link.className || "btn btn-secondary me-2"}
-              >
-                {link.label}
-              </a>
+                link.url ? (<a
+                  key={index}
+                  href={link.url}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className={link.className || "btn btn-secondary me-2"}
+                >
+                  {link.label}
+                </a>
+                ) : <></>
+              
             ))}
           </div>
         )}
