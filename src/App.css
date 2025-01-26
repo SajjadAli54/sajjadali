@@ -38,12 +38,62 @@ body {
   text-align: left;
 }
 
-#myBadges img {
-  width: auto;
-  height: 40px;
+.card {
+  border: none;
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
   transition: transform 0.3s ease;
+  background-color: #fff;
+  border-radius: 12px;
+  padding: 20px;
 }
+
+.card:hover {
+  transform: translateY(-10px);
+  box-shadow: 0 6px 25px rgba(0, 0, 0, 0.2);
+}
+
+.card img {
+  border-radius: 8px;
+  max-height: 70%;
+  object-fit: contain;
+}
+
+.card-body {
+  padding: 20px;
+  background-color: #ffffff;
+}
+
+.card-title {
+  font-weight: bold;
+  color: #007bff;
+}
+
+.card-subtitle {
+  color: #888;
+  font-size: 0.9rem;
+}
+
 
 #myBadges img:hover {
   transform: scale(1.1);
 }
+
+.navbar {
+  background-color: #ffffff; /* White background */
+}
+
+.navbar-nav .nav-link {
+  font-size: 1.1rem;
+  padding: 10px 20px;
+  transition: color 0.3s ease;
+}
+
+.navbar-nav .nav-link:hover {
+  color: #007bff; /* Highlight on hover */
+}
+
+.navbar-nav .active {
+  font-weight: bold;
+  color: #007bff !important; /* Active link color */
+}
+
