@@ -14,10 +14,10 @@ function EducationCard({
   image = "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTa_Upz1wUzZ05xdUafznHl79IbWrjzHk6cfA&s", // Optional image of the institution or degree
 }) {
   return (
-    <Container className="card shadow-sm py-0">
-      <div className="row g-0 bg-dark">
+    <Container className="card bg-transparent shadow-sm py-0">
+      <div className="row g-0 bg-transparent">
         <div className="col-md-8">
-          <div className="card-body bg-dark">
+          <div className="card-body bg-transparent">
             <div className="d-flex justify-content-between align-items-center">
               <h4 className="card-title mb-0 text-light">{degree}</h4>
               <small className="text-light">{`${startDate} - ${

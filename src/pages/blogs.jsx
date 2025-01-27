@@ -7,7 +7,6 @@ import Pagination from "../components/pagination";
 import { paginate } from "../utils/utils";
 
 const Blogs = () => {
-
   const size = 3;
 
   const [posts, setPosts] = useState([]);
@@ -42,33 +41,32 @@ const Blogs = () => {
 
   return (
     <Container>
-      <h2 className="text-center text-primary mb-4 display-4 fw-bold bg-dark">
+      <h2 className="text-center text-primary mb-4 display-4 fw-bold bg-transparent">
         Blogs
       </h2>
       {loading ? (
         <p className="text-center bg-dark">Loading...</p>
-      ) : 
-      posts.length > 0 ? (
+      ) : posts.length > 0 ? (
         <>
-            <div className="row">
-          {items.map((post, index) => (
-            <div key={index} className="col-md-4 col-sm-12 mb-4">
-              <Card
-                image={post.cover_image}
-                title={post.title}
-                description={post.description}
-                links={[{ url: post.canonical_url, label: "Read More" }]}
-                tags={post.tag_list}
-              />
-            </div>
-          ))}
-        </div>
-        <Pagination
-          itemsCount={posts.length}
-          pageSize={size}
-          currentPage={currentPage}
-          onPageChange={handlePageChange}
-        />
+          <div className="row">
+            {items.map((post, index) => (
+              <div key={index} className="col-md-4 col-sm-12 mb-4">
+                <Card
+                  image={post.cover_image}
+                  title={post.title}
+                  description={post.description}
+                  links={[{ url: post.canonical_url, label: "Read More" }]}
+                  tags={post.tag_list}
+                />
+              </div>
+            ))}
+          </div>
+          <Pagination
+            itemsCount={posts.length}
+            pageSize={size}
+            currentPage={currentPage}
+            onPageChange={handlePageChange}
+          />
         </>
       ) : (
         <p className="text-center">No Blogs available.</p>

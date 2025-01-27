@@ -19,22 +19,22 @@ function JobCard({
   const experience = calculateExperience(startDate, endDate);
 
   return (
-    <Container className="card shadow-sm py-0">
+    <Container className="card bg-transparent shadow-sm py-0">
       <div className="row g-0">
         <div className="col-md-8">
-          <div className="card-body bg-dark">
+          <div className="card-body bg-transparent">
             <div className="d-flex justify-content-between align-items-center">
               <h4 className="card-title mb-0">{title}</h4>
               <small className="text-light">{`${startDate} - ${
                 endDate || "Present"
               }`}</small>
             </div>
-            <p className="card-subtitle text-muted mb-2">
+            <p className="card-subtitle mb-2">
               <a
                 href={companyUrl}
                 target="_blank"
                 rel="noopener noreferrer"
-                className="text-decoration-none text-primary"
+                className="text-decoration-none display-6 fw-bold text-light"
               >
                 {companyName}
               </a>

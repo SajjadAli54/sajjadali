@@ -12,7 +12,7 @@ const Card = ({ image, title, description, links, tags }) => {
         alt={title}
       />
       <div className="card-body d-flex flex-column bg-transparent">
-        <h5 className="card-title text-light">{title}</h5>
+        <h5 className="card-title text-center text-light">{title}</h5>
         {description && <p className="card-text text-light">{description}</p>}
       </div>
       <div className="card-footer bg-transparent d-flex flex-column">

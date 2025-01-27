@@ -24,7 +24,7 @@ function Certifications() {
       </h2>
       <div className="row">
         {items.map((cert, index) => (
-          <div key={index} className="col-md-4 col-sm-6 mb-4 bg-dark">
+          <div key={index} className="col-md-4 col-sm-6 mb-4">
             <Card key={index} image={cert.src} title={cert.alt} />
           </div>
         ))}

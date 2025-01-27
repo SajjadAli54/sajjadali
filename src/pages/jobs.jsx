@@ -10,7 +10,7 @@ function Jobs() {
       <h2 className="text-center text-primary mb-4 display-4 fw-bold">
         🌟 Experience
       </h2>
-      <p className="text-center mb-5 lead text-muted">
+      <p className="text-center mb-5 lead">
         Here are some of the exciting roles I've had, where I've grown my skills
         and contributed to impactful projects.
       </p>
