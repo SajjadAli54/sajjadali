@@ -28,7 +28,7 @@ const Card = ({ image, title, description, links, tags }) => {
                   href={link.url}
                   target="_blank"
                   rel="noopener noreferrer"
-                  className={link.className || "btn btn-secondary me-2"}
+                  className={link.className || "me-2"}
                 >
                   {link.label}
                 </a>

@@ -27,7 +27,7 @@ function NavBar() {
 
         {/* Toggle button for mobile */}
         <button
-          className="navbar-toggler"
+          className="navbar-toggler "
           type="button"
           data-bs-toggle="collapse"
           data-bs-target="#navbarNav"
@@ -39,8 +39,8 @@ function NavBar() {
         </button>
 
         {/* Navbar links */}
-        <div className="collapse navbar-collapse" id="navbarNav">
-          <ul className="navbar-nav ms-auto">
+        <div className="collapse navbar-collapse bg-transparent" id="navbarNav">
+          <ul className="navbar-nav ms-auto bg-transparent">
             {navLinks.map((link, index) => (
               <li key={index} className="nav-item">
                 <NavLink

@@ -1,6 +1,7 @@
 import React from "react";
 
-import { FaDiagramProject } from "react-icons/fa6";
+import { FaDiagramProject, FaGithub } from "react-icons/fa6";
+import { GrView } from "react-icons/gr";
 
 import Container from "../components/container";
 
@@ -32,14 +33,16 @@ const Projects = () => {
               tags={project.tags}
               links={[
                 {
-                  label: "Live Demo",
+                  // label: "Live Demo",
+                  label: <GrView className="me-2 text-success display-6" />,
                   url: project.live,
-                  className: "btn btn-success me-2",
+                  // className: "btn btn-success me-2",
                 },
                 {
-                  label: "Source Code",
+                  // label: "Source Code",
+                  label: <FaGithub className="me-2 text-secondary display-6" />,
                   url: project.href,
-                  className: "btn btn-secondary me-2",
+                  // className: "btn btn-secondary me-2",
                 },
               ]}
             />

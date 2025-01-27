@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from "react";
 import { LiaBlogSolid } from "react-icons/lia";
+import { GrView } from "react-icons/gr";
 
 import Container from "../components/container";
 import Card from "../components/card";
@@ -61,7 +62,14 @@ const Blogs = () => {
                   image={post.cover_image}
                   title={post.title}
                   description={post.description}
-                  links={[{ url: post.canonical_url, label: "Read More" }]}
+                  links={[
+                    {
+                      url: post.canonical_url,
+                      label: (
+                        <GrView className="me-2 text-secondary display-6" />
+                      ),
+                    },
+                  ]}
                   tags={post.tag_list}
                 />
               </div>
