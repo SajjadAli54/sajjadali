@@ -8,7 +8,7 @@ const Card = ({ image, title, description, links, tags }) => {
       <img
         src={image || "https://via.placeholder.com/300"}
         height={"200px"}
-        className="card-img-top"
+        className="card-img-top bg-transparent shadow-sm mb-3"
         alt={title}
       />
       <div className="card-body d-flex flex-column bg-transparent">

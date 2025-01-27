@@ -30,7 +30,7 @@ export default function Home() {
             Contact Me
           </Link>
         </div>
-        <div className="col-lg-6 text-center">
+        <div className="col-lg-6 text-center bg-transparent">
           <img
             id="myImage"
             src={ProfileImage} // Add your image here
