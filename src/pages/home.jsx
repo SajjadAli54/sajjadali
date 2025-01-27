@@ -16,7 +16,7 @@ export default function Home() {
       <div className="row align-items-center">
         <div className="col-lg-6 text-center text-lg-start">
           <h1 className="display-4 fw-bold mb-3 animate__animated animate__fadeIn">
-            Hi, I'm Sajjad Ali 👋
+            Hi, I'm Sajjad Ali
           </h1>
           <p className="lead mb-4 animate__fadeIn">
             Software Developer specializing in multiple stacks including Web,
