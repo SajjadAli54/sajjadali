@@ -1,4 +1,7 @@
 import React from "react";
+
+import { FaDiagramProject } from "react-icons/fa6";
+
 import Container from "../components/container";
 
 import { projects } from "../data/projects";
@@ -17,7 +20,7 @@ const Projects = () => {
   return (
     <Container>
       <h2 className="text-center text-primary mb-4 display-4 fw-bold">
-        Projects
+        <FaDiagramProject className="me-2 text-warning" /> Projects
       </h2>
       <div className="row">
         {items.map((project, index) => (
@@ -43,7 +46,7 @@ const Projects = () => {
           </div>
         ))}
       </div>
-      <Pagination 
+      <Pagination
         itemsCount={projects.length}
         pageSize={3}
         currentPage={currentPage}

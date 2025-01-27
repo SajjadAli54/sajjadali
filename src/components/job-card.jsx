@@ -29,7 +29,7 @@ function JobCard({
                 endDate || "Present"
               }`}</small>
             </div>
-            <p className="card-subtitle mb-2">
+            <p className="card-subtitle card-text mb-2">
               <a
                 href={companyUrl}
                 target="_blank"
@@ -53,7 +53,7 @@ function JobCard({
                     >
                       •
                     </span>
-                    <span>{item}</span>
+                    <span className="card-text text-light lead">{item}</span>
                   </li>
                 ))}
               </ul>

@@ -1,4 +1,6 @@
 import React, { useState } from "react";
+import { IoIosContact } from "react-icons/io";
+
 import Container from "../components/container";
 
 function Contact() {
@@ -79,6 +81,7 @@ function Contact() {
   return (
     <Container id="contact" className="py-5 animate__animated animate__fadeIn">
       <h2 className="text-center text-primary mb-4 display-4 fw-bold">
+        <IoIosContact className="me-2 text-warning" />
         Contact Me
       </h2>
       <p className="text-center text-light mb-5">

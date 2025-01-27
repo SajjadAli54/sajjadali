@@ -47,7 +47,7 @@ function EducationCard({
                     >
                       •
                     </span>
-                    <span className="text-light">{item}</span>
+                    <span className="card-text text-light lead">{item}</span>
                   </li>
                 ))}
               </ul>
@@ -60,7 +60,7 @@ function EducationCard({
             <img
               src={image}
               alt={degree}
-              className="img-fluid rounded-end w-100 h-100 object-cover"
+              className="img-fluid rounded-end w-100 h-100 object-cover bg-transparent shadow-sm"
               style={{
                 objectFit: "cover",
                 height: "70%",

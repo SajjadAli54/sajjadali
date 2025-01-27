@@ -5,9 +5,9 @@ import { routes } from "../data/routes";
 
 const navLinks = [
   { path: routes.home, label: "Home" },
+  { path: routes.education, label: "Education" },
   { path: routes.experience, label: "Experience" },
   { path: routes.projects, label: "Projects" },
-  { path: routes.education, label: "Education" },
   { path: routes.blogs, label: "Blogs" },
   { path: routes.contact, label: "Contact" },
 ];

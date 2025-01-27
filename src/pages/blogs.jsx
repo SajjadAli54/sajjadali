@@ -1,23 +1,28 @@
 import React, { useState, useEffect } from "react";
+import { LiaBlogSolid } from "react-icons/lia";
+
 import Container from "../components/container";
 import Card from "../components/card";
-
 import Pagination from "../components/pagination";
-
 import { paginate } from "../utils/utils";
+
+const Loader = () => (
+  <div className="d-flex justify-content-center align-items-center vh-50">
+    <div className="spinner-border text-primary" role="status">
+      <span className="visually-hidden">Loading...</span>
+    </div>
+  </div>
+);
 
 const Blogs = () => {
   const size = 3;
-
   const [posts, setPosts] = useState([]);
   const [loading, setLoading] = useState(true);
-
   const [currentPage, setCurrentPage] = useState(1);
+
   const handlePageChange = (page) => {
     setCurrentPage(page);
   };
-
-  // const url = `https://dev.to/api/articles?username=sajjadali&&per_page=${size}&page=${currentPage}`;
 
   const url = `https://dev.to/api/articles?username=sajjadali`;
 
@@ -42,10 +47,11 @@ const Blogs = () => {
   return (
     <Container>
       <h2 className="text-center text-primary mb-4 display-4 fw-bold bg-transparent">
+        <LiaBlogSolid className="me-2 text-warning" />
         Blogs
       </h2>
       {loading ? (
-        <p className="text-center bg-dark">Loading...</p>
+        <Loader />
       ) : posts.length > 0 ? (
         <>
           <div className="row">

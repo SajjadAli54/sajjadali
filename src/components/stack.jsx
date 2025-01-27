@@ -66,7 +66,7 @@ function TechStack() {
 
   return (
     <Container>
-      <h3 className="text-center text-primary mb-5">
+      <h3 className="text-center text-light display-4 fw-bold mb-5">
         The technologies I work with to bring ideas to life
       </h3>
       <div className="row">

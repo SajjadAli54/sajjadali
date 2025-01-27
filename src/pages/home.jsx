@@ -1,5 +1,7 @@
 import React from "react";
 import { Link } from "react-router-dom"; // If you're using react-router
+import { GoStack } from "react-icons/go";
+
 import TechStack from "../components/stack";
 
 import Projects from "../pages/projects"; // Assuming you have a 'Projects' component
@@ -42,7 +44,9 @@ export default function Home() {
       <hr className="my-1 text-light" />
       {/* Tech Stack Section */}
       <div className="text-center mb-5">
-        <h2 className="display-5">Tech Stack</h2>
+        <h2 className="display-5 text-primary">
+          <GoStack className="text-warning" /> Tech Stack
+        </h2>
         <TechStack />
       </div>
       {/* Projects Section */}
