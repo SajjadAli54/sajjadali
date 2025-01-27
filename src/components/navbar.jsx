@@ -27,7 +27,7 @@ function NavBar() {
 
         {/* Toggle button for mobile */}
         <button
-          className="navbar-toggler "
+          className="navbar-toggler bg-transparent"
           type="button"
           data-bs-toggle="collapse"
           data-bs-target="#navbarNav"
