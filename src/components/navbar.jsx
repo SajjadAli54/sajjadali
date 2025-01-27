@@ -14,7 +14,7 @@ const navLinks = [
 
 function NavBar() {
   return (
-    <nav className="navbar navbar-expand-lg navbar-dark bg-dark shadow-sm">
+    <nav className="navbar navbar-expand-lg navbar-dark bg-transparent shadow-sm">
       <div className="container">
         {/* Logo */}
         <Link className="navbar-brand" to="/">

@@ -25,9 +25,8 @@ const badges = [
 
 function Footer() {
   return (
-    <footer className="py-3 bg-dark">
+    <footer className="py-3 bg-transparent">
       <div className="container text-center">
-        <p className="mb-3">&copy; 2024 My Portfolio. All rights reserved.</p>
         <div className="row justify-content-center">
           {badges.map((badge, index) => (
             <div

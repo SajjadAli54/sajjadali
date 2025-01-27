@@ -3,13 +3,13 @@ import { Link } from "react-router-dom"; // If you're using react-router
 import TechStack from "../components/stack";
 
 import Projects from "../pages/projects"; // Assuming you have a 'Projects' component
-import Page from "../components/container";
+import Container from "../components/container";
 
 import ProfileImage from "../assets/picofme.png";
 
 export default function Home() {
   return (
-    <Page>
+    <Container>
       {/* Hero Section */}
       <div className="row align-items-center">
         <div className="col-lg-6 text-center text-lg-start">
@@ -57,6 +57,6 @@ export default function Home() {
           Get In Touch
         </Link>
       </div>
-    </Page>
+    </Container>
   );
 }

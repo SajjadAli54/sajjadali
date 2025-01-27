@@ -66,37 +66,35 @@ function TechStack() {
 
   return (
     <Container>
-      <div className="container">
-        <h3 className="text-center text-primary mb-5">
-          The technologies I work with to bring ideas to life
-        </h3>
-        <div className="row">
-          {techItems.map((tech, index) => (
-            <div className="col-sm-6 col-md-6 col-lg-4 mb-4" key={index}>
+      <h3 className="text-center text-primary mb-5">
+        The technologies I work with to bring ideas to life
+      </h3>
+      <div className="row">
+        {techItems.map((tech, index) => (
+          <div className="col-sm-6 col-md-6 col-lg-4 mb-4" key={index}>
+            <div
+              className="card shadow-sm rounded-3 p-4 text-center"
+              style={{
+                background: `linear-gradient(145deg, ${tech.color} 30%, #fff)`,
+              }}
+            >
               <div
-                className="card shadow-sm rounded-3 p-4 text-center"
+                className="icon mb-3"
                 style={{
-                  background: `linear-gradient(145deg, ${tech.color} 30%, #fff)`,
+                  fontSize: "3rem",
+                  color: "#fff",
+                  backgroundColor: tech.color,
+                  padding: "1rem",
+                  borderRadius: "50%",
                 }}
               >
-                <div
-                  className="icon mb-3"
-                  style={{
-                    fontSize: "3rem",
-                    color: "#fff",
-                    backgroundColor: tech.color,
-                    padding: "1rem",
-                    borderRadius: "50%",
-                  }}
-                >
-                  {tech.icon}
-                </div>
-                <h4 className="card-title mb-3">{tech.category}</h4>
-                <p className="card-text text-muted">{tech.items}</p>
+                {tech.icon}
               </div>
+              <h4 className="card-title mb-3">{tech.category}</h4>
+              <p className="card-text text-muted">{tech.items}</p>
             </div>
-          ))}
-        </div>
+          </div>
+        ))}
       </div>
     </Container>
   );

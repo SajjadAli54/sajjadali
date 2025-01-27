@@ -3,6 +3,13 @@ body {
   margin: 0;
   padding: 0;
   height: 100%;
+
+  background-image: url("./assets/bg.jpg");
+  background-size: cover; /* Ensures the image covers the entire viewport */
+  background-repeat: no-repeat; /* Prevents the image from repeating */
+  background-attachment: fixed; /* Keeps the image fixed while scrolling */
+  background-position: center center; /* Centers the image */
+  color: #ffffff; /* Optional: Set text color */
 }
 
 #root {
