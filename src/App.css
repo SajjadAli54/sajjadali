@@ -5,12 +5,12 @@ body {
   height: 100%;
   overflow-x: hidden;
 
-  background-image: url("./assets/bg.jpg");
-  background-size: cover; /* Ensures the image covers the entire viewport */
-  background-repeat: no-repeat; /* Prevents the image from repeating */
-  background-attachment: fixed; /* Keeps the image fixed while scrolling */
-  background-position: center center; /* Centers the image */
-  color: #ffffff; /* Optional: Set text color */
+  /* background-image: url("./assets/bg.jpg");
+  background-size: cover; 
+  background-repeat: no-repeat; 
+  background-attachment: fixed; 
+  background-position: center center; 
+  color: #ffffff; */
 }
 
 #root {

@@ -9,6 +9,7 @@ import Container from "../components/container";
 // import { BGCOLOR } from "../utils/utils";
 
 import ProfileImage from "../assets/picofme.png";
+import { AnimatedText } from "animated-backgrounds";
 
 export default function Home() {
   return (
@@ -17,7 +18,18 @@ export default function Home() {
       <div className="row align-items-center">
         <div className="col-lg-6 text-center text-lg-start">
           <h1 className="display-4 fw-bold mb-3 animate__animated animate__fadeIn">
-            Hi, I'm Sajjad Ali
+            Hi, I am{" "}
+            <AnimatedText
+              text="Sajjad Ali"
+              // effect="typewriter"
+              effect="rainbow"
+              config={{
+                speed: 100,
+                loop: true,
+                delay: 1000,
+                color: "#ff0000",
+              }}
+            />
           </h1>
           <p className="lead mb-4 animate__fadeIn">
             Software Developer specializing in multiple stacks including Web,
