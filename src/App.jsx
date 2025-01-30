@@ -1,4 +1,3 @@
-import React from "react";
 import { BrowserRouter as Router, Route, Routes } from "react-router-dom";
 
 import NavBar from "./components/navbar";
@@ -6,7 +5,7 @@ import Footer from "./components/footer";
 
 import Home from "./pages/home";
 import Projects from "./pages/projects";
-import Certifications from "./pages/certifications";
+import Education from "./pages/education";
 import Blogs from "./pages/blogs";
 import Contact from "./pages/contact";
 
@@ -22,7 +21,7 @@ function App() {
         <Route path={routes.home} element={<Home />} />
         <Route path={routes.experience} element={<Jobs />} />
         <Route path={routes.projects} element={<Projects />} />
-        <Route path={routes.education} element={<Certifications />} />
+        <Route path={routes.education} element={<Education />} />
         <Route path={routes.blogs} element={<Blogs />} />
         <Route path={routes.contact} element={<Contact />} />
       </Routes>

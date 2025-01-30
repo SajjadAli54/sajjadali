@@ -1,13 +1,14 @@
 import React from "react";
 
-import Education from "../components/education";
 import Container from "../components/container";
 import Card from "../components/card";
 import Pagination from "../components/pagination";
 
 import { certifications } from "../data/certifications";
+import { education as list } from "../data/education";
 
 import { paginate } from "../utils/utils";
+import ExperienceCard from "../components/ExperienceCard";
 
 function Certifications() {
   const [currentPage, setCurrentPage] = React.useState(1);
@@ -19,6 +20,27 @@ function Certifications() {
 
   return (
     <Container>
+      <div className="mb-1">
+        <h2 className="text-center text-primary mb-0 display-4 fw-bold">
+          🎓 Education
+        </h2>
+        {list.map((edu, index) => (
+          <ExperienceCard
+            key={index}
+            type="education"
+            title={edu.degree}
+            image={edu.image}
+            institutionOrCompany={edu.institution}
+            institutionOrCompanyUrl={edu.institutionUrl}
+            startDate={edu.startDate}
+            endDate={edu.endDate}
+            description={edu.description}
+            achievementsOrDuties={edu.achievements}
+            tags={edu.tags}
+          />
+        ))}
+      </div>
+
       <h2 className="text-center text-primary mb-4 display-4 fw-bold">
         🎓 Certifications
       </h2>
@@ -35,7 +57,6 @@ function Certifications() {
         currentPage={currentPage}
         onPageChange={handlePageChange}
       />
-      <Education />
     </Container>
   );
 }

@@ -1,5 +1,3 @@
-import React from "react";
-
 const badges = [
   {
     href: "https://github.com/SajjadAli54/",
