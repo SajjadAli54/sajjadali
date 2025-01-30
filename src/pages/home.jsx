@@ -1,4 +1,3 @@
-import React from "react";
 import { Link } from "react-router-dom"; // If you're using react-router
 import { GoStack } from "react-icons/go";
 
@@ -6,6 +5,8 @@ import TechStack from "../components/stack";
 
 import Projects from "../pages/projects"; // Assuming you have a 'Projects' component
 import Container from "../components/container";
+
+// import { BGCOLOR } from "../utils/utils";
 
 import ProfileImage from "../assets/picofme.png";
 
@@ -33,8 +34,8 @@ export default function Home() {
         <div className="col-lg-6 text-center bg-transparent">
           <img
             id="myImage"
-            src={ProfileImage} // Add your image here
-            style={{ maxWidth: "300px", backgroundColor: "transparent" }}
+            src={ProfileImage}
+            style={{ maxWidth: "300px" }}
             height={"300px"}
             alt="Sajjad Ali"
             className="img-fluid rounded-circle mb-4 mt-4 animate__animated animate__fadeIn"

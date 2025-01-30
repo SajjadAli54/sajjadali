@@ -1,6 +1,6 @@
-import React, { useState, useEffect } from "react";
+import { useState, useEffect } from "react";
 import { LiaBlogSolid } from "react-icons/lia";
-import { GrView } from "react-icons/gr";
+import { FaGlobe } from "react-icons/fa";
 
 import Container from "../components/container";
 import Card from "../components/card";
@@ -65,9 +65,7 @@ const Blogs = () => {
                   links={[
                     {
                       url: post.canonical_url,
-                      label: (
-                        <GrView className="me-2 text-secondary display-6" />
-                      ),
+                      label: <FaGlobe size={20} className="me-2" />,
                     },
                   ]}
                   tags={post.tag_list}

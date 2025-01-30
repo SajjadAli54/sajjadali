@@ -13,7 +13,12 @@ export const jobs = [
       "💡 Engineered IFRS 17 Insurance Models using Python, ensuring compliance with international financial standards.",
       "📊 Built interactive dashboards using Plotly and Apexcharts, enabling real-time data visualization for key stakeholders.",
     ],
-    tags: ["Python", "PyQt", "Plotly", "Machine Learning", "IFRS 17"],
+    tags: [
+      "Python: PyQt and FastAPI",
+      "React",
+      "Apex Charts and Plotly",
+      "IFRS 17 Life and Non Life",
+    ],
   },
   {
     title: "MERN Stack Developer",

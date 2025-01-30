@@ -1,17 +1,19 @@
-import React from "react";
+import PropTypes from "prop-types";
 
 function Tags({ tags }) {
-  if (tags && tags.length > 0)
-    return (
-      <div className="mb-2 mt-3">
-        {tags.map((tag, index) => (
-          <span key={index} className="badge bg-primary text-white me-2 mb-1">
-            {tag}
-          </span>
-        ))}
-      </div>
-    );
-  else return <></>;
+  return (
+    <div className="mb-2 mt-3">
+      {tags.map((tag, index) => (
+        <span key={index} className="badge bg-info text-dark me-2 mb-1">
+          {tag}
+        </span>
+      ))}
+    </div>
+  );
 }
 
 export default Tags;
+
+Tags.propTypes = {
+  tags: PropTypes.array,
+};

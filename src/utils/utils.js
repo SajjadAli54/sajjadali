@@ -1,3 +1,5 @@
+import _ from "lodash";
+export const BGCOLOR = "bg-transparent";
 export function calculateExperience(startDate, endDate) {
   const start = new Date(startDate);
   const end = endDate ? new Date(endDate) : new Date(); // If no end date, use the current date
@@ -14,8 +16,6 @@ export function calculateExperience(startDate, endDate) {
     return `${months} month${months > 1 ? "s" : ""}`;
   }
 }
-
-import _ from "lodash";
 
 export function paginate(items, pageNumber, pageSize) {
   const startIndex = (pageNumber - 1) * pageSize;

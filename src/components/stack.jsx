@@ -1,15 +1,15 @@
-import React from "react";
+import { useEffect, useState } from "react";
 import {
   FaPython,
   FaHtml5,
-  FaNodeJs,
   FaDatabase,
   FaMobileAlt,
-  FaCloud,
   FaCogs,
   FaDesktop,
 } from "react-icons/fa"; // Icons for each tech category
 import Container from "./container";
+import Pagination from "./pagination";
+import { paginate } from "../utils/utils";
 
 function TechStack() {
   const techItems = [
@@ -64,13 +64,37 @@ function TechStack() {
     // },
   ];
 
+  const [currentPage, setCurrentPage] = useState(1);
+  const [pageSize, setPageSize] = useState(2); // Default for Mobile
+
+  useEffect(() => {
+    const updatePageSize = () => {
+      if (window.innerWidth < 768) {
+        setPageSize(2);
+      } else {
+        setPageSize(6);
+      }
+    };
+
+    updatePageSize();
+    window.addEventListener("resize", updatePageSize); // Listen for window resize
+
+    return () => window.removeEventListener("resize", updatePageSize); // Cleanup
+  }, []);
+
+  const handlePageChange = (page) => {
+    setCurrentPage(page);
+  };
+
+  const items = paginate(techItems, currentPage, pageSize);
+
   return (
     <Container>
       <h3 className="text-center text-light display-4 fw-bold mb-5">
         The technologies I work with to bring ideas to life
       </h3>
       <div className="row">
-        {techItems.map((tech, index) => (
+        {items.map((tech, index) => (
           <div className="col-sm-6 col-md-6 col-lg-4 mb-4" key={index}>
             <div
               className="card shadow-sm rounded-3 p-4 text-center"
@@ -96,6 +120,12 @@ function TechStack() {
           </div>
         ))}
       </div>
+      <Pagination
+        itemsCount={techItems.length}
+        pageSize={pageSize}
+        currentPage={currentPage}
+        onPageChange={handlePageChange}
+      />
     </Container>
   );
 }
