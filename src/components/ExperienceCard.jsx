@@ -11,7 +11,6 @@ function ExperienceCard({
   startDate,
   endDate,
   subtitle,
-  description,
   achievementsOrDuties = [],
   tags = [],
   image = "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTa_Upz1wUzZ05xdUafznHl79IbWrjzHk6cfA&s",
@@ -46,10 +45,8 @@ function ExperienceCard({
               </a>
             </p>
 
-            {/* Description or Subtitle */}
-            {subtitle && <p className="text-secondary mb-3">{subtitle}</p>}
-            {description && (
-              <p className="text-secondary mb-3">{description}</p>
+            {subtitle && (
+              <p className="text-success fw-bold fs-5 mb-3">{subtitle}</p>
             )}
 
             {/* Experience (for Job) */}
@@ -110,7 +107,6 @@ ExperienceCard.propTypes = {
   startDate: PropTypes.string.isRequired,
   endDate: PropTypes.string,
   subtitle: PropTypes.string,
-  description: PropTypes.string,
   achievementsOrDuties: PropTypes.array,
   tags: PropTypes.array,
   image: PropTypes.string,

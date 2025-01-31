@@ -1,24 +1,20 @@
 import { useState } from "react";
 import { Tab, Nav } from "react-bootstrap";
+
+import Slider from "react-slick";
+import "slick-carousel/slick/slick.css";
+import "slick-carousel/slick/slick-theme.css";
+
 import Container from "../components/container";
 import Card from "../components/card";
-import Pagination from "../components/pagination";
 
 import { certifications } from "../data/certifications";
 import { education as list } from "../data/education";
 
-import { paginate } from "../utils/utils";
 import ExperienceCard from "../components/ExperienceCard";
 
-function Education() {
-  const [currentPage, setCurrentPage] = useState(1);
+function EducationContainer() {
   const [activeTab, setActiveTab] = useState("education"); // Default Tab
-
-  const handlePageChange = (page) => {
-    setCurrentPage(page);
-  };
-
-  const paginatedCertifications = paginate(certifications, currentPage, 3);
 
   return (
     <Container>
@@ -40,48 +36,12 @@ function Education() {
           </Nav.Item>
         </Nav>
 
-        {/* Tab Content */}
         <Tab.Content>
-          {/* Education Tab */}
           <Tab.Pane eventKey="education">
-            {/* <h2 className="text-center text-primary mb-4 display-4 fw-bold">
-              🎓 Education
-            </h2> */}
-            {list.map((edu, index) => (
-              <ExperienceCard
-                key={index}
-                type="education"
-                title={edu.degree}
-                image={edu.image}
-                institutionOrCompany={edu.institution}
-                institutionOrCompanyUrl={edu.institutionUrl}
-                startDate={edu.startDate}
-                endDate={edu.endDate}
-                description={edu.description}
-                achievementsOrDuties={edu.achievements}
-                tags={edu.tags}
-              />
-            ))}
+            <Education />
           </Tab.Pane>
-
-          {/* Certifications Tab */}
           <Tab.Pane eventKey="certifications">
-            {/* <h2 className="text-center text-primary mb-4 display-4 fw-bold">
-              🏆 Certifications
-            </h2> */}
-            <div className="row">
-              {paginatedCertifications.map((cert, index) => (
-                <div key={index} className="col-md-4 col-sm-6 mb-4">
-                  <Card key={index} image={cert.src} title={cert.alt} />
-                </div>
-              ))}
-            </div>
-            <Pagination
-              itemsCount={certifications.length}
-              pageSize={3}
-              currentPage={currentPage}
-              onPageChange={handlePageChange}
-            />
+            <Certifications />
           </Tab.Pane>
         </Tab.Content>
       </Tab.Container>
@@ -89,4 +49,53 @@ function Education() {
   );
 }
 
-export default Education;
+export default EducationContainer;
+
+const Education = () => {
+  return (
+    <Container>
+      {list.map((edu, index) => (
+        <ExperienceCard
+          key={index}
+          type="education"
+          title={edu.degree}
+          image={edu.image}
+          institutionOrCompany={edu.institution}
+          institutionOrCompanyUrl={edu.institutionUrl}
+          startDate={edu.startDate}
+          endDate={edu.endDate}
+          subtitle={edu.description}
+          achievementsOrDuties={edu.achievements}
+          tags={edu.tags}
+        />
+      ))}
+    </Container>
+  );
+};
+const Certifications = () => {
+  return (
+    <Slider
+      dots={true}
+      infinite={true}
+      speed={500}
+      slidesToShow={3}
+      slidesToScroll={1}
+      responsive={[
+        {
+          breakpoint: 768, // Tablets & below
+          settings: { slidesToShow: 2, slidesToScroll: 1 },
+        },
+        {
+          breakpoint: 576, // Mobile
+          settings: { slidesToShow: 1, slidesToScroll: 1 },
+        },
+      ]}
+    >
+      {certifications.map((cert, index) => (
+        <div key={index} className="px-2">
+          <Card image={cert.src} title={cert.alt} />
+        </div>
+      ))}
+    </Slider>
+  );
+};
