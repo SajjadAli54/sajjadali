@@ -5,6 +5,8 @@ import Slider from "react-slick";
 import "slick-carousel/slick/slick.css";
 import "slick-carousel/slick/slick-theme.css";
 
+import { FaUniversity } from "react-icons/fa";
+
 import Container from "../components/container";
 import Card from "../components/card";
 
@@ -51,27 +53,48 @@ function EducationContainer() {
 
 export default EducationContainer;
 
+import useMediaQuery from "../hooks/useMediaQuery"; // Custom hook to detect screen size
+
 const Education = () => {
+  const isMobile = useMediaQuery("(max-width: 768px)"); // Mobile detection
+
   return (
     <Container>
-      {list.map((edu, index) => (
-        <ExperienceCard
-          key={index}
-          type="education"
-          title={edu.degree}
-          image={edu.image}
-          institutionOrCompany={edu.institution}
-          institutionOrCompanyUrl={edu.institutionUrl}
-          startDate={edu.startDate}
-          endDate={edu.endDate}
-          subtitle={edu.description}
-          achievementsOrDuties={edu.achievements}
-          tags={edu.tags}
-        />
-      ))}
+      {list.map((edu, index) =>
+        isMobile ? (
+          <Card
+            key={index}
+            image={edu.image}
+            title={edu.degree}
+            description={edu.institution}
+            links={[
+              {
+                url: edu.institutionUrl,
+                label: <FaUniversity size={20} className="me-2" />,
+              },
+            ]}
+            tags={edu.tags}
+          />
+        ) : (
+          <ExperienceCard
+            key={index}
+            type="education"
+            title={edu.degree}
+            image={edu.image}
+            institutionOrCompany={edu.institution}
+            institutionOrCompanyUrl={edu.institutionUrl}
+            startDate={edu.startDate}
+            endDate={edu.endDate}
+            subtitle={edu.description}
+            achievementsOrDuties={edu.achievements}
+            tags={edu.tags}
+          />
+        )
+      )}
     </Container>
   );
 };
+
 const Certifications = () => {
   return (
     <Slider

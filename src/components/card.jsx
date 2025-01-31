@@ -6,7 +6,7 @@ const Card = ({ key, image, title, description, links, tags }) => {
   return (
     <div
       key={key}
-      className={`card project-card h-100 shadow ${
+      className={`card project-card h-100 mb-4 shadow ${
         description ? "bg-secondary bg-opacity-25" : "bg-transparent"
       }`}
     >
