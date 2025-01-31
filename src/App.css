@@ -5,12 +5,12 @@ body {
   height: 100%;
   overflow-x: hidden;
 
-  /* background-image: url("./assets/bg.jpg");
+  background-image: url("./assets/bg.jpg");
   background-size: cover; 
   background-repeat: no-repeat; 
   background-attachment: fixed; 
   background-position: center center; 
-  color: #ffffff; */
+  color: #ffffff;
 }
 
 #root {
