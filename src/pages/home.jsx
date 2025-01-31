@@ -31,10 +31,10 @@ export default function Home() {
               }}
             />
           </h1>
-          <p className="lead mb-4 animate__fadeIn">
-            Software Developer specializing in multiple stacks including Web,
-            Mobile, Desktop. I love solving challenging problems and creating
-            seamless user experiences.
+          <p className="lead mb-4 bg-secondary bg-opacity-25 card text-light">
+            I am a passionate full-stack Software Developer specializing in
+            multiple stacks including Web, Mobile, Desktop. I love solving
+            challenging problems and creating seamless user experiences.
           </p>
           <Link to="/projects" className="btn btn-primary btn-lg m-2">
             View My Work
@@ -66,7 +66,7 @@ export default function Home() {
       <Projects /> {/* This should display your project cards */}
       {/* Contact Section */}
       <div id="contact" className="text-center">
-        <h2 className="display-5 mb-3">Let's Connect</h2>
+        <h2 className="display-5 mb-3">{"Let's Connect"}</h2>
         <p className="lead">
           I'm always open to new opportunities and collaborations.
         </p>

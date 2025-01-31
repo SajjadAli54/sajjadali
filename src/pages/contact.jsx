@@ -99,7 +99,7 @@ function Contact() {
           </label>
           <input
             type="text"
-            className={`form-control bg-secondary text-light ${
+            className={`form-control bg-secondary bg-opacity-5 text-light ${
               errors.name && "is-invalid"
             }`}
             id="name"
@@ -116,7 +116,7 @@ function Contact() {
           </label>
           <input
             type="email"
-            className={`form-control bg-secondary text-light ${
+            className={`form-control bg-secondary bg-opacity-5 text-light ${
               errors.email && "is-invalid"
             }`}
             id="email"
@@ -135,7 +135,7 @@ function Contact() {
           </label>
           <input
             type="tel"
-            className={`form-control bg-secondary text-light ${
+            className={`form-control bg-secondary bg-opacity-5 text-light ${
               errors.phone && "is-invalid"
             }`}
             id="phone"
@@ -154,7 +154,7 @@ function Contact() {
           </label>
           <input
             type="text"
-            className={`form-control bg-secondary text-light ${
+            className={`form-control bg-secondary bg-opacity-5 text-light ${
               errors.subject && "is-invalid"
             }`}
             id="subject"
@@ -172,7 +172,7 @@ function Contact() {
             Message
           </label>
           <textarea
-            className={`form-control bg-secondary text-light ${
+            className={`form-control bg-secondary bg-opacity-5 text-light ${
               errors.message && "is-invalid"
             }`}
             id="message"

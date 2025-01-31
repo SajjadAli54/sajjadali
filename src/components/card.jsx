@@ -4,7 +4,12 @@ import Tags from "./tags";
 
 const Card = ({ key, image, title, description, links, tags }) => {
   return (
-    <div key={key} className="card project-card h-100 shadow bg-transparent">
+    <div
+      key={key}
+      className={`card project-card h-100 shadow ${
+        description ? "bg-secondary bg-opacity-25" : "bg-transparent"
+      }`}
+    >
       <img
         src={image || "https://via.placeholder.com/300"}
         height={"150px"}

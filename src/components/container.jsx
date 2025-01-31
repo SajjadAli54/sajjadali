@@ -1,4 +1,4 @@
-import React from "react";
+import PropTypes from "prop-types";
 
 function Container({ children, className = "" }) {
   return (
@@ -13,3 +13,8 @@ function Container({ children, className = "" }) {
 }
 
 export default Container;
+
+Container.propTypes = {
+  children: PropTypes.node,
+  className: PropTypes.string,
+};

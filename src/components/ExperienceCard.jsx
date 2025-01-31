@@ -20,7 +20,9 @@ function ExperienceCard({
   const experience = isJob ? calculateExperience(startDate, endDate) : null;
 
   return (
-    <Container className="card bg-transparent shadow-sm py-0">
+    <Container
+      className={`card bg-secondary bg-opacity-25 shadow-sm py-0 mb-4`}
+    >
       <div className="row g-0 bg-transparent">
         <div className="col-md-8">
           <div className="card-body bg-transparent">

@@ -51,12 +51,12 @@ const Projects = () => {
               tags={project.tags}
               links={[
                 {
-                  label: <FaGlobe size={20} className="me-2" />,
-                  url: project.live,
-                },
-                {
                   label: <FaGithub size={20} className="me-2" />,
                   url: project.href,
+                },
+                {
+                  label: <FaGlobe size={20} className="me-2" />,
+                  url: project.live,
                 },
               ]}
             />
