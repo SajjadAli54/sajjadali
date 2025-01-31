@@ -130,3 +130,14 @@ textarea:-webkit-autofill::first-line {
   background: rgba(255, 255, 255, 0.2);
   transform: scale(1.02);
 }
+
+#myImage {
+  max-width: 280px;
+  height: 280px;
+  mix-blend-mode: soft-light; /* Blend with background */
+  filter: brightness(0.9) contrast(1.1); /* Subtle adjustment */
+  box-shadow: 0 8px 32px rgba(0, 0, 0, 0.3); /* Soft shadow glow */
+  border-radius: 50%;
+  border: 4px solid rgba(255, 255, 255, 0.2); /* Light border for integration */
+  backdrop-filter: blur(10px); /* Subtle blur effect */
+}

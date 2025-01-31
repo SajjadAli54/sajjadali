@@ -6,11 +6,11 @@ import { calculateExperience } from "../utils/utils";
 function ExperienceCard({
   type, // "education" or "job"
   title,
+  subtitle,
   institutionOrCompany,
   institutionOrCompanyUrl,
   startDate,
   endDate,
-  subtitle,
   achievementsOrDuties = [],
   tags = [],
   image = "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTa_Upz1wUzZ05xdUafznHl79IbWrjzHk6cfA&s",

@@ -43,14 +43,12 @@ export default function Home() {
             Contact Me
           </Link>
         </div>
-        <div className="col-lg-6 text-center bg-transparent">
+        <div className="col-lg-6 text-center position-relative">
           <img
             id="myImage"
+            className="img-fluid rounded-circle mb-4 mt-4"
             src={ProfileImage}
-            style={{ maxWidth: "300px" }}
-            height={"300px"}
             alt="Sajjad Ali"
-            className="img-fluid rounded-circle mb-4 mt-4 animate__animated animate__fadeIn"
           />
         </div>
       </div>
@@ -62,13 +60,13 @@ export default function Home() {
         </h2>
         <TechStack />
       </div>
-      {/* Projects Section */}
-      <Projects /> {/* This should display your project cards */}
-      {/* Contact Section */}
+
+      <Projects />
+
       <div id="contact" className="text-center">
         <h2 className="display-5 mb-3">{"Let's Connect"}</h2>
         <p className="lead">
-          I'm always open to new opportunities and collaborations.
+          I am always open to new opportunities and collaborations.
         </p>
         <Link to="/contact" className="btn btn-outline-light btn-lg">
           Get In Touch
