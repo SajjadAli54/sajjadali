@@ -1,3 +1,5 @@
+import PropTypes from "prop-types";
+
 import { useState, useEffect } from "react";
 import { LiaBlogSolid } from "react-icons/lia";
 import { FaGlobe } from "react-icons/fa";
@@ -6,24 +8,18 @@ import Container from "../components/container";
 import Card from "../components/card";
 import Pagination from "../components/pagination";
 import { paginate } from "../utils/utils";
-
-const Loader = () => (
-  <div className="d-flex justify-content-center align-items-center vh-50">
-    <div className="spinner-border text-primary" role="status">
-      <span className="visually-hidden">Loading...</span>
-    </div>
-  </div>
-);
+import SearchBox from "../components/SearchBox";
+import Loader from "../components/loader";
 
 const Blogs = () => {
-  const size = 3;
-  const [posts, setPosts] = useState([]);
-  const [loading, setLoading] = useState(true);
-  const [currentPage, setCurrentPage] = useState(1);
+  const PAGE_SIZE = 3;
+  const CURRENT_PAGE = 1;
 
-  const handlePageChange = (page) => {
-    setCurrentPage(page);
-  };
+  const [searchQuery, setSearchQuery] = useState("");
+  const [posts, setPosts] = useState([]);
+  const [filteredPosts, setFilteredPosts] = useState([]);
+  const [loading, setLoading] = useState(true);
+  const [currentPage, setCurrentPage] = useState(CURRENT_PAGE);
 
   const url = `https://dev.to/api/articles?username=sajjadali`;
 
@@ -43,7 +39,18 @@ const Blogs = () => {
     fetchPosts();
   }, []);
 
-  const items = paginate(posts, currentPage, size);
+  useEffect(() => {
+    const field = searchQuery.trim().toLowerCase();
+    const filtered = posts.filter(
+      (post) =>
+        post.title.toLowerCase().includes(field) ||
+        post.description.toLowerCase().includes(field) ||
+        post.tag_list.some((tag) => tag.toLowerCase().includes(field))
+    );
+    setFilteredPosts(filtered);
+  }, [searchQuery, posts]);
+
+  const items = paginate(filteredPosts, currentPage, PAGE_SIZE);
 
   return (
     <Container>
@@ -55,29 +62,17 @@ const Blogs = () => {
         <Loader />
       ) : posts.length > 0 ? (
         <>
-          <div className="row">
-            {items.map((post, index) => (
-              <div key={index} className="col-md-4 col-sm-12 mb-4">
-                <Card
-                  image={post.cover_image}
-                  title={post.title}
-                  description={post.description}
-                  links={[
-                    {
-                      url: post.canonical_url,
-                      label: <FaGlobe size={20} className="me-2" />,
-                    },
-                  ]}
-                  tags={post.tag_list}
-                />
-              </div>
-            ))}
-          </div>
+          <SearchBox
+            searchField={searchQuery}
+            searchChange={(e) => setSearchQuery(e.target.value)}
+            placeholder="Search"
+          />
+          <BlogsList items={items} />
           <Pagination
-            itemsCount={posts.length}
-            pageSize={size}
+            itemsCount={filteredPosts.length}
+            pageSize={PAGE_SIZE}
             currentPage={currentPage}
-            onPageChange={handlePageChange}
+            onPageChange={(page) => setCurrentPage(page)}
           />
         </>
       ) : (
@@ -88,3 +83,30 @@ const Blogs = () => {
 };
 
 export default Blogs;
+
+const BlogsList = ({ items }) => {
+  return (
+    <div className="row">
+      {items.map((post, index) => (
+        <div key={index} className="col-md-4 col-sm-12 mb-4">
+          <Card
+            image={post.cover_image}
+            title={post.title}
+            description={post.description}
+            links={[
+              {
+                url: post.canonical_url,
+                label: <FaGlobe size={20} className="me-2" />,
+              },
+            ]}
+            tags={post.tag_list}
+          />
+        </div>
+      ))}
+    </div>
+  );
+};
+
+BlogsList.propTypes = {
+  items: PropTypes.array.isRequired,
+};

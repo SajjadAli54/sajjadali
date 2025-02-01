@@ -8,16 +8,14 @@ const SearchBox = ({ searchField, searchChange, placeholder }) => {
     <div className="row justify-content-center">
       <div className="col-lg-6 text-center text-lg-start mb-4">
         <div className="search-container">
+          <FaSearch className="search-icon" />
           <input
-            className="form-control search-input bg-opacity-25 shadow-sm"
+            className="search-input"
             type="search"
             placeholder={placeholder}
             value={searchField}
             onChange={searchChange}
-            aria-label="Search"
-            aria-describedby="search"
           />
-          <FaSearch className="search-icon" />
         </div>
       </div>
     </div>
