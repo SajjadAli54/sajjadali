@@ -1,29 +1,23 @@
-import { Link } from "react-router-dom"; // If you're using react-router
+import PropTypes from "prop-types";
+
+import { Link } from "react-router-dom";
 import { GoStack } from "react-icons/go";
+import { AnimatedText } from "animated-backgrounds";
 
 import TechStack from "../components/stack";
 
-import Projects from "../pages/projects"; // Assuming you have a 'Projects' component
+import Projects from "../pages/projects";
 import Container from "../components/common/container";
 
-// import { BGCOLOR } from "../utils/utils";
-
-import ProfileImage from "../assets/picofme.png";
-import { AnimatedText } from "animated-backgrounds";
-
-import { techItems } from "../data/tech-items";
-
-export default function Home() {
+export default function Home({ projects, ProfileImage, techItems }) {
   return (
     <Container>
-      {/* Hero Section */}
       <div className="row align-items-center">
         <div className="col-lg-6 text-center text-lg-start">
           <h1 className="display-4 fw-bold mb-3 animate__animated animate__fadeIn">
             Hi, I am{" "}
             <AnimatedText
               text="Sajjad Ali"
-              // effect="typewriter"
               effect="rainbow"
               config={{
                 speed: 100,
@@ -34,9 +28,9 @@ export default function Home() {
             />
           </h1>
           <p className="lead mb-4 bg-secondary bg-opacity-25 card text-light">
-            I am a passionate full-stack Software Developer specializing in
-            multiple stacks including Web, Mobile, Desktop. I love solving
-            challenging problems and creating seamless user experiences.
+            Building seamless digital experiences across Web, Mobile, and
+            Desktop. Passionate Full-Stack Developer turning complex problems
+            into elegant solutions.
           </p>
           <Link to="/projects" className="btn btn-primary btn-lg m-2">
             View My Work
@@ -63,7 +57,7 @@ export default function Home() {
         <TechStack techItems={techItems} />
       </div>
 
-      <Projects />
+      <Projects projects={projects} />
 
       <div id="contact" className="text-center">
         <h2 className="display-5 mb-3">{"Let's Connect"}</h2>
@@ -77,3 +71,9 @@ export default function Home() {
     </Container>
   );
 }
+
+Home.propTypes = {
+  projects: PropTypes.array,
+  ProfileImage: PropTypes.string,
+  techItems: PropTypes.array,
+};

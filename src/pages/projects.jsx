@@ -1,10 +1,10 @@
 import React, { useState } from "react";
+import PropTypes from "prop-types";
 
 import { FaDiagramProject, FaGithub } from "react-icons/fa6";
 import { FaGlobe } from "react-icons/fa";
 import Container from "../components/common/container";
 
-import { projects as allProjects } from "../data/projects";
 import Card from "../components/common/card";
 import Pagination from "../components/common/pagination";
 
@@ -12,7 +12,7 @@ import { paginate } from "../utils/utils";
 import { useEffect } from "react";
 import SearchBox from "../components/common/SearchBox";
 
-const Projects = () => {
+const Projects = ({ projects: allProjects }) => {
   const MOBILE_WIDTH = 768;
   const MOBILE_PAGE_SIZE = 3;
   const DESKTOP_PAGE_SIZE = 6;
@@ -93,3 +93,7 @@ const Projects = () => {
 };
 
 export default Projects;
+
+Projects.propTypes = {
+  projects: PropTypes.array.isRequired,
+};

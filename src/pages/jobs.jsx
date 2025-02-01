@@ -1,9 +1,9 @@
-import Container from "../components/common/container";
+import PropTypes from "prop-types";
 
-import { jobs } from "../data/jobs";
+import Container from "../components/common/container";
 import ExperienceCard from "../components/ExperienceCard";
 
-function Jobs() {
+function Jobs({ jobs }) {
   return (
     <Container>
       <h2 className="text-center text-primary mb-4 display-4 fw-bold">
@@ -35,3 +35,7 @@ function Jobs() {
 }
 
 export default Jobs;
+
+Jobs.propTypes = {
+  jobs: PropTypes.array.isRequired,
+};

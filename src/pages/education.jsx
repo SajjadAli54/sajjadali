@@ -1,22 +1,22 @@
+import PropTypes from "prop-types";
+
 import { useState } from "react";
 import { Tab, Nav } from "react-bootstrap";
+import { FaUniversity } from "react-icons/fa";
 
 import Slider from "react-slick";
+
 import "slick-carousel/slick/slick.css";
 import "slick-carousel/slick/slick-theme.css";
 
-import { FaUniversity } from "react-icons/fa";
-
 import Container from "../components/common/container";
 import Card from "../components/common/card";
-
-import { certifications } from "../data/certifications";
-import { education as list } from "../data/education";
-
 import ExperienceCard from "../components/ExperienceCard";
 
-function EducationContainer() {
-  const [activeTab, setActiveTab] = useState("education"); // Default Tab
+import useMediaQuery from "../hooks/useMediaQuery"; // Custom hook to detect screen size
+
+function EducationContainer({ education, certifications }) {
+  const [activeTab, setActiveTab] = useState("education");
 
   return (
     <Container>
@@ -24,7 +24,6 @@ function EducationContainer() {
         activeKey={activeTab}
         onSelect={(key) => setActiveTab(key)}
       >
-        {/* Tabs Navigation */}
         <Nav variant="tabs" className="mb-4 justify-content-center">
           <Nav.Item>
             <Nav.Link eventKey="education" className="fw-bold">
@@ -40,10 +39,10 @@ function EducationContainer() {
 
         <Tab.Content>
           <Tab.Pane eventKey="education">
-            <Education />
+            <Education education={education} />
           </Tab.Pane>
           <Tab.Pane eventKey="certifications">
-            <Certifications />
+            <Certifications certifications={certifications} />
           </Tab.Pane>
         </Tab.Content>
       </Tab.Container>
@@ -53,14 +52,12 @@ function EducationContainer() {
 
 export default EducationContainer;
 
-import useMediaQuery from "../hooks/useMediaQuery"; // Custom hook to detect screen size
-
-const Education = () => {
+const Education = ({ education }) => {
   const isMobile = useMediaQuery("(max-width: 768px)"); // Mobile detection
 
   return (
     <Container>
-      {list.map((edu, index) =>
+      {education.map((edu, index) =>
         isMobile ? (
           <Card
             key={index}
@@ -95,7 +92,7 @@ const Education = () => {
   );
 };
 
-const Certifications = () => {
+const Certifications = ({ certifications }) => {
   return (
     <Slider
       dots={true}
@@ -121,4 +118,17 @@ const Certifications = () => {
       ))}
     </Slider>
   );
+};
+
+Certifications.propTypes = {
+  certifications: PropTypes.array.isRequired,
+};
+
+Education.propTypes = {
+  education: PropTypes.array.isRequired,
+};
+
+EducationContainer.propTypes = {
+  education: PropTypes.array.isRequired,
+  certifications: PropTypes.array.isRequired,
 };
