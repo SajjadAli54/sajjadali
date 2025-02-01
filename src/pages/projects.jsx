@@ -4,35 +4,49 @@ import { FaDiagramProject, FaGithub } from "react-icons/fa6";
 import { FaGlobe } from "react-icons/fa";
 import Container from "../components/container";
 
-import { projects } from "../data/projects";
+import { projects as allProjects } from "../data/projects";
 import Card from "../components/card";
 import Pagination from "../components/pagination";
 
 import { paginate } from "../utils/utils";
 import { useEffect } from "react";
+import SearchBox from "../components/SearchBox";
 
 const Projects = () => {
+  const MOBILE_WIDTH = 768;
+  const MOBILE_PAGE_SIZE = 3;
+  const DESKTOP_PAGE_SIZE = 6;
+
+  const [searchField, setSearchField] = useState("");
+  const [projects, setProjects] = useState(allProjects);
   const [currentPage, setCurrentPage] = React.useState(1);
-  const [pageSize, setPageSize] = useState(3); // Default for Mobile
+  const [pageSize, setPageSize] = useState(MOBILE_PAGE_SIZE);
 
   useEffect(() => {
     const updatePageSize = () => {
-      if (window.innerWidth < 768) {
-        setPageSize(3); // Smaller number for mobile
+      if (window.innerWidth < MOBILE_WIDTH) {
+        setPageSize(MOBILE_PAGE_SIZE);
       } else {
-        setPageSize(6); // Default for desktop
+        setPageSize(DESKTOP_PAGE_SIZE);
       }
     };
 
-    updatePageSize(); // Set initial value
-    window.addEventListener("resize", updatePageSize); // Listen for window resize
+    updatePageSize();
+    window.addEventListener("resize", updatePageSize);
 
-    return () => window.removeEventListener("resize", updatePageSize); // Cleanup
+    return () => window.removeEventListener("resize", updatePageSize);
   }, []);
 
-  const handlePageChange = (page) => {
-    setCurrentPage(page);
-  };
+  useEffect(() => {
+    const field = searchField.trim().toLowerCase();
+    const filteredProjects = allProjects.filter(
+      (project) =>
+        project.name.toLowerCase().includes(field) ||
+        project.description.toLowerCase().includes(field) ||
+        project.tags.some((tag) => tag.toLowerCase().includes(field))
+    );
+    setProjects(filteredProjects);
+  }, [searchField]);
 
   const items = paginate(projects, currentPage, pageSize);
   return (
@@ -40,6 +54,11 @@ const Projects = () => {
       <h2 className="text-center text-primary mb-4 display-4 fw-bold">
         <FaDiagramProject className="me-2 text-warning" /> Projects
       </h2>
+      <SearchBox
+        searchField={searchField}
+        searchChange={(e) => setSearchField(e.target.value)}
+        placeholder="Search"
+      />
       <div className="row">
         {items.map((project, index) => (
           <div key={index} className="col-md-4 col-sm-12 col-lg-4 mb-4">
@@ -67,7 +86,7 @@ const Projects = () => {
         itemsCount={projects.length}
         pageSize={pageSize}
         currentPage={currentPage}
-        onPageChange={handlePageChange}
+        onPageChange={(page) => setCurrentPage(page)}
       />
     </Container>
   );

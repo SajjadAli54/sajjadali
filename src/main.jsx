@@ -1,5 +1,5 @@
 import { createRoot } from "react-dom/client";
-import { AnimatedBackground } from "animated-backgrounds";
+// import { AnimatedBackground } from "animated-backgrounds";
 import App from "./App.jsx";
 
 import "bootstrap/dist/css/bootstrap.min.css";
@@ -18,7 +18,7 @@ import "animate.css";
 ];
 createRoot(document.getElementById("root")).render(
   <div>
-    <AnimatedBackground animationName={"particleNetwork"} />
+    {/* <AnimatedBackground animationName={"particleNetwork"} /> */}
     <App />
   </div>
 );
