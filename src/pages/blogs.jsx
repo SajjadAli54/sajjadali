@@ -4,12 +4,12 @@ import { useState, useEffect } from "react";
 import { LiaBlogSolid } from "react-icons/lia";
 import { FaGlobe } from "react-icons/fa";
 
-import Container from "../components/container";
-import Card from "../components/card";
-import Pagination from "../components/pagination";
+import Container from "../components/common/container";
+import Card from "../components/common/card";
+import Pagination from "../components/common/pagination";
 import { paginate } from "../utils/utils";
-import SearchBox from "../components/SearchBox";
-import Loader from "../components/loader";
+import SearchBox from "../components/common/SearchBox";
+import Loader from "../components/common/loader";
 
 const Blogs = () => {
   const PAGE_SIZE = 3;

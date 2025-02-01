@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import { IoIosContact } from "react-icons/io";
 
-import Container from "../components/container";
+import Container from "../components/common/container";
 
 function Contact() {
   const [formData, setFormData] = useState({

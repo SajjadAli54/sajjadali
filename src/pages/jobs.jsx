@@ -1,4 +1,4 @@
-import Container from "../components/container";
+import Container from "../components/common/container";
 
 import { jobs } from "../data/jobs";
 import ExperienceCard from "../components/ExperienceCard";

@@ -1,21 +1,11 @@
+import PropTypes from "prop-types";
+
 import { Link, NavLink } from "react-router-dom";
-import logo from "./../assets/logo.png";
-import { routes } from "../data/routes";
 
-const navLinks = [
-  { path: routes.home, label: "Home" },
-  { path: routes.education, label: "Education" },
-  { path: routes.experience, label: "Experience" },
-  { path: routes.projects, label: "Projects" },
-  { path: routes.blogs, label: "Blogs" },
-  { path: routes.contact, label: "Contact" },
-];
-
-function NavBar() {
+function NavBar({ navLinks, logo }) {
   return (
     <nav className="navbar navbar-expand-lg navbar-dark bg-transparent shadow-sm">
       <div className="container">
-        {/* Logo */}
         <Link className="navbar-brand" to="/">
           <img
             src={logo}
@@ -24,7 +14,6 @@ function NavBar() {
           />
         </Link>
 
-        {/* Toggle button for mobile */}
         <button
           className="navbar-toggler bg-transparent"
           type="button"
@@ -37,7 +26,6 @@ function NavBar() {
           <span className="navbar-toggler-icon"></span>
         </button>
 
-        {/* Navbar links */}
         <div className="collapse navbar-collapse bg-transparent" id="navbarNav">
           <ul className="navbar-nav ms-auto bg-transparent">
             {navLinks.map((link, index) => (
@@ -64,3 +52,8 @@ function NavBar() {
 }
 
 export default NavBar;
+
+NavBar.propTypes = {
+  navLinks: PropTypes.array.isRequired,
+  logo: PropTypes.string.isRequired,
+};

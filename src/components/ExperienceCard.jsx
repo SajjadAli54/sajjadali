@@ -1,6 +1,6 @@
 import PropTypes from "prop-types";
-import Container from "./container";
-import Tags from "./tags";
+import Container from "./common/container";
+import Tags from "./common/tags";
 import { calculateExperience } from "../utils/utils";
 
 function ExperienceCard({

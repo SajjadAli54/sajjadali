@@ -7,8 +7,8 @@ import "slick-carousel/slick/slick-theme.css";
 
 import { FaUniversity } from "react-icons/fa";
 
-import Container from "../components/container";
-import Card from "../components/card";
+import Container from "../components/common/container";
+import Card from "../components/common/card";
 
 import { certifications } from "../data/certifications";
 import { education as list } from "../data/education";

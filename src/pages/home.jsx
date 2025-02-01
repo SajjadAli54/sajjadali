@@ -4,12 +4,14 @@ import { GoStack } from "react-icons/go";
 import TechStack from "../components/stack";
 
 import Projects from "../pages/projects"; // Assuming you have a 'Projects' component
-import Container from "../components/container";
+import Container from "../components/common/container";
 
 // import { BGCOLOR } from "../utils/utils";
 
 import ProfileImage from "../assets/picofme.png";
 import { AnimatedText } from "animated-backgrounds";
+
+import { techItems } from "../data/tech-items";
 
 export default function Home() {
   return (
@@ -58,7 +60,7 @@ export default function Home() {
         <h2 className="display-5 text-primary">
           <GoStack className="text-warning" /> Tech Stack
         </h2>
-        <TechStack />
+        <TechStack techItems={techItems} />
       </div>
 
       <Projects />

@@ -2,15 +2,15 @@ import React, { useState } from "react";
 
 import { FaDiagramProject, FaGithub } from "react-icons/fa6";
 import { FaGlobe } from "react-icons/fa";
-import Container from "../components/container";
+import Container from "../components/common/container";
 
 import { projects as allProjects } from "../data/projects";
-import Card from "../components/card";
-import Pagination from "../components/pagination";
+import Card from "../components/common/card";
+import Pagination from "../components/common/pagination";
 
 import { paginate } from "../utils/utils";
 import { useEffect } from "react";
-import SearchBox from "../components/SearchBox";
+import SearchBox from "../components/common/SearchBox";
 
 const Projects = () => {
   const MOBILE_WIDTH = 768;
