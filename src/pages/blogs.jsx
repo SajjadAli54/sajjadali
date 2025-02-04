@@ -28,6 +28,9 @@ const Blogs = () => {
       try {
         const response = await fetch(url);
         const data = await response.json();
+        data.sort(
+          (a, b) => b.public_reactions_count - a.public_reactions_count
+        );
         setPosts(data);
       } catch (error) {
         console.error("Error fetching posts:", error);
@@ -93,6 +96,7 @@ const BlogsList = ({ items }) => {
             image={post.cover_image}
             title={post.title}
             description={post.description}
+            reactions={post.public_reactions_count}
             links={[
               {
                 url: post.canonical_url,
