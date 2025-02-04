@@ -13,7 +13,7 @@ export const projects = [
     name: "Flash Driving App",
     description:
       "A Kotlin-based mobile application designed for an international ride service company. Features include a dual interface for drivers and customers, Google Maps integration, and secure payment processing via Google Pay.",
-    // href: "https://github.com/SajjadAli54/flash-app",
+    href: "https://github.com/SajjadAli54/flash-app",
     src: "https://media.autoexpress.co.uk/image/private/s--X-WVjvBW--/f_auto,t_content-image-full-desktop@1/v1562254725/autoexpress/istock_000026948885medium.jpg",
     tags: ["Kotlin", "Firebase", "Android", "Google Maps", "Google Payment"],
   },

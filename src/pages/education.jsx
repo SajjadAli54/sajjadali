@@ -62,8 +62,8 @@ const Education = ({ education }) => {
           <Card
             key={index}
             image={edu.image}
-            title={edu.degree}
-            description={edu.institution}
+            title={`${edu.degree} @ ${edu.institution}`}
+            description={edu.description}
             links={[
               {
                 url: edu.institutionUrl,

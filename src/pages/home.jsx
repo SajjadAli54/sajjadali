@@ -49,7 +49,6 @@ export default function Home({ projects, ProfileImage, techItems }) {
         </div>
       </div>
       <hr className="my-1 text-light" />
-      {/* Tech Stack Section */}
       <div className="text-center mb-5">
         <h2 className="display-5 text-primary">
           <GoStack className="text-warning" /> Tech Stack
@@ -57,7 +56,7 @@ export default function Home({ projects, ProfileImage, techItems }) {
         <TechStack techItems={techItems} />
       </div>
 
-      <Projects projects={projects} />
+      <Projects projects={projects} size={3} />
 
       <div id="contact" className="text-center">
         <h2 className="display-5 mb-3">{"Let's Connect"}</h2>

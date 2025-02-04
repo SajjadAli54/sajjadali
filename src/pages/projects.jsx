@@ -12,10 +12,10 @@ import { paginate } from "../utils/utils";
 import { useEffect } from "react";
 import SearchBox from "../components/common/SearchBox";
 
-const Projects = ({ projects: allProjects }) => {
+const Projects = ({ projects: allProjects, size = 6 }) => {
   const MOBILE_WIDTH = 768;
   const MOBILE_PAGE_SIZE = 3;
-  const DESKTOP_PAGE_SIZE = 6;
+  const DESKTOP_PAGE_SIZE = size;
 
   const [searchField, setSearchField] = useState("");
   const [projects, setProjects] = useState(allProjects);
