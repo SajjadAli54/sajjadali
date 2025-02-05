@@ -1,6 +1,8 @@
 import PropTypes from "prop-types";
 import Tags from "./tags";
 
+import { FaHeart } from "react-icons/fa";
+
 const Card = ({ key, image, title, description, links, tags, reactions }) => {
   return (
     <div
@@ -27,14 +29,15 @@ const Card = ({ key, image, title, description, links, tags, reactions }) => {
           <Tags tags={tags} />
           {links && links.length > 0 && (
             <div className="mt-auto d-flex gap-2 align-items-center">
-              {reactions && (
+              {reactions !== undefined && (
                 <a
                   href={links[0].url}
                   target="_blank"
                   rel="noopener noreferrer"
                   className="text-light text-center mt-2 me-2 link-offset-2 link-underline link-underline-opacity-0"
                 >
-                  ❤️ {reactions}
+                  <FaHeart className="me-1" size={20} color="red" /> {reactions}
+                  {/* ❤️ */}
                 </a>
               )}
               {links.map((link, index) =>
