@@ -22,3 +22,7 @@ export function paginate(items, pageNumber, pageSize) {
   const arr = _(items).slice(startIndex).take(pageSize).value();
   return arr;
 }
+
+export const getAllLanguages = (projects) => {
+  return [new Set(projects.map((project) => project.language))];
+};

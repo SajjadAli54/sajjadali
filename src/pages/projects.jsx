@@ -11,6 +11,7 @@ import Pagination from "../components/common/pagination";
 import { paginate } from "../utils/utils";
 import { useEffect } from "react";
 import SearchBox from "../components/common/SearchBox";
+import Tags from "../components/common/tags";
 
 const Projects = ({ projects: allProjects, size = 6 }) => {
   const MOBILE_WIDTH = 768;
@@ -21,6 +22,17 @@ const Projects = ({ projects: allProjects, size = 6 }) => {
   const [projects, setProjects] = useState(allProjects);
   const [currentPage, setCurrentPage] = React.useState(1);
   const [pageSize, setPageSize] = useState(MOBILE_PAGE_SIZE);
+
+  // const languages = getAllLanguages(allProjects);
+
+  const [tags, setTags] = useState(() => {
+    const lang = [
+      ...new Set(allProjects.map((proj) => proj.language.toLowerCase())),
+    ];
+    const tags = {};
+    for (let i in lang) tags[lang[i]] = false;
+    return tags;
+  });
 
   useEffect(() => {
     const updatePageSize = () => {
@@ -63,6 +75,26 @@ const Projects = ({ projects: allProjects, size = 6 }) => {
     setProjects(filteredProjects);
   }, [searchField]);
 
+  useEffect(() => {
+    if (new Set(Object.values(tags)).size === 1) {
+      setProjects(allProjects);
+      setCurrentPage(1);
+      return;
+    }
+    const filteredProjects = allProjects.filter(
+      (project) => tags[project.language.toLowerCase()]
+    );
+    setProjects(filteredProjects);
+  }, [tags]);
+
+  const handleBadgeClick = (language) => {
+    console.log("Bagde Clicked", language, tags[language]);
+    setTags((prev) => ({
+      ...prev,
+      [language]: !prev[language],
+    }));
+  };
+
   const items = paginate(projects, currentPage, pageSize);
   return (
     <Container>
@@ -74,6 +106,13 @@ const Projects = ({ projects: allProjects, size = 6 }) => {
         searchChange={(e) => setSearchField(e.target.value)}
         placeholder="Search"
       />
+      <div className="mb-2 mt-2 text-center">
+        <Tags
+          tags={Object.keys(tags)}
+          status={Object.values(tags)}
+          onClick={handleBadgeClick}
+        />
+      </div>
       <div className="row">
         {items.map((project, index) => (
           <div key={index} className="col-md-4 col-sm-12 col-lg-4 mb-4">
