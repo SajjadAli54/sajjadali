@@ -96,4 +96,5 @@ export default Projects;
 
 Projects.propTypes = {
   projects: PropTypes.array.isRequired,
+  size: PropTypes.number,
 };
