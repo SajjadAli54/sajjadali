@@ -70,6 +70,7 @@ const Blogs = () => {
             searchChange={(e) => setSearchQuery(e.target.value)}
             placeholder="Search"
           />
+
           <BlogsList items={items} />
           <Pagination
             itemsCount={filteredPosts.length}

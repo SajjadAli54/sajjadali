@@ -3,10 +3,17 @@ import Tags from "./tags";
 
 import { FaHeart } from "react-icons/fa";
 
-const Card = ({ key, image, title, description, links, tags, reactions }) => {
+const Card = ({
+  image = "https://via.placeholder.com/300",
+  title,
+  description,
+  links,
+  tags,
+  reactions,
+}) => {
   return (
     <div
-      key={key}
+      key={title}
       className={`card project-card h-100 mb-4 shadow ${
         description ? "bg-secondary bg-opacity-25" : "bg-transparent"
       }`}

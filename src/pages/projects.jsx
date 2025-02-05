@@ -37,13 +37,28 @@ const Projects = ({ projects: allProjects, size = 6 }) => {
     return () => window.removeEventListener("resize", updatePageSize);
   }, []);
 
+  // const API_URL = "https://api.github.com/users/SajjadAli54/repos?per_page=100";
+
+  // // Only one time call
+  // useEffect(() => {
+  //   fetch(API_URL)
+  //     .then((response) => response.json())
+  //     .then((data) => {
+  //       const res = data.filter(
+  //         (proj) => proj.topics && proj.topics.length > 0
+  //       );
+  //       allProjects.push(...res);
+  //       setProjects(allProjects);
+  //     });
+  // }, []);
+
   useEffect(() => {
     const field = searchField.trim().toLowerCase();
     const filteredProjects = allProjects.filter(
       (project) =>
         project.name.toLowerCase().includes(field) ||
         project.description.toLowerCase().includes(field) ||
-        project.tags.some((tag) => tag.toLowerCase().includes(field))
+        project.topics.some((topic) => topic.toLowerCase().includes(field))
     );
     setProjects(filteredProjects);
   }, [searchField]);
@@ -63,15 +78,17 @@ const Projects = ({ projects: allProjects, size = 6 }) => {
         {items.map((project, index) => (
           <div key={index} className="col-md-4 col-sm-12 col-lg-4 mb-4">
             <Card
-              key={index}
-              image={project.src}
+              image={
+                project.src ??
+                "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQpZ6IjB4FE5Dadyw8HmA2VuC_7QXJZ9h4HlQ&s"
+              }
               title={project.name}
               description={project.description}
-              tags={project.tags}
+              tags={[project.language, ...project.topics]}
               links={[
                 {
                   label: <FaGithub size={20} className="me-2" />,
-                  url: project.href,
+                  url: project.clone_url,
                 },
                 {
                   label: <FaGlobe size={20} className="me-2" />,
