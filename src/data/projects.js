@@ -83,10 +83,11 @@ export const projects = [
       "A Next.js-based full-stack issue tracking system with a MySQL database powered by Prisma ORM.",
     clone_url: "https://github.com/SajjadAli54/issue-tracker",
     src: "https://codewithmosh.com/_next/image?url=https%3A%2F%2Fcdn.filestackcontent.com%2F8MbtJ4hTAaOk3KPcptqZ&w=3840&q=75",
-    language: "TypeScript",
+    language: "JavaScript",
     topics: [
-      "Next.js",
+      "NextJs",
       "Issue Tracking",
+      "typescript",
       "MySQL",
       "Prisma ORM",
       "Bug Reporting",
