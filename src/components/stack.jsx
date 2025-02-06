@@ -1,6 +1,10 @@
 import PropTypes from "prop-types";
 import { useEffect, useState } from "react";
-import Container from "./common/container";
+import Container from "react-bootstrap/Container";
+import Row from "react-bootstrap/Row";
+import Col from "react-bootstrap/Col";
+import Card from "react-bootstrap/Card";
+
 import Pagination from "./common/pagination";
 import { paginate } from "../utils/utils";
 
@@ -15,17 +19,15 @@ function TechStack({ techItems }) {
 
   useEffect(() => {
     const updatePageSize = () => {
-      if (window.innerWidth < MOBILE_WIDTH) {
-        setPageSize(MOBILE_PAGE_SIZE);
-      } else {
-        setPageSize(DESKTOP_PAGE_SIZE);
-      }
+      setPageSize(
+        window.innerWidth < MOBILE_WIDTH ? MOBILE_PAGE_SIZE : DESKTOP_PAGE_SIZE
+      );
     };
 
     updatePageSize();
-    window.addEventListener("resize", updatePageSize); // Listen for window resize
+    window.addEventListener("resize", updatePageSize);
 
-    return () => window.removeEventListener("resize", updatePageSize); // Cleanup
+    return () => window.removeEventListener("resize", updatePageSize);
   }, []);
 
   const handlePageChange = (page) => {
@@ -39,36 +41,40 @@ function TechStack({ techItems }) {
       <h3 className="text-center text-light display-4 fw-bold mb-5">
         The technologies I work with to bring ideas to life
       </h3>
-      <div className="row">
+
+      <Row>
         {items.map((tech, index) => {
           const { category, items, icon: Icon } = tech;
           return (
-            <div className="col-sm-6 col-md-6 col-lg-4 mb-4" key={index}>
-              <div
-                className="card shadow-sm rounded-3 p-4 text-center"
+            <Col sm={6} md={6} lg={4} className="mb-4" key={index}>
+              <Card
+                className="shadow-sm rounded-3 text-center p-4"
                 style={{
                   background: `linear-gradient(145deg, ${tech.color} 30%, #fff)`,
                 }}
               >
                 <div
-                  className="icon mb-3"
+                  className="mb-3 d-flex justify-content-center align-items-center"
                   style={{
                     fontSize: "3rem",
                     color: "#fff",
                     backgroundColor: tech.color,
                     padding: "1rem",
                     borderRadius: "50%",
+                    width: "80px",
+                    height: "80px",
                   }}
                 >
-                  {<Icon />}
+                  <Icon />
                 </div>
-                <h4 className="card-title mb-3">{category}</h4>
-                <p className="card-text text-muted">{items}</p>
-              </div>
-            </div>
+                <Card.Title>{category}</Card.Title>
+                <Card.Text className="text-muted">{items}</Card.Text>
+              </Card>
+            </Col>
           );
         })}
-      </div>
+      </Row>
+
       <Pagination
         itemsCount={techItems.length}
         pageSize={pageSize}
@@ -79,8 +85,8 @@ function TechStack({ techItems }) {
   );
 }
 
-export default TechStack;
-
 TechStack.propTypes = {
   techItems: PropTypes.array.isRequired,
 };
+
+export default TechStack;
