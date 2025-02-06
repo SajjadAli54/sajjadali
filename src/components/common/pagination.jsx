@@ -1,11 +1,12 @@
+import Pagination from "react-bootstrap/Pagination";
 import _ from "lodash";
 import PropTypes from "prop-types";
 
-const Pagination = ({ itemsCount, pageSize, currentPage, onPageChange }) => {
+const MyPagination = ({ itemsCount, pageSize, currentPage, onPageChange }) => {
   const pagesCount = Math.ceil(itemsCount / pageSize);
   if (pagesCount === 1) return null;
 
-  const PAGES_TO_SHOW = 2; // Number of pages to show around currentPage
+  const PAGES_TO_SHOW = 2;
   const pages = _.range(1, pagesCount + 1);
 
   const getDisplayedPages = () => {
@@ -42,61 +43,37 @@ const Pagination = ({ itemsCount, pageSize, currentPage, onPageChange }) => {
   const displayedPages = getDisplayedPages();
 
   return (
-    <nav aria-label="Page navigation">
-      <ul className="pagination justify-content-center mt-4 mb-4">
-        {/* Previous Button */}
-        <li className={`page-item ${currentPage === 1 ? "disabled" : ""}`}>
-          <button
-            onClick={() => onPageChange(currentPage - 1)}
-            className="page-link"
-            disabled={currentPage === 1}
-            aria-label="Previous"
-          >
-            <span aria-hidden="true">&laquo;</span>
-          </button>
-        </li>
-
-        {/* Page Numbers */}
-        {displayedPages.map((page, index) => (
-          <li
+    <Pagination>
+      <Pagination.First
+        disabled={currentPage === 1}
+        onClick={() => onPageChange(currentPage - 1)}
+      />
+      {displayedPages.map((page, index) =>
+        page === "..." ? (
+          <Pagination.Ellipsis key={index} />
+        ) : (
+          <Pagination.Item
             key={index}
-            className={`page-item ${page === currentPage ? "active" : ""}`}
+            active={page === currentPage}
+            onClick={() => onPageChange(page)}
           >
-            {page === "..." ? (
-              <span className="page-link">...</span>
-            ) : (
-              <button onClick={() => onPageChange(page)} className="page-link">
-                {page}
-              </button>
-            )}
-          </li>
-        ))}
-
-        {/* Next Button */}
-        <li
-          className={`page-item ${
-            currentPage === pagesCount ? "disabled" : ""
-          }`}
-        >
-          <button
-            onClick={() => onPageChange(currentPage + 1)}
-            className="page-link"
-            disabled={currentPage === pagesCount}
-            aria-label="Next"
-          >
-            <span aria-hidden="true">&raquo;</span>
-          </button>
-        </li>
-      </ul>
-    </nav>
+            {page}
+          </Pagination.Item>
+        )
+      )}
+      <Pagination.Last
+        disabled={currentPage === pagesCount}
+        onClick={() => onPageChange(currentPage + 1)}
+      />
+    </Pagination>
   );
 };
 
-Pagination.propTypes = {
+MyPagination.propTypes = {
   itemsCount: PropTypes.number.isRequired,
   pageSize: PropTypes.number.isRequired,
   currentPage: PropTypes.number.isRequired,
   onPageChange: PropTypes.func.isRequired,
 };
 
-export default Pagination;
+export default MyPagination;
