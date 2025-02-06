@@ -5,7 +5,7 @@ import { FaDiagramProject, FaGithub } from "react-icons/fa6";
 import { FaGlobe } from "react-icons/fa";
 import Container from "../components/common/container";
 
-import Card from "../components/common/card";
+import MyCard from "../components/common/card";
 import Pagination from "../components/common/pagination";
 
 import { paginate } from "../utils/utils";
@@ -22,8 +22,6 @@ const Projects = ({ projects: allProjects, size = 6 }) => {
   const [projects, setProjects] = useState(allProjects);
   const [currentPage, setCurrentPage] = React.useState(1);
   const [pageSize, setPageSize] = useState(MOBILE_PAGE_SIZE);
-
-  // const languages = getAllLanguages(allProjects);
 
   const [tags, setTags] = useState(() => {
     const lang = [
@@ -70,6 +68,7 @@ const Projects = ({ projects: allProjects, size = 6 }) => {
       (project) =>
         project.name.toLowerCase().includes(field) ||
         project.description.toLowerCase().includes(field) ||
+        project.language.toLowerCase().includes(field) ||
         project.topics.some((topic) => topic.toLowerCase().includes(field))
     );
     setProjects(filteredProjects);
@@ -116,7 +115,7 @@ const Projects = ({ projects: allProjects, size = 6 }) => {
       <div className="row">
         {items.map((project, index) => (
           <div key={index} className="col-md-4 col-sm-12 col-lg-4 mb-4">
-            <Card
+            <MyCard
               image={
                 project.src ??
                 "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQpZ6IjB4FE5Dadyw8HmA2VuC_7QXJZ9h4HlQ&s"

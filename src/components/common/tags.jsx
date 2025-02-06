@@ -2,7 +2,7 @@ import PropTypes from "prop-types";
 
 function Tags({ tags, status, onClick }) {
   return (
-    <div className="mb-2 mt-3">
+    <div className="">
       {tags.map((tag, index) => (
         <span
           key={index}
