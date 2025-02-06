@@ -1,10 +1,10 @@
 import PropTypes from "prop-types";
-import Container from "./common/container";
+import { Card, ListGroup, Row, Col, Container } from "react-bootstrap";
 import Tags from "./common/tags";
 import { calculateExperience } from "../utils/utils";
 
 function ExperienceCard({
-  type, // "education" or "job"
+  type,
   title,
   subtitle,
   institutionOrCompany,
@@ -19,82 +19,75 @@ function ExperienceCard({
   const experience = isJob ? calculateExperience(startDate, endDate) : null;
 
   return (
-    <Container
-      className={`card bg-secondary bg-opacity-25 shadow-sm py-0 mb-4`}
-    >
-      <div className="row g-0 bg-transparent">
-        <div className="col-md-8">
-          <div className="card-body bg-transparent">
-            {/* Title & Date */}
-            <div className="d-flex justify-content-between align-items-center">
-              <h4 className="card-title mb-0 text-light">{title}</h4>
-              <small className="text-light">
-                {`${startDate} - ${endDate || "Present"}`}
-              </small>
-            </div>
+    <Container className="mb-2">
+      <Card className="bg-secondary bg-opacity-25 shadow-sm border-0">
+        <Row className="g-0">
+          <Col md={8} className="p-1">
+            <Card.Header className="bg-transparent">
+              <div className="d-flex justify-content-between align-items-center">
+                <Card.Title className="text-light mb-1">{title}</Card.Title>
+                <Card.Subtitle className="mb-2">
+                  <Card.Link
+                    href={institutionOrCompanyUrl}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="text-decoration-none text-primary fw-bold"
+                    style={{ alignContent: "left !important" }}
+                  >
+                    {institutionOrCompany}
+                  </Card.Link>
+                </Card.Subtitle>
 
-            {/* Institution / Company */}
-            <p className="card-subtitle text-muted mb-2">
-              <a
-                href={institutionOrCompanyUrl}
-                target="_blank"
-                rel="noopener noreferrer"
-                className="text-decoration-none text-primary fw-bold"
-              >
-                {institutionOrCompany}
-              </a>
-            </p>
+                <small className="text-light">{`${startDate} - ${
+                  endDate || "Present"
+                }`}</small>
+              </div>
+            </Card.Header>
 
-            {subtitle && (
-              <p className="text-success fw-bold fs-5 mb-3">{subtitle}</p>
-            )}
-
-            {/* Experience (for Job) */}
-            {isJob && (
-              <p className="text-success mb-2">
-                <strong>Experience:</strong> {experience}
-              </p>
-            )}
-
-            {/* Achievements (Education) or Duties (Job) */}
-            {achievementsOrDuties.length > 0 && (
-              <ul className="list-unstyled">
-                {achievementsOrDuties.map((item, index) => (
-                  <li key={index} className="mb-2 d-flex align-items-start">
-                    <span
-                      className={`me-2 ${
-                        isJob ? "text-primary" : "text-success"
-                      }`}
-                      style={{ fontSize: "1.2rem" }}
+            <Card.Body className="bg-transparent opacity-75">
+              <Card.Text className="text-success mb-2 fw-bold fs-5">
+                {subtitle}
+              </Card.Text>
+              {isJob && (
+                <Card.Text className="text-success mb-2">
+                  <strong>Experience:</strong> {experience}
+                </Card.Text>
+              )}
+              {achievementsOrDuties.length > 0 && (
+                <ListGroup variant="flush" className="text-light">
+                  {achievementsOrDuties.map((item, index) => (
+                    <ListGroup.Item
+                      key={index}
+                      className="bg-transparent text-light d-flex align-items-start border-0"
                     >
-                      •
-                    </span>
-                    <span className="card-text text-light">{item}</span>
-                  </li>
-                ))}
-              </ul>
-            )}
-
-            {/* Tags */}
-            <Tags tags={tags} />
-          </div>
-        </div>
-
-        {/* Image */}
-        {image && (
-          <div className="col-md-4 d-flex align-items-center">
-            <img
-              src={image}
-              alt={title}
-              className="img-fluid rounded-end w-100 h-100 object-cover bg-transparent shadow-sm"
-              style={{
-                objectFit: "cover",
-                height: "70%",
-              }}
-            />
-          </div>
-        )}
-      </div>
+                      <span
+                        className={`me-2 ${
+                          isJob ? "text-primary" : "text-success"
+                        }`}
+                        style={{ fontSize: "1.2rem" }}
+                      >
+                        •
+                      </span>
+                      <Card.Text>{item}</Card.Text>
+                    </ListGroup.Item>
+                  ))}
+                </ListGroup>
+              )}
+              <Tags tags={tags} />
+            </Card.Body>
+          </Col>
+          {image && (
+            <Col md={4} className="d-flex align-items-center">
+              <Card.Img
+                src={image}
+                alt={title}
+                className="rounded-end w-100 h-100 object-fit-cover shadow-sm"
+                style={{ height: "70%" }}
+              />
+            </Col>
+          )}
+        </Row>
+      </Card>
     </Container>
   );
 }
