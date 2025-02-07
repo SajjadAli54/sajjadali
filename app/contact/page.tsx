@@ -169,7 +169,6 @@ const Contact = () => {
                   <div className="invalid-feedback">{errors.message}</div>
                 )}
               </div>
-
               {/* Submit Button */}
               <div className="text-center">
                 <button type="submit" className="btn btn-primary btn-lg px-4">

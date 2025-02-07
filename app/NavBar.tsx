@@ -8,7 +8,6 @@ import Container from "react-bootstrap/Container";
 import Nav from "react-bootstrap/Nav";
 import Navbar from "react-bootstrap/Navbar";
 
-import Logo from "./logo.png";
 import { routes, navLinks as links } from "./data/routes";
 
 const NavBar = () => {
@@ -17,7 +16,13 @@ const NavBar = () => {
       <Container>
         <Link href={routes.home} passHref legacyBehavior>
           <Navbar.Brand className="d-flex align-items-center">
-            <Image src={Logo} alt="Profile" width={50} height={50} priority />
+            <Image
+              src={"/logo.png"}
+              alt="Profile"
+              width={50}
+              height={50}
+              priority
+            />
           </Navbar.Brand>
         </Link>
 
