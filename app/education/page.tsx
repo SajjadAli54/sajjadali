@@ -23,7 +23,7 @@ function EducationContainer() {
   const [activeTab, setActiveTab] = useState("education");
 
   return (
-    <Container>
+    <Container className="py-5 animate__animated animate__fadeIn">
       <Tab.Container
         activeKey={activeTab}
         onSelect={(key) => setActiveTab(key)}

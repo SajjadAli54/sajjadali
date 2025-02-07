@@ -67,7 +67,7 @@ const Blogs = () => {
   const items = paginate(filteredPosts, currentPage, PAGE_SIZE);
 
   return (
-    <Container>
+    <Container className="my-5 animate__animated animate__fadeIn">
       {loading ? (
         <Loader />
       ) : posts.length > 0 ? (

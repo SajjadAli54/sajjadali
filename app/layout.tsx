@@ -2,8 +2,11 @@ import type { Metadata } from "next";
 import { Geist, Geist_Mono } from "next/font/google";
 import { Container } from "react-bootstrap";
 
-import "./globals.css";
 import "./App.css";
+
+import "bootstrap/dist/css/bootstrap.min.css";
+
+import "animate.css";
 
 import NavBar from "./NavBar";
 import Footer from "./components/Footer";
@@ -23,6 +26,9 @@ const geistMono = Geist_Mono({
 export const metadata: Metadata = {
   title: "Sajjad Ali",
   description: "Sajjad Ali's Portfolio",
+  icons: {
+    icon: "/logo.png",
+  },
 };
 
 export default function RootLayout({

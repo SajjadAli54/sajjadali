@@ -66,7 +66,7 @@ const Contact = () => {
   };
 
   return (
-    <Container>
+    <Container className="py-5 animate__animated animate__fadeIn">
       <div className="text-center mb-5">
         <IoIosContact size={60} className="text-primary mb-2" />
         <h2 className="text-primary display-5 fw-bold">Contact Me</h2>

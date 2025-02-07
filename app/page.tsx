@@ -11,7 +11,7 @@ import { techItems } from "./data/tech-items";
 export default function Home() {
   const ProfileImage = "picofme.png";
   return (
-    <Container className="py-5">
+    <Container className="py-5 animate__animated animate__fadeIn">
       <Row className="align-items-center text-center text-lg-start">
         {/* Left Section */}
         <Col lg={6}>

@@ -2,7 +2,7 @@
 
 import Link from "next/link";
 import Image from "next/image";
-import { Card, ListGroup, Row, Col, Container } from "react-bootstrap";
+import { Card, ListGroup, Row, Col, Container, Badge } from "react-bootstrap";
 import Tags from "./Tags";
 import { calculateExperience } from "../utils/";
 
@@ -54,18 +54,18 @@ function ExperienceCard({
                     {institutionOrCompany}
                   </Link>
                 </Card.Subtitle>
-                <small className="text-secondary">{`${startDate} - ${
+                <Badge className="bg-success">{`${startDate} - ${
                   endDate || "Present"
-                }`}</small>
+                }`}</Badge>
               </div>
             </Card.Header>
 
             <Card.Body className="bg-transparent">
-              <Card.Text className="text-muted mb-2 fw-semibold">
+              <Card.Text className="text-success mb-2 fw-semibold">
                 {subtitle}
               </Card.Text>
               {isJob && (
-                <Card.Text className="text-muted mb-2">
+                <Card.Text className="text-warning mb-2">
                   <strong>Experience:</strong> {experience}
                 </Card.Text>
               )}

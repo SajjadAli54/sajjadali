@@ -84,7 +84,7 @@ const Projects = () => {
   const items = paginate(projects, currentPage, pageSize);
 
   return (
-    <Container>
+    <Container className="animate__animated animate__fadeIn">
       <SearchBox
         searchField={searchField}
         searchChange={(e) => setSearchField(e.target.value)}
