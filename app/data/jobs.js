@@ -1,9 +1,8 @@
-import badri from "../assets/job/badri.jpg";
-
 export const jobs = [
   {
     title: "Software Developer",
-    image: badri,
+    image:
+      "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSoaIHsfXc6tbhxhb7Nx8cu2_ojVFJG-LM5bw&s",
     companyName: "Badri Management Consultancy",
     companyUrl: "https://badriconsultancy.com/",
     startDate: "Nov 2024",

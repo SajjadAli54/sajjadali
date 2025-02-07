@@ -1,4 +1,3 @@
-import PropTypes from "prop-types";
 import { FaSearch } from "react-icons/fa";
 
 import Row from "react-bootstrap/Row";
