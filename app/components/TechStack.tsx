@@ -16,11 +16,15 @@ import "./stack.css";
 interface Stack {
   category: string;
   color: string;
-  items: string[];
+  items: string;
   icon: IconType;
 }
 
-function TechStack({ techItems }: { techItems: Stack[] }) {
+interface Props {
+  techItems: Stack[];
+}
+
+function TechStack({ techItems }: Props) {
   const MOBILE_WIDTH = 768;
   const MOBILE_PAGE_SIZE = 2;
   const DESKTOP_PAGE_SIZE = 6;

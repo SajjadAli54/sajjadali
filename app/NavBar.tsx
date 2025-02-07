@@ -15,7 +15,6 @@ const NavBar = () => {
   return (
     <Navbar expand="lg" className="bg-light shadow-sm">
       <Container>
-        {/* Brand Logo with Next.js Link */}
         <Link href={routes.home} passHref legacyBehavior>
           <Navbar.Brand className="d-flex align-items-center">
             <Image src={Logo} alt="Profile" width={50} height={50} priority />

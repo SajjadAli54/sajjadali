@@ -8,9 +8,8 @@ import TechStack from "./components/TechStack";
 
 import { techItems } from "./data/tech-items";
 
-import ProfileImage from "./picofme.png";
-
 export default function Home() {
+  const ProfileImage = "picofme.png";
   return (
     <Container className="py-5">
       <Row className="align-items-center text-center text-lg-start">
@@ -24,12 +23,12 @@ export default function Home() {
           </p>
           <div className="d-flex gap-3 justify-content-center justify-content-lg-start">
             <Link href="/projects" passHref>
-              <Button variant="primary" size="lg">
+              <Button variant="success" size="lg">
                 View My Work
               </Button>
             </Link>
             <Link href="/contact" passHref>
-              <Button variant="outline-primary" size="lg">
+              <Button variant="secondary" size="lg">
                 Contact Me
               </Button>
             </Link>
@@ -41,7 +40,7 @@ export default function Home() {
           <Image
             id="myImage"
             className="rounded-circle object-fit-cover"
-            src={"picofme.png"}
+            src={ProfileImage}
             alt="Sajjad Ali"
             width={200}
             height={200}
