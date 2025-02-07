@@ -90,7 +90,7 @@ const Projects = () => {
         searchChange={(e) => setSearchField(e.target.value)}
         placeholder="Search projects..."
       />
-      <div className="mb-2 mt-2 flex justify-center">
+      <div className="mb-2 mt-2 text-center">
         <Tags
           tags={Object.keys(tags)}
           status={Object.values(tags)}
@@ -119,7 +119,6 @@ const Projects = () => {
                   url: project.live,
                 },
               ]}
-
             />
           </div>
         ))}

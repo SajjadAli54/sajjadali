@@ -1,3 +1,5 @@
+"use client";
+
 import { FaHeart } from "react-icons/fa";
 import { IconType } from "react-icons";
 
@@ -28,7 +30,11 @@ const MyCard: React.FC<MyCardProps> = ({
   reactions,
 }) => {
   const component = (
-    <Card key={title} className="h-100 mb-2">
+    <Card
+      key={title}
+      className="h-100 mb-2 glassmorphism"
+      style={{ height: "100%", overflow: "hidden" }}
+    >
       <Card.Header className="bg-transparent">
         <Card.Img
           src={image || "https://via.placeholder.com/300"}

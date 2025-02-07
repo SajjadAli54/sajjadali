@@ -1,5 +1,3 @@
-import LogoImage from "../logo.png";
-
 export const projects = [
   {
     name: "Android Weather App",
@@ -50,7 +48,7 @@ export const projects = [
       "A responsive and interactive portfolio website showcasing my skills, projects, and experiences.",
     live: "https://sajjadali.netlify.app",
     clone_url: "https://github.com/SajjadAli54/sajjadali",
-    src: LogoImage,
+    src: "/logo.png",
     language: "JavaScript",
     topics: ["React", "Bootstrap", "HTML", "CSS", "Portfolio Website"],
   },

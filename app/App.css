@@ -1,0 +1,131 @@
+html,
+body {
+  margin: 0;
+  padding: 0;
+  height: 100%;
+  overflow-x: hidden;
+
+  /* background-image: url("./assets/bg.jpg");
+  background-size: cover; 
+  background-repeat: no-repeat; 
+  background-attachment: fixed; 
+  background-position: center center; 
+  color: #ffffff; */
+}
+
+#root {
+  min-height: 100vh;
+  width: 100vw;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+
+.container {
+  padding: 20px;
+  margin: 0 auto;
+}
+
+
+.card {
+  transition: transform 0.2s;
+  padding: 2em;
+  height: 100%;
+}
+
+.card:hover{
+  transform: scale(1.05); 
+}
+
+.card-header {
+  text-align: center;
+}
+
+.card-body {
+  text-align: left;
+}
+
+.card {
+  border: none;
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+  transition: transform 0.3s ease;
+  border-radius: 12px;
+  padding: 20px;
+}
+
+.card:hover {
+  transform: translateY(-10px);
+  box-shadow: 0 6px 25px rgba(0, 0, 0, 0.2);
+}
+
+.card img {
+  border-radius: 8px;
+  max-height: 70%;
+  object-fit: contain;
+}
+
+.card-body {
+  padding: 20px;
+}
+
+.card-title {
+  font-weight: bold;
+  color: #007bff;
+}
+
+.card-subtitle {
+  color: #888;
+  font-size: 0.9rem;
+}
+
+
+#myBadges img:hover {
+  transform: scale(1.1);
+}
+
+.navbar {
+  background-color: #ffffff; /* White background */
+}
+
+.navbar-nav .nav-link {
+  font-size: 1.1rem;
+  padding: 10px 20px;
+  transition: color 0.3s ease;
+}
+
+.navbar-nav .nav-link:hover {
+  color: #007bff; /* Highlight on hover */
+}
+
+.navbar-nav .active {
+  font-weight: bold;
+  color: #007bff !important; /* Active link color */
+}
+
+input:-webkit-autofill,
+textarea:-webkit-autofill {
+  background-color: #6c757d !important; /* Match bg-secondary */
+  color: #f8f9fa !important; /* Match text-light */
+  transition: background-color 5000s ease-in-out 0s; /* Prevent instant flash */
+}
+
+input:-webkit-autofill::first-line,
+textarea:-webkit-autofill::first-line {
+  color: #f8f9fa !important; /* Ensure text color matches */
+}
+
+.glassmorphism {
+  background: rgba(255, 255, 255, 0.1); /* Half-transparent */
+  box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
+  border: 1px solid rgba(255, 255, 255, 0.3);
+  backdrop-filter: blur(10px); /* Glass effect */
+  border-radius: 10px;
+  transition: all 0.3s ease-in-out;
+}
+
+.glassmorphism:hover {
+  background: rgba(255, 255, 255, 0.2);
+  transform: scale(1.02);
+}
+

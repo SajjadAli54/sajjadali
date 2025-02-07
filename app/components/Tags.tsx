@@ -1,25 +1,27 @@
+"use client";
+import { Badge } from "react-bootstrap";
 interface Props {
-    tags?: string[];
-    status?: boolean[];
-    onClick?: (tag: string) => void;
+  tags?: string[];
+  status?: boolean[];
+  onClick?: (tag: string) => void;
 }
 
 const Tags: React.FC<Props> = ({ tags = [], status = [], onClick }) => {
-    return (
-        <div className="flex flex-wrap gap-2">
-            {tags?.map((tag, index) => (
-                <span
-                    key={index}
-                    className={`px-3 py-1 text-sm font-semibold rounded-md cursor-pointer transition
-            ${status?.[index] ? "bg-yellow-500 text-white" : "bg-blue-500 text-white"}
-            hover:bg-opacity-80`}
-                    onClick={() => onClick?.(tag)}
-                >
-                    {tag}
-                </span>
-            ))}
-        </div>
-    );
+  return (
+    <div>
+      {tags?.map((tag, index) => (
+        <Badge
+          key={index}
+          className={`bg-info text-dark me-2 mb-1 ${
+            status && status[index] && "bg-warning"
+          }`}
+          onClick={() => onClick?.(tag)}
+        >
+          {tag}
+        </Badge>
+      ))}
+    </div>
+  );
 };
 
 export default Tags;

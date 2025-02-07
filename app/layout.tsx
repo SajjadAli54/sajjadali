@@ -4,6 +4,7 @@ import { Container, Theme } from "@radix-ui/themes";
 
 import "@radix-ui/themes/styles.css";
 import "./globals.css";
+import "./App.css";
 
 import NavBar from "./NavBar";
 
