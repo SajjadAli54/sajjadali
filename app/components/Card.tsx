@@ -42,7 +42,7 @@ const MyCard: React.FC<MyCardProps> = ({
           className="card-img-top bg-transparent"
           alt={title}
         />
-        <Card.Title className="text-center ">{title}</Card.Title>
+        <Card.Title className="text-center mt-4">{title}</Card.Title>
       </Card.Header>
       <Card.Body className="d-flex flex-column bg-transparent">
         {description && (

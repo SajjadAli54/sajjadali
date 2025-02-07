@@ -60,7 +60,7 @@ const Education = () => {
   const isMobile = useMediaQuery("(max-width: 768px)"); // Mobile detection
 
   return (
-    <Container>
+    <div>
       {education.map((edu, index) =>
         isMobile ? (
           <Card
@@ -71,7 +71,7 @@ const Education = () => {
             links={[
               {
                 url: edu.institutionUrl,
-                label: <FaUniversity size={20} className="me-2" />,
+                label: FaUniversity,
               },
             ]}
             tags={edu.tags}
@@ -92,7 +92,7 @@ const Education = () => {
           />
         )
       )}
-    </Container>
+    </div>
   );
 };
 

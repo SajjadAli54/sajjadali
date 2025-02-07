@@ -1,11 +1,10 @@
-import { Container } from "react-bootstrap";
 import ExperienceCard from "../components/ExperienceCard";
 
 import { jobs } from "../data/jobs";
 
 function Experience() {
   return (
-    <Container>
+    <div>
       <p className="text-center mb-5">
         Here are some of the exciting roles I have had, where I have grown my
         skills and contributed to impactful projects.
@@ -27,7 +26,7 @@ function Experience() {
           />
         ))}
       </div>
-    </Container>
+    </div>
   );
 }
 

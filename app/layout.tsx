@@ -1,6 +1,6 @@
 import type { Metadata } from "next";
 import { Geist, Geist_Mono } from "next/font/google";
-import { Container, Theme } from "@radix-ui/themes";
+import { Container } from "react-bootstrap";
 
 import "@radix-ui/themes/styles.css";
 import "./globals.css";
@@ -37,13 +37,11 @@ export default function RootLayout({
       <body
         className={`${geistSans.variable} ${geistMono.variable} antialiased`}
       >
-        <Theme accentColor="violet" grayColor="slate">
-          <NavBar />
-          <main className="p-5">
-            <Container>{children}</Container>
-          </main>
-          <MyFooter badges={badges} />
-        </Theme>
+        <NavBar />
+        <main className="p-5">
+          <Container>{children}</Container>
+        </main>
+        <MyFooter badges={badges} />
       </body>
     </html>
   );
