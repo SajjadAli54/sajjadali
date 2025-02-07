@@ -2,7 +2,6 @@ import type { Metadata } from "next";
 import { Geist, Geist_Mono } from "next/font/google";
 import { Container } from "react-bootstrap";
 
-import "@radix-ui/themes/styles.css";
 import "./globals.css";
 import "./App.css";
 
