@@ -7,10 +7,9 @@ import "./globals.css";
 
 import NavBar from "./NavBar";
 
-import Footer from "./components/Footer";
+import MyFooter from "./components/Footer";
 
-import { badges } from "./data/badges"
-
+import { badges } from "./data/badges";
 
 const geistSans = Geist({
   variable: "--font-geist-sans",
@@ -42,7 +41,7 @@ export default function RootLayout({
           <main className="p-5">
             <Container>{children}</Container>
           </main>
-          <Footer badges={badges} />
+          <MyFooter badges={badges} />
         </Theme>
       </body>
     </html>

@@ -1,4 +1,4 @@
-import LogoImage from "../assets/logo.png";
+import LogoImage from "../logo.png";
 
 export const projects = [
   {

@@ -8,10 +8,10 @@ export const routes = {
 };
 
 export const navLinks = [
-  { path: routes.home, label: "Home" },
-  { path: routes.education, label: "Education" },
-  { path: routes.experience, label: "Experience" },
-  { path: routes.projects, label: "Projects" },
-  { path: routes.blogs, label: "Blogs" },
-  { path: routes.contact, label: "Contact" },
+  { href: routes.home, label: "Home" },
+  { href: routes.education, label: "Education" },
+  { href: routes.experience, label: "Experience" },
+  { href: routes.projects, label: "Projects" },
+  { href: routes.blogs, label: "Blogs" },
+  { href: routes.contact, label: "Contact" },
 ];

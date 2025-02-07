@@ -1,5 +1,6 @@
 import { FC } from "react";
 
+import Pagination from "react-bootstrap/Pagination";
 interface MyPaginationProps {
     itemsCount: number;
     pageSize: number;
@@ -47,52 +48,31 @@ const MyPagination: FC<MyPaginationProps> = ({ itemsCount, pageSize, currentPage
 
     const displayedPages = getDisplayedPages();
 
-    return (
-        <div className="flex items-center space-x-2">
-            <button
-                onClick={() => onPageChange(1)}
-                disabled={currentPage === 1}
-                className={`px-3 py-1 text-sm bg-transparent rounded-md hover:bg-gray-300 ${currentPage === 1 && 'cursor-not-allowed'}`}
-            >
-                First
-            </button>
-            <button
-                onClick={() => onPageChange(currentPage - 1)}
-                disabled={currentPage === 1}
-                className={`px-3 py-1 text-sm bg-transparent rounded-md hover:bg-gray-300 ${currentPage === 1 && 'cursor-not-allowed'}`}
-            >
-                Prev
-            </button>
+    return (<Pagination>
+        <Pagination.First
+            disabled={currentPage === 1}
+            onClick={() => onPageChange(currentPage - 1)}
+        />
+        {displayedPages.map((page, index) =>
+            page === "..." ? (
+                <Pagination.Ellipsis key={index} />
+            ) : (
+                <Pagination.Item
+                    key={index}
+                    active={page === currentPage}
+                    onClick={() => onPageChange(page)}
+                >
+                    {page}
+                </Pagination.Item>
+            )
+        )}
+        <Pagination.Last
+            disabled={currentPage === pagesCount}
+            onClick={() => onPageChange(currentPage + 1)}
+        />
+    </Pagination>
 
-            {displayedPages.map((page, index) =>
-                page === "..." ? (
-                    <span key={index} className="text-sm">...</span>
-                ) : (
-                    <button
-                        key={index}
-                        onClick={() => onPageChange(page as number)}
-                        className={`px-3 py-1 text-sm rounded-md ${page === currentPage ? "bg-blue-500 text-white" : "bg-transparent text-blue-500"} hover:bg-blue-200`}
-                    >
-                        {page}
-                    </button>
-                )
-            )}
 
-            <button
-                onClick={() => onPageChange(currentPage + 1)}
-                disabled={currentPage === pagesCount}
-                className={`px-3 py-1 text-sm bg-transparent rounded-md hover:bg-gray-300 ${currentPage === pagesCount && 'cursor-not-allowed'}`}
-            >
-                Next
-            </button>
-            <button
-                onClick={() => onPageChange(pagesCount)}
-                disabled={currentPage === pagesCount}
-                className={`px-3 py-1 text-sm bg-transparent rounded-md hover:bg-gray-300 ${currentPage === pagesCount && 'cursor-not-allowed'}`}
-            >
-                Last
-            </button>
-        </div>
     );
 };
 

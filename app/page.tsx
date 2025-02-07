@@ -1,79 +1,76 @@
-'use client';
+"use client";
 
-import Link from 'next/link';
-import { GoStack } from 'react-icons/go';
-import { Button } from '@radix-ui/themes';
+import Link from "next/link";
+import { GoStack } from "react-icons/go";
+import { Button, Container, Row, Col, Image } from "react-bootstrap";
 
-import TechStack from './components/TechStack';
+import TechStack from "./components/TechStack";
 
-import { techItems } from "./data/tech-items"
+import { techItems } from "./data/tech-items";
 
-import ProfileImage from "./picofme.png"
-
-import Image from 'next/image';
-
-
+import ProfileImage from "./picofme.png";
 
 export default function Home() {
   return (
-    <div className="container mx-auto px-4 py-12">
-      <div className="flex flex-col lg:flex-row items-center gap-8">
+    <Container className="py-5">
+      <Row className="align-items-center text-center text-lg-start">
         {/* Left Section */}
-        <div className="text-center lg:text-left">
-          <h1 className="text-4xl font-bold mb-3">
-            Hi, I am Sajjad Ali
-          </h1>
-          <p className="text-lg mb-4">
+        <Col lg={6}>
+          <h1 className="display-4 fw-bold mb-3">Hi, I am Sajjad Ali</h1>
+          <p className="lead">
             Building seamless digital experiences across Web, Mobile, and
             Desktop. Passionate Full-Stack Developer turning complex problems
             into elegant solutions.
           </p>
-          <div className="flex gap-4 justify-center lg:justify-start">
-            <Link href="/projects">
-              <Button size="2">View My Work</Button>
+          <div className="d-flex gap-3 justify-content-center justify-content-lg-start">
+            <Link href="/projects" passHref>
+              <Button variant="primary" size="lg">
+                View My Work
+              </Button>
             </Link>
-            <Link href="/contact">
-              <Button size="2">Contact Me</Button>
+            <Link href="/contact" passHref>
+              <Button variant="outline-primary" size="lg">
+                Contact Me
+              </Button>
             </Link>
           </div>
-        </div>
+        </Col>
 
         {/* Right Section */}
-        <div className="relative flex justify-center">
+        <Col lg={6} className="text-center mt-4 mt-lg-0">
           <Image
             id="myImage"
-            className="rounded-full  object-cover"
-            src={ProfileImage}
+            className="rounded-circle object-fit-cover"
+            src={"picofme.png"}
             alt="Sajjad Ali"
             width={200}
             height={200}
+            fluid
           />
-        </div>
-      </div>
+        </Col>
+      </Row>
 
       {/* Horizontal Divider */}
-      <hr className="my-8 border-gray-700" />
+      <hr className="my-5" />
 
       {/* Tech Stack Section */}
-
-      <div className="text-center mb-10">
-        <h2 className="text-3xl text-primary flex items-center justify-center gap-2">
-          <GoStack className="text-yellow-400" /> Tech Stack
+      <div className="text-center mb-5">
+        <h2 className="text-primary d-flex align-items-center justify-content-center gap-2">
+          <GoStack className="text-warning" /> Tech Stack
         </h2>
         <TechStack techItems={techItems} />
       </div>
 
       {/* Contact Section */}
-      <div id="contact" className="text-center mt-10">
-        <h2 className="text-3xl mb-3 text-primary">Let's Connect</h2>
-        <p className="text-white">
-          I am always open to new opportunities and collaborations.
-        </p>
-        <Link href="/contact">
-          <Button variant="soft" size="3">Get In Touch</Button>
+      <div id="contact" className="text-center mt-5">
+        <h2 className="text-primary mb-3">Let's Connect</h2>
+        <p>I am always open to new opportunities and collaborations.</p>
+        <Link href="/contact" passHref>
+          <Button variant="secondary" size="lg">
+            Get In Touch
+          </Button>
         </Link>
       </div>
-    </div>
+    </Container>
   );
 }
-
