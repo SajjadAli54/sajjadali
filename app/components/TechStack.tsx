@@ -4,14 +4,14 @@ import { useEffect, useState } from "react";
 import { IconType } from "react-icons";
 
 import { paginate } from "../utils";
+import MyPagination from "./Pagination";
 
 interface Stack {
-    category: string,
-    color: string,
-    items: string[],
-    icon: IconType
+    category: string;
+    color: string;
+    items: string[];
+    icon: IconType;
 }
-
 
 function TechStack({ techItems }: { techItems: Stack[] }) {
     const MOBILE_WIDTH = 768;
@@ -28,7 +28,9 @@ function TechStack({ techItems }: { techItems: Stack[] }) {
 
     useEffect(() => {
         const updatePageSize = () => {
-            setPageSize(window.innerWidth < MOBILE_WIDTH ? MOBILE_PAGE_SIZE : DESKTOP_PAGE_SIZE);
+            setPageSize(
+                window.innerWidth < MOBILE_WIDTH ? MOBILE_PAGE_SIZE : DESKTOP_PAGE_SIZE
+            );
         };
 
         window.addEventListener("resize", updatePageSize);
@@ -78,9 +80,14 @@ function TechStack({ techItems }: { techItems: Stack[] }) {
             </div>
 
             {/* Pagination */}
+            <MyPagination
+                itemsCount={techItems.length}
+                currentPage={currentPage}
+                onPageChange={handlePageChange}
+                pageSize={pageSize}
+            />
         </div>
     );
 }
-
 
 export default TechStack;
