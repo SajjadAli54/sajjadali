@@ -1,21 +1,17 @@
 "use client";
 
 import React, { useState, useEffect, useRef } from "react";
-import { FaGithub } from "react-icons/fa6";
-import { FaGlobe, FaTrash } from "react-icons/fa";
-
 import { Container, Row } from "react-bootstrap";
-
 import MyCard from "../components/Card";
 import Tags from "../components/Tags";
-import { paginate } from "../utils/";
-
-// import { projects as allProjects } from "../data/projects";
-
 import MyPagination from "../components/Pagination";
-import SearchBox from "../components/search/SearchBox";
-import axios from "axios";
 import MyModal from "../components/modal/Modal";
+import SearchBox from "../components/search/SearchBox";
+import { paginate } from "../utils";
+
+import { fetchProjects, deleteProjectById } from "../services/projectService";
+import { useWindowSize } from "../hooks/useWindowSize";
+import { FaGithub, FaGlobe, FaTrash } from "react-icons/fa";
 
 interface Project {
   id: number;
@@ -28,73 +24,55 @@ interface Project {
   image: string;
 }
 
+interface Tag {
+  [key: string]: boolean;
+}
+
 const Projects = () => {
   const MOBILE_WIDTH = 768;
   const MOBILE_PAGE_SIZE = 3;
   const DESKTOP_PAGE_SIZE = 6;
 
-  const ref = useRef<Project[]>([]);
-
+  const ref = useRef([]);
   const [searchField, setSearchField] = useState("");
   const [projects, setProjects] = useState(ref.current);
   const [currentPage, setCurrentPage] = useState(1);
   const [pageSize, setPageSize] = useState(MOBILE_PAGE_SIZE);
-
   const [showModal, setShowModal] = useState(false);
   const [projectId, setProjectId] = useState(0);
+  const [tags, setTags]: [Tag, React.Dispatch<React.SetStateAction<Tag>>] =
+    useState({});
 
-  const [tags, setTags] = useState(() => {
-    const lang = [
-      ...new Set(ref.current.map((proj) => proj.language.toLowerCase())),
-    ];
-    const tags: Record<string, boolean> = {};
-    for (const i in lang) tags[lang[i]] = false;
-    return tags;
-  });
+  const { width } = useWindowSize();
 
   useEffect(() => {
-    const fetchProjects = async () => {
-      try {
-        const response = await axios.get("/api/projects");
-        ref.current = response.data.data;
-        console.log("Fetched Projects:", ref.current); // Add more logging to inspect the data
-        setProjects(ref.current);
-      } catch (error) {
-        console.error("Error fetching projects:", error);
-      }
+    const getProjects = async () => {
+      const fetchedProjects = await fetchProjects();
+      ref.current = fetchedProjects;
+      setProjects(fetchedProjects);
     };
-
-    fetchProjects();
+    getProjects();
   }, []);
 
   useEffect(() => {
-    const updatePageSize = () => {
-      if (window.innerWidth < MOBILE_WIDTH) {
-        setPageSize(MOBILE_PAGE_SIZE);
-      } else {
-        setPageSize(DESKTOP_PAGE_SIZE);
-      }
-    };
+    setPageSize(width < MOBILE_WIDTH ? MOBILE_PAGE_SIZE : DESKTOP_PAGE_SIZE);
+  }, [width]);
 
-    updatePageSize();
-    window.addEventListener("resize", updatePageSize);
-
-    return () => window.removeEventListener("resize", updatePageSize);
-  }, []);
-
+  // Search functionality
   useEffect(() => {
     const field = searchField.trim().toLowerCase();
     const filteredProjects = ref.current.filter(
-      (project) =>
+      (project: Project) =>
         project.title.toLowerCase().includes(field) ||
         project.description.toLowerCase().includes(field) ||
         project.language.toLowerCase().includes(field) ||
         project.topics.some((topic) => topic.toLowerCase().includes(field))
     );
-    setCurrentPage(1);
     setProjects(filteredProjects);
+    setCurrentPage(1);
   }, [searchField]);
 
+  // Tag filtering
   useEffect(() => {
     if (new Set(Object.values(tags)).size === 1) {
       setProjects(ref.current);
@@ -102,7 +80,7 @@ const Projects = () => {
       return;
     }
     const filteredProjects = ref.current.filter(
-      (project) => tags[project.language.toLowerCase()]
+      (project: Project) => tags[project.language.toLowerCase()]
     );
     setProjects(filteredProjects);
   }, [tags]);
@@ -114,7 +92,14 @@ const Projects = () => {
     }));
   };
 
-  const items = paginate(projects, currentPage, pageSize);
+  const items: Project[] = paginate(projects, currentPage, pageSize);
+
+  const handleDelete = async () => {
+    setShowModal(false);
+    await deleteProjectById(projectId);
+    ref.current = ref.current.filter((proj: Project) => proj.id !== projectId);
+    setProjects(ref.current);
+  };
 
   return (
     <Container className="animate__animated animate__fadeIn">
@@ -125,12 +110,7 @@ const Projects = () => {
         cancel="No"
         show={showModal}
         handleClose={() => setShowModal(false)}
-        handleYes={() => {
-          setShowModal(false);
-          ref.current = ref.current.filter((proj) => proj.id !== projectId);
-          setProjects(ref.current);
-          axios.delete(`/api/projects/`, { data: { id: projectId } });
-        }}
+        handleYes={handleDelete}
       />
       <SearchBox
         searchField={searchField}
