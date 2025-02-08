@@ -106,14 +106,15 @@ body {
 input:-webkit-autofill,
 textarea:-webkit-autofill {
   background-color: #6c757d !important; /* Match bg-secondary */
-  color: #f8f9fa !important; /* Match text-light */
   transition: background-color 5000s ease-in-out 0s; /* Prevent instant flash */
 }
 
+/* 
 input:-webkit-autofill::first-line,
 textarea:-webkit-autofill::first-line {
-  color: #f8f9fa !important; /* Ensure text color matches */
-}
+  color: #f8f9fa !important; 
+} 
+*/
 
 .glassmorphism {
   background: rgba(255, 255, 255, 0.1); /* Half-transparent */
