@@ -34,9 +34,13 @@ const NavBar = () => {
         ...updatedLinks,
         { href: "/projects/add", label: "Add Project" },
         {
-          href: "#",
+          href: routes.home,
           label: "Logout",
-          onClick: () => dispatch(setUser(null)),
+          onClick: () => {
+            dispatch(setUser(""));
+
+            window.location.reload();
+          },
         },
       ]);
     }
@@ -62,14 +66,8 @@ const NavBar = () => {
         <Navbar.Collapse id="basic-navbar-nav">
           <Nav className="ms-auto">
             {links.map(({ href, label, onClick }) => (
-              <Link
-                key={`${href}${label}`}
-                href={href}
-                onClick={onClick}
-                passHref
-                legacyBehavior
-              >
-                <Nav.Link>{label}</Nav.Link>
+              <Link key={`${href}${label}`} href={href} passHref legacyBehavior>
+                <Nav.Link onClick={onClick}>{label}</Nav.Link>
               </Link>
             ))}
           </Nav>
