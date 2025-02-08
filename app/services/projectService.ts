@@ -1,8 +1,12 @@
 import axios from "axios";
 
+import { Project } from "../types";
+
+const url = "/api/projects";
+
 export const fetchProjects = async () => {
   try {
-    const response = await axios.get("/api/projects");
+    const response = await axios.get(url);
     return response.data.data;
   } catch (error) {
     console.error("Error fetching projects:", error);
@@ -10,9 +14,19 @@ export const fetchProjects = async () => {
   }
 };
 
+export const createProject = async (project: Project): Promise<boolean> => {
+  try {
+    await axios.post(url, project);
+    return true;
+  } catch (error) {
+    console.error("Error creating project:", error);
+    return false;
+  }
+};
+
 export const deleteProjectById = async (id: number) => {
   try {
-    await axios.delete(`/api/projects/`, { data: { id } });
+    await axios.delete(url, { data: { id } });
   } catch (error) {
     console.error("Error deleting project:", error);
   }

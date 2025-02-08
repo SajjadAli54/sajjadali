@@ -10,26 +10,13 @@ import SearchBox from "../components/search/SearchBox";
 import { paginate } from "../utils";
 
 import { fetchProjects, deleteProjectById } from "../services/projectService";
-import { useWindowSize } from "../hooks/useWindowSize";
 import { FaGithub, FaGlobe, FaTrash } from "react-icons/fa";
 
-interface Project {
-  id: number;
-  title: string;
-  description: string;
-  language: string;
-  topics: string[];
-  clone_url: string;
-  live: string;
-  image: string;
-}
+import useMediaQuery from "../hooks/useMediaQuery";
 
-interface Tag {
-  [key: string]: boolean;
-}
+import { Project, Tag } from "../types";
 
 const Projects = () => {
-  const MOBILE_WIDTH = 768;
   const MOBILE_PAGE_SIZE = 3;
   const DESKTOP_PAGE_SIZE = 6;
 
@@ -43,20 +30,27 @@ const Projects = () => {
   const [tags, setTags]: [Tag, React.Dispatch<React.SetStateAction<Tag>>] =
     useState({});
 
-  const { width } = useWindowSize();
+  const isMobile = useMediaQuery(`(max-width: 768px)`);
 
   useEffect(() => {
     const getProjects = async () => {
       const fetchedProjects = await fetchProjects();
       ref.current = fetchedProjects;
       setProjects(fetchedProjects);
+
+      setTags(
+        fetchedProjects.reduce((acc: Tag, project: Project) => {
+          acc[project.language.toLowerCase()] = false;
+          return acc;
+        }, {})
+      );
     };
     getProjects();
   }, []);
 
   useEffect(() => {
-    setPageSize(width < MOBILE_WIDTH ? MOBILE_PAGE_SIZE : DESKTOP_PAGE_SIZE);
-  }, [width]);
+    setPageSize(isMobile ? MOBILE_PAGE_SIZE : DESKTOP_PAGE_SIZE);
+  }, [isMobile]);
 
   // Search functionality
   useEffect(() => {
@@ -160,7 +154,7 @@ const Projects = () => {
             </div>
           ))
         ) : (
-          <div>No projects found.</div>
+          <div className="text-center">No projects found.</div>
         )}
       </Row>
 

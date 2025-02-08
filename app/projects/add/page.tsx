@@ -12,11 +12,12 @@ import {
 import CreatableSelect from "react-select/creatable";
 import { MultiValue } from "react-select";
 
-import axios from "axios";
 import * as Yup from "yup"; // Formik works well with Yup
 import { useRouter } from "next/navigation";
+import { Project, TopicOption } from "@/app/types";
 
-// 🎯 Define Zod Schema for Validation
+import { createProject } from "@/app/services/projectService";
+
 const ProjectSchema = Yup.object({
   title: Yup.string()
     .min(3, "Title must be at least 3 characters")
@@ -32,10 +33,6 @@ const ProjectSchema = Yup.object({
   live: Yup.string().url("Invalid URL").optional(),
 });
 
-interface TopicOption {
-  value: string;
-  label: string;
-}
 // Options for topics (predefined but can be added dynamically)
 const topicOptions: TopicOption[] = [
   { value: "react", label: "React" },
@@ -53,20 +50,26 @@ export default function ProjectForm() {
   const [errorMessage, setErrorMessage] = useState("");
   const [loading, setLoading] = useState(false);
   const [selectedTopics, setSelectedTopics] = useState([]);
-  const [options, setOptions] = useState<TopicOption[]>(topicOptions);
 
   const router = useRouter();
 
-  const createOption = (label: string) => ({
-    label,
-    value: label.toLowerCase().replace(/\W/g, ""),
-  });
+  const handleSubmit = async (values: Project, { resetForm }) => {
+    setLoading(true);
+    setErrorMessage("");
+    setSuccessMessage("");
 
-  const handleCreate = (inputValue: string) => {
+    const res = await createProject(values);
+    if (!res) {
+      setErrorMessage("Failed to add project. Please try again.");
+      return;
+    }
+    setSuccessMessage("Project added successfully!");
+
     setTimeout(() => {
-      const newOption = createOption(inputValue);
-      setOptions((prev) => [...prev, newOption]);
-    }, 1000);
+      resetForm();
+      router.push("/projects");
+      setSelectedTopics([]); // Reset topics field
+    });
   };
 
   return (
@@ -87,27 +90,7 @@ export default function ProjectForm() {
           image: "",
         }}
         validationSchema={ProjectSchema}
-        onSubmit={async (values, { resetForm }) => {
-          setLoading(true);
-          setErrorMessage("");
-          setSuccessMessage("");
-
-          try {
-            await axios.post("/api/projects", values);
-            setSuccessMessage("Project added successfully!");
-            resetForm();
-            setSelectedTopics([]); // Reset topics field
-
-            setTimeout(() => {
-              router.push("/projects");
-            });
-          } catch (error) {
-            console.error("Error adding project:", error);
-            setErrorMessage("Failed to add project. Please try again.");
-          } finally {
-            setLoading(false);
-          }
-        }}
+        onSubmit={handleSubmit}
       >
         {({ isSubmitting, setFieldValue }) => (
           <Form className="p-4 border rounded bg-light shadow">
@@ -169,7 +152,7 @@ export default function ProjectForm() {
                 isMulti
                 closeMenuOnSelect={false}
                 // onCreateOption={handleCreate}
-                options={options}
+                options={topicOptions}
                 value={selectedTopics}
                 onChange={(selected: MultiValue<TopicOption>) => {
                   setSelectedTopics(selected);
