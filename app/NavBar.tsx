@@ -34,7 +34,7 @@ const NavBar = () => {
         ...updatedLinks,
         { href: "/projects/add", label: "Add Project" },
         {
-          href: routes.home,
+          href: "#",
           label: "Logout",
           onClick: () => dispatch(setUser(null)),
         },

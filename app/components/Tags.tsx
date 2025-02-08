@@ -17,7 +17,7 @@ const Tags: React.FC<Props> = ({ tags = [], status = [], onClick }) => {
           }`}
           onClick={() => onClick?.(tag)}
         >
-          {tag}
+          {tag.toLowerCase()}
         </Badge>
       ))}
     </div>

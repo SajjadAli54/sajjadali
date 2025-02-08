@@ -23,6 +23,7 @@ import { createProject } from "@/app/services/projectService";
 import { useSelector } from "react-redux";
 import { selectUser } from "@/app/redux/slices/admin";
 import IllegalPage from "../IllegalPage";
+import { routes } from "@/app/data/routes";
 
 const ProjectSchema = Yup.object({
   title: Yup.string()
@@ -78,7 +79,7 @@ export default function ProjectForm() {
     setSuccessMessage("Project added successfully!");
 
     setTimeout(() => {
-      router.push("/projects");
+      router.push(routes.projects);
       setSelectedTopics([]);
     }, 1500);
   };

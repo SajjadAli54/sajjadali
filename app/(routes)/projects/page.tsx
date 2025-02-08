@@ -94,7 +94,7 @@ const Projects = () => {
       setAdminButtons([
         {
           label: FaEdit,
-          className: "text-primary",
+          className: "text-success",
         },
         {
           label: FaTrash,

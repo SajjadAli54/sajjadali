@@ -7,7 +7,9 @@ const prisma = new PrismaClient();
 // ✅ Get all projects
 export async function GET() {
   try {
-    const projects = await prisma.project.findMany();
+    const projects = (await prisma.project.findMany()).sort(
+      (a, b) => b.id - a.id
+    );
     return NextResponse.json(
       { success: true, data: projects },
       { status: 200 }
