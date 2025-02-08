@@ -40,13 +40,13 @@ export default function RootLayout({
       <body
         className={`${geistSans.variable} ${geistMono.variable} antialiased`}
       >
-        <NavBar />
-        <main className="p-5">
-          <Providers>
+        <Providers>
+          <NavBar />
+          <main className="p-5">
             <Container>{children}</Container>
-          </Providers>
-        </main>
-        <Footer badges={badges} />
+          </main>
+          <Footer badges={badges} />
+        </Providers>
       </body>
     </html>
   );

@@ -1,3 +1,5 @@
+import { IconType } from "react-icons";
+
 interface Project {
   id: number;
   title: string;
@@ -18,4 +20,11 @@ interface TopicOption {
   label: string;
 }
 
-export type { Project, Tag, TopicOption };
+interface LinkType {
+  label: IconType;
+  url?: string;
+  className?: string;
+  onClick?: () => void;
+}
+
+export type { Project, Tag, TopicOption, LinkType };

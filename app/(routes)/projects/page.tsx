@@ -10,20 +10,24 @@ import SearchBox from "@components/search/SearchBox";
 import { paginate } from "@utils/index";
 
 import { fetchProjects, deleteProjectById } from "@services/projectService";
-import { FaGithub, FaGlobe, FaRegEdit, FaTrash } from "react-icons/fa";
+import { FaEdit, FaGithub, FaGlobe, FaRegEdit, FaTrash } from "react-icons/fa";
 
 import useMediaQuery from "@hooks/useMediaQuery";
-import { Project } from "@prisma/client";
-import { Tag } from "@types";
+
+import { Tag, Project, LinkType } from "@types";
+
 import { useSelector } from "react-redux";
 import { selectUser } from "@/app/redux/slices/admin";
 import Link from "next/link";
+import { useRouter } from "next/navigation";
 
 const Projects = () => {
   const MOBILE_PAGE_SIZE = 3;
   const DESKTOP_PAGE_SIZE = 6;
 
   const ref = useRef([]);
+
+  const router = useRouter();
 
   const user = useSelector(selectUser);
   const [searchField, setSearchField] = useState("");
@@ -34,6 +38,10 @@ const Projects = () => {
   const [projectId, setProjectId] = useState(0);
   const [tags, setTags]: [Tag, React.Dispatch<React.SetStateAction<Tag>>] =
     useState({});
+  const [adminButtons, setAdminButtons]: [
+    LinkType[] | undefined,
+    React.Dispatch<React.SetStateAction<LinkType[] | undefined>>
+  ] = useState();
 
   const isMobile = useMediaQuery(`(max-width: 768px)`);
 
@@ -57,7 +65,6 @@ const Projects = () => {
     setPageSize(isMobile ? MOBILE_PAGE_SIZE : DESKTOP_PAGE_SIZE);
   }, [isMobile]);
 
-  // Search functionality
   useEffect(() => {
     const field = searchField.trim().toLowerCase();
     const filteredProjects = ref.current.filter(
@@ -71,7 +78,6 @@ const Projects = () => {
     setCurrentPage(1);
   }, [searchField]);
 
-  // Tag filtering
   useEffect(() => {
     if (new Set(Object.values(tags)).size === 1) {
       setProjects(ref.current);
@@ -83,6 +89,23 @@ const Projects = () => {
     );
     setProjects(filteredProjects);
   }, [tags]);
+
+  useEffect(() => {
+    if (user) {
+      setAdminButtons([
+        {
+          label: FaEdit,
+          className: "text-primary",
+        },
+        {
+          label: FaTrash,
+          className: "text-danger",
+        },
+      ]);
+    } else {
+      setAdminButtons([]);
+    }
+  }, [user]);
 
   const handleBadgeClick = (language: string) => {
     setTags((prev) => ({
@@ -165,14 +188,21 @@ const Projects = () => {
                     label: FaGlobe,
                     url: project.live,
                   },
-                  {
-                    label: FaTrash,
-                    className: "text-danger",
-                    onClick: () => {
-                      setShowModal(true);
-                      setProjectId(project.id);
-                    },
-                  },
+                  ...adminButtons!.map((value) => {
+                    return {
+                      label: value.label,
+                      className: value.className,
+                      onClick: () => {
+                        if (value.label === FaEdit) {
+                          router.push(`/projects/${project.id}`);
+                        }
+                        if (value.label === FaTrash) {
+                          setShowModal(true);
+                          setProjectId(project.id);
+                        }
+                      },
+                    };
+                  }),
                 ]}
               />
             </div>
