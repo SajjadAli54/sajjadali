@@ -1,6 +1,6 @@
 export const projects = [
   {
-    name: "Android Weather App",
+    title: "Android Weather App",
     description:
       "A Flutter-based Android Weather App leveraging the OpenWeather API for real-time weather updates.",
     clone_url: "https://github.com/SajjadAli54/flutter_weather_app",
@@ -16,7 +16,7 @@ export const projects = [
     ],
   },
   {
-    name: "Currency Converter Desktop App",
+    title: "Currency Converter Desktop App",
     description:
       "A powerful desktop app built with Python and PyQt, featuring real-time currency conversion using an exchange rates API.",
     clone_url:
@@ -33,7 +33,7 @@ export const projects = [
     ],
   },
   {
-    name: "Email Sender Desktop App",
+    title: "Email Sender Desktop App",
     description:
       "A Python-based desktop email sender, developed using PyQt with SMTP integration for efficient email delivery.",
     clone_url:
@@ -43,7 +43,7 @@ export const projects = [
     topics: ["PyQt", "Email Automation", "SMTP", "Python GUI", "APIs"],
   },
   {
-    name: "Portfolio Website",
+    title: "Portfolio Website",
     description:
       "A responsive and interactive portfolio website showcasing my skills, projects, and experiences.",
     live: "https://sajjadali.netlify.app",
@@ -53,7 +53,7 @@ export const projects = [
     topics: ["React", "Bootstrap", "HTML", "CSS", "Portfolio Website"],
   },
   {
-    name: "Flash Driving App",
+    title: "Flash Driving App",
     description:
       "A Kotlin-based ride-hailing app featuring driver and customer interfaces, Google Maps integration, and secure Google Pay transactions.",
     clone_url: "https://github.com/SajjadAli54/flash-app",
@@ -67,7 +67,7 @@ export const projects = [
     ],
   },
   {
-    name: "Android Chatbot",
+    title: "Android Chatbot",
     description:
       "An AI-powered chatbot built with Kotlin and BrainShop API, delivering a seamless conversational experience.",
     clone_url: "https://github.com/SajjadAli54/chatbot",
@@ -76,7 +76,7 @@ export const projects = [
     topics: ["AI Chatbot", "BrainShop API", "Android AI", "Conversational AI"],
   },
   {
-    name: "Issue Tracker",
+    title: "Issue Tracker",
     description:
       "A Next.js-based full-stack issue tracking system with a MySQL database powered by Prisma ORM.",
     clone_url: "https://github.com/SajjadAli54/issue-tracker",
@@ -92,7 +92,7 @@ export const projects = [
     ],
   },
   {
-    name: "Mini PayPal",
+    title: "Mini PayPal",
     description:
       "A Django-based secure payment platform that enables users to make, request, and receive payments.",
     clone_url: "https://github.com/SajjadAli54/django-mini-paypal",
@@ -101,7 +101,7 @@ export const projects = [
     topics: ["Django", "Payment Gateway", "Secure Transactions", "FinTech"],
   },
   {
-    name: "QR Code Generator API",
+    title: "QR Code Generator API",
     description:
       "A RESTful API built with Node.js and Express.js for generating and managing QR codes.",
     clone_url: "https://github.com/SajjadAli54/QRCode",
@@ -110,7 +110,7 @@ export const projects = [
     topics: ["Node.js", "Express.js", "QR Code API", "RESTful API"],
   },
   {
-    name: "Country Charm",
+    title: "Country Charm",
     description:
       "A React-powered review platform for food, hotels, and tourist destinations, built as a semester project.",
     live: "https://sajjadali54.github.io/countrycharm/",
@@ -120,7 +120,7 @@ export const projects = [
     topics: ["React", "Tourism Reviews", "Bootstrap UI", "Travel Guide"],
   },
   {
-    name: "Robo Friends",
+    title: "Robo Friends",
     description:
       "A fun React app displaying robot profiles using the RoboHash API, featuring a search filter.",
     live: "https://sajjadali54.github.io/robofriends/",
@@ -130,7 +130,7 @@ export const projects = [
     topics: ["React", "API Integration", "Fun Project", "Robots"],
   },
   {
-    name: "Vidly",
+    title: "Vidly",
     description:
       "A React-based movie listing application showcasing state management and dynamic components.",
     live: "https://sajjadali54.github.io/vidly/",
@@ -140,7 +140,7 @@ export const projects = [
     topics: ["React", "Movie Listings", "Dynamic UI", "State Management"],
   },
   {
-    name: "School Management System",
+    title: "School Management System",
     description:
       "A Java Swing desktop application for managing school operations, including student records, reporting, and data visualization.",
     clone_url: "https://github.com/SajjadAli54/school-management-system",

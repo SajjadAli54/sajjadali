@@ -53,7 +53,7 @@ const Projects = () => {
     const field = searchField.trim().toLowerCase();
     const filteredProjects = allProjects.filter(
       (project) =>
-        project.name.toLowerCase().includes(field) ||
+        project.title.toLowerCase().includes(field) ||
         project.description.toLowerCase().includes(field) ||
         project.language.toLowerCase().includes(field) ||
         project.topics.some((topic) => topic.toLowerCase().includes(field))
@@ -106,7 +106,7 @@ const Projects = () => {
                 project.src ??
                 "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQpZ6IjB4FE5Dadyw8HmA2VuC_7QXJZ9h4HlQ&s"
               }
-              title={project.name}
+              title={project.title}
               description={project.description}
               tags={[project.language, ...project.topics]}
               links={[
