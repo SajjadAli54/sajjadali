@@ -1,4 +1,6 @@
-import { Project } from "@prisma/client";
+// import { Project } from "@prisma/client";
+
+import { Project } from "@types";
 
 import axios from "axios";
 
@@ -14,6 +16,16 @@ export const fetchProjects = async () => {
   }
 };
 
+export const fetchProjectById = async (id: number) => {
+  try {
+    const response = await axios.get(`${url}/${id}`);
+    return response.data.data;
+  } catch (error) {
+    console.error("Error fetching project:", error);
+    return null;
+  }
+};
+
 export const createProject = async (project: Project): Promise<boolean> => {
   try {
     await axios.post(url, project);
@@ -24,9 +36,10 @@ export const createProject = async (project: Project): Promise<boolean> => {
   }
 };
 
-export const updateProject = async (project: Project): Promise<boolean> => {
+export const updateProject = async (id: string, updatedProject: object) => {
+  console.log("Updated project data:", id, updatedProject);
   try {
-    await axios.patch(url, project);
+    await axios.put(`/api/projects/${id}`, updatedProject);
     return true;
   } catch (error) {
     console.error("Error updating project:", error);

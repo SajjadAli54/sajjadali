@@ -8,11 +8,12 @@ import {
   Form as BootstrapForm,
   Alert,
   Spinner,
+  Card,
 } from "react-bootstrap";
 import CreatableSelect from "react-select/creatable";
 import { MultiValue } from "react-select";
 
-import * as Yup from "yup"; // Formik works well with Yup
+import * as Yup from "yup";
 import { useRouter } from "next/navigation";
 
 import { Project } from "@types";
@@ -38,7 +39,6 @@ const ProjectSchema = Yup.object({
   live: Yup.string().url("Invalid URL").optional(),
 });
 
-// Options for topics (predefined but can be added dynamically)
 const topicOptions: TopicOption[] = [
   { value: "react", label: "React" },
   { value: "nextjs", label: "Next.js" },
@@ -55,6 +55,7 @@ export default function ProjectForm() {
   const [errorMessage, setErrorMessage] = useState("");
   const [loading, setLoading] = useState(false);
   const [selectedTopics, setSelectedTopics] = useState([]);
+  const [imagePreview, setImagePreview] = useState<string>("");
 
   const user = useSelector(selectUser);
   const router = useRouter();
@@ -71,14 +72,15 @@ export default function ProjectForm() {
     const res = await createProject(values);
     if (!res) {
       setErrorMessage("Failed to add project. Please try again.");
+      setLoading(false);
       return;
     }
     setSuccessMessage("Project added successfully!");
 
     setTimeout(() => {
       router.push("/projects");
-      setSelectedTopics([]); // Reset topics field
-    });
+      setSelectedTopics([]);
+    }, 1500);
   };
 
   return (
@@ -101,133 +103,164 @@ export default function ProjectForm() {
         validationSchema={ProjectSchema}
         onSubmit={handleSubmit}
       >
-        {({ isSubmitting, setFieldValue }) => (
-          <Form className="p-4 border rounded bg-light shadow">
-            {/* Title */}
-            <BootstrapForm.Group className="mb-3">
-              <BootstrapForm.Label>Title</BootstrapForm.Label>
-              <Field
-                type="text"
-                name="title"
-                className="form-control"
-                placeholder="Enter project title"
-              />
-              <ErrorMessage
-                name="title"
-                component="div"
-                className="text-danger"
-              />
-            </BootstrapForm.Group>
+        {({ isSubmitting, setFieldValue, values }) => (
+          <Form className="p-4 border rounded bg-light shadow-lg">
+            <div className="row">
+              <div className="col-md-8">
+                {/* Title */}
+                <BootstrapForm.Group className="mb-3">
+                  <BootstrapForm.Label>Title</BootstrapForm.Label>
+                  <Field
+                    type="text"
+                    name="title"
+                    className="form-control"
+                    placeholder="Enter project title"
+                  />
+                  <ErrorMessage
+                    name="title"
+                    component="div"
+                    className="text-danger"
+                  />
+                </BootstrapForm.Group>
 
-            {/* Description */}
-            <BootstrapForm.Group className="mb-3">
-              <BootstrapForm.Label>Description</BootstrapForm.Label>
-              <Field
-                as="textarea"
-                name="description"
-                className="form-control"
-                rows={3}
-                placeholder="Describe your project"
-              />
-              <ErrorMessage
-                name="description"
-                component="div"
-                className="text-danger"
-              />
-            </BootstrapForm.Group>
+                {/* Description */}
+                <BootstrapForm.Group className="mb-3">
+                  <BootstrapForm.Label>Description</BootstrapForm.Label>
+                  <Field
+                    as="textarea"
+                    name="description"
+                    className="form-control"
+                    rows={3}
+                    placeholder="Describe your project"
+                  />
+                  <ErrorMessage
+                    name="description"
+                    component="div"
+                    className="text-danger"
+                  />
+                </BootstrapForm.Group>
 
-            {/* Language */}
-            <BootstrapForm.Group className="mb-3">
-              <BootstrapForm.Label>Programming Language</BootstrapForm.Label>
-              <Field
-                type="text"
-                name="language"
-                className="form-control"
-                placeholder="E.g., JavaScript, Python"
-              />
-              <ErrorMessage
-                name="language"
-                component="div"
-                className="text-danger"
-              />
-            </BootstrapForm.Group>
+                {/* Language */}
+                <BootstrapForm.Group className="mb-3">
+                  <BootstrapForm.Label>
+                    Programming Language
+                  </BootstrapForm.Label>
+                  <Field
+                    type="text"
+                    name="language"
+                    className="form-control"
+                    placeholder="E.g., JavaScript, Python"
+                  />
+                  <ErrorMessage
+                    name="language"
+                    component="div"
+                    className="text-danger"
+                  />
+                </BootstrapForm.Group>
 
-            {/* Topics (React-Select) */}
-            <BootstrapForm.Group className="mb-3">
-              <BootstrapForm.Label>
-                Topics (Select or Add Custom)
-              </BootstrapForm.Label>
-              <CreatableSelect
-                isMulti
-                closeMenuOnSelect={false}
-                // onCreateOption={handleCreate}
-                options={topicOptions}
-                value={selectedTopics}
-                onChange={(selected: MultiValue<TopicOption>) => {
-                  setSelectedTopics(selected);
-                  setFieldValue(
-                    "topics",
-                    selected.map((topic) => topic.value)
-                  );
-                }}
-                className="basic-multi-select"
-                classNamePrefix="select"
-                placeholder="Select topics..."
-              />
-              <ErrorMessage
-                name="topics"
-                component="div"
-                className="text-danger mt-1"
-              />
-            </BootstrapForm.Group>
+                {/* Topics (React-Select) */}
+                <BootstrapForm.Group className="mb-3">
+                  <BootstrapForm.Label>
+                    Topics (Select or Add Custom)
+                  </BootstrapForm.Label>
+                  <CreatableSelect
+                    isMulti
+                    closeMenuOnSelect={false}
+                    options={topicOptions}
+                    value={selectedTopics}
+                    onChange={(selected: MultiValue<TopicOption>) => {
+                      setSelectedTopics(selected);
+                      setFieldValue(
+                        "topics",
+                        selected.map((topic) => topic.value)
+                      );
+                    }}
+                    className="basic-multi-select"
+                    classNamePrefix="select"
+                    placeholder="Select topics..."
+                  />
+                  <ErrorMessage
+                    name="topics"
+                    component="div"
+                    className="text-danger mt-1"
+                  />
+                </BootstrapForm.Group>
 
-            {/* Clone URL */}
-            <BootstrapForm.Group className="mb-3">
-              <BootstrapForm.Label>GitHub Repository URL</BootstrapForm.Label>
-              <Field
-                type="text"
-                name="clone_url"
-                className="form-control"
-                placeholder="Enter repo URL (optional)"
-              />
-              <ErrorMessage
-                name="clone_url"
-                component="div"
-                className="text-danger"
-              />
-            </BootstrapForm.Group>
+                {/* GitHub Repo URL */}
+                <BootstrapForm.Group className="mb-3">
+                  <BootstrapForm.Label>
+                    GitHub Repository URL
+                  </BootstrapForm.Label>
+                  <Field
+                    type="text"
+                    name="clone_url"
+                    className="form-control"
+                    placeholder="Enter repo URL (optional)"
+                  />
+                  <ErrorMessage
+                    name="clone_url"
+                    component="div"
+                    className="text-danger"
+                  />
+                </BootstrapForm.Group>
 
-            {/* Live Demo URL */}
-            <BootstrapForm.Group className="mb-3">
-              <BootstrapForm.Label>Live Project URL</BootstrapForm.Label>
-              <Field
-                type="text"
-                name="live"
-                className="form-control"
-                placeholder="Enter live project URL (optional)"
-              />
-              <ErrorMessage
-                name="live"
-                component="div"
-                className="text-danger"
-              />
-            </BootstrapForm.Group>
+                {/* Live Demo URL */}
+                <BootstrapForm.Group className="mb-3">
+                  <BootstrapForm.Label>Live Project URL</BootstrapForm.Label>
+                  <Field
+                    type="text"
+                    name="live"
+                    className="form-control"
+                    placeholder="Enter live project URL (optional)"
+                  />
+                  <ErrorMessage
+                    name="live"
+                    component="div"
+                    className="text-danger"
+                  />
+                </BootstrapForm.Group>
 
-            {/* Image URL (Required) */}
-            <BootstrapForm.Group className="mb-3">
-              <BootstrapForm.Label>Project Image URL</BootstrapForm.Label>
-              <Field
-                type="text"
-                name="image"
-                className="form-control"
-                placeholder="Enter image URL"
-              />
-              <ErrorMessage
-                name="image"
-                component="div"
-                className="text-danger"
-              />
-            </BootstrapForm.Group>
+                {/* Image URL */}
+                <BootstrapForm.Group className="mb-3">
+                  <BootstrapForm.Label>Project Image URL</BootstrapForm.Label>
+                  <Field
+                    type="text"
+                    name="image"
+                    className="form-control"
+                    placeholder="Enter image URL"
+                    onChange={(e) => {
+                      const url = e.target.value;
+                      setFieldValue("image", url);
+                      setImagePreview(url);
+                    }}
+                  />
+                  <ErrorMessage
+                    name="image"
+                    component="div"
+                    className="text-danger"
+                  />
+                </BootstrapForm.Group>
+              </div>
+
+              {/* Image Preview */}
+              <div className="col-md-4 d-flex align-items-center justify-content-center">
+                {imagePreview ? (
+                  <Card
+                    className="shadow-sm"
+                    style={{ width: "100%", maxWidth: "300px" }}
+                  >
+                    <Card.Img
+                      variant="top"
+                      src={imagePreview}
+                      alt="Project Image Preview"
+                      className="rounded"
+                    />
+                  </Card>
+                ) : (
+                  <p className="text-muted">No image preview available</p>
+                )}
+              </div>
+            </div>
 
             {/* Submit Button */}
             <div className="text-center">
