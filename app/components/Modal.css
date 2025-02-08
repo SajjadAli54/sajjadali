@@ -1,0 +1,66 @@
+/* Add custom CSS for MyModal */
+.modalDialog {
+    max-width: 500px;
+    border-radius: 10px;
+  }
+  
+  .modalTitle {
+    font-size: 1.5rem;
+    color: #2a9d8f;
+    font-weight: bold;
+    display: flex;
+    align-items: center;
+  }
+  
+  .modalTitle .icon {
+    font-size: 1.5rem;
+    color: #2a9d8f;
+    margin-right: 10px;
+  }
+  
+  .modalBody {
+    font-size: 1.1rem;
+    color: #555;
+  }
+  
+  .modalFooter {
+    border-top: 1px solid #e9ecef;
+    display: flex;
+    justify-content: flex-end;
+  }
+  
+  .btn {
+    font-weight: 600;
+    padding: 10px 20px;
+    border-radius: 5px;
+    transition: all 0.3s ease;
+  }
+  
+  .cancelBtn {
+    background-color: transparent;
+    color: #e63946;
+    border: 1px solid #e63946;
+  }
+  
+  .cancelBtn:hover {
+    background-color: #e63946;
+    color: white;
+  }
+  
+  .okBtn {
+    background-color: #2a9d8f;
+    color: white;
+    border: 1px solid #2a9d8f;
+  }
+  
+  .okBtn:hover {
+    background-color: #21867a;
+    border-color: #21867a;
+  }
+  
+  /* Add hover effect for buttons */
+  .btn:hover {
+    box-shadow: 0px 4px 12px rgba(0, 0, 0, 0.1);
+    transform: translateY(-2px);
+  }
+  

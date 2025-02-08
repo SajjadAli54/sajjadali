@@ -2,7 +2,7 @@
 
 import React, { useState, useEffect, useRef } from "react";
 import { FaGithub } from "react-icons/fa6";
-import { FaGlobe } from "react-icons/fa";
+import { FaGlobe, FaTrash } from "react-icons/fa";
 
 import { Container, Row } from "react-bootstrap";
 
@@ -15,6 +15,7 @@ import { paginate } from "../utils/";
 import MyPagination from "../components/Pagination";
 import SearchBox from "../components/SearchBox";
 import axios from "axios";
+import MyModal from "../components/Modal";
 
 interface Project {
   id: number;
@@ -38,6 +39,9 @@ const Projects = () => {
   const [projects, setProjects] = useState(ref.current);
   const [currentPage, setCurrentPage] = useState(1);
   const [pageSize, setPageSize] = useState(MOBILE_PAGE_SIZE);
+
+  const [showModal, setShowModal] = useState(false);
+  const [projectId, setProjectId] = useState(0);
 
   const [tags, setTags] = useState(() => {
     const lang = [
@@ -110,13 +114,24 @@ const Projects = () => {
     }));
   };
 
-  console.log("Projects:", projects);
   const items = paginate(projects, currentPage, pageSize);
-  console.log("Current Page:", currentPage, "Page Size:", pageSize);
-  console.log("Items:", items);
 
   return (
     <Container className="animate__animated animate__fadeIn">
+      <MyModal
+        title="Delete Project"
+        subtitle="Are you sure?"
+        ok="Yes"
+        cancel="No"
+        show={showModal}
+        handleClose={() => setShowModal(false)}
+        handleYes={() => {
+          setShowModal(false);
+          ref.current = ref.current.filter((proj) => proj.id !== projectId);
+          setProjects(ref.current);
+          axios.delete(`/api/projects/`, { data: { id: projectId } });
+        }}
+      />
       <SearchBox
         searchField={searchField}
         searchChange={(e) => setSearchField(e.target.value)}
@@ -146,10 +161,19 @@ const Projects = () => {
                   {
                     label: FaGithub,
                     url: project.clone_url,
+                    className: "text-dark",
                   },
                   {
                     label: FaGlobe,
                     url: project.live,
+                  },
+                  {
+                    label: FaTrash,
+                    className: "text-danger",
+                    onClick: () => {
+                      setShowModal(true);
+                      setProjectId(project.id);
+                    },
                   },
                 ]}
               />

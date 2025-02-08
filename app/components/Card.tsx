@@ -10,6 +10,8 @@ import Tags from "./Tags";
 interface Link {
   label: IconType;
   url?: string;
+  className?: string;
+  onClick?: () => void;
 }
 
 interface MyCardProps {
@@ -68,8 +70,18 @@ const MyCard: React.FC<MyCardProps> = ({
             {links &&
               links.length > 0 &&
               links.map((link, index) => (
-                <Card.Link key={index} href={link.url} target="_blank">
-                  {<link.label size={20} className="me-2" />}
+                <Card.Link
+                  key={index}
+                  href={link.url}
+                  onClick={link.onClick}
+                  target="_blank"
+                >
+                  {
+                    <link.label
+                      size={20}
+                      className={`me-2 ${link.className}`}
+                    />
+                  }
                 </Card.Link>
               ))}
           </div>
