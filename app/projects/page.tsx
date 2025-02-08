@@ -1,6 +1,6 @@
 "use client";
 
-import React, { useState, useEffect } from "react";
+import React, { useState, useEffect, useRef } from "react";
 import { FaGithub } from "react-icons/fa6";
 import { FaGlobe } from "react-icons/fa";
 
@@ -10,29 +10,58 @@ import MyCard from "../components/Card";
 import Tags from "../components/Tags";
 import { paginate } from "../utils/";
 
-import { projects as allProjects } from "../data/projects";
+// import { projects as allProjects } from "../data/projects";
 
 import MyPagination from "../components/Pagination";
 import SearchBox from "../components/SearchBox";
+import axios from "axios";
+
+interface Project {
+  id: number;
+  title: string;
+  description: string;
+  language: string;
+  topics: string[];
+  clone_url: string;
+  live: string;
+  image: string;
+}
 
 const Projects = () => {
   const MOBILE_WIDTH = 768;
   const MOBILE_PAGE_SIZE = 3;
   const DESKTOP_PAGE_SIZE = 6;
 
+  const ref = useRef<Project[]>([]);
+
   const [searchField, setSearchField] = useState("");
-  const [projects, setProjects] = useState(allProjects);
+  const [projects, setProjects] = useState(ref.current);
   const [currentPage, setCurrentPage] = useState(1);
   const [pageSize, setPageSize] = useState(MOBILE_PAGE_SIZE);
 
   const [tags, setTags] = useState(() => {
     const lang = [
-      ...new Set(allProjects.map((proj) => proj.language.toLowerCase())),
+      ...new Set(ref.current.map((proj) => proj.language.toLowerCase())),
     ];
     const tags: Record<string, boolean> = {};
     for (const i in lang) tags[lang[i]] = false;
     return tags;
   });
+
+  useEffect(() => {
+    const fetchProjects = async () => {
+      try {
+        const response = await axios.get("/api/projects");
+        ref.current = response.data.data;
+        console.log("Fetched Projects:", ref.current); // Add more logging to inspect the data
+        setProjects(ref.current);
+      } catch (error) {
+        console.error("Error fetching projects:", error);
+      }
+    };
+
+    fetchProjects();
+  }, []);
 
   useEffect(() => {
     const updatePageSize = () => {
@@ -51,7 +80,7 @@ const Projects = () => {
 
   useEffect(() => {
     const field = searchField.trim().toLowerCase();
-    const filteredProjects = allProjects.filter(
+    const filteredProjects = ref.current.filter(
       (project) =>
         project.title.toLowerCase().includes(field) ||
         project.description.toLowerCase().includes(field) ||
@@ -64,11 +93,11 @@ const Projects = () => {
 
   useEffect(() => {
     if (new Set(Object.values(tags)).size === 1) {
-      setProjects(allProjects);
+      setProjects(ref.current);
       setCurrentPage(1);
       return;
     }
-    const filteredProjects = allProjects.filter(
+    const filteredProjects = ref.current.filter(
       (project) => tags[project.language.toLowerCase()]
     );
     setProjects(filteredProjects);
@@ -81,7 +110,10 @@ const Projects = () => {
     }));
   };
 
+  console.log("Projects:", projects);
   const items = paginate(projects, currentPage, pageSize);
+  console.log("Current Page:", currentPage, "Page Size:", pageSize);
+  console.log("Items:", items);
 
   return (
     <Container className="animate__animated animate__fadeIn">
@@ -99,29 +131,33 @@ const Projects = () => {
       </div>
 
       <Row>
-        {items.map((project, index) => (
-          <div key={index} className="col-md-4 col-sm-12 col-lg-4 mb-4">
-            <MyCard
-              image={
-                project.src ??
-                "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQpZ6IjB4FE5Dadyw8HmA2VuC_7QXJZ9h4HlQ&s"
-              }
-              title={project.title}
-              description={project.description}
-              tags={[project.language, ...project.topics]}
-              links={[
-                {
-                  label: FaGithub,
-                  url: project.clone_url,
-                },
-                {
-                  label: FaGlobe,
-                  url: project.live,
-                },
-              ]}
-            />
-          </div>
-        ))}
+        {items.length > 0 ? (
+          items.map((project, index) => (
+            <div key={index} className="col-md-4 col-sm-12 col-lg-4 mb-4">
+              <MyCard
+                image={
+                  project.image ??
+                  "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQpZ6IjB4FE5Dadyw8HmA2VuC_7QXJZ9h4HlQ&s"
+                }
+                title={project.title}
+                description={project.description}
+                tags={[project.language, ...project.topics]}
+                links={[
+                  {
+                    label: FaGithub,
+                    url: project.clone_url,
+                  },
+                  {
+                    label: FaGlobe,
+                    url: project.live,
+                  },
+                ]}
+              />
+            </div>
+          ))
+        ) : (
+          <div>No projects found.</div>
+        )}
       </Row>
 
       <MyPagination
