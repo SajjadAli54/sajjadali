@@ -1,7 +1,7 @@
 "use client";
 
 import React, { useState, useEffect, useRef } from "react";
-import { Col, Container, Row } from "react-bootstrap";
+import { Container, Row } from "react-bootstrap";
 import MyCard from "@components/Card";
 import Tags from "@components/Tags";
 import MyPagination from "@components/Pagination";
@@ -10,7 +10,7 @@ import SearchBox from "@components/search/SearchBox";
 import { paginate } from "@utils/index";
 
 import { fetchProjects, deleteProjectById } from "@services/projectService";
-import { FaEdit, FaGithub, FaGlobe, FaRegEdit, FaTrash } from "react-icons/fa";
+import { FaEdit, FaGithub, FaGlobe, FaTrash } from "react-icons/fa";
 
 import useMediaQuery from "@hooks/useMediaQuery";
 
@@ -18,7 +18,6 @@ import { Tag, Project, LinkType } from "@types";
 
 import { useSelector } from "react-redux";
 import { selectUser } from "@/app/redux/slices/admin";
-import Link from "next/link";
 import { useRouter } from "next/navigation";
 
 const Projects = () => {
@@ -135,28 +134,11 @@ const Projects = () => {
         handleYes={handleDelete}
       />
 
-      <Container>
-        <Row>
-          <Col lg={user ? 10 : 12} md={10} sm={12}>
-            <SearchBox
-              searchField={searchField}
-              searchChange={(e) => setSearchField(e.target.value)}
-              placeholder="Search projects..."
-            />
-          </Col>
-          {user && (
-            <Col>
-              <Link href="/projects/add">
-                <FaRegEdit
-                  size={25}
-                  className="text-success"
-                  title="Add Project"
-                />
-              </Link>
-            </Col>
-          )}
-        </Row>
-      </Container>
+      <SearchBox
+        searchField={searchField}
+        searchChange={(e) => setSearchField(e.target.value)}
+        placeholder="Search projects..."
+      />
 
       <div className="mb-2 text-center">
         <Tags

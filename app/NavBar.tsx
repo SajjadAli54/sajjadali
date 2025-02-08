@@ -1,6 +1,6 @@
 "use client";
 
-import React from "react";
+import React, { useEffect } from "react";
 import Image from "next/image";
 import Link from "next/link";
 
@@ -8,13 +8,39 @@ import Container from "react-bootstrap/Container";
 import Nav from "react-bootstrap/Nav";
 import Navbar from "react-bootstrap/Navbar";
 
-import { routes, navLinks as links } from "@data/routes";
+import { routes, navLinks } from "@data/routes";
 import { useDispatch, useSelector } from "react-redux";
 import { selectUser, setUser } from "./redux/slices/admin";
 
 const NavBar = () => {
   const dispatch = useDispatch();
   const user = useSelector(selectUser);
+
+  const [links, setLinks] = React.useState(navLinks);
+
+  useEffect(() => {
+    if (!user) {
+      setLinks([...links]);
+    } else {
+      const unwantedRoutes = [
+        routes.contact,
+        routes.education,
+        routes.experience,
+      ];
+      const updatedLinks = links.filter(
+        (link) => !unwantedRoutes.includes(link.href)
+      );
+      setLinks([
+        ...updatedLinks,
+        { href: "/projects/add", label: "Add Project" },
+        {
+          href: routes.home,
+          label: "Logout",
+          onClick: () => dispatch(setUser(null)),
+        },
+      ]);
+    }
+  }, [user]);
 
   console.log(user);
   return (
@@ -35,22 +61,17 @@ const NavBar = () => {
         <Navbar.Toggle aria-controls="basic-navbar-nav" />
         <Navbar.Collapse id="basic-navbar-nav">
           <Nav className="ms-auto">
-            {links.map(({ href, label }) => (
-              <Link key={`${href}${label}`} href={href} passHref legacyBehavior>
-                <Nav.Link>{label}</Nav.Link>
-              </Link>
-            ))}
-
-            {user && (
+            {links.map(({ href, label, onClick }) => (
               <Link
-                href={routes.home}
-                onClick={() => dispatch(setUser(null))}
+                key={`${href}${label}`}
+                href={href}
+                onClick={onClick}
                 passHref
                 legacyBehavior
               >
-                <Nav.Link>Logout</Nav.Link>
+                <Nav.Link>{label}</Nav.Link>
               </Link>
-            )}
+            ))}
           </Nav>
         </Navbar.Collapse>
       </Container>

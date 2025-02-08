@@ -1,6 +1,6 @@
 import _ from "lodash";
 
-export function calculateExperience(startDate, endDate) {
+export function calculateExperience(startDate: string, endDate: string) {
   const start = new Date(startDate);
   const end = endDate ? new Date(endDate) : new Date(); // If no end date, use the current date
   const diffInMs = end - start;
@@ -37,8 +37,6 @@ export function paginate<T>(
 
   // Calculate start index
   const startIndex = (pageNumber - 1) * pageSize;
-
-  console.log("Start Index", startIndex, items);
 
   // Edge case: If start index is greater than or equal to the length of the items, return an empty array
   if (startIndex >= items.length) {
