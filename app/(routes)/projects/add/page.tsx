@@ -14,7 +14,9 @@ import { MultiValue } from "react-select";
 
 import * as Yup from "yup"; // Formik works well with Yup
 import { useRouter } from "next/navigation";
-import { Project, TopicOption } from "@types";
+
+import { Project } from "@types";
+import { TopicOption } from "@types";
 
 import { createProject } from "@/app/services/projectService";
 import { useSelector } from "react-redux";
@@ -61,7 +63,7 @@ export default function ProjectForm() {
     return <IllegalPage />;
   }
 
-  const handleSubmit = async (values: Project, { resetForm }) => {
+  const handleSubmit = async (values: Project) => {
     setLoading(true);
     setErrorMessage("");
     setSuccessMessage("");
@@ -74,7 +76,6 @@ export default function ProjectForm() {
     setSuccessMessage("Project added successfully!");
 
     setTimeout(() => {
-      resetForm();
       router.push("/projects");
       setSelectedTopics([]); // Reset topics field
     });

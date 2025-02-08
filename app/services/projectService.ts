@@ -24,6 +24,16 @@ export const createProject = async (project: Project): Promise<boolean> => {
   }
 };
 
+export const updateProject = async (project: Project): Promise<boolean> => {
+  try {
+    await axios.patch(url, project);
+    return true;
+  } catch (error) {
+    console.error("Error updating project:", error);
+    return false;
+  }
+};
+
 export const deleteProjectById = async (id: number) => {
   try {
     await axios.delete(url, { data: { id } });

@@ -4,6 +4,8 @@ import { useState } from "react";
 import { useRouter } from "next/navigation";
 import { Form, Button, Row, Col, Card, Alert } from "react-bootstrap";
 import { FaUser, FaLock } from "react-icons/fa";
+import { useDispatch } from "react-redux";
+import { setUser } from "@/app/redux/slices/admin";
 
 interface Error {
   email?: string;
@@ -18,6 +20,8 @@ export default function Login() {
   ] = useState({});
   const [loading, setLoading] = useState(false);
   const [errorMessage, setErrorMessage] = useState("");
+
+  const dispatch = useDispatch();
 
   const router = useRouter();
 
@@ -41,13 +45,17 @@ export default function Login() {
       return;
     }
 
+    const email = formData.email.trim();
+    const password = formData.password.trim();
+
     setLoading(true);
     setTimeout(() => {
       if (
-        formData.email === "admin@example.com" &&
-        formData.password === "password"
+        process.env.NEXT_PUBLIC_EMAIL == email &&
+        process.env.NEXT_PUBLIC_PASSWORD == password
       ) {
-        router.push("/dashboard");
+        dispatch(setUser({ email }));
+        router.push("/projects");
       } else {
         setErrorMessage("Invalid email or password.");
         setLoading(false);
@@ -109,15 +117,6 @@ export default function Login() {
                 {loading ? "Logging in..." : "Login"}
               </Button>
             </Form>
-
-            {/* <div className="text-center mt-3">
-              <p className="mb-0">
-                Don&apos;t have an account?{" "}
-                <a href="/register" className="text-primary">
-                  Sign Up
-                </a>
-              </p>
-            </div> */}
           </Card.Body>
         </Card>
       </Col>
