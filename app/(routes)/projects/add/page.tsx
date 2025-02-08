@@ -17,6 +17,9 @@ import { useRouter } from "next/navigation";
 import { Project, TopicOption } from "@types";
 
 import { createProject } from "@/app/services/projectService";
+import { useSelector } from "react-redux";
+import { selectUser } from "@/app/redux/slices/admin";
+import IllegalPage from "../IllegalPage";
 
 const ProjectSchema = Yup.object({
   title: Yup.string()
@@ -51,7 +54,12 @@ export default function ProjectForm() {
   const [loading, setLoading] = useState(false);
   const [selectedTopics, setSelectedTopics] = useState([]);
 
+  const user = useSelector(selectUser);
   const router = useRouter();
+
+  if (!user) {
+    return <IllegalPage />;
+  }
 
   const handleSubmit = async (values: Project, { resetForm }) => {
     setLoading(true);
@@ -73,7 +81,7 @@ export default function ProjectForm() {
   };
 
   return (
-    <Container className="my-5">
+    <Container className="my-5 animate__animated animate__fadeIn">
       <h2 className="text-center text-primary mb-4 fw-bold">Add New Project</h2>
 
       {successMessage && <Alert variant="success">{successMessage}</Alert>}
