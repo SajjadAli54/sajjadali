@@ -7,9 +7,9 @@ import "bootstrap/dist/css/bootstrap.min.css";
 import "animate.css";
 
 import NavBar from "./NavBar";
-import Footer from "./components/Footer";
+import Footer from "@components/Footer";
 
-import { badges } from "./data/badges";
+import { badges } from "@data/badges";
 import Providers from "./providers";
 
 const geistSans = Geist({

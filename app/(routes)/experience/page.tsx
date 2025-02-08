@@ -1,6 +1,6 @@
-import ExperienceCard from "../components/ExperienceCard";
+import ExperienceCard from "@components/ExperienceCard";
 
-import { jobs } from "../data/jobs";
+import { jobs } from "@data/jobs";
 
 function Experience() {
   return (

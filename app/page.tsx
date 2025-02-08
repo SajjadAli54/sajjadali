@@ -4,10 +4,10 @@ import Link from "next/link";
 import { GoStack } from "react-icons/go";
 import { Button, Container, Row, Col, Image } from "react-bootstrap";
 
-import TechStack from "./components/stack/TechStack";
+import TechStack from "@components/stack/TechStack";
 
-import { techItems } from "./data/tech-items";
-import Projects from "./projects/page";
+import { techItems } from "@data/tech-items";
+import Projects from "@pages/projects/page";
 
 export default function Home() {
   const ProfileImage = "picofme.png";
@@ -74,7 +74,7 @@ export default function Home() {
 
       {/* Contact Section */}
       <div id="contact" className="text-center mt-5">
-        <h2 className="text-primary mb-3">Let's Connect</h2>
+        <h2 className="text-primary mb-3">Let&apos;s Connect</h2>
         <p>I am always open to new opportunities and collaborations.</p>
         <Link href="/contact" passHref>
           <Button variant="secondary" size="lg">

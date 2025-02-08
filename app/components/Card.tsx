@@ -5,7 +5,7 @@ import { IconType } from "react-icons";
 
 import Card from "react-bootstrap/Card";
 
-import Tags from "./Tags";
+import Tags from "@components/Tags";
 
 interface Link {
   label: IconType;

@@ -2,19 +2,19 @@
 
 import React, { useState, useEffect, useRef } from "react";
 import { Container, Row } from "react-bootstrap";
-import MyCard from "../components/Card";
-import Tags from "../components/Tags";
-import MyPagination from "../components/Pagination";
-import MyModal from "../components/modal/Modal";
-import SearchBox from "../components/search/SearchBox";
-import { paginate } from "../utils";
+import MyCard from "@components/Card";
+import Tags from "@components/Tags";
+import MyPagination from "@components/Pagination";
+import MyModal from "@components/modal/Modal";
+import SearchBox from "@components/search/SearchBox";
+import { paginate } from "@utils/index";
 
-import { fetchProjects, deleteProjectById } from "../services/projectService";
+import { fetchProjects, deleteProjectById } from "@services/projectService";
 import { FaGithub, FaGlobe, FaTrash } from "react-icons/fa";
 
-import useMediaQuery from "../hooks/useMediaQuery";
-
-import { Project, Tag } from "../types";
+import useMediaQuery from "@hooks/useMediaQuery";
+import { Project } from "@prisma/client";
+import { Tag } from "@types";
 
 const Projects = () => {
   const MOBILE_PAGE_SIZE = 3;

@@ -11,13 +11,12 @@ import "slick-carousel/slick/slick-theme.css";
 
 import { Container } from "react-bootstrap";
 
-import Card from "../components/Card";
-import ExperienceCard from "../components/ExperienceCard";
+import Card from "@components/Card";
+import ExperienceCard from "@components/ExperienceCard";
+import useMediaQuery from "@hooks/useMediaQuery";
 
-import useMediaQuery from "../hooks/useMediaQuery";
-
-import { education } from "../data/education";
-import { certifications } from "../data/certifications";
+import { education } from "@data/education";
+import { certifications } from "@data/certifications";
 
 function EducationContainer() {
   const [activeTab, setActiveTab] = useState("education");

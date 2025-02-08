@@ -1,17 +1,16 @@
 "use client";
 
 import { useState, useEffect } from "react";
-import { LiaBlogSolid } from "react-icons/lia";
 import { FaGlobe } from "react-icons/fa";
 
 import Container from "react-bootstrap/Container";
 
-import Card from "../components/Card";
-import Pagination from "../components/Pagination";
+import Card from "@components/Card";
+import Pagination from "@components/Pagination";
 
-import SearchBox from "../components/search/SearchBox";
-import Loader from "../components/Loader";
-import { paginate } from "../utils/";
+import SearchBox from "@components/search/SearchBox";
+import Loader from "@components/Loader";
+import { paginate } from "@utils/index";
 
 interface Blog {
   title: string;

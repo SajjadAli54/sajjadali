@@ -2,7 +2,7 @@ import React from "react";
 import { Button, Modal } from "react-bootstrap";
 import { FaCheckCircle, FaTimesCircle } from "react-icons/fa";
 
-import "./Modal.css"; // Add custom CSS if needed for more styling
+import "@components/modal/Modal.css"; // Add custom CSS if needed for more styling
 
 interface ModalProps {
   title: string;

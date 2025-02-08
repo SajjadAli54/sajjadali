@@ -8,7 +8,7 @@ import Container from "react-bootstrap/Container";
 import Nav from "react-bootstrap/Nav";
 import Navbar from "react-bootstrap/Navbar";
 
-import { routes, navLinks as links } from "./data/routes";
+import { routes, navLinks as links } from "@data/routes";
 
 const NavBar = () => {
   return (

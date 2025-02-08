@@ -14,7 +14,7 @@ import { MultiValue } from "react-select";
 
 import * as Yup from "yup"; // Formik works well with Yup
 import { useRouter } from "next/navigation";
-import { Project, TopicOption } from "@/app/types";
+import { Project, TopicOption } from "@types";
 
 import { createProject } from "@/app/services/projectService";
 

@@ -3,8 +3,8 @@
 import Link from "next/link";
 import Image from "next/image";
 import { Card, ListGroup, Row, Col, Container, Badge } from "react-bootstrap";
-import Tags from "./Tags";
-import { calculateExperience } from "../utils/";
+import Tags from "@components/Tags";
+import { calculateExperience } from "@utils/index";
 
 interface Props {
   type: string;
