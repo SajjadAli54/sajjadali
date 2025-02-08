@@ -13,9 +13,9 @@ import { paginate } from "../utils/";
 // import { projects as allProjects } from "../data/projects";
 
 import MyPagination from "../components/Pagination";
-import SearchBox from "../components/SearchBox";
+import SearchBox from "../components/search/SearchBox";
 import axios from "axios";
-import MyModal from "../components/Modal";
+import MyModal from "../components/modal/Modal";
 
 interface Project {
   id: number;

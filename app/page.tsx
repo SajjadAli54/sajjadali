@@ -4,9 +4,10 @@ import Link from "next/link";
 import { GoStack } from "react-icons/go";
 import { Button, Container, Row, Col, Image } from "react-bootstrap";
 
-import TechStack from "./components/TechStack";
+import TechStack from "./components/stack/TechStack";
 
 import { techItems } from "./data/tech-items";
+import Projects from "./projects/page";
 
 export default function Home() {
   const ProfileImage = "picofme.png";
@@ -58,6 +59,17 @@ export default function Home() {
           <GoStack className="text-warning" /> Tech Stack
         </h2>
         <TechStack techItems={techItems} />
+      </div>
+
+      {/* Horizontal Divider */}
+      <hr className="my-5" />
+
+      {/* Project Section */}
+      <div className="text-center mb-5">
+        <h2 className="text-primary d-flex align-items-center justify-content-center gap-2">
+          <GoStack className="text-warning" /> Projects{" "}
+        </h2>
+        <Projects />
       </div>
 
       {/* Contact Section */}

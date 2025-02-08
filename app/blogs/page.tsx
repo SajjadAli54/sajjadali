@@ -9,7 +9,7 @@ import Container from "react-bootstrap/Container";
 import Card from "../components/Card";
 import Pagination from "../components/Pagination";
 
-import SearchBox from "../components/SearchBox";
+import SearchBox from "../components/search/SearchBox";
 import Loader from "../components/Loader";
 import { paginate } from "../utils/";
 

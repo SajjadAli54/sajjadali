@@ -8,8 +8,8 @@ import Row from "react-bootstrap/Row";
 import Col from "react-bootstrap/Col";
 import Card from "react-bootstrap/Card";
 
-import { paginate } from "../utils";
-import Pagination from "./Pagination";
+import { paginate } from "../../utils";
+import Pagination from "../Pagination";
 
 import "./stack.css";
 
