@@ -1,6 +1,6 @@
-import axios from "axios";
+import { Project } from "@prisma/client";
 
-import { Project } from "../types";
+import axios from "axios";
 
 const url = "/api/projects";
 

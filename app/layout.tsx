@@ -3,15 +3,14 @@ import { Geist, Geist_Mono } from "next/font/google";
 import { Container } from "react-bootstrap";
 
 import "./App.css";
-
 import "bootstrap/dist/css/bootstrap.min.css";
-
 import "animate.css";
 
 import NavBar from "./NavBar";
 import Footer from "./components/Footer";
 
 import { badges } from "./data/badges";
+import Providers from "./providers";
 
 const geistSans = Geist({
   variable: "--font-geist-sans",
@@ -43,7 +42,9 @@ export default function RootLayout({
       >
         <NavBar />
         <main className="p-5">
-          <Container>{children}</Container>
+          <Providers>
+            <Container>{children}</Container>
+          </Providers>
         </main>
         <Footer badges={badges} />
       </body>
