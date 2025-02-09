@@ -69,24 +69,24 @@ const Blogs = () => {
     <Container className="animate__animated animate__fadeIn">
       {loading ? (
         <Loader />
-      ) : posts.length > 0 ? (
-        <>
-          <SearchBox
-            searchField={searchQuery}
-            searchChange={(e) => setSearchQuery(e.target.value)}
-            placeholder="Search"
-          />
-
-          <BlogsList items={items} />
-          <Pagination
-            itemsCount={filteredPosts.length}
-            pageSize={PAGE_SIZE}
-            currentPage={currentPage}
-            onPageChange={(page) => setCurrentPage(page)}
-          />
-        </>
       ) : (
-        <p className="text-center">No Blogs available.</p>
+        posts.length > 0 && (
+          <>
+            <SearchBox
+              searchField={searchQuery}
+              searchChange={(e) => setSearchQuery(e.target.value)}
+              placeholder="Search"
+            />
+
+            <BlogsList items={items} />
+            <Pagination
+              itemsCount={filteredPosts.length}
+              pageSize={PAGE_SIZE}
+              currentPage={currentPage}
+              onPageChange={(page) => setCurrentPage(page)}
+            />
+          </>
+        )
       )}
     </Container>
   );

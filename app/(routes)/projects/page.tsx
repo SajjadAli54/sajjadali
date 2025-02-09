@@ -19,6 +19,7 @@ import { Tag, Project, LinkType } from "@types";
 import { useSelector } from "react-redux";
 import { selectUser } from "@/app/redux/slices/admin";
 import { useRouter } from "next/navigation";
+import Loader from "@/app/components/Loader";
 
 const Projects = () => {
   const MOBILE_PAGE_SIZE = 3;
@@ -29,6 +30,7 @@ const Projects = () => {
   const router = useRouter();
 
   const user = useSelector(selectUser);
+  const [loading, setLoading] = useState(false);
   const [searchField, setSearchField] = useState("");
   const [projects, setProjects] = useState(ref.current);
   const [currentPage, setCurrentPage] = useState(1);
@@ -46,9 +48,12 @@ const Projects = () => {
 
   useEffect(() => {
     const getProjects = async () => {
+      setLoading(true);
       const fetchedProjects = await fetchProjects();
       ref.current = fetchedProjects;
       setProjects(fetchedProjects);
+
+      setLoading(false);
 
       setTags(
         fetchedProjects.reduce((acc: Tag, project: Project) => {
@@ -148,51 +153,55 @@ const Projects = () => {
         />
       </div>
 
-      <Row>
-        {items.length > 0 ? (
-          items.map((project, index) => (
-            <div key={index} className="col-md-4 col-sm-12 col-lg-4 mb-4">
-              <MyCard
-                image={
-                  project.image ??
-                  "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQpZ6IjB4FE5Dadyw8HmA2VuC_7QXJZ9h4HlQ&s"
-                }
-                title={project.title}
-                description={project.description}
-                tags={[project.language, ...project.topics]}
-                links={[
-                  {
-                    label: FaGithub,
-                    url: project.clone_url,
-                    className: "text-dark",
-                  },
-                  {
-                    label: FaGlobe,
-                    url: project.live,
-                  },
-                  ...adminButtons!.map((value) => {
-                    return {
-                      label: value.label,
-                      className: value.className,
-                      onClick: () => {
-                        if (value.label === FaEdit) {
-                          router.push(`/projects/${project.id}`);
-                        }
-                        if (value.label === FaTrash) {
-                          setShowModal(true);
-                          setProjectId(project.id);
-                        }
-                      },
-                    };
-                  }),
-                ]}
-              />
-            </div>
-          ))
-        ) : (
-          <div className="text-center">No projects found.</div>
-        )}
-      </Row>
+      {loading ? (
+        <Loader />
+      ) : (
+        <Row>
+          {items.length > 0 ? (
+            items.map((project, index) => (
+              <div key={index} className="col-md-4 col-sm-12 col-lg-4 mb-4">
+                <MyCard
+                  image={
+                    project.image ??
+                    "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQpZ6IjB4FE5Dadyw8HmA2VuC_7QXJZ9h4HlQ&s"
+                  }
+                  title={project.title}
+                  description={project.description}
+                  tags={[project.language, ...project.topics]}
+                  links={[
+                    {
+                      label: FaGithub,
+                      url: project.clone_url,
+                      className: "text-dark",
+                    },
+                    {
+                      label: FaGlobe,
+                      url: project.live,
+                    },
+                    ...adminButtons!.map((value) => {
+                      return {
+                        label: value.label,
+                        className: value.className,
+                        onClick: () => {
+                          if (value.label === FaEdit) {
+                            router.push(`/projects/${project.id}`);
+                          }
+                          if (value.label === FaTrash) {
+                            setShowModal(true);
+                            setProjectId(project.id);
+                          }
+                        },
+                      };
+                    }),
+                  ]}
+                />
+              </div>
+            ))
+          ) : (
+            <div className="text-center">No projects found.</div>
+          )}
+        </Row>
+      )}
 
       <MyPagination
         currentPage={currentPage}
