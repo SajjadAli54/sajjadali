@@ -1,5 +1,6 @@
 export const projects = [
   {
+    id: 1,
     title: "Android Weather App",
     description:
       "A Flutter-based Android Weather App leveraging the OpenWeather API for real-time weather updates.",
@@ -17,6 +18,7 @@ export const projects = [
     ],
   },
   {
+    id: 2,
     title: "Currency Converter Desktop App",
     description:
       "A powerful desktop app built with Python and PyQt, featuring real-time currency conversion using an exchange rates API.",
@@ -35,6 +37,7 @@ export const projects = [
     ],
   },
   {
+    id: 3,
     title: "Email Sender Desktop App",
     description:
       "A Python-based desktop email sender, developed using PyQt with SMTP integration for efficient email delivery.",
@@ -46,6 +49,7 @@ export const projects = [
     topics: ["PyQt", "Email Automation", "SMTP", "Python GUI", "APIs"],
   },
   {
+    id: 4,
     title: "Portfolio Website",
     description:
       "A responsive and interactive portfolio website showcasing my skills, projects, and experiences.",
@@ -56,6 +60,7 @@ export const projects = [
     topics: ["React", "Bootstrap", "HTML", "CSS", "Portfolio Website"],
   },
   {
+    id: 5,
     title: "Flash Driving App",
     description:
       "A Kotlin-based ride-hailing app featuring driver and customer interfaces, Google Maps integration, and secure Google Pay transactions.",
@@ -71,6 +76,7 @@ export const projects = [
     ],
   },
   {
+    id: 6,
     title: "Android Chatbot",
     description:
       "An AI-powered chatbot built with Kotlin and BrainShop API, delivering a seamless conversational experience.",
@@ -81,6 +87,7 @@ export const projects = [
     topics: ["AI Chatbot", "BrainShop API", "Android AI", "Conversational AI"],
   },
   {
+    id: 7,
     title: "Issue Tracker",
     description:
       "A Next.js-based full-stack issue tracking system with a MySQL database powered by Prisma ORM.",
@@ -98,6 +105,7 @@ export const projects = [
     ],
   },
   {
+    id: 8,
     title: "Mini PayPal",
     description:
       "A Django-based secure payment platform that enables users to make, request, and receive payments.",
@@ -108,6 +116,7 @@ export const projects = [
     topics: ["Django", "Payment Gateway", "Secure Transactions", "FinTech"],
   },
   {
+    id: 9,
     title: "QR Code Generator API",
     description:
       "A RESTful API built with Node.js and Express.js for generating and managing QR codes.",
@@ -118,6 +127,7 @@ export const projects = [
     topics: ["Node.js", "Express.js", "QR Code API", "RESTful API"],
   },
   {
+    id: 10,
     title: "Country Charm",
     description:
       "A React-powered review platform for food, hotels, and tourist destinations, built as a semester project.",
@@ -129,6 +139,7 @@ export const projects = [
     topics: ["React", "Tourism Reviews", "Bootstrap UI", "Travel Guide"],
   },
   {
+    id: 11,
     title: "Robo Friends",
     description:
       "A fun React app displaying robot profiles using the RoboHash API, featuring a search filter.",
@@ -139,6 +150,7 @@ export const projects = [
     topics: ["React", "API Integration", "Fun Project", "Robots"],
   },
   {
+    id: 12,
     title: "Vidly",
     description:
       "A React-based movie listing application showcasing state management and dynamic components.",
@@ -150,6 +162,7 @@ export const projects = [
     topics: ["React", "Movie Listings", "Dynamic UI", "State Management"],
   },
   {
+    id: 13,
     title: "School Management System",
     description:
       "A Java Swing desktop application for managing school operations, including student records, reporting, and data visualization.",

@@ -21,8 +21,6 @@ import { selectUser } from "@/app/redux/slices/admin";
 import { useRouter } from "next/navigation";
 import Loader from "@/app/components/Loader";
 
-import { projects as allProjects } from "@data/projects";
-
 const Projects = () => {
   const MOBILE_PAGE_SIZE = 3;
   const DESKTOP_PAGE_SIZE = 6;
@@ -62,11 +60,8 @@ const Projects = () => {
     const getProjects = async () => {
       setLoading(true);
       const fetchedProjects = await fetchProjects();
-      if (fetchProjects.length === 0) setProjects(allProjects);
-      else {
-        ref.current = fetchedProjects;
-        setProjects(fetchedProjects);
-      }
+      ref.current = fetchedProjects;
+      setProjects(fetchedProjects);
 
       setLoading(false);
 
