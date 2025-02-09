@@ -1,5 +1,28 @@
 export const projects = [
   {
+    id: "19",
+    name: "Portfolio Website",
+    description:
+      "A responsive and interactive portfolio website showcasing my skills, projects, and experiences.",
+    live: "https://imsajjad.netlify.app",
+    clone_url: "https://github.com/SajjadAli54/sajjadali",
+    image: "https://sajjadali.netlify.app/assets/logo-D6i5nxaC.png",
+    language: "JavaScript",
+    topics: [
+      "React",
+      "NextJS",
+      "Bootstrap",
+      "animate.css",
+      "react-icons",
+      "prisma",
+      "tailwind",
+      "react-select",
+      "react-slick",
+    ],
+    createdAt: "1739044060727",
+    updatedAt: "1739044060727",
+  },
+  {
     id: "18",
     title: "Benchmarking Tool",
     description:
