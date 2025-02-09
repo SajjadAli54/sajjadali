@@ -14,6 +14,8 @@ export const projects = [
       "Plotly",
       "Reduc",
     ],
+    clone_url: "",
+    live: "",
     image:
       "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRmzm4UD2mhTmfAH9PcRepcL0yp-5d_XWeyAA&s",
     createdAt: "1739042993891",
@@ -26,6 +28,8 @@ export const projects = [
       "Python desktop application for IFRS 17 insurance models with GMM and VFA calculations, built with Excel Wings and PySide6 for efficient performance with large datasets.",
     language: "Python",
     topics: ["PyQt", "PyQt Designer", "IFRS 17", "GMM", "VFA", "Excel Wings"],
+    clone_url: "",
+    live: "",
     image:
       "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRmzm4UD2mhTmfAH9PcRepcL0yp-5d_XWeyAA&s",
     createdAt: "1739042993891",

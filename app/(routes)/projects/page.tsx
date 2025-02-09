@@ -22,8 +22,8 @@ import { useRouter } from "next/navigation";
 import Loader from "@/app/components/Loader";
 
 const Projects = () => {
-  const MOBILE_PAGE_SIZE = 3;
-  const DESKTOP_PAGE_SIZE = 6;
+  const MOBILE_PAGE_SIZE = 2;
+  const DESKTOP_PAGE_SIZE = 3;
 
   const ref = useRef<Project[]>([]);
 
@@ -42,8 +42,8 @@ const Projects = () => {
   const [pageSize, setPageSize] = useState(MOBILE_PAGE_SIZE);
   const [showModal, setShowModal] = useState(false);
   const [projectId, setProjectId]: [
-    number | undefined,
-    React.Dispatch<React.SetStateAction<number | undefined>>
+    string | undefined,
+    React.Dispatch<React.SetStateAction<string | undefined>>
   ] = useState();
 
   const [tags, setTags]: [Tag, React.Dispatch<React.SetStateAction<Tag>>] =

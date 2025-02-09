@@ -16,7 +16,19 @@ export default function Home() {
       <Row className="align-items-center text-center text-lg-start">
         {/* Left Section */}
         <Col lg={6}>
-          <h1 className="display-4 fw-bold mb-3">Hi, I am Sajjad Ali</h1>
+          <h1 className="display-4 fw-bold mb-3">Sajjad Ali</h1>
+          <h2 className="fw-bold mb-3">Full Stack Software Developer</h2>
+          <h3 className="fw-bold mb-3">
+            <Link
+              className="text-primary text-decoration-none"
+              target="_blank"
+              rel="noopener noreferrer"
+              href="https://badriconsultancy.com/"
+              passHref
+            >
+              Badri Management Consultancy
+            </Link>
+          </h3>
           <p className="lead">
             Building seamless digital experiences across Web, Mobile, and
             Desktop. Passionate Full-Stack Developer turning complex problems

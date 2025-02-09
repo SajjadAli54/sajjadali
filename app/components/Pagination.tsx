@@ -54,7 +54,7 @@ const MyPagination: FC<MyPaginationProps> = ({
   const displayedPages = getDisplayedPages();
 
   return (
-    <Pagination>
+    <Pagination className="justify-content-center">
       <Pagination.First
         disabled={currentPage === 1}
         onClick={() => onPageChange(currentPage - 1)}

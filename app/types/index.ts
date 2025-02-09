@@ -1,7 +1,7 @@
 import { IconType } from "react-icons";
 
 interface Project {
-  id?: number;
+  id?: string;
   title: string;
   description: string;
   language: string;
@@ -9,6 +9,8 @@ interface Project {
   clone_url: string;
   live?: string;
   image: string;
+  createdAt: string;
+  updatedAt: string;
 }
 
 interface Blog {

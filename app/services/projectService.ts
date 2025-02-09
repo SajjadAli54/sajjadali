@@ -25,7 +25,7 @@ export const fetchProjects = async () => {
   return projects;
 };
 
-export const fetchProjectById = async (id: number) => {
+export const fetchProjectById = async (id: string) => {
   // try {
   //   const response = await axios.get(`${url}/${id}`);
   //   return response.data.data;
@@ -62,7 +62,7 @@ export const updateProject = async (id: string, updatedProject: object) => {
   return true;
 };
 
-export const deleteProjectById = async (id: number) => {
+export const deleteProjectById = async (id: string) => {
   console.log("Deleting project:", id);
   // try {
   //   await axios.delete(url, { data: { id } });
