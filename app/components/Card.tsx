@@ -16,7 +16,7 @@ interface Link {
 
 interface MyCardProps {
   image?: string;
-  title: string;
+  title?: string;
   description?: string;
   links?: Link[];
   tags?: string[];

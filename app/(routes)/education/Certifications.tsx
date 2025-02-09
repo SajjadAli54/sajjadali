@@ -30,7 +30,7 @@ export const Certifications = () => {
           <div key={index} className={"cardWrapper"}>
             <Card
               image={cert.src}
-              title={cert.alt}
+              description={cert.alt}
               className={"cardComponent"}
             />
           </div>
