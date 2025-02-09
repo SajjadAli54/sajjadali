@@ -48,6 +48,9 @@ export default function Login() {
     const email = formData.email.trim();
     const password = formData.password.trim();
 
+    console.log("Email:", email);
+    console.log("Password:", password);
+
     setLoading(true);
     setTimeout(() => {
       if (
