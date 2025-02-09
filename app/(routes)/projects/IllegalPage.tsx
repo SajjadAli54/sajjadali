@@ -15,7 +15,7 @@ function IllegalPage() {
       />
       <h2 className="text-danger fw-bold">Access Denied</h2>
       <p className="text-muted mb-4" style={{ maxWidth: "500px" }}>
-        Oops! You don't have permission to view this page. This area is
+        Oops! You don&apos;t have permission to view this page. This area is
         restricted to admin users only.
       </p>
       <Button variant="primary" onClick={() => router.push("/")}>
