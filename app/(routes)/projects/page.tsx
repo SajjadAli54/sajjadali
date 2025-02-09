@@ -83,7 +83,7 @@ const Projects = () => {
     const field = searchField.trim().toLowerCase();
     const filteredProjects = ref.current.filter(
       (project: Project) =>
-        project.title.toLowerCase().includes(field) ||
+        project.title!.toLowerCase().includes(field) ||
         project.description.toLowerCase().includes(field) ||
         project.language.toLowerCase().includes(field) ||
         project.topics!.some((topic: string) =>

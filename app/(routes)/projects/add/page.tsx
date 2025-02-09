@@ -107,6 +107,8 @@ export default function ProjectForm() {
           clone_url: "",
           live: "",
           image: "",
+          createdAt: new Date().toISOString(),
+          updatedAt: new Date().toISOString(),
         }}
         validationSchema={ProjectSchema}
         onSubmit={handleSubmit}

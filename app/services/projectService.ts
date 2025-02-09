@@ -4,13 +4,9 @@ import { projects } from "@data/projects";
 
 import { Project } from "@types";
 
-import axios from "axios";
+// import axios from "axios";
 
-const url = "/api/projects";
-
-export const addAllProjects = async () => {
-  axios.put(url);
-};
+// const url = "/api/projects";
 
 export const fetchProjects = async () => {
   // try {

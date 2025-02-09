@@ -81,7 +81,7 @@ export default function EditProjectForm() {
         let valId;
         if (id instanceof Array) valId = parseInt(id[0]!);
         else valId = parseInt(id);
-        const fetchedProject = await fetchProjectById(valId);
+        const fetchedProject = await fetchProjectById(valId.toString());
         if (fetchedProject) {
           setProject(fetchedProject);
           setSelectedTopics(
@@ -150,6 +150,8 @@ export default function EditProjectForm() {
           clone_url: project.clone_url || "",
           live: project.live || "",
           image: project.image || "",
+          createdAt: project.createdAt || "",
+          updatedAt: project.updatedAt || "",
         }}
         validationSchema={ProjectSchema}
         onSubmit={handleSubmit}

@@ -2,7 +2,7 @@ import { IconType } from "react-icons";
 
 interface Project {
   id?: string;
-  title: string;
+  title?: string;
   description: string;
   language: string;
   topics: string[];
