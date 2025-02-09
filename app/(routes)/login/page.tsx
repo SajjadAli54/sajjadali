@@ -48,17 +48,9 @@ export default function Login() {
     const email = formData.email.trim();
     const password = formData.password.trim();
 
-    console.log("Email:", email);
-    console.log("Password:", password);
-
     setLoading(true);
     setTimeout(() => {
-      if (
-        // process.env.NEXT_PUBLIC_EMAIL == email &&
-        email == "imsajjadali54@gmail" &&
-        // process.env.NEXT_PUBLIC_PASSWORD == password
-        password == "Parzival@123"
-      ) {
+      if (email == "imsajjadali54@gmail.com" && password == "HelloWorld@786") {
         dispatch(setUser({ email }));
         router.push("/projects");
       } else {

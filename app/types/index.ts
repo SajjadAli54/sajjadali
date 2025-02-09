@@ -7,7 +7,7 @@ interface Project {
   language: string;
   topics: string[];
   clone_url: string;
-  live: string;
+  live?: string;
   image: string;
 }
 

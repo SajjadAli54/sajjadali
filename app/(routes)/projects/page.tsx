@@ -9,11 +9,7 @@ import MyModal from "@components/modal/Modal";
 import SearchBox from "@components/search/SearchBox";
 import { paginate } from "@utils/index";
 
-import {
-  fetchProjects,
-  deleteProjectById,
-  addAllProjects,
-} from "@services/projectService";
+import { fetchProjects, deleteProjectById } from "@services/projectService";
 import { FaEdit, FaGithub, FaGlobe, FaTrash } from "react-icons/fa";
 
 import useMediaQuery from "@hooks/useMediaQuery";
@@ -25,13 +21,13 @@ import { selectUser } from "@/app/redux/slices/admin";
 import { useRouter } from "next/navigation";
 import Loader from "@/app/components/Loader";
 
+import { projects as allProjects } from "@data/projects";
+
 const Projects = () => {
   const MOBILE_PAGE_SIZE = 3;
   const DESKTOP_PAGE_SIZE = 6;
 
   const ref = useRef<Project[]>([]);
-
-  addAllProjects();
 
   const router = useRouter();
 
@@ -66,8 +62,11 @@ const Projects = () => {
     const getProjects = async () => {
       setLoading(true);
       const fetchedProjects = await fetchProjects();
-      ref.current = fetchedProjects;
-      setProjects(fetchedProjects);
+      if (fetchProjects.length === 0) setProjects(allProjects);
+      else {
+        ref.current = fetchedProjects;
+        setProjects(fetchedProjects);
+      }
 
       setLoading(false);
 

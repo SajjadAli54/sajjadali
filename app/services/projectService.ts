@@ -13,6 +13,7 @@ export const addAllProjects = async () => {
 export const fetchProjects = async () => {
   try {
     const response = await axios.get(url);
+    if (!response!.data!.data) return [];
     return response.data.data;
   } catch (error) {
     console.error("Error fetching projects:", error);
