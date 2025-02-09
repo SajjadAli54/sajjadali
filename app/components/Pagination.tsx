@@ -66,7 +66,7 @@ const MyPagination: FC<MyPaginationProps> = ({
           <Pagination.Item
             key={index}
             active={page === currentPage}
-            onClick={() => onPageChange(page)}
+            onClick={() => onPageChange(page as number)}
           >
             {page}
           </Pagination.Item>

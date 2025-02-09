@@ -44,7 +44,7 @@ const NavBar = () => {
         },
       ]);
     }
-  }, [user]);
+  }, [user, links, dispatch]);
 
   console.log(user);
   return (

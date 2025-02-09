@@ -8,9 +8,9 @@ export const routes = {
 };
 
 export const navLinks = [
-  { href: routes.home, label: "Home" },
-  { href: routes.education, label: "Education" },
-  { href: routes.experience, label: "Experience" },
+  { href: routes.home, label: "Home", onClick: () => {} },
+  { href: routes.education, label: "Education", onClick: () => {} },
+  { href: routes.experience, label: "Experience", onClick: () => {} },
   { href: routes.projects, label: "Projects" },
   { href: routes.blogs, label: "Blogs" },
   { href: routes.contact, label: "Contact" },

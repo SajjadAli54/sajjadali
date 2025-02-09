@@ -14,7 +14,7 @@ import { FaEdit, FaGithub, FaGlobe, FaTrash } from "react-icons/fa";
 
 import useMediaQuery from "@hooks/useMediaQuery";
 
-import { Tag, Project, LinkType } from "@types";
+import { Tag, LinkType, Project } from "@types";
 
 import { useSelector } from "react-redux";
 import { selectUser } from "@/app/redux/slices/admin";
@@ -25,26 +25,36 @@ const Projects = () => {
   const MOBILE_PAGE_SIZE = 3;
   const DESKTOP_PAGE_SIZE = 6;
 
-  const ref = useRef([]);
+  const ref = useRef<Project[]>([]);
 
   const router = useRouter();
 
   const user = useSelector(selectUser);
   const [loading, setLoading] = useState(false);
   const [searchField, setSearchField] = useState("");
-  const [projects, setProjects] = useState(ref.current);
+
+  const [projects, setProjects]: [
+    Project[],
+    React.Dispatch<React.SetStateAction<Project[]>>
+  ] = useState(ref.current);
+
   const [currentPage, setCurrentPage] = useState(1);
   const [pageSize, setPageSize] = useState(MOBILE_PAGE_SIZE);
   const [showModal, setShowModal] = useState(false);
-  const [projectId, setProjectId] = useState(0);
+  const [projectId, setProjectId]: [
+    number | undefined,
+    React.Dispatch<React.SetStateAction<number | undefined>>
+  ] = useState();
+
   const [tags, setTags]: [Tag, React.Dispatch<React.SetStateAction<Tag>>] =
     useState({});
+
   const [adminButtons, setAdminButtons]: [
     LinkType[] | undefined,
     React.Dispatch<React.SetStateAction<LinkType[] | undefined>>
   ] = useState();
 
-  const isMobile = useMediaQuery(`(max-width: 768px)`);
+  const isMobile = useMediaQuery();
 
   useEffect(() => {
     const getProjects = async () => {
@@ -76,7 +86,9 @@ const Projects = () => {
         project.title.toLowerCase().includes(field) ||
         project.description.toLowerCase().includes(field) ||
         project.language.toLowerCase().includes(field) ||
-        project.topics.some((topic) => topic.toLowerCase().includes(field))
+        project.topics!.some((topic: string) =>
+          topic.toLowerCase().includes(field)
+        )
     );
     setProjects(filteredProjects);
     setCurrentPage(1);
@@ -122,7 +134,7 @@ const Projects = () => {
 
   const handleDelete = async () => {
     setShowModal(false);
-    await deleteProjectById(projectId);
+    await deleteProjectById(projectId!);
     ref.current = ref.current.filter((proj: Project) => proj.id !== projectId);
     setProjects(ref.current);
   };

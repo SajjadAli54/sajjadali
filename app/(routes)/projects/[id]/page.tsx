@@ -1,6 +1,6 @@
 "use client";
 
-import { useState, useEffect } from "react";
+import { useState, useEffect, Dispatch, SetStateAction } from "react";
 import { Formik, Form, Field, ErrorMessage } from "formik";
 import {
   Button,
@@ -21,6 +21,7 @@ import { fetchProjectById, updateProject } from "@/app/services/projectService";
 import { useSelector } from "react-redux";
 import { selectUser } from "@/app/redux/slices/admin";
 import IllegalPage from "../IllegalPage";
+import Loader from "@/app/components/Loader";
 
 const ProjectSchema = Yup.object({
   title: Yup.string()
@@ -52,25 +53,35 @@ export default function EditProjectForm() {
   const [successMessage, setSuccessMessage] = useState("");
   const [errorMessage, setErrorMessage] = useState("");
   const [loading, setLoading] = useState(false);
-  const [selectedTopics, setSelectedTopics] = useState<TopicOption[]>([]);
+
+  const [selectedTopics, setSelectedTopics]: [
+    MultiValue<TopicOption> | undefined,
+    Dispatch<SetStateAction<MultiValue<TopicOption> | undefined>>
+  ] = useState();
+
   const [project, setProject] = useState<Project | null>(null);
   const [imagePreview, setImagePreview] = useState<string>("");
 
   const user = useSelector(selectUser);
   const router = useRouter();
   const params = useParams();
+
   const id = params.id;
 
   useEffect(() => {
     if (!user) {
       router.push("/projects");
     }
-  }, [user]);
+  }, [user, router]);
 
   useEffect(() => {
     const getProject = async () => {
       try {
-        const fetchedProject = await fetchProjectById(id);
+        if (!id) return;
+        let valId;
+        if (id instanceof Array) valId = parseInt(id[0]!);
+        else valId = parseInt(id);
+        const fetchedProject = await fetchProjectById(valId);
         if (fetchedProject) {
           setProject(fetchedProject);
           setSelectedTopics(
@@ -82,6 +93,7 @@ export default function EditProjectForm() {
           setImagePreview(fetchedProject.image || "");
         }
       } catch (error) {
+        console.error("Error fetching project:", error);
         setErrorMessage("Failed to load project details.");
       }
     };
@@ -93,12 +105,7 @@ export default function EditProjectForm() {
   }
 
   if (!project) {
-    return (
-      <Container className="text-center my-5">
-        <Spinner animation="border" />
-        <p>Loading project...</p>
-      </Container>
-    );
+    return <Loader />;
   }
 
   const handleSubmit = async (values: Project) => {
@@ -107,7 +114,12 @@ export default function EditProjectForm() {
     setSuccessMessage("");
 
     console.log("Updated project data:", id, values);
-    const res = await updateProject(id, values);
+    if (!id) return;
+    let valId;
+    if (id instanceof Array) valId = id[0]!;
+    else valId = id;
+
+    const res = await updateProject(valId, values);
     if (!res) {
       setLoading(false);
       setErrorMessage("Failed to update project. Please try again.");
@@ -143,7 +155,7 @@ export default function EditProjectForm() {
         onSubmit={handleSubmit}
         enableReinitialize
       >
-        {({ isSubmitting, setFieldValue, values }) => (
+        {({ isSubmitting, setFieldValue }) => (
           <Form className="p-4 border rounded bg-light shadow">
             {/* Title */}
             <BootstrapForm.Group className="mb-3">

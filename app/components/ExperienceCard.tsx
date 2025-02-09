@@ -32,7 +32,7 @@ function ExperienceCard({
   image = "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTa_Upz1wUzZ05xdUafznHl79IbWrjzHk6cfA&s",
 }: Props) {
   const isJob = type === "job";
-  const experience = isJob ? calculateExperience(startDate, endDate) : null;
+  const experience = isJob ? calculateExperience(startDate, endDate!) : null;
 
   return (
     <Container className="mb-4">

@@ -3,7 +3,7 @@ import _ from "lodash";
 export function calculateExperience(startDate: string, endDate: string) {
   const start = new Date(startDate);
   const end = endDate ? new Date(endDate) : new Date(); // If no end date, use the current date
-  const diffInMs = end - start;
+  const diffInMs = end.getTime() - start.getTime();
   const diffInMonths = Math.ceil(diffInMs / (1000 * 60 * 60 * 24 * 30)); // Approximate months
   const years = Math.floor(diffInMonths / 12);
   const months = diffInMonths % 12;

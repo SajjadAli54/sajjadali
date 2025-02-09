@@ -1,6 +1,6 @@
 "use client";
 
-import { useState } from "react";
+import { useState, Dispatch, SetStateAction } from "react";
 import { Formik, Form, Field, ErrorMessage } from "formik";
 import {
   Button,
@@ -55,7 +55,14 @@ export default function ProjectForm() {
   const [successMessage, setSuccessMessage] = useState("");
   const [errorMessage, setErrorMessage] = useState("");
   const [loading, setLoading] = useState(false);
-  const [selectedTopics, setSelectedTopics] = useState([]);
+
+  // const [selectedTopics, setSelectedTopics] = useState([]);
+
+  const [selectedTopics, setSelectedTopics]: [
+    MultiValue<TopicOption> | undefined,
+    Dispatch<SetStateAction<MultiValue<TopicOption> | undefined>>
+  ] = useState();
+
   const [imagePreview, setImagePreview] = useState<string>("");
 
   const user = useSelector(selectUser);
@@ -104,7 +111,7 @@ export default function ProjectForm() {
         validationSchema={ProjectSchema}
         onSubmit={handleSubmit}
       >
-        {({ isSubmitting, setFieldValue, values }) => (
+        {({ isSubmitting, setFieldValue }) => (
           <Form className="p-4 border rounded bg-light shadow-lg">
             <div className="row">
               <div className="col-md-8">
@@ -229,7 +236,7 @@ export default function ProjectForm() {
                     name="image"
                     className="form-control"
                     placeholder="Enter image URL"
-                    onChange={(e) => {
+                    onChange={(e: React.ChangeEvent<HTMLInputElement>) => {
                       const url = e.target.value;
                       setFieldValue("image", url);
                       setImagePreview(url);

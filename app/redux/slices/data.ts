@@ -25,4 +25,4 @@ export const { setProjects, setBlogs } = slice.actions;
 export const selectProjects = (state: { data: { projects: Project[] } }) =>
   state.data.projects;
 
-export const selectBlogs = (state) => state.data.blogs;
+// export const selectBlogs = (state) => state.data.blogs;

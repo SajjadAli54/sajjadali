@@ -1,7 +1,7 @@
 import { IconType } from "react-icons";
 
 interface Project {
-  id: number;
+  id?: number;
   title: string;
   description: string;
   language: string;

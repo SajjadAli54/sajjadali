@@ -25,7 +25,7 @@ function EducationContainer() {
     <Container className="py-5 animate__animated animate__fadeIn">
       <Tab.Container
         activeKey={activeTab}
-        onSelect={(key) => setActiveTab(key)}
+        onSelect={(key) => setActiveTab(key!)}
       >
         <Nav variant="tabs" className="mb-4 justify-content-center">
           <Nav.Item>
@@ -56,7 +56,7 @@ function EducationContainer() {
 export default EducationContainer;
 
 const Education = () => {
-  const isMobile = useMediaQuery("(max-width: 768px)"); // Mobile detection
+  const isMobile = useMediaQuery(); // Mobile detection
 
   return (
     <div>

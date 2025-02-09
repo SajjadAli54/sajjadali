@@ -39,7 +39,8 @@ const Blogs = () => {
         const response = await fetch(url);
         const data = await response.json();
         data.sort(
-          (a, b) => b.public_reactions_count - a.public_reactions_count
+          (a: Blog, b: Blog) =>
+            b.public_reactions_count - a.public_reactions_count
         );
         setPosts(data);
       } catch (error) {
@@ -50,7 +51,7 @@ const Blogs = () => {
     };
 
     fetchPosts();
-  }, []);
+  }, [url]);
 
   useEffect(() => {
     const field = searchQuery.trim().toLowerCase();

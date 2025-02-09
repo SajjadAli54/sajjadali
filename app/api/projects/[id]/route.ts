@@ -5,16 +5,15 @@ import { NextRequest, NextResponse } from "next/server";
 const prisma = new PrismaClient();
 
 interface Params {
-  params: {
-    id: string;
-  };
+  params: Promise<{ id: string }>;
 }
-
-// Fetch project by ID
 export async function GET(request: NextRequest, { params }: Params) {
   try {
-    const id = parseInt(params.id);
-    const project = await prisma.project.findUnique({ where: { id } });
+    const { id } = await params;
+    const projectId = parseInt(id);
+    const project = await prisma.project.findUnique({
+      where: { id: projectId },
+    });
     return NextResponse.json({ success: true, data: project }, { status: 200 });
   } catch (error) {
     return NextResponse.json(
@@ -27,7 +26,8 @@ export async function GET(request: NextRequest, { params }: Params) {
 // Update project by ID
 export async function PUT(request: NextRequest, { params }: Params) {
   try {
-    const id = parseInt(params.id);
+    const { id } = await params;
+    const projectId = parseInt(id);
     const body = await request.json();
 
     const { title, description, language, topics, clone_url, live, image } =
@@ -35,7 +35,7 @@ export async function PUT(request: NextRequest, { params }: Params) {
 
     // Update project with the provided details
     const updatedProject = await prisma.project.update({
-      where: { id },
+      where: { id: projectId },
       data: {
         title,
         description,
