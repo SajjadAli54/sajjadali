@@ -1,5 +1,4 @@
 [build]
-publish = "dist"
 command = "npm install && npm run build"
 functions = "out"
 
