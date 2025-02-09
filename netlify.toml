@@ -1,7 +1,10 @@
 [build]
-publish = "out"
+publish = "dist"
 command = "npm install && npm run build"
 functions = "out"
+
+[[plugins]]
+  package = "@netlify/plugin-nextjs"
 
 [context.environment.NODE_ENV]
   production = "production"
