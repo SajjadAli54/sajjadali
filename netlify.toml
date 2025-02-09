@@ -1,0 +1,21 @@
+[build]
+publish = "out"
+command = "npm install && npm run build"
+functions = "out"
+
+[context.environment.NODE_ENV]
+  production = "production"
+
+[build.environment]
+  NPM_CONFIG_PRODUCTION = "false"
+  NODE_OPTIONS = "--max_old_space_size=4096"
+
+[build.cache]
+  paths = ["node_modules"]
+  key = "node-v{node_version}-{os}-{arch}-{mtime}-{sha512}"
+
+[build.cache.npm]
+  enabled = true
+
+[functions.cache]
+  enabled = true
