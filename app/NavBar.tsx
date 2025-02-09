@@ -1,6 +1,6 @@
 "use client";
 
-import React, { useMemo } from "react";
+import React, { useEffect } from "react";
 import Image from "next/image";
 import Link from "next/link";
 
@@ -16,33 +16,41 @@ const NavBar = () => {
   const dispatch = useDispatch();
   const user = useSelector(selectUser);
 
-  const links = useMemo(() => {
-    if (!user) {
-      return [...navLinks];
-    }
-    return [
-      ...navLinks.filter(
-        (link) =>
-          ![routes.contact, routes.education, routes.experience].includes(
-            link.href
-          )
-      ),
-      { href: "/projects/add", label: "Add Project" },
-      {
-        href: routes.home,
-        label: "Logout",
-        onClick: () => {
-          dispatch(setUser(""));
-          window.location.reload();
-        },
-      },
-    ];
-  }, [user, dispatch]);
+  const [links, setLinks] = React.useState(navLinks);
 
+  useEffect(() => {
+    if (!user) {
+      setLinks([...links]);
+    } else {
+      const unwantedRoutes = [
+        routes.contact,
+        routes.education,
+        routes.experience,
+      ];
+      const updatedLinks = links.filter(
+        (link) => !unwantedRoutes.includes(link.href)
+      );
+      setLinks([
+        ...updatedLinks,
+        { href: "/projects/add", label: "Add Project" },
+        {
+          href: routes.home,
+          label: "Logout",
+          onClick: () => {
+            dispatch(setUser(""));
+
+            window.location.reload();
+          },
+        },
+      ]);
+    }
+  }, [user]);
+
+  console.log(user);
   return (
     <Navbar expand="lg" className="bg-light shadow-sm">
       <Container>
-        <Link href={routes.home} passHref>
+        <Link href={routes.home} passHref legacyBehavior>
           <Navbar.Brand className="d-flex align-items-center">
             <Image
               src={"/logo.png"}
@@ -58,10 +66,8 @@ const NavBar = () => {
         <Navbar.Collapse id="basic-navbar-nav">
           <Nav className="ms-auto">
             {links.map(({ href, label, onClick }) => (
-              <Link key={`${href}${label}`} href={href} passHref>
-                <Nav.Link onClick={onClick} className="fw-bold text-dark">
-                  {label}
-                </Nav.Link>
+              <Link key={`${href}${label}`} href={href} passHref legacyBehavior>
+                <Nav.Link onClick={onClick}>{label}</Nav.Link>
               </Link>
             ))}
           </Nav>
