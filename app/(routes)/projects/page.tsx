@@ -9,7 +9,11 @@ import MyModal from "@components/modal/Modal";
 import SearchBox from "@components/search/SearchBox";
 import { paginate } from "@utils/index";
 
-import { fetchProjects, deleteProjectById } from "@services/projectService";
+import {
+  fetchProjects,
+  deleteProjectById,
+  addAllProjects,
+} from "@services/projectService";
 import { FaEdit, FaGithub, FaGlobe, FaTrash } from "react-icons/fa";
 
 import useMediaQuery from "@hooks/useMediaQuery";
@@ -26,6 +30,8 @@ const Projects = () => {
   const DESKTOP_PAGE_SIZE = 6;
 
   const ref = useRef<Project[]>([]);
+
+  addAllProjects();
 
   const router = useRouter();
 
