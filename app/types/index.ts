@@ -36,4 +36,11 @@ interface LinkType {
   onClick?: () => void;
 }
 
+export interface Error {
+  name?: string;
+  email?: string;
+  subject?: string;
+  message?: string;
+}
+
 export type { Project, Tag, TopicOption, LinkType, Blog };

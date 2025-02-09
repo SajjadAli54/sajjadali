@@ -5,12 +5,7 @@ import { IoIosContact } from "react-icons/io";
 import { FaEnvelope, FaPhone, FaRegUser, FaPaperPlane } from "react-icons/fa";
 import { Container } from "react-bootstrap";
 
-interface Error {
-  name?: string;
-  email?: string;
-  subject?: string;
-  message?: string;
-}
+import { Error } from "@/app/types";
 
 const Contact = () => {
   const [formData, setFormData] = useState({
@@ -78,7 +73,14 @@ const Contact = () => {
       <div className="row justify-content-center">
         <div className="col-lg-6">
           <div className="card p-4 border-0 shadow-sm rounded">
-            <form onSubmit={handleSubmit}>
+            <form
+              onSubmit={handleSubmit}
+              name="contact"
+              method="POST"
+              data-netlify="true"
+              action="/"
+            >
+              <input type="hidden" name="form-name" value="contact" />
               {/* Name Field */}
               <div className="mb-3">
                 <label htmlFor="name" className="form-label fw-semibold">
