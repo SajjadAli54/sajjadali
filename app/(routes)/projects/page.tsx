@@ -165,55 +165,51 @@ const Projects = () => {
         />
       </div>
 
-      {loading ? (
-        <Loader />
-      ) : (
-        <Row>
-          {items.length > 0 ? (
-            items.map((project, index) => (
-              <div key={index} className="col-md-4 col-sm-12 col-lg-4 mb-4">
-                <MyCard
-                  image={
-                    project.image ??
-                    "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQpZ6IjB4FE5Dadyw8HmA2VuC_7QXJZ9h4HlQ&s"
-                  }
-                  title={project.title}
-                  description={project.description}
-                  tags={[project.language, ...project.topics]}
-                  links={[
-                    {
-                      label: FaGithub,
-                      url: project.clone_url,
-                      className: "text-dark",
-                    },
-                    {
-                      label: FaGlobe,
-                      url: project.live,
-                    },
-                    ...adminButtons!.map((value) => {
-                      return {
-                        label: value.label,
-                        className: value.className,
-                        onClick: () => {
-                          if (value.label === FaEdit) {
-                            router.push(`/projects/${project.id}`);
-                          }
-                          if (value.label === FaTrash) {
-                            setShowModal(true);
-                            setProjectId(project.id);
-                          }
-                        },
-                      };
-                    }),
-                  ]}
-                />
-              </div>
-            ))
-          ) : (
-            <div className="text-center">No projects found.</div>
-          )}
-        </Row>
-      )}
+      <Row>
+        {loading ? (
+          <Loader />
+        ) : (
+          items.map((project, index) => (
+            <div key={index} className="col-md-4 col-sm-12 col-lg-4 mb-4">
+              <MyCard
+                image={
+                  project.image ??
+                  "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQpZ6IjB4FE5Dadyw8HmA2VuC_7QXJZ9h4HlQ&s"
+                }
+                title={project.title}
+                description={project.description}
+                tags={[project.language, ...project.topics]}
+                links={[
+                  {
+                    label: FaGithub,
+                    url: project.clone_url,
+                    className: "text-dark",
+                  },
+                  {
+                    label: FaGlobe,
+                    url: project.live,
+                  },
+                  ...adminButtons!.map((value) => {
+                    return {
+                      label: value.label,
+                      className: value.className,
+                      onClick: () => {
+                        if (value.label === FaEdit) {
+                          router.push(`/projects/${project.id}`);
+                        }
+                        if (value.label === FaTrash) {
+                          setShowModal(true);
+                          setProjectId(project.id);
+                        }
+                      },
+                    };
+                  }),
+                ]}
+              />
+            </div>
+          ))
+        )}
+      </Row>
 
       <MyPagination
         currentPage={currentPage}

@@ -2,21 +2,14 @@
 
 import { useState } from "react";
 import { Tab, Nav } from "react-bootstrap";
-import { FaUniversity } from "react-icons/fa";
-
-import Slider from "react-slick";
 
 import "slick-carousel/slick/slick.css";
 import "slick-carousel/slick/slick-theme.css";
 
 import { Container } from "react-bootstrap";
 
-import Card from "@components/Card";
-import ExperienceCard from "@components/ExperienceCard";
-import useMediaQuery from "@hooks/useMediaQuery";
-
-import { education } from "@data/education";
-import { certifications } from "@data/certifications";
+import { Education } from "./Education";
+import { Certifications } from "./Certifications";
 
 function EducationContainer() {
   const [activeTab, setActiveTab] = useState("education");
@@ -54,71 +47,3 @@ function EducationContainer() {
 }
 
 export default EducationContainer;
-
-const Education = () => {
-  const isMobile = useMediaQuery(); // Mobile detection
-
-  return (
-    <div>
-      {education.map((edu, index) =>
-        isMobile ? (
-          <Card
-            key={index}
-            image={edu.image}
-            title={`${edu.degree} @ ${edu.institution}`}
-            description={edu.description}
-            links={[
-              {
-                url: edu.institutionUrl,
-                label: FaUniversity,
-              },
-            ]}
-            tags={edu.tags}
-          />
-        ) : (
-          <ExperienceCard
-            key={index}
-            type="education"
-            title={edu.degree}
-            image={edu.image}
-            institutionOrCompany={edu.institution}
-            institutionOrCompanyUrl={edu.institutionUrl}
-            startDate={edu.startDate}
-            endDate={edu.endDate}
-            subtitle={edu.description}
-            achievementsOrDuties={edu.achievements}
-            tags={edu.tags}
-          />
-        )
-      )}
-    </div>
-  );
-};
-
-const Certifications = () => {
-  return (
-    <Slider
-      dots={true}
-      infinite={true}
-      speed={500}
-      slidesToShow={3}
-      slidesToScroll={1}
-      responsive={[
-        {
-          breakpoint: 768, // Tablets & below
-          settings: { slidesToShow: 2, slidesToScroll: 1 },
-        },
-        {
-          breakpoint: 576, // Mobile
-          settings: { slidesToShow: 1, slidesToScroll: 1 },
-        },
-      ]}
-    >
-      {certifications.map((cert, index) => (
-        <div key={index} className="px-2">
-          <Card image={cert.src} title={cert.alt} />
-        </div>
-      ))}
-    </Slider>
-  );
-};

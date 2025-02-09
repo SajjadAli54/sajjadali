@@ -1,0 +1,40 @@
+.sliderContainer {
+  padding: 40px 20px;
+  background-color: #f8f9fa; /* Light gray background */
+}
+
+.cardWrapper {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100%; /* Ensures uniform height */
+}
+
+.cardComponent {
+  width: 100%;
+  max-width: 300px; /* Ensures cardComponents are not too big */
+  height: 400px; /* Set uniform height */
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  background: #fff;
+  border-radius: 10px;
+  padding: 20px;
+  box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+  transition: transform 0.3s ease-in-out;
+}
+
+.cardComponent:hover {
+  transform: translateY(-5px);
+}
+
+/* Custom styles for slider dots */
+.slick-dots li button:before {
+  font-size: 12px;
+  color: #007bff;
+}
+
+.slick-dots li.slick-active button:before {
+  color: #0056b3;
+}

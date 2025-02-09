@@ -12,14 +12,8 @@ import SearchBox from "@components/search/SearchBox";
 import Loader from "@components/Loader";
 import { paginate } from "@utils/index";
 
-interface Blog {
-  title: string;
-  description: string;
-  tag_list: string[];
-  public_reactions_count: number;
-  cover_image: string;
-  canonical_url: string;
-}
+import { Blog } from "@types";
+import { Col, Row } from "react-bootstrap";
 
 const Blogs = () => {
   const PAGE_SIZE = 3;
@@ -68,17 +62,17 @@ const Blogs = () => {
 
   return (
     <Container className="animate__animated animate__fadeIn">
-      {loading ? (
-        <Loader />
-      ) : (
-        posts.length > 0 && (
-          <>
-            <SearchBox
-              searchField={searchQuery}
-              searchChange={(e) => setSearchQuery(e.target.value)}
-              placeholder="Search"
-            />
+      <>
+        <SearchBox
+          searchField={searchQuery}
+          searchChange={(e) => setSearchQuery(e.target.value)}
+          placeholder="Search"
+        />
 
+        {loading ? (
+          <Loader />
+        ) : (
+          <>
             <BlogsList items={items} />
             <Pagination
               itemsCount={filteredPosts.length}
@@ -87,8 +81,8 @@ const Blogs = () => {
               onPageChange={(page) => setCurrentPage(page)}
             />
           </>
-        )
-      )}
+        )}
+      </>
     </Container>
   );
 };
@@ -97,9 +91,9 @@ export default Blogs;
 
 const BlogsList = ({ items }: { items: Blog[] }) => {
   return (
-    <div className="row">
+    <Row>
       {items.map((post, index) => (
-        <div key={index} className="col-md-4 col-sm-12 mb-4">
+        <Col key={index} md={4} sm={12}>
           <Card
             image={post.cover_image}
             title={post.title}
@@ -113,8 +107,8 @@ const BlogsList = ({ items }: { items: Blog[] }) => {
             ]}
             tags={post.tag_list}
           />
-        </div>
+        </Col>
       ))}
-    </div>
+    </Row>
   );
 };

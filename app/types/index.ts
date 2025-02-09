@@ -11,6 +11,15 @@ interface Project {
   image: string;
 }
 
+interface Blog {
+  title: string;
+  description: string;
+  tag_list: string[];
+  public_reactions_count: number;
+  cover_image: string;
+  canonical_url: string;
+}
+
 interface Tag {
   [key: string]: boolean;
 }
@@ -27,4 +36,4 @@ interface LinkType {
   onClick?: () => void;
 }
 
-export type { Project, Tag, TopicOption, LinkType };
+export type { Project, Tag, TopicOption, LinkType, Blog };

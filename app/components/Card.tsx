@@ -21,6 +21,7 @@ interface MyCardProps {
   links?: Link[];
   tags?: string[];
   reactions?: number;
+  className?: string;
 }
 
 const MyCard: React.FC<MyCardProps> = ({
@@ -30,17 +31,18 @@ const MyCard: React.FC<MyCardProps> = ({
   links = [],
   tags = [],
   reactions,
+  className,
 }) => {
   const component = (
     <Card
       key={title}
-      className="h-100 mb-2 glassmorphism"
+      className={`h-100 mb-2 glassmorphism ${className}`}
       style={{ height: "100%", overflow: "hidden" }}
     >
       <Card.Header className="bg-transparent">
         <Card.Img
           src={image || "https://via.placeholder.com/300"}
-          style={{ objectFit: "cover", height: "150px" }}
+          style={{ objectFit: "cover", width: "100%", height: "200px" }}
           className="card-img-top bg-transparent"
           alt={title}
         />
