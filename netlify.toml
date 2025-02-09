@@ -1,6 +1,7 @@
 [build]
-command = "npm install && npm run build"
+command = "npm install && npm run build && next export"
 functions = "out"
+
 
 [[plugins]]
   package = "@netlify/plugin-nextjs"
@@ -9,6 +10,7 @@ functions = "out"
   production = "production"
 
 [build.environment]
+  NETLIFY_NEXT_PLUGIN_SKIP = "true
   NPM_CONFIG_PRODUCTION = "false"
   NODE_OPTIONS = "--max_old_space_size=4096"
 
