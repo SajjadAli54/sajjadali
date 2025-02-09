@@ -1,3 +1,5 @@
+import { projects } from "@data/projects";
+
 import { PrismaClient } from "@prisma/client";
 
 import { NextRequest, NextResponse } from "next/server";
@@ -21,6 +23,18 @@ export async function GET() {
     );
   }
 }
+
+export const dynamic = "force-dynamic";
+export const revalidate = 0;
+
+export const PUT = async () => {
+  const existingProjects = await prisma.project.findMany({});
+  if (existingProjects.length === projects.length) return;
+  for (const project of projects) {
+    const data = project;
+    await prisma.project.create({ data });
+  }
+};
 
 // ✅ Create a new project
 export async function POST(req: NextRequest) {

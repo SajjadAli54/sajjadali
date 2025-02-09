@@ -6,6 +6,10 @@ import axios from "axios";
 
 const url = "/api/projects";
 
+export const addAllProjects = async () => {
+  axios.put(url);
+};
+
 export const fetchProjects = async () => {
   try {
     const response = await axios.get(url);

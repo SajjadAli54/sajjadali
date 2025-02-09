@@ -1,13 +1,5 @@
 import _ from "lodash";
 
-import bcrypt from "bcryptjs";
-
-const hashPassword = async (data: string) => {
-  const saltRounds = 10; // Higher rounds = more secure, but slower
-  const hashedData = await bcrypt.hash(data, saltRounds);
-  return hashedData;
-};
-
 export function calculateExperience(startDate: string, endDate: string) {
   const start = new Date(startDate);
   const end = endDate ? new Date(endDate) : new Date(); // If no end date, use the current date
