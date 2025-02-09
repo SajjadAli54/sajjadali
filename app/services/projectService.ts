@@ -37,6 +37,7 @@ export const fetchProjectById = async (id: number) => {
 };
 
 export const createProject = async (project: Project): Promise<boolean> => {
+  console.log("New project data:", project);
   // try {
   //   await axios.post(url, project);
   //   return true;
@@ -49,7 +50,7 @@ export const createProject = async (project: Project): Promise<boolean> => {
 };
 
 export const updateProject = async (id: string, updatedProject: object) => {
-  // console.log("Updated project data:", id, updatedProject);
+  console.log("Updated project data:", id, updatedProject);
   // try {
   //   await axios.put(`/api/projects/${id}`, updatedProject);
   //   return true;
@@ -62,6 +63,7 @@ export const updateProject = async (id: string, updatedProject: object) => {
 };
 
 export const deleteProjectById = async (id: number) => {
+  console.log("Deleting project:", id);
   // try {
   //   await axios.delete(url, { data: { id } });
   // } catch (error) {
