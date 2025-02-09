@@ -73,14 +73,7 @@ const Contact = () => {
       <div className="row justify-content-center">
         <div className="col-lg-6">
           <div className="card p-4 border-0 shadow-sm rounded">
-            <form
-              onSubmit={handleSubmit}
-              name="contact"
-              method="POST"
-              data-netlify="true"
-              action="/"
-            >
-              <input type="hidden" name="form-name" value="contact" />
+            <form onSubmit={handleSubmit}>
               {/* Name Field */}
               <div className="mb-3">
                 <label htmlFor="name" className="form-label fw-semibold">
