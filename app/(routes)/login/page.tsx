@@ -53,7 +53,8 @@ export default function Login() {
       if (
         // process.env.NEXT_PUBLIC_EMAIL == email &&
         email == "imsajjadali54@gmail" &&
-        process.env.NEXT_PUBLIC_PASSWORD == password
+        // process.env.NEXT_PUBLIC_PASSWORD == password
+        password == "Parzival@123"
       ) {
         dispatch(setUser({ email }));
         router.push("/projects");
