@@ -51,7 +51,8 @@ export default function Login() {
     setLoading(true);
     setTimeout(() => {
       if (
-        process.env.NEXT_PUBLIC_EMAIL == email &&
+        // process.env.NEXT_PUBLIC_EMAIL == email &&
+        email == "imsajjadali54@gmail" &&
         process.env.NEXT_PUBLIC_PASSWORD == password
       ) {
         dispatch(setUser({ email }));
