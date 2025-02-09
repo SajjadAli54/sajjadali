@@ -29,36 +29,36 @@ const Contact = () => {
     setErrors((prevErrors) => ({ ...prevErrors, [id]: "" }));
   };
 
-  const validateForm = () => {
-    const newErrors: Error = {};
-    if (!formData.name.trim()) newErrors.name = "Name is required.";
-    if (!formData.email.trim()) newErrors.email = "Email is required.";
-    const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
-    if (formData.email && !emailRegex.test(formData.email)) {
-      newErrors.email = "Invalid email address.";
-    }
-    if (!formData.subject.trim()) newErrors.subject = "Subject is required.";
-    if (!formData.message.trim())
-      newErrors.message = "Message cannot be empty.";
+  // const validateForm = () => {
+  //   const newErrors: Error = {};
+  //   if (!formData.name.trim()) newErrors.name = "Name is required.";
+  //   if (!formData.email.trim()) newErrors.email = "Email is required.";
+  //   const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+  //   if (formData.email && !emailRegex.test(formData.email)) {
+  //     newErrors.email = "Invalid email address.";
+  //   }
+  //   if (!formData.subject.trim()) newErrors.subject = "Subject is required.";
+  //   if (!formData.message.trim())
+  //     newErrors.message = "Message cannot be empty.";
 
-    return newErrors;
-  };
+  //   return newErrors;
+  // };
 
-  const handleSubmit = (e: React.FormEvent) => {
-    e.preventDefault();
-    const validationErrors = validateForm();
-    if (Object.keys(validationErrors).length > 0) {
-      setErrors(validationErrors);
-      return;
-    }
+  // const handleSubmit = (e: React.FormEvent) => {
+  //   e.preventDefault();
+  //   const validationErrors = validateForm();
+  //   if (Object.keys(validationErrors).length > 0) {
+  //     setErrors(validationErrors);
+  //     return;
+  //   }
 
-    const mailtoLink = `mailto:imsajjadali54@gmail.com?subject=${encodeURIComponent(
-      formData.subject
-    )}&body=${encodeURIComponent(
-      `Name: ${formData.name}\nEmail: ${formData.email}\nPhone: ${formData.phone}\n\nMessage:\n${formData.message}`
-    )}`;
-    window.location.href = mailtoLink;
-  };
+  //   const mailtoLink = `mailto:imsajjadali54@gmail.com?subject=${encodeURIComponent(
+  //     formData.subject
+  //   )}&body=${encodeURIComponent(
+  //     `Name: ${formData.name}\nEmail: ${formData.email}\nPhone: ${formData.phone}\n\nMessage:\n${formData.message}`
+  //   )}`;
+  //   window.location.href = mailtoLink;
+  // };
 
   return (
     <Container className="py-5 animate__animated animate__fadeIn">
@@ -73,7 +73,7 @@ const Contact = () => {
       <div className="row justify-content-center">
         <div className="col-lg-6">
           <div className="card p-4 border-0 shadow-sm rounded">
-            <form onSubmit={handleSubmit}>
+            <form name="contact" method="POST" data-netlify="true">
               {/* Name Field */}
               <div className="mb-3">
                 <label htmlFor="name" className="form-label fw-semibold">
