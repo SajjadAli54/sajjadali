@@ -1,8 +1,16 @@
 "use client";
 
 import Link from "next/link";
-import Image from "next/image";
-import { Card, ListGroup, Row, Col, Container, Badge } from "react-bootstrap";
+// import Image from "next/image";
+import {
+  Card,
+  ListGroup,
+  Row,
+  Col,
+  Container,
+  Badge,
+  Image,
+} from "react-bootstrap";
 import Tags from "@components/Tags";
 import { calculateExperience } from "@utils/index";
 
