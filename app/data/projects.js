@@ -1,7 +1,7 @@
 export const projects = [
   {
     id: "19",
-    name: "Portfolio Website",
+    title: "Portfolio Website",
     description:
       "A responsive and interactive portfolio website showcasing my skills, projects, and experiences.",
     live: "https://imsajjad.netlify.app",
