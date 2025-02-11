@@ -161,6 +161,7 @@ const Projects = () => {
         <Tags
           tags={Object.keys(tags)}
           status={Object.values(tags)}
+          className={`bg-dark text-white cursor-pointer px-2 py-1 rounded`}
           onClick={handleBadgeClick}
         />
       </div>
