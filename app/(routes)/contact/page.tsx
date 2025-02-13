@@ -5,10 +5,8 @@ import { Formik, Field, Form, ErrorMessage } from "formik";
 import * as Yup from "yup";
 import { IoIosContact } from "react-icons/io";
 import { FaEnvelope, FaPhone, FaRegUser, FaPaperPlane } from "react-icons/fa";
-import { Container } from "react-bootstrap";
 
 const Contact = () => {
-  // Validation Schema
   const validationSchema = Yup.object({
     name: Yup.string().trim().required("Name is required"),
     email: Yup.string()
@@ -23,7 +21,6 @@ const Contact = () => {
     message: Yup.string().trim().required("Message cannot be empty"),
   });
 
-  // Initial Form Values
   const initialValues = {
     name: "",
     email: "",
@@ -32,7 +29,6 @@ const Contact = () => {
     message: "",
   };
 
-  // Form Submit Handler
   const handleSubmit = (values: typeof initialValues) => {
     const mailtoLink = `mailto:imsajjadali54@gmail.com?subject=${encodeURIComponent(
       values.subject
@@ -43,18 +39,18 @@ const Contact = () => {
   };
 
   return (
-    <Container className="py-5 animate__animated animate__fadeIn">
-      <div className="text-center mb-5">
+    <div className="animate__animated animate__fadeIn">
+      <div className="text-center mb-4">
         <IoIosContact size={60} className="text-primary mb-2" />
-        <h2 className="text-primary display-5 fw-bold">Contact Me</h2>
+        <h2 className="text-primary fw-bold">Contact Me</h2>
         <p className="text-muted">
           Have a question or project? Let&apos;s get in touch!
         </p>
       </div>
 
       <div className="row justify-content-center">
-        <div className="col-lg-6">
-          <div className="card p-4 border-0 shadow-sm rounded">
+        <div className="col-lg-6 col-md-8 col-sm-10">
+          <div className="card p-3 p-md-4 border-0 shadow-sm rounded">
             <Formik
               initialValues={initialValues}
               validationSchema={validationSchema}
@@ -71,7 +67,7 @@ const Contact = () => {
                       type="text"
                       id="name"
                       name="name"
-                      className={`form-control ${
+                      className={`form-control w-100 p-3 ${
                         touched.name && errors.name ? "is-invalid" : ""
                       }`}
                       placeholder="Enter your name"
@@ -92,7 +88,7 @@ const Contact = () => {
                       type="email"
                       id="email"
                       name="email"
-                      className={`form-control ${
+                      className={`form-control w-100 p-3 ${
                         touched.email && errors.email ? "is-invalid" : ""
                       }`}
                       placeholder="Enter your email"
@@ -113,7 +109,7 @@ const Contact = () => {
                       type="tel"
                       id="phone"
                       name="phone"
-                      className="form-control"
+                      className="form-control w-100 p-3"
                       placeholder="Enter your phone number"
                     />
                     <ErrorMessage
@@ -132,7 +128,7 @@ const Contact = () => {
                       type="text"
                       id="subject"
                       name="subject"
-                      className={`form-control ${
+                      className={`form-control w-100 p-3 ${
                         touched.subject && errors.subject ? "is-invalid" : ""
                       }`}
                       placeholder="Enter subject"
@@ -154,7 +150,7 @@ const Contact = () => {
                       id="message"
                       name="message"
                       rows={5}
-                      className={`form-control ${
+                      className={`form-control w-100 p-3 ${
                         touched.message && errors.message ? "is-invalid" : ""
                       }`}
                       placeholder="Write your message here..."
@@ -170,7 +166,7 @@ const Contact = () => {
                   <div className="text-center">
                     <button
                       type="submit"
-                      className="btn btn-primary btn-lg px-4"
+                      className="btn btn-primary btn-lg px-4 py-2 w-100"
                     >
                       <FaPaperPlane className="me-2" /> Send Message
                     </button>
@@ -181,7 +177,7 @@ const Contact = () => {
           </div>
         </div>
       </div>
-    </Container>
+    </div>
   );
 };
 
