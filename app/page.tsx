@@ -2,7 +2,7 @@
 
 import Link from "next/link";
 import { GoStack } from "react-icons/go";
-import { Button, Container, Row, Col, Image } from "react-bootstrap";
+import { Button, Row, Col, Image } from "react-bootstrap";
 
 import TechStack from "@components/stack/TechStack";
 
