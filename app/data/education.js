@@ -18,8 +18,8 @@ export const education = [
       "https://www.ntnu.edu/documents/1265708073/1266886158/bygg-5.jpg/0acaaba8-2ac1-4231-af69-85c32e726b3a?t=1501754425569",
   },
   {
-    degree: "BS Computer Science",
-    institution: "Sukkur IBA",
+    degree: "BS CS",
+    institution: "Sukkur IBA University",
     institutionUrl: "https://www.iba-suk.edu.pk/",
     startDate: "August 2019",
     endDate: "July 2023",

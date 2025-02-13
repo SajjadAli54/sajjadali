@@ -11,11 +11,12 @@ import Projects from "@pages/projects/page";
 
 export default function Home() {
   const ProfileImage = "picofme.png";
+
   return (
-    <Container className="py-5 animate__animated animate__fadeIn">
+    <div className="py-5 animate__animated animate__fadeIn">
       <Row className="align-items-center text-center text-lg-start">
         {/* Left Section */}
-        <Col lg={6}>
+        <Col lg={6} className="mb-4 mb-lg-0">
           <h1 className="display-4 fw-bold mb-3">Sajjad Ali</h1>
           <h2 className="fw-bold mb-3">Full Stack Software Developer</h2>
           <h3 className="fw-bold mb-3">
@@ -29,7 +30,7 @@ export default function Home() {
               Badri Management Consultancy
             </Link>
           </h3>
-          <p className="lead">
+          <p className="lead mb-4">
             Building seamless digital experiences across Web, Mobile, and
             Desktop. Passionate Full-Stack Developer turning complex problems
             into elegant solutions.
@@ -37,12 +38,12 @@ export default function Home() {
           <div className="d-flex gap-3 justify-content-center justify-content-lg-start">
             <Link href="/projects" passHref>
               <Button variant="success" size="lg">
-                View My Work
+                Projects
               </Button>
             </Link>
             <Link href="/contact" passHref>
               <Button variant="secondary" size="lg">
-                Contact Me
+                Contact
               </Button>
             </Link>
           </div>
@@ -58,6 +59,7 @@ export default function Home() {
             width={200}
             height={200}
             fluid
+            style={{ maxWidth: "100%", height: "auto" }}
           />
         </Col>
       </Row>
@@ -79,7 +81,7 @@ export default function Home() {
       {/* Project Section */}
       <div className="text-center mb-5">
         <h2 className="text-primary d-flex align-items-center justify-content-center gap-2">
-          <GoStack className="text-warning" /> Projects{" "}
+          <GoStack className="text-warning" /> Projects
         </h2>
         <Projects />
       </div>
@@ -87,13 +89,15 @@ export default function Home() {
       {/* Contact Section */}
       <div id="contact" className="text-center mt-5">
         <h2 className="text-primary mb-3">Let&apos;s Connect</h2>
-        <p>I am always open to new opportunities and collaborations.</p>
+        <p className="mb-4">
+          I am always open to new opportunities and collaborations.
+        </p>
         <Link href="/contact" passHref>
           <Button variant="secondary" size="lg">
             Get In Touch
           </Button>
         </Link>
       </div>
-    </Container>
+    </div>
   );
 }

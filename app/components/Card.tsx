@@ -65,7 +65,7 @@ const MyCard: React.FC<MyCardProps> = ({
         )}
       </Card.Body>
       {tags && tags.length > 0 && (
-        <Card.Footer className="bg-transparent">
+        <Card.Footer className={"bg-transparent"}>
           <Tags tags={tags} />
           <div className="d-flex mt-3">
             {reactions !== undefined && (

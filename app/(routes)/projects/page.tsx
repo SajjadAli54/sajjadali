@@ -1,7 +1,7 @@
 "use client";
 
 import React, { useState, useEffect, useRef } from "react";
-import { Container, Row } from "react-bootstrap";
+import { Row } from "react-bootstrap";
 import MyCard from "@components/Card";
 import Tags from "@components/Tags";
 import MyPagination from "@components/Pagination";
@@ -140,7 +140,7 @@ const Projects = () => {
   };
 
   return (
-    <Container className="animate__animated animate__fadeIn">
+    <div className="animate__animated animate__fadeIn">
       <MyModal
         title="Delete Project"
         subtitle="Are you sure?"
@@ -157,7 +157,7 @@ const Projects = () => {
         placeholder="Search projects..."
       />
 
-      <div className="mb-2 text-center">
+      <div className="mb-2 d-flex justify-content-center">
         <Tags
           tags={Object.keys(tags)}
           status={Object.values(tags)}
@@ -225,7 +225,7 @@ const Projects = () => {
         onPageChange={setCurrentPage}
         pageSize={pageSize}
       />
-    </Container>
+    </div>
   );
 };
 

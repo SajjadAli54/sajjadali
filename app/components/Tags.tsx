@@ -1,5 +1,6 @@
 "use client";
 import { Badge } from "react-bootstrap";
+import { useMediaQuery } from "../hooks";
 interface Props {
   tags?: string[];
   status?: boolean[];
@@ -13,6 +14,7 @@ const Tags: React.FC<Props> = ({
   onClick,
   className,
 }) => {
+  const isMobile = useMediaQuery();
   const getColor = (index: number) => {
     if (status && status[index]) {
       return "bg-warning";
@@ -21,7 +23,9 @@ const Tags: React.FC<Props> = ({
     return className ? className : "bg-info";
   };
   return (
-    <div>
+    <div
+      className={`d-flex flex-wrap ${isMobile ? "justify-content-center" : ""}`}
+    >
       {tags?.map((tag, index) => (
         <Badge
           key={index}
