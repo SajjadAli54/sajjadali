@@ -18,7 +18,7 @@ export default function Home() {
         {/* Left Section */}
         <Col lg={6} className="mb-4 mb-lg-0">
           <h1 className="display-4 fw-bold mb-3">Sajjad Ali</h1>
-          <h2 className="fw-bold mb-3">Full Stack Software Developer</h2>
+          <h2 className="fw-bold mb-3">Full Stack Developer</h2>
           <h3 className="fw-bold mb-3">
             <Link
               className="text-primary text-decoration-none"
