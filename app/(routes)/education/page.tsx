@@ -3,8 +3,6 @@
 import { useState } from "react";
 import { Tab, Nav } from "react-bootstrap";
 
-import "slick-carousel/slick/slick.css";
-import "slick-carousel/slick/slick-theme.css";
 
 import { Education } from "./Education";
 import { Certifications } from "./Certifications";
