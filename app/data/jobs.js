@@ -8,10 +8,19 @@ export const jobs = [
     startDate: "Nov 2024",
     subtitle: "Building Financial & Actuarial Solutions for Global Clients.",
     duties: [
-      "📱 Developed advanced desktop applications using PyQt5, PyQt6, and PySide6, improving workflow efficiency by 40%.",
-      "💡 Engineered IFRS 17 Insurance Models using Python, ensuring compliance with international financial standards.",
-      "📊 Built interactive dashboards using Plotly and Apexcharts, enabling real-time data visualization for key stakeholders.",
+      "⚡ Develop and enhance dynamic front-end user interfaces using modern web technologies.",
+      "📊 Design and implement interactive dashboards with UI charts and visualization libraries for data-driven insights.",
+      "🔗 Integrate front-end components seamlessly with back-end scripts and machine learning models to ensure efficient data flow.",
+      "🚀 Optimize backend performance by scaling FastAPI routes and implementing persistent data solutions for frequent queries.",
+      "💻 Maintain and improve desktop applications using Python and PySide, ensuring smooth performance and user experience.",
+      "🐞 Debug, test, and refine code to enhance application functionality, performance, and reliability.",
     ],
+
+    // [
+    //   "📱 Developed advanced desktop applications using PyQt5, PyQt6, and PySide6, improving workflow efficiency by 40%.",
+    //   "💡 Engineered IFRS 17 Insurance Models using Python, ensuring compliance with international financial standards.",
+    //   "📊 Built interactive dashboards using Plotly and Apexcharts, enabling real-time data visualization for key stakeholders.",
+    // ],
     tags: [
       "Python: PyQt and FastAPI",
       "React",
