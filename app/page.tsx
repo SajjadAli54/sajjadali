@@ -8,9 +8,12 @@ import TechStack from "@components/stack/TechStack";
 
 import { techItems } from "@data/tech-items";
 import Projects from "@pages/projects/page";
+import { useMediaQuery } from "./hooks";
 
 export default function Home() {
   const ProfileImage = "picofme.png";
+
+  const isMobile = useMediaQuery();
 
   return (
     <div className="py-5 animate__animated animate__fadeIn">
@@ -56,8 +59,8 @@ export default function Home() {
             className="rounded-circle object-fit-cover"
             src={ProfileImage}
             alt="Sajjad Ali"
-            width={200}
-            height={200}
+            width={isMobile ? 300 : 400}
+            height={isMobile ? 300 : 400}
             fluid
             style={{ maxWidth: "100%", height: "auto" }}
           />
