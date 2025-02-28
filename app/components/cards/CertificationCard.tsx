@@ -23,7 +23,12 @@ const CertificationCard: React.FC<{
       {isPdf ? (
         <iframe
           src={certification.url}
-          style={{ width: "100%", height: "300px", border: "none" }}
+          style={{
+            width: "100%",
+            height: "180px",
+            objectFit: "contain",
+            border: "none",
+          }}
           title={certification.alt}
         ></iframe>
       ) : (
@@ -33,7 +38,9 @@ const CertificationCard: React.FC<{
           style={{
             objectFit: "cover",
             width: "100%",
-            height: "auto",
+            height: "180px",
+            objectPosition: "center",
+            OObjectFit: "contain",
             maxHeight: "250px",
           }}
           className="card-img-top"
