@@ -1,41 +1,25 @@
-import Slider from "react-slick";
-import Card from "@components/Card";
+import CertificationCard from "@/app/components/cards/CertificationCard";
 import { certifications } from "@data/certifications";
 
 import "./certifications.css"; // Import CSS module
+import { Col, Container, Row } from "react-bootstrap";
 
 export const Certifications = () => {
   return (
-    <div className={"sliderContainer"}>
-      <Slider
-        dots={true}
-        infinite={true}
-        speed={500}
-        slidesToShow={3}
-        slidesToScroll={1}
-        autoplay={true}
-        autoplaySpeed={3000}
-        responsive={[
-          {
-            breakpoint: 1024,
-            settings: { slidesToShow: 2, slidesToScroll: 1 },
-          },
-          {
-            breakpoint: 768,
-            settings: { slidesToShow: 1, slidesToScroll: 1 },
-          },
-        ]}
-      >
+    <Container className="py-5 animate__animated animate__fadeIn">
+      <Row className="justify-content-center">
         {certifications.map((cert, index) => (
-          <div key={index} className={"cardWrapper"}>
-            <Card
-              image={cert.src}
-              description={cert.alt}
-              className={"cardComponent"}
-            />
-          </div>
+          <Col
+            md={4}
+            lg={3}
+            sm={6}
+            key={index}
+            className="d-flex align-items-stretch mb-4"
+          >
+            <CertificationCard certification={cert} className="w-100 h-100" />
+          </Col>
         ))}
-      </Slider>
-    </div>
+      </Row>
+    </Container>
   );
 };
