@@ -20,6 +20,7 @@ interface Blog {
   public_reactions_count: number;
   cover_image: string;
   canonical_url: string;
+  comments_count: number;
 }
 
 interface Tag {

@@ -99,6 +99,7 @@ const BlogsList = ({ items }: { items: Blog[] }) => {
             title={post.title}
             description={post.description}
             reactions={post.public_reactions_count}
+            comments={post.comments_count}
             links={[
               {
                 url: post.canonical_url,

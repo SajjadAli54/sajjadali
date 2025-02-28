@@ -1,6 +1,6 @@
 "use client";
 
-import { FaHeart } from "react-icons/fa";
+import { FaComment, FaHeart } from "react-icons/fa";
 import { IconType } from "react-icons";
 
 import Card from "react-bootstrap/Card";
@@ -21,6 +21,7 @@ interface MyCardProps {
   links?: Link[];
   tags?: string[];
   reactions?: number;
+  comments?: number;
   className?: string;
 }
 
@@ -31,6 +32,7 @@ const MyCard: React.FC<MyCardProps> = ({
   links = [],
   tags = [],
   reactions,
+  comments,
   className,
 }) => {
   const component = (
@@ -71,6 +73,18 @@ const MyCard: React.FC<MyCardProps> = ({
                 className=" link-underline link-underline-opacity-0"
               >
                 <FaHeart className="me-1" size={20} color="red" /> {reactions}
+              </Card.Link>
+            )}
+
+            {comments !== undefined && (
+              <Card.Link
+                key={Date.now()}
+                href={links[0].url}
+                target="_blank"
+                rel="noopener noreferrer"
+                className=" link-underline link-underline-opacity-0"
+              >
+                <FaComment className="me-1" size={20} color="blue" /> {comments}
               </Card.Link>
             )}
 
