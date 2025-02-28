@@ -4,7 +4,7 @@ export const projects = [
     title: "Portfolio Website",
     description:
       "A responsive and interactive portfolio website showcasing my skills, projects, and experiences.",
-    live: "https://imsajjad.netlify.app",
+    live: "https://imsajjadali.netlify.app/",
     clone_url: "https://github.com/SajjadAli54/sajjadali",
     image: "https://sajjadali.netlify.app/assets/logo-D6i5nxaC.png",
     language: "JavaScript",

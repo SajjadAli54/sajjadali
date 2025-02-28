@@ -5,7 +5,7 @@ import { FaGlobe } from "react-icons/fa";
 
 import Container from "react-bootstrap/Container";
 
-import Card from "@components/Card";
+import BlogCard from "@/app/components/cards/BlogCard";
 import Pagination from "@components/Pagination";
 
 import SearchBox from "@components/search/SearchBox";
@@ -73,7 +73,14 @@ const Blogs = () => {
           <Loader />
         ) : (
           <>
-            <BlogsList items={items} />
+            <Row>
+              {items.map((post, index) => (
+                <Col key={index} md={4} sm={12}>
+                  <BlogCard key={index} blog={post} />
+                </Col>
+              ))}
+            </Row>
+
             <Pagination
               itemsCount={filteredPosts.length}
               pageSize={PAGE_SIZE}
@@ -88,28 +95,3 @@ const Blogs = () => {
 };
 
 export default Blogs;
-
-const BlogsList = ({ items }: { items: Blog[] }) => {
-  return (
-    <Row>
-      {items.map((post, index) => (
-        <Col key={index} md={4} sm={12}>
-          <Card
-            image={post.cover_image}
-            title={post.title}
-            description={post.description}
-            reactions={post.public_reactions_count}
-            comments={post.comments_count}
-            links={[
-              {
-                url: post.canonical_url,
-                label: FaGlobe,
-              },
-            ]}
-            tags={post.tag_list}
-          />
-        </Col>
-      ))}
-    </Row>
-  );
-};
