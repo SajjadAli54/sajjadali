@@ -1,7 +1,6 @@
 "use client";
 
 import { useState, useEffect } from "react";
-import { FaGlobe } from "react-icons/fa";
 
 import Container from "react-bootstrap/Container";
 

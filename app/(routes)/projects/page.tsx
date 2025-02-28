@@ -2,23 +2,19 @@
 
 import React, { useState, useEffect, useRef } from "react";
 import { Row } from "react-bootstrap";
-import MyCard from "@components/Card";
+import ProjectCard from "@/app/components/cards/ProjectCard";
 import Tags from "@components/Tags";
 import MyPagination from "@components/Pagination";
 import MyModal from "@components/modal/Modal";
 import SearchBox from "@components/search/SearchBox";
 import { paginate } from "@utils/index";
 
-import { fetchProjects, deleteProjectById } from "@services/projectService";
-import { FaEdit, FaGithub, FaGlobe, FaTrash } from "react-icons/fa";
+import { fetchProjects } from "@services/projectService";
 
 import useMediaQuery from "@hooks/useMediaQuery";
 
-import { Tag, LinkType, Project } from "@types";
+import { Tag, Project } from "@types";
 
-import { useSelector } from "react-redux";
-import { selectUser } from "@/app/redux/slices/admin";
-import { useRouter } from "next/navigation";
 import Loader from "@/app/components/Loader";
 
 const Projects = () => {
@@ -27,9 +23,6 @@ const Projects = () => {
 
   const ref = useRef<Project[]>([]);
 
-  const router = useRouter();
-
-  const user = useSelector(selectUser);
   const [loading, setLoading] = useState(false);
   const [searchField, setSearchField] = useState("");
 
@@ -41,18 +34,9 @@ const Projects = () => {
   const [currentPage, setCurrentPage] = useState(1);
   const [pageSize, setPageSize] = useState(MOBILE_PAGE_SIZE);
   const [showModal, setShowModal] = useState(false);
-  const [projectId, setProjectId]: [
-    string | undefined,
-    React.Dispatch<React.SetStateAction<string | undefined>>
-  ] = useState();
 
   const [tags, setTags]: [Tag, React.Dispatch<React.SetStateAction<Tag>>] =
     useState({});
-
-  const [adminButtons, setAdminButtons]: [
-    LinkType[] | undefined,
-    React.Dispatch<React.SetStateAction<LinkType[] | undefined>>
-  ] = useState();
 
   const isMobile = useMediaQuery();
 
@@ -106,23 +90,6 @@ const Projects = () => {
     setProjects(filteredProjects);
   }, [tags]);
 
-  useEffect(() => {
-    if (user) {
-      setAdminButtons([
-        {
-          label: FaEdit,
-          className: "text-success",
-        },
-        {
-          label: FaTrash,
-          className: "text-danger",
-        },
-      ]);
-    } else {
-      setAdminButtons([]);
-    }
-  }, [user]);
-
   const handleBadgeClick = (language: string) => {
     setTags((prev) => ({
       ...prev,
@@ -131,13 +98,6 @@ const Projects = () => {
   };
 
   const items: Project[] = paginate(projects, currentPage, pageSize);
-
-  const handleDelete = async () => {
-    setShowModal(false);
-    await deleteProjectById(projectId!);
-    ref.current = ref.current.filter((proj: Project) => proj.id !== projectId);
-    setProjects(ref.current);
-  };
 
   return (
     <div className="animate__animated animate__fadeIn">
@@ -148,7 +108,7 @@ const Projects = () => {
         cancel="No"
         show={showModal}
         handleClose={() => setShowModal(false)}
-        handleYes={handleDelete}
+        handleYes={async () => {}}
       />
 
       <SearchBox
@@ -170,52 +130,11 @@ const Projects = () => {
         {loading ? (
           <Loader />
         ) : (
-          items.map((project, index) => {
-            const links = project.clone_url
-              ? [
-                  {
-                    label: FaGithub,
-                    url: project.clone_url,
-                    className: "text-dark",
-                  },
-                  {
-                    label: FaGlobe,
-                    url: project.live,
-                  },
-                ]
-              : [];
-            return (
-              <div key={index} className="col-md-4 col-sm-12 col-lg-4 mb-4">
-                <MyCard
-                  image={
-                    project.image ??
-                    "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQpZ6IjB4FE5Dadyw8HmA2VuC_7QXJZ9h4HlQ&s"
-                  }
-                  title={project.title}
-                  description={project.description}
-                  tags={[project.language, ...project.topics]}
-                  links={[
-                    ...links,
-                    ...adminButtons!.map((value) => {
-                      return {
-                        label: value.label,
-                        className: value.className,
-                        onClick: () => {
-                          if (value.label === FaEdit) {
-                            router.push(`/projects/${project.id}`);
-                          }
-                          if (value.label === FaTrash) {
-                            setShowModal(true);
-                            setProjectId(project.id);
-                          }
-                        },
-                      };
-                    }),
-                  ]}
-                />
-              </div>
-            );
-          })
+          items.map((project, index) => (
+            <div key={index} className="col-md-4 col-sm-12 col-lg-4 mb-4">
+              <ProjectCard project={project} />
+            </div>
+          ))
         )}
       </Row>
 
