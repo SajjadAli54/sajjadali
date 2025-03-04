@@ -61,7 +61,7 @@ const CertificationCard: React.FC<{
             rel="noopener noreferrer"
             className="btn btn-primary"
           >
-            Open PDF in New Tab
+            Open in New Tab
           </a>
         </Card.Footer>
       )}
