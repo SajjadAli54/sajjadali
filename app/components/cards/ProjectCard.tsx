@@ -1,6 +1,6 @@
 "use client";
 
-import { FaExternalLinkAlt, FaCode } from "react-icons/fa";
+import { FaExternalLinkAlt, FaCode, FaGithub } from "react-icons/fa";
 import Card from "react-bootstrap/Card";
 import Tags from "@components/Tags";
 
@@ -44,7 +44,6 @@ const ProjectCard: React.FC<{ project: Project; className?: string }> = ({
                 className="text-decoration-none"
               >
                 <FaExternalLinkAlt className="me-1" size={18} color="green" />{" "}
-                Live
               </Card.Link>
 
               <Card.Link
@@ -53,7 +52,7 @@ const ProjectCard: React.FC<{ project: Project; className?: string }> = ({
                 rel="noopener noreferrer"
                 className="text-decoration-none"
               >
-                <FaCode className="me-1" size={18} color="blue" /> Code
+                <FaGithub className="me-1" size={18} color="black" />
               </Card.Link>
             </>
           )}
