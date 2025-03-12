@@ -34,7 +34,7 @@ const Blogs = () => {
       try {
         const response = await fetch(url);
         const data = await response.json();
-        data.sort((a: Blog, b: Blog) => b.comments_count - a.comments_count);
+        // data.sort((a: Blog, b: Blog) => b.comments_count - a.comments_count);
         setPosts(data);
       } catch (error) {
         console.error("Error fetching posts:", error);

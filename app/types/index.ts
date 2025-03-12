@@ -13,7 +13,7 @@ interface Project {
   updatedAt: string;
 }
 
-interface Blog {
+interface Blogs {
   type_of: string;
   id: number;
   title: string;
@@ -77,4 +77,4 @@ export interface Error {
   message?: string;
 }
 
-export type { Project, Tag, TopicOption, LinkType, Blog };
+export type { Project, Tag, TopicOption, LinkType, Blogs as Blog };
