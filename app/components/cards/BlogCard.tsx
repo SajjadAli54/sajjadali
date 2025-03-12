@@ -44,7 +44,9 @@ const BlogCard: React.FC<{ blog: Blog; className?: string }> = ({
             <br />
             <small className="text-muted">
               {new Date(blog.published_at).toDateString()} -{" "}
-              {blog.reading_time_minutes} minutes
+              <span className="fw-bold">
+                {blog.reading_time_minutes} minutes
+              </span>
             </small>
           </div>
         </div>
