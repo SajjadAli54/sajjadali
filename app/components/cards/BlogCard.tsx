@@ -1,6 +1,6 @@
 "use client";
 
-import { FaComment, FaGlobe, FaHeart } from "react-icons/fa";
+import { FaClock, FaComment, FaGlobe, FaHeart } from "react-icons/fa";
 import Card from "react-bootstrap/Card";
 import Tags from "@components/Tags";
 import { Blog } from "@/app/types";
@@ -44,10 +44,9 @@ const BlogCard: React.FC<{ blog: Blog; className?: string }> = ({
             <small className="fw-bold">{blog.user.name}</small>
             <br />
             <small className="text-muted">
-              {new Date(blog.published_at).toDateString()} -{" "}
-              <small className="fw-bold">
-                {blog.reading_time_minutes} min read
-              </small>
+              <FaClock className="me-1" />
+              {blog.reading_time_minutes} min read •{" "}
+              {new Date(blog.published_at).toDateString()}
             </small>
           </div>
         </div>
