@@ -1,6 +1,6 @@
 "use client";
 
-import { FaExternalLinkAlt, FaCode, FaGithub } from "react-icons/fa";
+import { FaExternalLinkAlt, FaGithub } from "react-icons/fa";
 import Card from "react-bootstrap/Card";
 import Tags from "@components/Tags";
 
