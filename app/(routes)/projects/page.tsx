@@ -19,7 +19,7 @@ import Loader from "@/app/components/Loader";
 
 const Projects = () => {
   const MOBILE_PAGE_SIZE = 2;
-  const DESKTOP_PAGE_SIZE = 3;
+  const DESKTOP_PAGE_SIZE = 6;
 
   const ref = useRef<Project[]>([]);
 

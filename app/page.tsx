@@ -7,7 +7,6 @@ import { Button, Row, Col, Image } from "react-bootstrap";
 import TechStack from "@components/stack/TechStack";
 
 import { techItems } from "@data/tech-items";
-import Projects from "@pages/projects/page";
 import { useMediaQuery } from "./hooks";
 
 export default function Home() {
@@ -80,14 +79,6 @@ export default function Home() {
 
       {/* Horizontal Divider */}
       <hr className="my-5" />
-
-      {/* Project Section */}
-      <div className="text-center mb-5">
-        <h2 className="text-primary d-flex align-items-center justify-content-center gap-2">
-          <GoStack className="text-warning" /> Projects
-        </h2>
-        <Projects />
-      </div>
 
       {/* Contact Section */}
       <div id="contact" className="text-center mt-5">
