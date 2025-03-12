@@ -82,8 +82,8 @@ const BlogPost = () => {
             <Card.Body>
               <ReactMarkdown
                 components={{
-                  img: ({ node, ...props }) => (
-                    <img {...props} className="blog-image" />
+                  img: ({ ...props }) => (
+                    <Image {...props} className="blog-image" />
                   ),
                   code(obj) {
                     const { className, children, ...props } = obj;
