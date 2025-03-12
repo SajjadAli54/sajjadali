@@ -1,0 +1,33 @@
+.cover-image {
+    max-height: 400px;
+    object-fit: cover;
+    width: 100%;
+  }
+  
+  .text-muted img {
+    vertical-align: middle;
+  }
+  
+  .text-muted span {
+    font-size: 0.95rem;
+  }
+  
+  .card-body {
+    font-size: 1.1rem;
+    line-height: 1.7;
+  }
+  
+  .blog-content img {
+    max-width: 100%; /* Ensures the image doesn't exceed the container */
+    height: auto; /* Maintains aspect ratio */
+    display: block; /* Prevents inline spacing issues */
+    margin: 0 auto; /* Centers the image */
+  }
+  
+  .blog-image {
+    max-width: 100%;
+    height: auto;
+    display: block;
+    margin: 10px auto; /* Adds spacing and centers images */
+  }
+  

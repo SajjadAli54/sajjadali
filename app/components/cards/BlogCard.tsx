@@ -15,7 +15,8 @@ const BlogCard: React.FC<{ blog: Blog; className?: string }> = ({
       style={{ overflow: "hidden" }}
     >
       <Card.Link
-        href={blog.canonical_url}
+        // href={blog.canonical_url}
+        href={`/blogs/${blog.id}`}
         target="_blank"
         rel="noopener noreferrer"
       >
@@ -45,7 +46,7 @@ const BlogCard: React.FC<{ blog: Blog; className?: string }> = ({
             <small className="text-muted">
               {new Date(blog.published_at).toDateString()} -{" "}
               <small className="fw-bold">
-                {blog.reading_time_minutes} minutes
+                {blog.reading_time_minutes} min read
               </small>
             </small>
           </div>
@@ -54,7 +55,7 @@ const BlogCard: React.FC<{ blog: Blog; className?: string }> = ({
         {/* Blog Title - Clickable */}
         <Card.Title className="text-dark">
           <a
-            href={blog.canonical_url}
+            href={`/blogs/${blog.id}`}
             target="_blank"
             rel="noopener noreferrer"
             className="text-decoration-none text-dark"

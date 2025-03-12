@@ -1,7 +1,9 @@
 "use client";
+import logo from "@/public/logo.png"; // Correct path
 
 import React, { useEffect } from "react";
-import Image from "react-bootstrap/Image";
+// import Image from "react-bootstrap/Image";
+import Image from "next/image";
 import Link from "next/link";
 
 import Container from "react-bootstrap/Container";
@@ -52,7 +54,7 @@ const NavBar = () => {
       <Container>
         <Link href={routes.home} passHref legacyBehavior>
           <Navbar.Brand className="d-flex align-items-center">
-            <Image src="logo.png" alt="Profile" width={50} height={50} />
+            <Image src={logo} alt="Profile" width={50} height={50} />
           </Navbar.Brand>
         </Link>
 
