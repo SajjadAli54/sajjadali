@@ -11,7 +11,7 @@ const BlogCard: React.FC<{ blog: Blog; className?: string }> = ({
 }) => {
   return (
     <Card
-      className={`h-100 mb-3 glassmorphism ${className}`}
+      className={`h-100 glassmorphism ${className}`}
       style={{ overflow: "hidden" }}
     >
       <Card.Img

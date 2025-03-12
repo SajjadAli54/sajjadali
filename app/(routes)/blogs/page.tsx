@@ -13,9 +13,12 @@ import { paginate } from "@utils/index";
 
 import { Blog } from "@types";
 import { Col, Row } from "react-bootstrap";
+import { useMediaQuery } from "@/app/hooks";
 
 const Blogs = () => {
-  const PAGE_SIZE = 3;
+  const isMobile = useMediaQuery();
+  const PAGE_SIZE = isMobile ? 3 : 8;
+
   const CURRENT_PAGE = 1;
 
   const [searchQuery, setSearchQuery] = useState("");
@@ -31,10 +34,7 @@ const Blogs = () => {
       try {
         const response = await fetch(url);
         const data = await response.json();
-        data.sort(
-          (a: Blog, b: Blog) =>
-            b.public_reactions_count - a.public_reactions_count
-        );
+        data.sort((a: Blog, b: Blog) => b.comments_count - a.comments_count);
         setPosts(data);
       } catch (error) {
         console.error("Error fetching posts:", error);
@@ -74,7 +74,7 @@ const Blogs = () => {
           <>
             <Row>
               {items.map((post, index) => (
-                <Col key={index} md={4} sm={12}>
+                <Col key={index} md={3} sm={12} className="mb-4">
                   <BlogCard key={index} blog={post} />
                 </Col>
               ))}
