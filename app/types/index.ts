@@ -13,6 +13,12 @@ interface Project {
   updatedAt: string;
 }
 
+interface User {
+  username: string;
+  name: string;
+  profile_image: string;
+}
+
 interface Blog {
   title: string;
   description: string;
@@ -21,6 +27,9 @@ interface Blog {
   cover_image: string;
   canonical_url: string;
   comments_count: number;
+  published_at: string;
+  reading_time_minutes: string;
+  user: User;
 }
 
 interface Tag {

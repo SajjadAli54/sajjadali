@@ -17,7 +17,7 @@ import { useMediaQuery } from "@/app/hooks";
 
 const Blogs = () => {
   const isMobile = useMediaQuery();
-  const PAGE_SIZE = isMobile ? 3 : 8;
+  const PAGE_SIZE = isMobile ? 3 : 6;
 
   const CURRENT_PAGE = 1;
 
@@ -74,7 +74,7 @@ const Blogs = () => {
           <>
             <Row>
               {items.map((post, index) => (
-                <Col key={index} md={3} sm={12} className="mb-4">
+                <Col key={index} md={4} sm={12} className="mb-4">
                   <BlogCard key={index} blog={post} />
                 </Col>
               ))}
