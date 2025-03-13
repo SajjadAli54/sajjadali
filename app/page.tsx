@@ -9,6 +9,8 @@ import TechStack from "@components/stack/TechStack";
 import { techItems } from "@data/tech-items";
 import { useMediaQuery } from "./hooks";
 
+import "./globals.css";
+
 export default function Home() {
   const ProfileImage = "picofme.png";
 
@@ -70,11 +72,29 @@ export default function Home() {
       <hr className="my-5" />
 
       {/* Tech Stack Section */}
-      <div className="text-center mb-5">
+      <div className="tech-stack-section text-center mb-5">
         <h2 className="text-primary d-flex align-items-center justify-content-center gap-2">
           <GoStack className="text-warning" /> Tech Stack
         </h2>
-        <TechStack techItems={techItems} />
+        <h3 className="text-center  display-4 fw-bold mb-5">
+          The technologies I work with to bring ideas to life
+        </h3>
+
+        <Row className="align-items-center">
+          <Col lg={5} md={5} sm={12} className="tech-image-container">
+            <Image
+              src="https://images.pexels.com/photos/7948070/pexels-photo-7948070.jpeg?auto=compress&cs=tinysrgb&w=600"
+              alt="Tech Stack"
+              className="tech-full-height-img"
+              fluid
+              style={{ maxWidth: "100%", height: "500px" }}
+            />
+          </Col>
+
+          <Col className="d-flex flex-column justify-content-center">
+            <TechStack techItems={techItems} />
+          </Col>
+        </Row>
       </div>
     </div>
   );

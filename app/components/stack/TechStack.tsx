@@ -56,9 +56,6 @@ function TechStack({ techItems }: Props) {
 
   return (
     <Container>
-      <h3 className="text-center  display-4 fw-bold mb-5">
-        The technologies I work with to bring ideas to life
-      </h3>
       <Row>
         {items.map((tech, index) => {
           const { category, items, icon: Icon } = tech;

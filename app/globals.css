@@ -21,3 +21,32 @@ body {
   background: var(--background);
   font-family: Arial, Helvetica, sans-serif;
 }
+
+/* Full-Height Container */
+.tech-stack-section {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+/* Left Side Image Styling */
+.tech-image-container {
+  display: flex;
+  align-items: stretch;
+  overflow: hidden;
+}
+
+.tech-full-height-img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover; /* Ensures full coverage */
+  border-radius: 10px;
+}
+
+/* Ensuring Right Side Stretches Fully */
+@media (min-width: 992px) {
+  .tech-image-container {
+    height: 100%; /* Make sure it fills the full height */
+  }
+}
