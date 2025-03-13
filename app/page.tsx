@@ -64,8 +64,20 @@ export default function Home() {
         </Col>
       </Row>
 
-      <hr className="my-3" />
-      <QuoteCard />
+      {/* <hr className="my-3" /> */}
+      <Row>
+        <Col lg={6}>
+          <QuoteCard />
+        </Col>
+        <Col>
+          <Image
+            src="/sajan.jpeg"
+            className="shadow-lg mb-4 mb-lg-0 rounded"
+            alt="Sajjad Ali in the snowfall"
+            style={{ width: "100%", height: "300px", objectFit: "cover" }}
+          />
+        </Col>
+      </Row>
       <hr className="my-5" />
 
       {/* Tech Stack Section */}
