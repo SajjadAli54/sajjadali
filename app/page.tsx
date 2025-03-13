@@ -19,7 +19,18 @@ export default function Home() {
   return (
     <div className="py-5 animate__animated animate__fadeIn">
       <Row className="align-items-center text-center text-lg-start" id="hero">
-        {/* Left Section */}
+        <Col lg={6} className="text-center mt-4 mt-lg-0">
+          <Image
+            id="myImage"
+            className="rounded-circle object-fit-cover shadow-lg mb-4 mb-lg-0"
+            src={ProfileImage}
+            alt="Sajjad Ali"
+            width={isMobile ? 300 : 400}
+            height={isMobile ? 300 : 400}
+            fluid
+          />
+        </Col>
+
         <Col lg={6} className="mb-4 mb-lg-0">
           <h1 className="display-4 fw-bold mb-3">Sajjad Ali</h1>
           <h2 className="fw-bold mb-3">Full Stack Developer</h2>
@@ -52,20 +63,6 @@ export default function Home() {
             </Link>
           </div>
         </Col>
-
-        {/* Right Section */}
-        <Col lg={6} className="text-center mt-4 mt-lg-0">
-          <Image
-            id="myImage"
-            className="rounded-circle object-fit-cover"
-            src={ProfileImage}
-            alt="Sajjad Ali"
-            width={isMobile ? 300 : 400}
-            height={isMobile ? 300 : 400}
-            fluid
-            style={{ maxWidth: "100%", height: "auto" }}
-          />
-        </Col>
       </Row>
 
       {/* Horizontal Divider */}
@@ -81,17 +78,17 @@ export default function Home() {
         </h3>
 
         <Row className="align-items-center">
+          <Col className="d-flex flex-column justify-content-center">
+            <TechStack techItems={techItems} />
+          </Col>
           <Col lg={4} md={5} sm={12} className="tech-image-container">
             <Image
-              src="https://images.pexels.com/photos/546819/pexels-photo-546819.jpeg?auto=compress&cs=tinysrgb&w=600"
+              src="/sajjad.jpeg"
               alt="Tech Stack"
               className="tech-full-height-img"
               fluid
+              style={{ objectFit: "cover", width: "100%", height: "500px" }}
             />
-          </Col>
-
-          <Col className="d-flex flex-column justify-content-center">
-            <TechStack techItems={techItems} />
           </Col>
         </Row>
       </div>
