@@ -44,8 +44,8 @@ export default function Home() {
               </Button>
             </Link>
             <Link href="/contact" passHref>
-              <Button variant="secondary" size="lg">
-                Contact
+              <Button variant="outline-dark" size="lg" className="btn-animated">
+                Contact Me
               </Button>
             </Link>
           </div>
@@ -75,22 +75,6 @@ export default function Home() {
           <GoStack className="text-warning" /> Tech Stack
         </h2>
         <TechStack techItems={techItems} />
-      </div>
-
-      {/* Horizontal Divider */}
-      <hr className="my-5" />
-
-      {/* Contact Section */}
-      <div id="contact" className="text-center mt-5">
-        <h2 className="text-primary mb-3">Let&apos;s Connect</h2>
-        <p className="mb-4">
-          I am always open to new opportunities and collaborations.
-        </p>
-        <Link href="/contact" passHref>
-          <Button variant="secondary" size="lg">
-            Get In Touch
-          </Button>
-        </Link>
       </div>
     </div>
   );
