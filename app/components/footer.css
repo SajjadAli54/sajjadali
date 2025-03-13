@@ -1,0 +1,33 @@
+/* Modern Footer Styling */
+.modern-footer {
+    background: rgba(255, 255, 255, 0.1);
+    backdrop-filter: blur(10px);
+    border-top: 1px solid rgba(255, 255, 255, 0.2);
+    box-shadow: 0px -2px 10px rgba(0, 0, 0, 0.1);
+  }
+  
+  /* Social Icons */
+  .social-icon {
+    transition: transform 0.3s ease-in-out, color 0.3s;
+  }
+  
+  .social-icon:hover {
+    transform: scale(1.2);
+  }
+  
+  /* Footer Links */
+  .footer-link {
+    text-decoration: none;
+    color: white;
+    transition: color 0.3s;
+  }
+  
+  .footer-link:hover {
+    color: #17a2b8;
+  }
+  
+  /* Make sure the text remains readable */
+  .text-muted {
+    opacity: 0.8;
+  }
+  
