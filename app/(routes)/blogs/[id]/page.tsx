@@ -11,8 +11,9 @@ import { useEffect, useState } from "react";
 import { Post } from "@/app/types";
 import { FaClock, FaHeart, FaComment } from "react-icons/fa";
 
-import { Container, Row, Col, Image, Card } from "react-bootstrap";
-import "./blogpost.css"; // Custom styles for additional Bootstrap tweaks
+import { Container, Row, Col, Image, Card, NavLink } from "react-bootstrap";
+
+import "./blogpost.css";
 
 const BlogPost = () => {
   const [blog, setBlog] = useState<Post | null>(null);
@@ -51,7 +52,15 @@ const BlogPost = () => {
           )}
 
           {/* Blog Title */}
-          <h1 className="my-4 text-center">{blog.title}</h1>
+          <h1 className="my-4 text-center">
+            <NavLink
+              href={blog.canonical_url}
+              target="_blank"
+              className="fw-bold "
+            >
+              {blog.title}
+            </NavLink>
+          </h1>
 
           {/* Meta Info */}
           <div className="text-muted text-center mb-3">
