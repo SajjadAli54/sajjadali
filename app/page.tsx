@@ -3,9 +3,9 @@
 import Link from "next/link";
 import { GoStack } from "react-icons/go";
 import { Button, Row, Col, Image, Nav } from "react-bootstrap";
+import { useState, useEffect } from "react";
 
 import TechStack from "@components/stack/TechStack";
-
 import { techItems } from "@data/tech-items";
 import { useMediaQuery } from "./hooks";
 
@@ -13,8 +13,20 @@ import "./globals.css";
 
 export default function Home() {
   const ProfileImage = "picofme.png";
-
   const isMobile = useMediaQuery();
+
+  const [quote, setQuote] = useState("");
+  const [author, setAuthor] = useState("");
+
+  useEffect(() => {
+    fetch("https://quotes-api-self.vercel.app/quote")
+      .then((res) => res.json())
+      .then((data) => {
+        setQuote(data.quote);
+        setAuthor(data.author);
+      })
+      .catch((error) => console.error("Error fetching quote:", error));
+  }, []);
 
   return (
     <div className="py-5 animate__animated animate__fadeIn">
@@ -64,6 +76,16 @@ export default function Home() {
           </Nav>
         </Col>
       </Row>
+
+      <hr className="my-3" />
+
+      {/* Developer Quote Section */}
+      <div className="quote-section text-center my-5">
+        <div className="quote-card">
+          <p className="quote-text">{`"${quote}"`}</p>
+          <p className="quote-author">{author}</p>
+        </div>
+      </div>
 
       {/* Horizontal Divider */}
       <hr className="my-5" />
