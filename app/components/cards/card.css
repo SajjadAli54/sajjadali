@@ -1,0 +1,29 @@
+/* Card Hover Effect */
+.card:hover {
+    transform: scale(1.03);
+  }
+  
+  /* Overlay Effect on Image */
+  .overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.3);
+    transition: opacity 0.3s ease-in-out;
+  }
+  
+  .card:hover .overlay {
+    opacity: 0;
+  }
+  
+  /* Button Styling */
+  .btn {
+    transition: all 0.3s ease-in-out;
+  }
+  
+  .btn:hover {
+    transform: translateY(-2px);
+  }
+  

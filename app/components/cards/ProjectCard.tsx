@@ -3,8 +3,9 @@
 import { FaExternalLinkAlt, FaGithub } from "react-icons/fa";
 import Card from "react-bootstrap/Card";
 import Tags from "@components/Tags";
-
 import { Project } from "@/app/types";
+
+import "./card.css";
 
 const ProjectCard: React.FC<{ project: Project; className?: string }> = ({
   project,
@@ -12,51 +13,60 @@ const ProjectCard: React.FC<{ project: Project; className?: string }> = ({
 }) => {
   return (
     <Card
-      className={`h-100 mb-3 glassmorphism ${className}`}
-      style={{ overflow: "hidden" }}
+      className={`h-100 shadow-lg rounded border-0 ${className}`}
+      style={{
+        overflow: "hidden",
+        transition: "transform 0.3s ease-in-out",
+      }}
     >
-      <Card.Img
-        src={project.image || "https://via.placeholder.com/300"}
-        style={{
-          objectFit: "cover",
-          width: "100%",
-          height: "auto",
-          maxHeight: "200px",
-        }}
-        className="card-img-top"
-        alt={project.title}
-      />
+      {/* Project Image */}
+      <div className="position-relative">
+        <Card.Img
+          src={project.image || "https://via.placeholder.com/300"}
+          style={{
+            objectFit: "cover",
+            width: "100%",
+            height: "200px",
+            filter: "brightness(90%)",
+          }}
+          className="card-img-top"
+          alt={project.title}
+        />
+        <div className="overlay"></div>
+      </div>
 
-      <Card.Body className="d-flex flex-column bg-transparent">
-        <Card.Title className="text-center">{project.title}</Card.Title>
-        <Card.Text className="text-center">{project.description}</Card.Text>
+      {/* Card Body */}
+      <Card.Body className="d-flex flex-column align-items-center text-center p-4">
+        <Card.Title className="fw-bold">{project.title}</Card.Title>
+        <Card.Text className="text-muted">{project.description}</Card.Text>
+        <Tags tags={project.topics} />
       </Card.Body>
 
-      <Card.Footer className="bg-transparent">
-        <Tags tags={project.topics} />
-        <div className="d-flex mt-3">
-          {project.clone_url && (
-            <>
-              <Card.Link
-                href={project.live}
-                target="_blank"
-                rel="noopener noreferrer"
-                className="text-decoration-none"
-              >
-                <FaExternalLinkAlt className="me-1" size={18} color="green" />{" "}
-              </Card.Link>
+      {/* Card Footer */}
+      <Card.Footer className="d-flex justify-content-between align-items-center bg-white border-0 px-4 py-3">
+        {/* Live Demo Link */}
+        {project.live && (
+          <a
+            href={project.live}
+            target="_blank"
+            rel="noopener noreferrer"
+            className="btn btn-outline-success d-flex align-items-center"
+          >
+            <FaExternalLinkAlt className="me-2" size={16} /> Live Demo
+          </a>
+        )}
 
-              <Card.Link
-                href={project.clone_url}
-                target="_blank"
-                rel="noopener noreferrer"
-                className="text-decoration-none"
-              >
-                <FaGithub className="me-1" size={18} color="black" />
-              </Card.Link>
-            </>
-          )}
-        </div>
+        {/* GitHub Link */}
+        {project.clone_url && (
+          <a
+            href={project.clone_url}
+            target="_blank"
+            rel="noopener noreferrer"
+            className="btn btn-outline-dark d-flex align-items-center"
+          >
+            <FaGithub className="me-2" size={18} /> GitHub
+          </a>
+        )}
       </Card.Footer>
     </Card>
   );
