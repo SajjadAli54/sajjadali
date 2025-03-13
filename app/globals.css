@@ -50,3 +50,10 @@ body {
     height: 100%; /* Make sure it fills the full height */
   }
 }
+
+/* Ensuring Right Side Stretches Fully */
+@media (max-width: 991px) {
+  .tech-image-container {
+    height: 100%; /* Make sure it fills the full height */
+  }
+}

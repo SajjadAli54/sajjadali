@@ -18,7 +18,7 @@ export default function Home() {
 
   return (
     <div className="py-5 animate__animated animate__fadeIn">
-      <Row className="align-items-center text-center text-lg-start">
+      <Row className="align-items-center text-center text-lg-start" id="hero">
         {/* Left Section */}
         <Col lg={6} className="mb-4 mb-lg-0">
           <h1 className="display-4 fw-bold mb-3">Sajjad Ali</h1>
@@ -81,13 +81,12 @@ export default function Home() {
         </h3>
 
         <Row className="align-items-center">
-          <Col lg={5} md={5} sm={12} className="tech-image-container">
+          <Col lg={4} md={5} sm={12} className="tech-image-container">
             <Image
-              src="https://images.pexels.com/photos/7948070/pexels-photo-7948070.jpeg?auto=compress&cs=tinysrgb&w=600"
+              src="https://images.pexels.com/photos/546819/pexels-photo-546819.jpeg?auto=compress&cs=tinysrgb&w=600"
               alt="Tech Stack"
               className="tech-full-height-img"
               fluid
-              style={{ maxWidth: "100%", height: "500px" }}
             />
           </Col>
 
