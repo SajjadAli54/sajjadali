@@ -65,11 +65,9 @@ function TechStack({ techItems }: Props) {
           return (
             <Col sm={6} md={6} lg={4} className="mb-4" key={index}>
               <Card
-                className="shadow-sm rounded-3 text-center p-4"
                 style={{
                   background: `linear-gradient(145deg, ${tech.color} 30%, #fff)`,
                   height: "100%",
-                  transform: "translateY(-10px)",
                 }}
               >
                 <div
