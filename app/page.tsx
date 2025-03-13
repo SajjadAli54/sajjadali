@@ -2,7 +2,7 @@
 
 import Link from "next/link";
 import { GoStack } from "react-icons/go";
-import { Button, Row, Col, Image } from "react-bootstrap";
+import { Button, Row, Col, Image, Nav } from "react-bootstrap";
 
 import TechStack from "@components/stack/TechStack";
 
@@ -50,7 +50,7 @@ export default function Home() {
             Desktop. Passionate Full-Stack Developer turning complex problems
             into elegant solutions.
           </p>
-          <div className="d-flex gap-3 justify-content-center justify-content-lg-start">
+          <Nav className="d-flex gap-3 justify-content-center justify-content-lg-start">
             <Link href="/projects" passHref>
               <Button variant="success" size="lg">
                 Projects
@@ -61,7 +61,7 @@ export default function Home() {
                 Contact Me
               </Button>
             </Link>
-          </div>
+          </Nav>
         </Col>
       </Row>
 
