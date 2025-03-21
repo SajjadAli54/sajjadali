@@ -4,7 +4,7 @@ import { jobs } from "@data/jobs";
 
 function Experience() {
   return (
-    <div className="container animate__animated animate__fadeIn">
+    <div className="container ">
       <h3 className="text-center mb-5">
         Here are some of the exciting roles I have had, where I have grown my
         skills and contributed to impactful projects.

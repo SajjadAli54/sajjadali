@@ -1,12 +1,14 @@
 "use client";
+
 import Image from "react-bootstrap/Image";
 
 import Link from "next/link";
 import { GoStack } from "react-icons/go";
-import Button from "react-bootstrap/Button";
+
 import Row from "react-bootstrap/Row";
 import Col from "react-bootstrap/Col";
 import Nav from "react-bootstrap/Nav";
+import Button from "react-bootstrap/Button";
 
 import TechStack from "@components/stack/TechStack";
 import { techItems } from "@data/tech-items";
@@ -20,7 +22,7 @@ export default function Home() {
   const isMobile = useMediaQuery();
 
   return (
-    <div className="py-5 animate__animated animate__fadeIn">
+    <div className="py-5 ">
       <Row className="align-items-center text-center text-lg-start" id="hero">
         <Col lg={6} className="text-center mt-4 mt-lg-0">
           <Image

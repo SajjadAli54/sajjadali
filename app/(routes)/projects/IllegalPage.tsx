@@ -8,7 +8,7 @@ function IllegalPage() {
   const router = useRouter();
 
   return (
-    <Container className="d-flex flex-column align-items-center justify-content-center vh-100 text-center animate__animated animate__fadeIn">
+    <Container className="d-flex flex-column align-items-center justify-content-center vh-100 text-center ">
       <Image
         src="https://cdn-icons-png.flaticon.com/512/565/565547.png"
         alt="Access Denied"

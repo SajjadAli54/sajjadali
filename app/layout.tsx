@@ -4,7 +4,6 @@ import Container from "react-bootstrap/Container";
 
 import "./App.css";
 import "bootstrap/dist/css/bootstrap.min.css";
-import "animate.css";
 
 import NavBar from "./NavBar";
 import Footer from "@components/Footer";

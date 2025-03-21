@@ -100,7 +100,7 @@ const Projects = () => {
   const items: Project[] = paginate(projects, currentPage, pageSize);
 
   return (
-    <div className="animate__animated animate__fadeIn">
+    <div className="">
       <MyModal
         title="Delete Project"
         subtitle="Are you sure?"

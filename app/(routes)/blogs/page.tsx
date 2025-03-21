@@ -62,7 +62,7 @@ const Blogs = () => {
   const items = paginate(filteredPosts, currentPage, PAGE_SIZE);
 
   return (
-    <Container className="animate__animated animate__fadeIn">
+    <Container className="">
       <>
         <SearchBox
           searchField={searchQuery}

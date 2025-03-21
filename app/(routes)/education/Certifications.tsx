@@ -8,7 +8,7 @@ import Row from "react-bootstrap/Row";
 
 export const Certifications = () => {
   return (
-    <Container className="py-5 animate__animated animate__fadeIn">
+    <Container className="py-5 ">
       <Row className="justify-content-center">
         {certifications.map((cert, index) => (
           <Col

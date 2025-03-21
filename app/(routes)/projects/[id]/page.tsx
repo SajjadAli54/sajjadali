@@ -134,7 +134,7 @@ export default function EditProjectForm() {
   };
 
   return (
-    <Container className="animate__animated animate__fadeIn">
+    <Container className="">
       <h2 className="text-center text-primary mb-4 fw-bold">Edit Project</h2>
 
       {successMessage && <Alert variant="success">{successMessage}</Alert>}

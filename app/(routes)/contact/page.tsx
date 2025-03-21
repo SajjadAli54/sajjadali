@@ -39,7 +39,7 @@ const Contact = () => {
   };
 
   return (
-    <div className="animate__animated animate__fadeIn">
+    <div className="">
       <div className="text-center mb-4">
         <IoIosContact size={60} className="text-primary mb-2" />
         <h2 className="text-primary fw-bold">Contact Me</h2>

@@ -90,7 +90,7 @@ export default function ProjectForm() {
   };
 
   return (
-    <Container className="animate__animated animate__fadeIn">
+    <Container className="">
       <h2 className="text-center text-primary mb-4 fw-bold">Add New Project</h2>
 
       {successMessage && <Alert variant="success">{successMessage}</Alert>}
