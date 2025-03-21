@@ -1,9 +1,7 @@
 "use client";
 
 import ReactMarkdown from "react-markdown";
-import "highlight.js/styles/github-dark.css";
 
-import { Prism as SyntaxHighlighter } from "react-syntax-highlighter";
 import { atomDark } from "react-syntax-highlighter/dist/esm/styles/prism";
 
 import { useParams } from "next/navigation";
@@ -11,14 +9,21 @@ import { useEffect, useState } from "react";
 import { Post } from "@/app/types";
 import { FaClock, FaHeart, FaComment } from "react-icons/fa";
 
-import Container from "react-bootstrap/Container";
-import Row from "react-bootstrap/Row";
-import Col from "react-bootstrap/Col";
-import Image from "react-bootstrap/Image";
-import Card from "react-bootstrap/Card";
-import NavLink from "react-bootstrap/NavLink";
+import Container from "react-bootstrap/esm/Container";
+import Row from "react-bootstrap/esm/Row";
+import Col from "react-bootstrap/esm/Col";
+import Image from "react-bootstrap/esm/Image";
+import Card from "react-bootstrap/esm/Card";
+import NavLink from "react-bootstrap/esm/NavLink";
 
 import "./blogpost.css";
+
+import dynamic from "next/dynamic";
+
+const SyntaxHighlighter = dynamic(
+  () => import("react-syntax-highlighter").then((mod) => mod.Prism),
+  { ssr: false }
+);
 
 const BlogPost = () => {
   const [blog, setBlog] = useState<Post | null>(null);
