@@ -1,4 +1,6 @@
-import { Col, Container, Row } from "react-bootstrap";
+import Row from "react-bootstrap/Row";
+import Col from "react-bootstrap/Col";
+import Container from "react-bootstrap/Container";
 import { IconType } from "react-icons";
 
 import "./footer.css";

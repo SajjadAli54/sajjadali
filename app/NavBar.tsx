@@ -1,47 +1,18 @@
 "use client";
 
-import React, { useEffect, useState } from "react";
-import Image from "react-bootstrap/Image";
+import React, { useState } from "react";
 import Link from "next/link";
-import { useDispatch, useSelector } from "react-redux";
-import { selectUser, setUser } from "./redux/slices/admin";
+import Image from "next/image";
 
 import { routes, navLinks } from "@data/routes";
-import { Navbar, Nav, Container, Offcanvas, Button } from "react-bootstrap";
+import Navbar from "react-bootstrap/Navbar";
+import Nav from "react-bootstrap/Nav";
+import Container from "react-bootstrap/Container";
+import Offcanvas from "react-bootstrap/Offcanvas";
+import Button from "react-bootstrap/Button";
 
 const NavBar = () => {
-  const dispatch = useDispatch();
-  const user = useSelector(selectUser);
-
-  const [links, setLinks] = useState(navLinks);
   const [showDrawer, setShowDrawer] = useState(false);
-
-  useEffect(() => {
-    if (!user) {
-      setLinks([...navLinks]);
-    } else {
-      const unwantedRoutes = [
-        routes.contact,
-        routes.education,
-        routes.experience,
-      ];
-      const updatedLinks = navLinks.filter(
-        (link) => !unwantedRoutes.includes(link.href)
-      );
-      setLinks([
-        ...updatedLinks,
-        { href: "/projects/add", label: "Add Project" },
-        {
-          href: routes.home,
-          label: "Logout",
-          onClick: () => {
-            dispatch(setUser(""));
-            window.location.reload();
-          },
-        },
-      ]);
-    }
-  }, [user]);
 
   return (
     <Navbar expand="lg" className="bg-light shadow-sm">
@@ -65,7 +36,7 @@ const NavBar = () => {
         {/* Desktop Navigation */}
         <Navbar.Collapse id="basic-navbar-nav" className="d-none d-lg-flex">
           <Nav className="ms-auto">
-            {links.map(({ href, label, onClick }) => (
+            {navLinks.map(({ href, label, onClick }) => (
               <Link key={`${href}${label}`} href={href} passHref legacyBehavior>
                 <Nav.Link onClick={onClick}>{label}</Nav.Link>
               </Link>
@@ -85,7 +56,7 @@ const NavBar = () => {
         </Offcanvas.Header>
         <Offcanvas.Body>
           <Nav className="flex-column">
-            {links.map(({ href, label, onClick }) => (
+            {navLinks.map(({ href, label, onClick }) => (
               <Link key={`${href}${label}`} href={href} passHref legacyBehavior>
                 <Nav.Link
                   onClick={() => {
