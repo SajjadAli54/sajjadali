@@ -19,8 +19,11 @@ function QuoteCard() {
   return (
     <div className="quote-section text-center my-5">
       <div className="quote-card">
-        <p className="quote-text">{`"${quote}"`}</p>
-        <p className="quote-author">{author}</p>
+        <h2 className="display-4">Quote of the Moment</h2>
+        <blockquote className="blockquote">
+          <p className="mb-0 quote-text">{quote}</p>
+        </blockquote>
+        <footer className="blockquote-footer">{author}</footer>
       </div>
     </div>
   );

@@ -1,4 +1,4 @@
-import _ from "lodash";
+import slice from "lodash/slice";
 
 export function calculateExperience(startDate: string, endDate: string) {
   const start = new Date(startDate);
@@ -29,25 +29,18 @@ export function paginate<T>(
   pageNumber: number,
   pageSize: number
 ): T[] {
-  // Edge case: Ensure pageNumber and pageSize are valid
   if (pageNumber < 1 || pageSize < 1) {
     console.error("Invalid page number or page size.");
     return [];
   }
 
-  // Calculate start index
   const startIndex = (pageNumber - 1) * pageSize;
 
-  // Edge case: If start index is greater than or equal to the length of the items, return an empty array
   if (startIndex >= items.length) {
     return items;
   }
 
-  // Return the paginated result
-  return _(items)
-    .slice(startIndex) // Get items starting from the calculated startIndex
-    .take(pageSize) // Take the specified number of items (pageSize)
-    .value();
+  return slice(items, startIndex, startIndex + pageSize);
 }
 
 /**
