@@ -1,6 +1,6 @@
 import type { Metadata } from "next";
 import { Geist, Geist_Mono } from "next/font/google";
-import { Container } from "react-bootstrap";
+import Container from "react-bootstrap/Container";
 
 import "./App.css";
 import "bootstrap/dist/css/bootstrap.min.css";

@@ -1,8 +1,12 @@
 "use client";
+import Image from "react-bootstrap/Image";
 
 import Link from "next/link";
 import { GoStack } from "react-icons/go";
-import { Button, Row, Col, Image, Nav } from "react-bootstrap";
+import Button from "react-bootstrap/Button";
+import Row from "react-bootstrap/Row";
+import Col from "react-bootstrap/Col";
+import Nav from "react-bootstrap/Nav";
 
 import TechStack from "@components/stack/TechStack";
 import { techItems } from "@data/tech-items";

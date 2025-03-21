@@ -3,17 +3,19 @@
 import { useState, useEffect } from "react";
 
 import Container from "react-bootstrap/Container";
+import Row from "react-bootstrap/Row";
+import Col from "react-bootstrap/Col";
 
 import BlogCard from "@/app/components/cards/BlogCard";
-import Pagination from "@components/Pagination";
+import { useMediaQuery } from "@/app/hooks";
 
+import Pagination from "@components/Pagination";
 import SearchBox from "@components/search/SearchBox";
 import Loader from "@components/Loader";
+
 import { paginate } from "@utils/index";
 
 import { Blog } from "@types";
-import { Col, Row } from "react-bootstrap";
-import { useMediaQuery } from "@/app/hooks";
 
 const Blogs = () => {
   const isMobile = useMediaQuery();

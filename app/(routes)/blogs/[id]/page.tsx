@@ -11,7 +11,12 @@ import { useEffect, useState } from "react";
 import { Post } from "@/app/types";
 import { FaClock, FaHeart, FaComment } from "react-icons/fa";
 
-import { Container, Row, Col, Image, Card, NavLink } from "react-bootstrap";
+import Container from "react-bootstrap/Container";
+import Row from "react-bootstrap/Row";
+import Col from "react-bootstrap/Col";
+import Image from "react-bootstrap/Image";
+import Card from "react-bootstrap/Card";
+import NavLink from "react-bootstrap/NavLink";
 
 import "./blogpost.css";
 

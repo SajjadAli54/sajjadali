@@ -2,15 +2,14 @@
 
 import { useState, useEffect, Dispatch, SetStateAction } from "react";
 import { Formik, Form, Field, ErrorMessage } from "formik";
-import {
-  Button,
-  Container,
-  Form as BootstrapForm,
-  Alert,
-  Spinner,
-  Image,
-} from "react-bootstrap";
-import CreatableSelect from "react-select/creatable";
+import Button from "react-bootstrap/Button";
+import Container from "react-bootstrap/Container";
+import { Form as BootstrapForm } from "react-bootstrap";
+import Alert from "react-bootstrap/Alert";
+import Spinner from "react-bootstrap/Spinner";
+import Image from "react-bootstrap/Image";
+
+import CreatableSelect from "react-select";
 import { MultiValue } from "react-select";
 
 import * as Yup from "yup";

@@ -1,7 +1,7 @@
 "use client";
 
 import React, { useState, useEffect, useRef } from "react";
-import { Row } from "react-bootstrap";
+import Row from "react-bootstrap/Row";
 import ProjectCard from "@/app/components/cards/ProjectCard";
 import Tags from "@components/Tags";
 import MyPagination from "@components/Pagination";

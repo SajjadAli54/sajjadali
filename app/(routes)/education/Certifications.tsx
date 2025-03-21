@@ -1,8 +1,10 @@
 import CertificationCard from "@/app/components/cards/CertificationCard";
 import { certifications } from "@data/certifications";
 
-import "./certifications.css"; // Import CSS module
-import { Col, Container, Row } from "react-bootstrap";
+import "./certifications.css";
+import Col from "react-bootstrap/Col";
+import Container from "react-bootstrap/Container";
+import Row from "react-bootstrap/Row";
 
 export const Certifications = () => {
   return (

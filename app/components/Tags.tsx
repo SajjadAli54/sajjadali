@@ -1,5 +1,5 @@
 "use client";
-import { Badge } from "react-bootstrap";
+import Badge from "react-bootstrap/Badge";
 import { useMediaQuery } from "../hooks";
 interface Props {
   tags?: string[];

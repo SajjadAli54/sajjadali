@@ -2,14 +2,12 @@
 
 import { useState, Dispatch, SetStateAction } from "react";
 import { Formik, Form, Field, ErrorMessage } from "formik";
-import {
-  Button,
-  Container,
-  Form as BootstrapForm,
-  Alert,
-  Spinner,
-  Card,
-} from "react-bootstrap";
+import Button from "react-bootstrap/Button";
+import Container from "react-bootstrap/Container";
+import { Form as BootstrapForm } from "react-bootstrap";
+import Alert from "react-bootstrap/Alert";
+import Spinner from "react-bootstrap/Spinner";
+import Card from "react-bootstrap/Card";
 import CreatableSelect from "react-select/creatable";
 import { MultiValue } from "react-select";
 

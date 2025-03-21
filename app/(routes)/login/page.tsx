@@ -2,7 +2,12 @@
 
 import { useState } from "react";
 import { useRouter } from "next/navigation";
-import { Form, Button, Row, Col, Card, Alert } from "react-bootstrap";
+import Form from "react-bootstrap/Form";
+import Button from "react-bootstrap/Button";
+import Row from "react-bootstrap/Row";
+import Col from "react-bootstrap/Col";
+import Card from "react-bootstrap/Card";
+import Alert from "react-bootstrap/Alert";
 import { FaUser, FaLock } from "react-icons/fa";
 import { useDispatch } from "react-redux";
 import { setUser } from "@/app/redux/slices/admin";

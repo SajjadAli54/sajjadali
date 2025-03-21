@@ -7,7 +7,7 @@ import Row from "react-bootstrap/Row";
 import Col from "react-bootstrap/Col";
 import Container from "react-bootstrap/Container";
 import Badge from "react-bootstrap/Badge";
-import Image from "next/image";
+import Image from "react-bootstrap/Image";
 
 import Tags from "@components/Tags";
 import { calculateExperience } from "@utils/index";
@@ -110,7 +110,6 @@ function ExperienceCard({
                   alt={title}
                   width={300}
                   height={200}
-                  layout="intrinsic" // ✅ Lazy loading & optimized
                   className="object-fit-cover w-100 h-auto"
                 />
               </div>

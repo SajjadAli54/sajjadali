@@ -1,8 +1,8 @@
 "use client";
 
 import { useState } from "react";
-import { Tab, Nav } from "react-bootstrap";
-
+import Tab from "react-bootstrap/Tab";
+import Nav from "react-bootstrap/Nav";
 
 import { Education } from "./Education";
 import { Certifications } from "./Certifications";
