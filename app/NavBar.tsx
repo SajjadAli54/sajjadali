@@ -2,13 +2,13 @@
 
 import React, { useState } from "react";
 import Link from "next/link";
-import Image from "next/image";
 
 import { routes, navLinks } from "@data/routes";
 import Navbar from "react-bootstrap/Navbar";
 import Nav from "react-bootstrap/Nav";
 import Container from "react-bootstrap/Container";
 import Offcanvas from "react-bootstrap/Offcanvas";
+import Image from "react-bootstrap/Image";
 import Button from "react-bootstrap/Button";
 
 const NavBar = () => {
@@ -20,7 +20,7 @@ const NavBar = () => {
         {/* Logo */}
         <Link href={routes.home} passHref legacyBehavior>
           <Navbar.Brand className="d-flex align-items-center">
-            <Image src="/logo.png" alt="Profile" width={50} height={50} />
+            <Image src="logo.png" alt="Profile" width={50} height={50} />
           </Navbar.Brand>
         </Link>
 
