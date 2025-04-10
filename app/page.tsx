@@ -16,7 +16,6 @@ import { useMediaQuery } from "./hooks";
 
 import "./globals.css";
 import QuoteCard from "./components/cards/QuoteCard";
-import AboutPage from "./(routes)/about/page";
 
 export default function Home() {
   const ProfileImage = "picofme.png";
@@ -111,8 +110,6 @@ export default function Home() {
           </Col>
         </Row>
       </div>
-
-      <AboutPage />
     </div>
   );
 }

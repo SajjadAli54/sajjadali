@@ -10,10 +10,9 @@ export const routes = {
 
 export const navLinks = [
   { href: routes.home, label: "Home", onClick: () => {} },
-  { href: routes.education, label: "Education", onClick: () => {} },
-  { href: routes.experience, label: "Experience", onClick: () => {} },
-  { href: routes.projects, label: "Projects" },
-  { href: routes.blogs, label: "Blogs" },
-  { href: routes.about, label: "About" },
-  { href: routes.contact, label: "Contact" },
+  { href: routes.about, label: "About" }, // Gives intro/context early
+  { href: routes.experience, label: "Experience" }, // Shows real-world skills next
+  { href: routes.education, label: "Education" }, // Then background/academics
+  { href: routes.projects, label: "Projects" }, // Proof of work
+  { href: routes.blogs, label: "Blogs" }, // Insightful writings last
 ];
