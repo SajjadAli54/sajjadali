@@ -5,6 +5,7 @@ export const routes = {
   education: "/education",
   blogs: "/blogs",
   contact: "/contact",
+  about: "/about",
 };
 
 export const navLinks = [
@@ -13,5 +14,6 @@ export const navLinks = [
   { href: routes.experience, label: "Experience", onClick: () => {} },
   { href: routes.projects, label: "Projects" },
   { href: routes.blogs, label: "Blogs" },
+  { href: routes.about, label: "About" },
   { href: routes.contact, label: "Contact" },
 ];
