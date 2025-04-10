@@ -5,15 +5,16 @@ import { FaEnvelope, FaMapMarkerAlt } from "react-icons/fa";
 const ContactSection = () => {
   return (
     <div
-      className="py-5 my-5"
+      className="py-2 my-2"
       style={{ backgroundColor: "#f8f9fa", minHeight: "60vh" }}
     >
       <Row className="justify-content-center text-center">
         <Col md={8}>
-          <h2 className="fw-bold mb-4">Let’s Connect!</h2>
+          <h2 className="fw-bold mb-4">{"Let's Connect!"}</h2>
           <p className="lead mb-4">
-            I'm always open to collaborations, freelance work, or just a
-            friendly chat!
+            {
+              "I'm always open to collaborations, discussions, projects, or just a friendly chat!"
+            }{" "}
           </p>
 
           <Row className="g-4 justify-content-center">
