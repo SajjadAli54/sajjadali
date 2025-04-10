@@ -5,7 +5,7 @@ import ContactSection from "./ContactSection";
 
 export default function AboutPage() {
   return (
-    <Container className="my-5">
+    <Container>
       <Row className="justify-content-center mb-5">
         <Col md={8} className="text-center">
           <h1 className="fw-bold mb-3">About Me</h1>
