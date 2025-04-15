@@ -1,24 +1,26 @@
 "use client";
 
+import { useEffect, useState } from "react";
+
+import remarkGfm from 'remark-gfm';
 import ReactMarkdown from "react-markdown";
 
-import { atomDark } from "react-syntax-highlighter/dist/esm/styles/prism";
-
-import { useParams } from "next/navigation";
-import { useEffect, useState } from "react";
+import dynamic from "next/dynamic";
 import { Post } from "@/app/types";
-import { FaClock, FaHeart, FaComment } from "react-icons/fa";
-
-import Container from "react-bootstrap/esm/Container";
 import Row from "react-bootstrap/esm/Row";
 import Col from "react-bootstrap/esm/Col";
-import Image from "react-bootstrap/esm/Image";
 import Card from "react-bootstrap/esm/Card";
+import { useParams } from "next/navigation";
+import Image from "react-bootstrap/esm/Image";
 import NavLink from "react-bootstrap/esm/NavLink";
+import Container from "react-bootstrap/esm/Container";
+import { FaClock, FaComment, FaHeart } from "react-icons/fa";
+import { atomDark } from "react-syntax-highlighter/dist/esm/styles/prism";
+
+
 
 import "./blogpost.css";
 
-import dynamic from "next/dynamic";
 
 const SyntaxHighlighter = dynamic(
   () => import("react-syntax-highlighter").then((mod) => mod.Prism),
@@ -100,6 +102,7 @@ const BlogPost = () => {
           <Card className="shadow-sm p-4 border-0">
             <Card.Body>
               <ReactMarkdown
+                remarkPlugins={[remarkGfm]}
                 components={{
                   img: ({ ...props }) => (
                     <Image alt="" {...props} className="blog-image" />

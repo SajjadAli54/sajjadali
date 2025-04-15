@@ -24,6 +24,7 @@
     "react-select": "^5.10.0",
     "react-syntax-highlighter": "^15.6.1",
     "redux": "^5.0.1",
+    "remark-gfm": "^4.0.1",
     "yup": "^1.6.1"
   },
   "devDependencies": {

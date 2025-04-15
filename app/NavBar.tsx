@@ -20,7 +20,7 @@ const NavBar = () => {
         {/* Logo */}
         <Link href={routes.home} passHref legacyBehavior>
           <Navbar.Brand className="d-flex align-items-center">
-            <Image src="logo.png" alt="Profile" width={50} height={50} />
+            <Image src="/logo.png" alt="Profile" width={50} height={50} />
           </Navbar.Brand>
         </Link>
 
