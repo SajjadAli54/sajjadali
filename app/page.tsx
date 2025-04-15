@@ -97,7 +97,7 @@ export default function Home() {
 
         <Row className="align-items-center">
           <Col className="d-flex flex-column justify-content-center">
-            <TechStack techItems={techItems} />
+            <TechStack techItems={techItems}  isMobile={isMobile}/>
           </Col>
           <Col lg={4} md={5} sm={12} className="tech-image-container">
             <Image

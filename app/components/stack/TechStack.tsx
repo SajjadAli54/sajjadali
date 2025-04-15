@@ -22,10 +22,11 @@ interface Stack {
 
 interface Props {
   techItems: Stack[];
+  isMobile: boolean;
 }
 
-function TechStack({ techItems }: Props) {
-  const MOBILE_WIDTH = 768;
+function TechStack({ techItems, isMobile }: Props) {
+  // const MOBILE_WIDTH = 768;
   const MOBILE_PAGE_SIZE = 2;
   const DESKTOP_PAGE_SIZE = 6;
   const CURRENT_PAGE = 1;
@@ -33,7 +34,7 @@ function TechStack({ techItems }: Props) {
 
   const [currentPage, setCurrentPage] = useState(CURRENT_PAGE);
   const [pageSize, setPageSize] = useState(
-     window.innerWidth < MOBILE_WIDTH
+     isMobile
       ? MOBILE_PAGE_SIZE
       : DESKTOP_PAGE_SIZE
   );
@@ -41,7 +42,7 @@ function TechStack({ techItems }: Props) {
   useEffect(() => {
     const updatePageSize = () => {
       setPageSize(
-        window.innerWidth < MOBILE_WIDTH ? MOBILE_PAGE_SIZE : DESKTOP_PAGE_SIZE
+        isMobile ? MOBILE_PAGE_SIZE : DESKTOP_PAGE_SIZE
       );
     };
 
