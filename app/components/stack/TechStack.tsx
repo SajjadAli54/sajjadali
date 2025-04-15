@@ -29,10 +29,11 @@ function TechStack({ techItems }: Props) {
   const MOBILE_PAGE_SIZE = 2;
   const DESKTOP_PAGE_SIZE = 6;
   const CURRENT_PAGE = 1;
+  
 
   const [currentPage, setCurrentPage] = useState(CURRENT_PAGE);
   const [pageSize, setPageSize] = useState(
-    typeof window !== "undefined" && window.innerWidth < MOBILE_WIDTH
+     window.innerWidth < MOBILE_WIDTH
       ? MOBILE_PAGE_SIZE
       : DESKTOP_PAGE_SIZE
   );
