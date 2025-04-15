@@ -78,7 +78,7 @@ const MyCard: React.FC<MyCardProps> = ({
 
             {comments !== undefined && (
               <Card.Link
-                key={Date.now()}
+                // key={Date.now()}
                 href={links[0].url}
                 target="_blank"
                 rel="noopener noreferrer"
