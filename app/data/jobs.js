@@ -38,4 +38,34 @@ export const jobs = [
     tags: ["MERN", "Flutter", "Web3", "REST APIs", "Django"],
     image: "/solspro.png",
   },
+  {
+    title: "NORPART CONNECT Research",
+    companyName: "Norwegian University of Science and Technology (NTNU)",
+    companyUrl: "https://www.ntnu.edu/",
+    startDate: "August 2023",
+    endDate: "February 2024",
+    subtitle:
+      "Focused on advanced research methodologies and practical applications in data science and AI while experiencing international academic culture.",
+    duties: [
+      "🌍 Collaborated with global experts on AI-driven educational research, focusing on imaging technologies.",
+      "📚 Participated in international projects exploring the application of artificial intelligence in education.",
+      "🔍 Designed and conducted experiments, collected and analyzed data to improve diffusion and transfer learning models.",
+      "🗺️ Implemented and fine-tuned state-of-the-art machine learning models using both fundamental and advanced techniques, such as self-supervised learning, diffusion models, and transformers.",
+      "👥 Activities and Societies: Visited key European cities including Lillehammer, Oslo, Warsaw, Prague, Vienna, Venice, and Milan as part of the cultural exchange and research collaboration program.",
+    ],
+    tags: [
+      "Python",
+      "PyTorch",
+      "Facial Emotion Recognition",
+      "Deep Learning",
+      "Data Science",
+      "AI",
+      "Machine Learning",
+      "Diffusion Models",
+      "Transfer Learning",
+      "International Exposure",
+    ],
+    image:
+      "https://www.ntnu.edu/documents/1265708073/1266886158/bygg-5.jpg/0acaaba8-2ac1-4231-af69-85c32e726b3a?t=1501754425569",
+  },
 ];
