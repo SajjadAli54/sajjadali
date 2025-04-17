@@ -14,12 +14,24 @@ import TechStack from "@components/stack/TechStack";
 import { techItems } from "@data/tech-items";
 import { useMediaQuery } from "./hooks";
 
+import { jobs } from "./data/jobs";
+
 import "./globals.css";
 import QuoteCard from "./components/cards/QuoteCard";
+import { formatExperience, getDiffMonths } from "./utils";
 
 export default function Home() {
   const ProfileImage = "picofme.png";
   const isMobile = useMediaQuery();
+
+  const totalMonths = jobs.reduce((total, job) => {
+    const months = getDiffMonths(job.startDate, job.endDate!);
+    return total + months;
+  }, 0);
+
+  console.log(totalMonths);
+  const years = Math.floor(totalMonths / 12);
+  const months = totalMonths % 12;
 
   return (
     <div className="py-5 ">
@@ -38,7 +50,8 @@ export default function Home() {
 
         <Col lg={6} className="mb-4 mb-lg-0">
           <h1 className="display-4 fw-bold mb-3">Sajjad Ali</h1>
-          <h2 className="fw-bold mb-3">Full Stack Developer</h2>
+          {/* <h2 className="fw-bold mb-3">Full Stack Developer</h2> */}
+          <h2 className="mb-3">Full Stack Developer</h2>
           <h3 className="fw-bold mb-3">
             <Link
               className="text-primary text-decoration-none"
@@ -52,9 +65,15 @@ export default function Home() {
           </h3>
           <p className="lead mb-4">
             Building seamless digital experiences across Web, Mobile, and
-            Desktop. Passionate Full-Stack Developer turning complex problems
-            into elegant solutions.
+            Desktop{" "}
+            <span className="text-muted">
+              {" "}
+              — Over past {formatExperience(years, months)}
+            </span>
+            . Passionate Full-Stack Developer turning complex problems into
+            elegant solutions.
           </p>
+
           <Nav className="d-flex gap-3 justify-content-center justify-content-lg-start">
             <Link href="/projects" passHref>
               <Button variant="success" size="lg">
@@ -97,7 +116,7 @@ export default function Home() {
 
         <Row className="align-items-center">
           <Col className="d-flex flex-column justify-content-center">
-            <TechStack techItems={techItems}  isMobile={isMobile}/>
+            <TechStack techItems={techItems} isMobile={isMobile} />
           </Col>
           <Col lg={4} md={5} sm={12} className="tech-image-container">
             <Image

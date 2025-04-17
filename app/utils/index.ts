@@ -1,5 +1,31 @@
 import slice from "lodash/slice";
 
+export const getDiffMonths = (startDate: string, endDate: string) => {
+  const start = new Date(startDate);
+  // const end = new Date(endDate);
+  const end = endDate ? new Date(endDate) : new Date(); // If no end date, use the current date
+  const diffInMonths =
+    (end.getFullYear() - start.getFullYear()) * 12 +
+    end.getMonth() -
+    start.getMonth();
+  return diffInMonths;
+};
+
+export function formatExperience(years: number, months: number) {
+  const yearStr = years === 1 ? "1 year" : `${years} years`;
+  const monthStr = months === 1 ? "1 month" : `${months} months`;
+
+  if (years && months) {
+    return `${yearStr} and ${monthStr}`;
+  } else if (years) {
+    return yearStr;
+  } else if (months) {
+    return monthStr;
+  } else {
+    return "Less than a month";
+  }
+}
+
 export function calculateExperience(startDate: string, endDate: string) {
   const start = new Date(startDate);
   const end = endDate ? new Date(endDate) : new Date(); // If no end date, use the current date
