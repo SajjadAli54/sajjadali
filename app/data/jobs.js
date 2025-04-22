@@ -9,10 +9,8 @@ export const jobs = [
     duties: [
       "⚡ Develop and enhance dynamic front-end user interfaces using modern web technologies.",
       "📊 Design and implement interactive dashboards with UI charts and visualization libraries for data-driven insights.",
-      "🔗 Integrate front-end components seamlessly with back-end scripts and machine learning models to ensure efficient data flow.",
       "🚀 Optimize backend performance by scaling FastAPI routes and implementing persistent data solutions for frequent queries.",
       "💻 Maintain and improve desktop applications using Python and PySide, ensuring smooth performance and user experience.",
-      "🐞 Debug, test, and refine code to enhance application functionality, performance, and reliability.",
     ],
 
     tags: [
