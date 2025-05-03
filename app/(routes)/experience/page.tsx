@@ -4,13 +4,11 @@ import { jobs } from "@data/jobs";
 import styles from "./Experience.module.css";
 import MyCard from "@/app/components/Card";
 import { useMediaQuery } from "@/app/hooks";
-import { motion, useScroll, useTransform } from "framer-motion";
-import { FiArrowRight, FiBriefcase } from "react-icons/fi";
+import { motion } from "framer-motion";
+import { FiBriefcase } from "react-icons/fi";
 
 function Experience() {
   const isMobile = useMediaQuery();
-  const { scrollYProgress } = useScroll();
-  const scale = useTransform(scrollYProgress, [0, 1], [0.8, 1]);
 
   type JobType = (typeof jobs)[number];
 
