@@ -65,7 +65,7 @@ const BlogCard: React.FC<{ blog: Blog; className?: string }> = ({
           <Card.Text className="text-muted mb-4">{blog.description}</Card.Text>
 
           <div className="mt-auto">
-            <Tags tags={blog.tag_list} className="glass-tag" />
+            <Tags tags={blog.tag_list} />
           </div>
         </Card.Body>
 
