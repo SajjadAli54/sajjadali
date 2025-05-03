@@ -3,8 +3,8 @@ export const education = [
     degree: "Research in AI and Machine Learning",
     institution: "Norwegian University of Science and Technology (NTNU)",
     institutionUrl: "https://www.ntnu.edu/",
-    startDate: "August 2023",
-    endDate: "February 2024",
+    startDate: "Aug 2023",
+    endDate: "Feb 2024",
     description:
       "Focused on advanced research methodologies and practical applications in data science and AI while experiencing international academic culture.",
     achievements: [
@@ -21,8 +21,8 @@ export const education = [
     degree: "BS Computer Science",
     institution: "Sukkur IBA University",
     institutionUrl: "https://www.iba-suk.edu.pk/",
-    startDate: "August 2019",
-    endDate: "July 2023",
+    startDate: "Aug 2019",
+    endDate: "Jul 2023",
     description:
       "Achieved academic excellence with a focus on data science, software engineering, and AI, supported by multiple scholarships.",
     achievements: [
