@@ -16,7 +16,7 @@ export const techItems = [
   },
   {
     category: "Web Frontend",
-    items: "React and Next.js",
+    items: "HTML, CSS, JS, React, Next.js, and SolidJS",
     icon: FaHtml5,
     color: "#E34F26", // HTML5 Color
   },

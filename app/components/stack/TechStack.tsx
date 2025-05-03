@@ -30,20 +30,15 @@ function TechStack({ techItems, isMobile }: Props) {
   const MOBILE_PAGE_SIZE = 2;
   const DESKTOP_PAGE_SIZE = 6;
   const CURRENT_PAGE = 1;
-  
 
   const [currentPage, setCurrentPage] = useState(CURRENT_PAGE);
   const [pageSize, setPageSize] = useState(
-     isMobile
-      ? MOBILE_PAGE_SIZE
-      : DESKTOP_PAGE_SIZE
+    isMobile ? MOBILE_PAGE_SIZE : DESKTOP_PAGE_SIZE
   );
 
   useEffect(() => {
     const updatePageSize = () => {
-      setPageSize(
-        isMobile ? MOBILE_PAGE_SIZE : DESKTOP_PAGE_SIZE
-      );
+      setPageSize(isMobile ? MOBILE_PAGE_SIZE : DESKTOP_PAGE_SIZE);
     };
 
     window.addEventListener("resize", updatePageSize);
@@ -63,18 +58,13 @@ function TechStack({ techItems, isMobile }: Props) {
           const { category, items, icon: Icon } = tech;
           return (
             <Col sm={6} md={6} lg={4} className="mb-4" key={index}>
-              <Card
-                style={{
-                  background: `linear-gradient(145deg, ${tech.color} 30%, #fff)`,
-                  height: "100%",
-                }}
-              >
+              <Card>
                 <div
                   className="mb-3 d-flex justify-content-center align-items-center"
                   style={{
                     fontSize: "3rem",
                     color: "#fff",
-                    backgroundColor: tech.color,
+                    backgroundColor: "#2c3e50",
                     padding: "1rem",
                     borderRadius: "50%",
                     width: "80px",
