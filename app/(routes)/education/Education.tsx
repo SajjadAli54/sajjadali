@@ -1,5 +1,4 @@
 import { motion } from "framer-motion";
-import ExperienceCard from "@components/ExperienceCard";
 import useMediaQuery from "@hooks/useMediaQuery";
 import Card from "@components/Card";
 import { education } from "@data/education";
@@ -83,18 +82,6 @@ export const Education = () => {
 
             <motion.div className="card-wrapper" whileHover={{ scale: 1.02 }}>
               {renderCard(edu, index)}
-              {/* <ExperienceCard
-                type="education"
-                title={edu.degree}
-                image={edu.image}
-                institutionOrCompany={edu.institution}
-                institutionOrCompanyUrl={edu.institutionUrl}
-                startDate={edu.startDate}
-                endDate={edu.endDate}
-                subtitle={edu.description}
-                achievementsOrDuties={edu.achievements}
-                tags={edu.tags}
-              /> */}
               <div className="timeline-dot"></div>
             </motion.div>
           </motion.div>
