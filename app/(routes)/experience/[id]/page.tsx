@@ -1,18 +1,13 @@
 "use client";
 
 import { useParams } from "next/navigation";
-import { Container, Row, Col, Image, Button } from "react-bootstrap";
+import { Container, Row, Col, Image } from "react-bootstrap";
 import { jobs } from "@/app/data/jobs";
-import Link from "next/link";
-import {
-  FaCalendarAlt,
-  FaMapMarkerAlt,
-  FaArrowLeft,
-  FaRocket,
-} from "react-icons/fa";
+import { FaCalendarAlt, FaMapMarkerAlt, FaRocket } from "react-icons/fa";
 import { motion, useAnimate } from "framer-motion";
 import React from "react";
 import Tags from "@/app/components/Tags";
+import BackLink from "@/app/components/BackLink";
 
 function JobPage() {
   const params = useParams();
@@ -23,11 +18,7 @@ function JobPage() {
     return (
       <Container className="py-5 text-center">
         <h3 className="text-danger">Job not found</h3>
-        <Link href="/experience">
-          <Button variant="outline-primary" className="mt-3">
-            Back to Experience
-          </Button>
-        </Link>
+        <BackLink link="/experience" page="Experience" />
       </Container>
     );
   }
@@ -150,35 +141,7 @@ function JobPage() {
         )}
 
         {/* Back Button */}
-        <motion.div
-          initial={{ opacity: 0 }}
-          animate={{ opacity: 1 }}
-          transition={{ delay: 1.4 }}
-        >
-          <div className="text-center mt-5">
-            <Link href="/experience">
-              <Button
-                variant="primary"
-                className="back-button px-4 py-2"
-                style={{
-                  background:
-                    "linear-gradient(135deg, #6366f1 0%, #a855f7 100%)",
-                  border: "none",
-                  position: "relative",
-                  overflow: "hidden",
-                }}
-              >
-                <motion.span
-                  className="d-flex align-items-center justify-content-center"
-                  whileHover={{ scale: 1.05 }}
-                >
-                  <FaArrowLeft className="me-2" />
-                  Back to Experience
-                </motion.span>
-              </Button>
-            </Link>
-          </div>
-        </motion.div>
+        <BackLink link="/experience" page="Experience" />
       </Container>
 
       <style jsx global>{`
