@@ -20,7 +20,8 @@ const Tags: React.FC<Props> = ({
       return "bg-warning text-dark";
     }
 
-    return className ? className : "bg-success";
+    // purple color
+    return className ? className : "bg-primary";
   };
   return (
     <div

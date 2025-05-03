@@ -3,7 +3,7 @@
 import { Container, Row, Col, Card, Image } from "react-bootstrap";
 import ContactSection from "./ContactSection";
 import { motion } from "framer-motion";
-import { FiGlobe, FiBook, FiCode, FiCoffee } from "react-icons/fi";
+import { FiGlobe, FiCode, FiCoffee } from "react-icons/fi";
 
 export default function AboutPage() {
   const fadeInVariants = {
@@ -94,7 +94,14 @@ export default function AboutPage() {
                       Technology working on medical imaging research with ML.
                     </p>
                     <div className="travel-badges">
-                      {["Oslo", "Milan", "Prague", "Vienna"].map((city) => (
+                      {[
+                        "Oslo",
+                        "Milan",
+                        "Venice",
+                        "Warsaw",
+                        "Prague",
+                        "Vienna",
+                      ].map((city) => (
                         <span key={city} className="travel-badge">
                           {city}
                         </span>
@@ -103,23 +110,23 @@ export default function AboutPage() {
                   </>
                 ),
               },
-              {
-                icon: <FiBook className="section-icon" />,
-                title: "Projects & Leadership",
-                content: (
-                  <>
-                    <p>
-                      Led development of Flutter-based 3D brain-study app with
-                      Blender models for medical education.
-                    </p>
-                    <ul className="accomplishments-list">
-                      <li>Cross-functional team leadership</li>
-                      <li>3D model integration</li>
-                      <li>Android performance optimization</li>
-                    </ul>
-                  </>
-                ),
-              },
+              // {
+              //   icon: <FiBook className="section-icon" />,
+              //   title: "Projects & Leadership",
+              //   content: (
+              //     <>
+              //       <p>
+              //         Led development of Flutter-based 3D brain-study app with
+              //         Blender models for medical education.
+              //       </p>
+              //       <ul className="accomplishments-list">
+              //         <li>Cross-functional team leadership</li>
+              //         <li>3D model integration</li>
+              //         <li>Android performance optimization</li>
+              //       </ul>
+              //     </>
+              //   ),
+              // },
               {
                 icon: <FiCoffee className="section-icon" />,
                 title: "Hobbies & Passions",
