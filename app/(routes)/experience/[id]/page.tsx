@@ -17,7 +17,7 @@ import Tags from "@/app/components/Tags";
 function JobPage() {
   const params = useParams();
   const job = jobs[Number(params.id)];
-  const [scope, animate] = useAnimate();
+  const scope = useAnimate()[0];
 
   if (!job) {
     return (
