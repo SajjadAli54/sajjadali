@@ -8,10 +8,10 @@ export const education = [
     description:
       "Focused on advanced research methodologies and practical applications in data science and AI while experiencing international academic culture.",
     achievements: [
-      "📚 Gained in-depth knowledge in Diffusion Models and Transfer Learning.",
-      "🌍 Enhanced global perspective through collaborations with international peers.",
-      "🔍 Conducted research on Facial Emotion Recognition using advanced techniques.",
-      "🗺️ Explored European culture through visits to cities like Oslo, Warsaw, Prague, and Milan.",
+      "Gained in-depth knowledge in Diffusion Models and Transfer Learning.",
+      "Enhanced global perspective through collaborations with international peers.",
+      "Conducted research on Facial Emotion Recognition using advanced techniques.",
+      "Explored European culture through visits to cities like Oslo, Warsaw, Prague, and Milan.",
     ],
     tags: ["Diffusion Models", "Transfer Learning", "International Exposure"],
     image:
@@ -26,9 +26,9 @@ export const education = [
     description:
       "Achieved academic excellence with a focus on data science, software engineering, and AI, supported by multiple scholarships.",
     achievements: [
-      "🏅 Silver Medalist with a CGPA of 3.62, ranking 2nd in the graduating batch.",
-      "💼 Awarded prestigious fully funded scholarships, including the NORPART CONNECT Scholarship for an exchange semester at NTNU.",
-      "📈 Excelled in academic and extracurricular activities, showcasing leadership and innovation.",
+      "Silver Medalist with a CGPA of 3.62, ranking 2nd in the graduating batch.",
+      "Awarded prestigious fully funded scholarships, including the NORPART CONNECT Scholarship for an exchange semester at NTNU.",
+      "Excelled in academic and extracurricular activities, showcasing leadership and innovation.",
     ],
     tags: ["CGPA: 3.62", "Silver Medalist", "Data Science", "AI"],
     image:

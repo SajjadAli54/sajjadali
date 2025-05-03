@@ -3,7 +3,7 @@ import ExperienceCard from "@components/ExperienceCard";
 import { jobs } from "@data/jobs";
 import styles from "./Experience.module.css"; // You'll create this CSS module
 import MyCard from "@/app/components/Card";
-import { FaBuilding } from "react-icons/fa";
+import { FaBuilding, FaLink } from "react-icons/fa";
 import { Fa42Group } from "react-icons/fa6";
 
 function Experience() {
@@ -24,7 +24,7 @@ function Experience() {
               tags={job.tags}
               links={[
                 { url: job.companyUrl, label: FaBuilding },
-                { url: `/experience/${index}`, label: Fa42Group },
+                { url: `/experience/${index}`, label: FaLink },
               ]}
             />
             {/* <ExperienceCard
