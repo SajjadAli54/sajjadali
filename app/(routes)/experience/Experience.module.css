@@ -1,96 +1,117 @@
 .timelineContainer {
   position: relative;
+  overflow: hidden;
+}
+
+.titleLine {
+  position: absolute;
+  top: 50%;
+  width: 25%;
+  height: 2px;
+  background: linear-gradient(90deg, transparent, #6366f1, transparent);
 }
 
 .timeline {
   position: relative;
-  margin: 0 auto;
-  max-width: 1000px;
-  padding: 1rem 0;
+  padding: 50px 0;
 }
 
-.timeline::before {
-  content: "";
+.timelineLine {
   position: absolute;
-  top: 0;
   left: 50%;
-  transform: translateX(-50%);
   width: 4px;
   height: 100%;
-  background: #ccc;
-  z-index: 0;
+  background: linear-gradient(
+    180deg,
+    #6366f1 0%,
+    #a855f7 50%,
+    #6366f1 100%
+  );
+  transform: translateX(-50%);
   border-radius: 2px;
 }
 
 .timelineItem {
+  width: 100%;
+  margin: 40px 0;
+  display: flex;
+  justify-content: space-between;
   position: relative;
-  width: 50%;
-  padding: 2rem 2rem;
-  box-sizing: border-box;
-  z-index: 1;
-  transition: transform 0.3s ease-in-out;
 }
 
-.timelineItem::after {
-  content: "";
+.timelineItem.left {
+  flex-direction: row-reverse;
+}
+
+.dateWrapper {
+  flex: 1;
+  display: flex;
+  align-items: center;
+  position: relative;
+  padding: 0 30px;
+}
+
+.date {
+  background: rgba(99, 102, 241, 0.1);
+  padding: 12px 20px;
+  border-radius: 1rem;
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  font-weight: 500;
+  color: #4f46e5;
+  transition: all 0.3s ease;
+  backdrop-filter: blur(5px);
+}
+
+.dateIcon {
+  font-size: 1.2rem;
+}
+
+.connector {
   position: absolute;
-  top: 2rem;
-  width: 20px;
-  height: 20px;
-  background: #0d6efd;
-  border-radius: 50%;
-  z-index: 2;
+  width: 40px;
+  height: 2px;
+  background: #6366f1;
 }
 
-.left {
-  left: 0;
-  text-align: right;
+.timelineItem:not(.left) .dateWrapper .connector {
+  right: -20px;
 }
 
-.left::after {
-  right: -10px;
-}
-
-.right {
-  left: 50%;
-  text-align: left;
-}
-
-.right::after {
-  left: -10px;
+.timelineItem.left .dateWrapper .connector {
+  left: -20px;
 }
 
 .cardWrapper {
-  background: white;
-  border-radius: 0.75rem;
-  box-shadow: 0 0 18px rgba(0, 0, 0, 0.08);
-  transition: box-shadow 0.3s;
+  flex: 1;
+  max-width: 600px;
+  position: relative;
+  transition: transform 0.3s ease;
 }
 
-.cardWrapper:hover {
-  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.15);
+.timelineDot {
+  position: absolute;
+  width: 20px;
+  height: 20px;
+  background: #6366f1;
+  border: 4px solid white;
+  border-radius: 50%;
+  top: 50%;
+  transform: translateY(-50%);
+  box-shadow: 0 0 15px rgba(99, 102, 241, 0.3);
 }
 
-.date{
-  color: #0d6efd;
-  font-weight: bold;
-  font-size: 1.2rem;
-  margin-bottom: 0.5rem;
+.timelineItem:not(.left) .timelineDot {
+  left: -45px;
 }
 
-@media (max-width: 768px) {
-  .timeline::before {
-    left: 10px;
-  }
+.timelineItem.left .timelineDot {
+  right: -45px;
+}
 
-  .timelineItem {
-    width: 100%;
-    padding-left: 2.5rem;
-    padding-right: 1rem;
-    text-align: left;
-  }
-
-  .timelineItem::after {
-    left: 0;
-  }
+.text-gradient {
+  background: linear-gradient(135deg, #4f46e5 0%, #9333ea 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
 }
