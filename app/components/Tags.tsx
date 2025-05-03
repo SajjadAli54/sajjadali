@@ -17,10 +17,10 @@ const Tags: React.FC<Props> = ({
   const isMobile = useMediaQuery();
   const getColor = (index: number) => {
     if (status && status[index]) {
-      return "bg-warning";
+      return "bg-warning text-dark";
     }
 
-    return className ? className : "bg-info";
+    return className ? className : "bg-success";
   };
   return (
     <div
@@ -29,7 +29,7 @@ const Tags: React.FC<Props> = ({
       {tags?.map((tag, index) => (
         <Badge
           key={index}
-          className={` ${getColor(index)} text-dark me-2 mb-1`}
+          className={`text-light cursor-pointer ${getColor(index)} me-2 mb-1`}
           onClick={() => onClick?.(tag)}
         >
           {tag.toLowerCase()}
