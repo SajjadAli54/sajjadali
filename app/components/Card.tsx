@@ -68,9 +68,9 @@ const MyCard: React.FC<MyCardProps> = ({
             <div className="d-flex mt-3">
               <a
                 href={url}
-                target="_blank"
+                // target="_blank"
                 rel="noopener noreferrer"
-                className="btn btn-outline-success d-flex align-items-center"
+                className="btn btn-outline-dark d-flex align-items-center"
               >
                 <FaExternalLinkAlt className="me-2" size={16} /> Read More
               </a>
