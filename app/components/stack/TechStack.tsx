@@ -2,15 +2,13 @@
 
 import { useEffect, useState } from "react";
 import { IconType } from "react-icons";
-
+import { motion, AnimatePresence } from "framer-motion";
 import Container from "react-bootstrap/Container";
 import Row from "react-bootstrap/Row";
 import Col from "react-bootstrap/Col";
 import Card from "react-bootstrap/Card";
-
 import { paginate } from "@utils/index";
 import Pagination from "@components/Pagination";
-
 import "./stack.css";
 
 interface Stack {
@@ -25,10 +23,9 @@ interface Props {
   isMobile: boolean;
 }
 
-function TechStack({ techItems, isMobile }: Props) {
-  // const MOBILE_WIDTH = 768;
-  const MOBILE_PAGE_SIZE = 2;
-  const DESKTOP_PAGE_SIZE = 6;
+const TechStack = ({ techItems, isMobile }: Props) => {
+  const MOBILE_PAGE_SIZE = 4;
+  const DESKTOP_PAGE_SIZE = 9;
   const CURRENT_PAGE = 1;
 
   const [currentPage, setCurrentPage] = useState(CURRENT_PAGE);
@@ -43,52 +40,72 @@ function TechStack({ techItems, isMobile }: Props) {
 
     window.addEventListener("resize", updatePageSize);
     return () => window.removeEventListener("resize", updatePageSize);
-  }, []);
+  }, [isMobile]);
 
   const handlePageChange = (page: number) => {
     setCurrentPage(page);
+    window.scrollTo({ top: 0, behavior: "smooth" });
   };
 
   const items = paginate(techItems, currentPage, pageSize);
 
-  return (
-    <Container>
-      <Row>
-        {items.map((tech, index) => {
-          const { category, items, icon: Icon } = tech;
-          return (
-            <Col sm={6} md={6} lg={4} className="mb-4" key={index}>
-              <Card>
-                <div
-                  className="mb-3 d-flex justify-content-center align-items-center"
-                  style={{
-                    fontSize: "3rem",
-                    color: "#fff",
-                    backgroundColor: "#2c3e50",
-                    padding: "1rem",
-                    borderRadius: "50%",
-                    width: "80px",
-                    height: "80px",
-                  }}
-                >
-                  <Icon />
-                </div>
-                <Card.Title>{category}</Card.Title>
-                <Card.Text className="text-muted">{items}</Card.Text>
-              </Card>
-            </Col>
-          );
-        })}
-      </Row>
+  const cardVariants = {
+    hidden: { opacity: 0, y: 20 },
+    visible: { opacity: 1, y: 0 },
+    hover: { scale: 1.05 },
+  };
 
-      <Pagination
-        itemsCount={techItems.length}
-        pageSize={pageSize}
-        currentPage={currentPage}
-        onPageChange={handlePageChange}
-      />
+  return (
+    <Container className="tech-stack-container">
+      <AnimatePresence mode="wait">
+        <Row className="g-4" key={currentPage}>
+          {items.map((tech, index) => {
+            const { category, items, icon: Icon } = tech;
+            return (
+              <Col xs={12} sm={6} lg={4} key={`${currentPage}-${index}`}>
+                <motion.div
+                  variants={cardVariants}
+                  initial="hidden"
+                  animate="visible"
+                  exit="hidden"
+                  transition={{ delay: index * 0.1 }}
+                  whileHover="hover"
+                >
+                  <Card className="h-100 tech-card shadow-lg">
+                    <Card.Body className="d-flex flex-column align-items-center text-center p-4">
+                      <div className="icon-wrapper mb-4">
+                        <Icon className="tech-icon" />
+                      </div>
+                      <Card.Title className="mb-3 fw-bold text-gradient">
+                        {category}
+                      </Card.Title>
+                      <Card.Text className="text-muted flex-grow-1">
+                        {items.split(", ").map((item, i) => (
+                          <span key={i} className="tech-item">
+                            {item}
+                            {i < items.split(", ").length - 1 && " • "}
+                          </span>
+                        ))}
+                      </Card.Text>
+                    </Card.Body>
+                  </Card>
+                </motion.div>
+              </Col>
+            );
+          })}
+        </Row>
+      </AnimatePresence>
+
+      <div className="mt-5">
+        <Pagination
+          itemsCount={techItems.length}
+          pageSize={pageSize}
+          currentPage={currentPage}
+          onPageChange={handlePageChange}
+        />
+      </div>
     </Container>
   );
-}
+};
 
 export default TechStack;
