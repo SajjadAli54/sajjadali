@@ -1,38 +1,29 @@
 "use client";
 
-import { FaComment, FaHeart } from "react-icons/fa";
-import { IconType } from "react-icons";
-
 import Card from "react-bootstrap/Card";
 
 import Tags from "@components/Tags";
-
-interface Link {
-  label: IconType;
-  url?: string;
-  className?: string;
-  onClick?: () => void;
-}
+import { FaExternalLinkAlt } from "react-icons/fa";
 
 interface MyCardProps {
   image?: string;
+  url?: string;
   title?: string;
+  subtitle?: string;
+  companyUrl: string;
   description?: string;
-  links?: Link[];
   tags?: string[];
-  reactions?: number;
-  comments?: number;
   className?: string;
 }
 
 const MyCard: React.FC<MyCardProps> = ({
   image = "https://via.placeholder.com/300",
   title,
+  subtitle,
+  url,
+  companyUrl,
   description,
-  links = [],
   tags = [],
-  reactions,
-  comments,
   className,
 }) => {
   const component = (
@@ -54,6 +45,16 @@ const MyCard: React.FC<MyCardProps> = ({
           alt={title}
         />
         <Card.Title className="text-center mt-4">{title}</Card.Title>
+        <Card.Subtitle className="text-center">
+          <Card.Link
+            href={companyUrl}
+            className="link-underline link-underline-opacity-0"
+            target="_blank"
+            rel="noopener noreferrer "
+          >
+            {subtitle}
+          </Card.Link>
+        </Card.Subtitle>
       </Card.Header>
       <Card.Body className="d-flex flex-column bg-transparent">
         {description && (
@@ -64,47 +65,14 @@ const MyCard: React.FC<MyCardProps> = ({
         <Card.Footer className={"bg-transparent"}>
           <Tags tags={tags} />
           <div className="d-flex mt-3">
-            {reactions !== undefined && (
-              <Card.Link
-                key={reactions}
-                href={links[0].url}
-                target="_blank"
-                rel="noopener noreferrer"
-                className=" link-underline link-underline-opacity-0"
-              >
-                <FaHeart className="me-1" size={20} color="red" /> {reactions}
-              </Card.Link>
-            )}
-
-            {comments !== undefined && (
-              <Card.Link
-                key={Date.now()}
-                href={links[0].url}
-                target="_blank"
-                rel="noopener noreferrer"
-                className=" link-underline link-underline-opacity-0"
-              >
-                <FaComment className="me-1" size={20} color="blue" /> {comments}
-              </Card.Link>
-            )}
-
-            {links &&
-              links.length > 0 &&
-              links.map((link, index) => (
-                <Card.Link
-                  key={index}
-                  href={link.url}
-                  onClick={link.onClick}
-                  target="_blank"
-                >
-                  {
-                    <link.label
-                      size={20}
-                      className={`me-2 ${link.className}`}
-                    />
-                  }
-                </Card.Link>
-              ))}
+            <a
+              href={url}
+              target="_blank"
+              rel="noopener noreferrer"
+              className="btn btn-outline-success d-flex align-items-center"
+            >
+              <FaExternalLinkAlt className="me-2" size={16} /> Read More
+            </a>
           </div>
         </Card.Footer>
       )}

@@ -13,10 +13,13 @@ export const jobs = [
     ],
 
     tags: [
-      "Python: PyQt and FastAPI",
+      "Python",
+      "PySide6",
+      "FastAPI",
       "React",
       "Apex Charts and Plotly",
-      "IFRS 17 Life and Non Life",
+      "IFRS 17",
+      "End Of Service",
     ],
   },
   {
@@ -52,14 +55,10 @@ export const jobs = [
     tags: [
       "Python",
       "PyTorch",
-      "Facial Emotion Recognition",
       "Deep Learning",
-      "Data Science",
-      "AI",
       "Machine Learning",
       "Diffusion Models",
       "Transfer Learning",
-      "International Exposure",
     ],
     image:
       "https://www.ntnu.edu/documents/1265708073/1266886158/bygg-5.jpg/0acaaba8-2ac1-4231-af69-85c32e726b3a?t=1501754425569",
