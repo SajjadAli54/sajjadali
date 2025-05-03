@@ -10,7 +10,7 @@ interface MyCardProps {
   url?: string;
   title?: string;
   subtitle?: string;
-  companyUrl: string;
+  companyUrl?: string;
   description?: string;
   tags?: string[];
   className?: string;
@@ -64,16 +64,18 @@ const MyCard: React.FC<MyCardProps> = ({
       {tags && tags.length > 0 && (
         <Card.Footer className={"bg-transparent"}>
           <Tags tags={tags} />
-          <div className="d-flex mt-3">
-            <a
-              href={url}
-              target="_blank"
-              rel="noopener noreferrer"
-              className="btn btn-outline-success d-flex align-items-center"
-            >
-              <FaExternalLinkAlt className="me-2" size={16} /> Read More
-            </a>
-          </div>
+          {url && (
+            <div className="d-flex mt-3">
+              <a
+                href={url}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="btn btn-outline-success d-flex align-items-center"
+              >
+                <FaExternalLinkAlt className="me-2" size={16} /> Read More
+              </a>
+            </div>
+          )}
         </Card.Footer>
       )}
     </Card>

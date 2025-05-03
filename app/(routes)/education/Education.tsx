@@ -1,4 +1,3 @@
-import { FaUniversity } from "react-icons/fa";
 import ExperienceCard from "@components/ExperienceCard";
 import useMediaQuery from "@hooks/useMediaQuery";
 import Card from "@components/Card";
@@ -16,8 +15,9 @@ export const Education = () => {
             key={index}
             image={edu.image}
             title={`${edu.degree}`}
+            subtitle={edu.institution}
+            companyUrl={edu.institutionUrl}
             description={edu.description}
-            links={[{ url: edu.institutionUrl, label: FaUniversity }]}
             tags={edu.tags}
             className="mb-3 px-3" // Margin-bottom and padding for mobile
           />
