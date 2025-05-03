@@ -7,10 +7,9 @@ export const jobs = [
     startDate: "Nov 2024",
     subtitle: "Building Financial & Actuarial Solutions for Global Clients.",
     duties: [
-      "⚡ Develop and enhance dynamic front-end user interfaces using modern web technologies.",
-      "📊 Design and implement interactive dashboards with UI charts and visualization libraries for data-driven insights.",
-      "🚀 Optimize backend performance by scaling FastAPI routes and implementing persistent data solutions for frequent queries.",
-      "💻 Maintain and improve desktop applications using Python and PySide, ensuring smooth performance and user experience.",
+      "Developed dynamic front-end user interfaces using modern web technologies to enhance user experience.",
+      "Designed and implemented interactive dashboards with UI charts for data-driven insights.",
+      "Integrated front-end components with back-end scripts and machine learning models for efficient data flow.",
     ],
 
     tags: [
@@ -29,9 +28,10 @@ export const jobs = [
     subtitle:
       "Led the development of dynamic web and mobile applications with a focus on user engagement and scalability.",
     duties: [
-      "🌐 Integrated Web3 wallets (MetaMask and Solana Phantom) into React.js applications, boosting customer acquisition by 30%.",
-      "🔐 Developed and deployed secure REST APIs, ensuring robust backend services for multiple applications.",
-      "📱 Enhanced shopping app traffic by 15% through the implementation of deep links and QR code features inside the Flutter App.",
+      "Integrated web3 wallets (MetaMask and Solana Phantom) into Reactjs service app, increasing customer base by 30%.",
+      "Implemented and secured REST APIS using JWT token authentication mechanism.",
+      "Boosted shopping store traffic by 15% through deep links and QR codes using Flutter.",
+      "Developed a mini PayPal system using Django and a SQLite database.",
     ],
     tags: ["MERN", "Flutter", "Web3", "REST APIs", "Django"],
     image: "/solspro.png",
@@ -45,11 +45,9 @@ export const jobs = [
     subtitle:
       "Focused on advanced research methodologies and practical applications in data science and AI while experiencing international academic culture.",
     duties: [
-      "🌍 Collaborated with global experts on AI-driven educational research, focusing on imaging technologies.",
-      "📚 Participated in international projects exploring the application of artificial intelligence in education.",
-      "🔍 Designed and conducted experiments, collected and analyzed data to improve diffusion and transfer learning models.",
-      "🗺️ Implemented and fine-tuned state-of-the-art machine learning models using both fundamental and advanced techniques, such as self-supervised learning, diffusion models, and transformers.",
-      "👥 Activities and Societies: Visited key European cities including Lillehammer, Oslo, Warsaw, Prague, Vienna, Venice, and Milan as part of the cultural exchange and research collaboration program.",
+      "Collaborated with global experts on AI-driven educational research, focusing on imaging technologies.",
+      "Designed and conducted experiments to improve diffusion and transfer learning models.",
+      "Implemented state-of-the-art machine learning models using advanced techniques like self-supervised learning and transformers.",
     ],
     tags: [
       "Python",
