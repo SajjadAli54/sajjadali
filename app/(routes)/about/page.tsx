@@ -93,7 +93,7 @@ export default function AboutPage() {
                       Funded semester at Norwegian University of Science and
                       Technology working on medical imaging research with ML.
                     </p>
-                    <div className="travel-badges">
+                    <div className="travel-badges mt-3 mb-3 d-flex flex-wrap">
                       {[
                         "Oslo",
                         "Milan",
