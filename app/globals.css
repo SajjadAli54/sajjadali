@@ -51,3 +51,129 @@ body {
   }
 }
 
+.gradient-background {
+  background: linear-gradient(45deg, #f8f9fa 0%, #e9ecef 50%, #f8f9fa 100%);
+}
+
+.text-gradient {
+  background: linear-gradient(135deg, #4f46e5 0%, #9333ea 100%);
+  -webkit-background-clip: text;
+  background-clip: border-box;
+  -webkit-text-fill-color: transparent;
+}
+
+.profile-image-wrapper {
+  position: relative;
+  display: inline-block;
+  border-radius: 50%;
+  padding: 12px;
+  background: linear-gradient(45deg, #6366f1, #a855f7);
+}
+
+.profile-image {
+  width: "280px";
+  height: "280px";
+  object-fit: cover;
+  border-radius: 50%;
+  border: 4px solid white;
+}
+
+.profile-glow {
+  position: absolute;
+  inset: -10px;
+  background: linear-gradient(45deg, #6366f155, #a855f755);
+  border-radius: 50%;
+  filter: blur(20px);
+  z-index: -1;
+}
+
+.company-link {
+  color: #4f46e5;
+  transition: all 0.3s ease;
+  font-weight: 500;
+}
+
+.company-link:hover {
+  color: #9333ea;
+  text-decoration: underline;
+}
+
+.cta-button {
+  background: linear-gradient(135deg, #6366f1 0%, #a855f7 100%);
+  border: none;
+  padding: 1rem 2rem;
+  font-weight: 600;
+}
+
+.cta-outline {
+  border: 2px solid #6366f1;
+  color: #6366f1;
+  padding: 1rem 2rem;
+  font-weight: 600;
+  transition: all 0.3s ease;
+}
+
+.cta-outline:hover {
+  background: #6366f1;
+  color: white;
+}
+
+.experience-badge {
+  background: rgba(99, 102, 241, 0.1);
+  color: #4f46e5;
+  padding: 0.25rem 0.75rem;
+  border-radius: 2rem;
+  margin-left: 1rem;
+  font-size: 0.9em;
+}
+
+.styled-image {
+  width: 100%;
+  height: 400px;
+  object-fit: cover;
+  border-radius: 1rem;
+  box-shadow: 0 8px 32px rgba(0, 0, 0, 0.1);
+}
+
+.tech-stack-icon {
+  font-size: 2.5rem;
+  color: #4f46e5;
+}
+
+.section-subtitle {
+  color: #6b7280;
+  font-size: 1.25rem;
+  max-width: 600px;
+  margin: 0 auto;
+}
+
+.tech-image {
+  height: 500px;
+  object-fit: cover;
+  border: 3px solid white;
+  box-shadow: 0 8px 32px rgba(0, 0, 0, 0.1);
+}
+
+.image-hover-wrapper {
+  transition: transform 0.3s ease;
+  position: relative;
+  overflow: hidden;
+  border-radius: 1rem;
+}
+
+.image-hover-wrapper::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(
+    45deg,
+    rgba(99, 102, 241, 0.1),
+    rgba(168, 85, 247, 0.1)
+  );
+  opacity: 0;
+  transition: opacity 0.3s ease;
+}
+
+.image-hover-wrapper:hover::after {
+  opacity: 1;
+}

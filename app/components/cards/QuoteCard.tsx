@@ -37,7 +37,7 @@ function QuoteCard() {
       animate={{ opacity: 1, y: 0 }}
       className="quote-section my-5"
     >
-      <div className="glass-quote-card p-5 rounded-4 position-relative">
+      <div className="glass-quote-card rounded-4 position-relative">
         <FiQuote className="quote-icon top-icon text-primary" size={32} />
         <FiQuote className="quote-icon bottom-icon text-primary" size={32} />
 
@@ -103,7 +103,7 @@ function QuoteCard() {
           backdrop-filter: blur(10px);
           border: 1px solid rgba(255, 255, 255, 0.3);
           box-shadow: 0 8px 32px rgba(0, 0, 0, 0.1);
-          min-height: 300px;
+          // min-height: 300px;
         }
 
         .text-gradient {

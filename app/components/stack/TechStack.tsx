@@ -74,7 +74,7 @@ const TechStack = ({ techItems, isMobile }: Props) => {
                   <Card className="h-100 tech-card shadow-lg">
                     <Card.Body className="d-flex flex-column align-items-center text-center p-4">
                       <div className="icon-wrapper mb-4">
-                        <Icon className="tech-icon" />
+                        <Icon className="tech-icon" size={60} />
                       </div>
                       <Card.Title className="mb-3 fw-bold text-gradient">
                         {category}
