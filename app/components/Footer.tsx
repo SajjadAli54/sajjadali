@@ -5,7 +5,8 @@ import Row from "react-bootstrap/Row";
 import Col from "react-bootstrap/Col";
 import Container from "react-bootstrap/Container";
 import { IconType } from "react-icons";
-import { FiHeart } from "react-icons/fi";
+
+import "./footer.css";
 
 interface BadgeProps {
   href: string;
@@ -77,7 +78,7 @@ const MyFooter = ({ badges }: { badges: BadgeProps[] }) => {
         </Row>
 
         {/* Copyright */}
-        <Row className="mt-5">
+        {/* <Row className="mt-5">
           <Col>
             <motion.div
               variants={itemVariants}
@@ -88,54 +89,8 @@ const MyFooter = ({ badges }: { badges: BadgeProps[] }) => {
               All Rights Reserved.
             </motion.div>
           </Col>
-        </Row>
+        </Row> */}
       </Container>
-
-      <style jsx global>{`
-        .glass-footer {
-          background: rgba(255, 255, 255, 0.8);
-          backdrop-filter: blur(10px);
-          border-top: 1px solid rgba(255, 255, 255, 0.3);
-          box-shadow: 0 -4px 30px rgba(0, 0, 0, 0.05);
-        }
-
-        .text-gradient {
-          background: linear-gradient(45deg, #6366f1, #a855f7);
-          -webkit-background-clip: text;
-          -webkit-text-fill-color: transparent;
-        }
-
-        .social-icon {
-          width: 50px;
-          height: 50px;
-          display: flex;
-          align-items: center;
-          justify-content: center;
-          border-radius: 12px;
-          background: rgba(99, 102, 241, 0.1);
-          transition: all 0.3s ease;
-        }
-
-        .social-icon:hover {
-          background: linear-gradient(45deg, #6366f1, #a855f7);
-          color: white !important;
-          box-shadow: 0 4px 15px rgba(99, 102, 241, 0.3);
-        }
-
-        .quote-box {
-          background: rgba(255, 255, 255, 0.9);
-          border: 1px solid rgba(99, 102, 241, 0.1);
-          box-shadow: 0 4px 20px rgba(0, 0, 0, 0.05);
-        }
-
-        .icon {
-          transition: transform 0.3s ease;
-        }
-
-        .social-icon:hover .icon {
-          transform: scale(1.1);
-        }
-      `}</style>
     </motion.footer>
   );
 };

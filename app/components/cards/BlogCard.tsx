@@ -6,6 +6,8 @@ import Card from "react-bootstrap/Card";
 import Tags from "@components/Tags";
 import { Blog } from "@/app/types";
 
+import "./blogCard.css";
+
 const BlogCard: React.FC<{ blog: Blog; className?: string }> = ({
   blog,
   className = "",
@@ -95,64 +97,6 @@ const BlogCard: React.FC<{ blog: Blog; className?: string }> = ({
           </div>
         </Card.Footer>
       </Card>
-
-      <style jsx global>{`
-        .glass-card {
-          background: rgba(255, 255, 255, 0.9);
-          backdrop-filter: blur(10px);
-          border-radius: 1.5rem;
-          transition: all 0.3s ease;
-        }
-
-        .image-container {
-          height: 250px;
-          overflow: hidden;
-          position: relative;
-        }
-
-        .blog-image {
-          width: 100%;
-          height: 100%;
-          object-fit: cover;
-          transition: transform 0.3s ease;
-        }
-
-        .image-overlay {
-          position: absolute;
-          top: 0;
-          left: 0;
-          right: 0;
-          bottom: 0;
-          background: linear-gradient(transparent 60%, rgba(0, 0, 0, 0.1));
-        }
-
-        .text-gradient {
-          background: linear-gradient(135deg, #4f46e5 0%, #9333ea 100%);
-          -webkit-background-clip: text;
-          -webkit-text-fill-color: transparent;
-        }
-
-        .btn-gradient {
-          background: linear-gradient(135deg, #6366f1 0%, #a855f7 100%);
-          border: none;
-          color: white;
-          padding: 0.75rem 1.5rem;
-          border-radius: 0.75rem;
-          font-weight: 500;
-        }
-
-        .glass-tag {
-          background: rgba(99, 102, 241, 0.1);
-          border: 1px solid rgba(99, 102, 241, 0.2);
-          padding: 0.5rem 1rem;
-          border-radius: 0.75rem;
-          transition: all 0.3s ease;
-        }
-
-        .glass-card:hover .blog-image {
-          transform: scale(1.05);
-        }
-      `}</style>
     </motion.div>
   );
 };

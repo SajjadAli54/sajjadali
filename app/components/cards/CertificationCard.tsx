@@ -4,6 +4,8 @@ import { motion } from "framer-motion";
 import Card from "react-bootstrap/Card";
 import { FiExternalLink } from "react-icons/fi";
 
+import "./certificationCard.css";
+
 interface Certification {
   src?: string;
   alt: string;
@@ -68,68 +70,6 @@ const CertificationCard: React.FC<{
         </Card.Body>
       </Card>
 
-      <style jsx global>{`
-        .glass-card {
-          background: rgba(255, 255, 255, 0.9);
-          backdrop-filter: blur(10px);
-          border-radius: 1.5rem;
-          transition: all 0.3s ease;
-        }
-
-        .preview-container {
-          height: 250px;
-          overflow: hidden;
-          position: relative;
-        }
-
-        .certification-image {
-          width: 100%;
-          height: 100%;
-          object-fit: cover;
-          transition: transform 0.3s ease;
-        }
-
-        .pdf-iframe {
-          width: 100%;
-          height: 100%;
-          border: none;
-          background: #f8f9fa;
-        }
-
-        .preview-overlay {
-          position: absolute;
-          top: 0;
-          left: 0;
-          right: 0;
-          bottom: 0;
-          background: linear-gradient(transparent 60%, rgba(0, 0, 0, 0.1));
-        }
-
-        .text-gradient {
-          background: linear-gradient(135deg, #4f46e5 0%, #9333ea 100%);
-          -webkit-background-clip: text;
-          -webkit-text-fill-color: transparent;
-        }
-
-        .btn-gradient {
-          background: linear-gradient(135deg, #6366f1 0%, #a855f7 100%);
-          border: none;
-          color: white;
-          padding: 0.75rem 1.5rem;
-          border-radius: 0.75rem;
-          font-weight: 500;
-          transition: all 0.3s ease;
-        }
-
-        .btn-gradient:hover {
-          box-shadow: 0 4px 15px rgba(99, 102, 241, 0.3);
-          color: white;
-        }
-
-        .glass-card:hover .certification-image {
-          transform: scale(1.05);
-        }
-      `}</style>
     </motion.div>
   );
 };

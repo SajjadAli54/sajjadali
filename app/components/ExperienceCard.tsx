@@ -8,6 +8,8 @@ import Image from "react-bootstrap/Image";
 import Tags from "@components/Tags";
 import { calculateExperience } from "@utils/index";
 
+import "./experienceCard.css";
+
 interface Props {
   type: string;
   title: string;
@@ -129,95 +131,6 @@ function ExperienceCard({
           </div>
         </div>
       </Card>
-
-      <style jsx global>{`
-        .glass-card {
-          background: rgba(255, 255, 255, 0.9);
-          backdrop-filter: blur(10px);
-          border-radius: 1.5rem;
-          border: 1px solid rgba(255, 255, 255, 0.3);
-        }
-
-        .text-gradient {
-          background: linear-gradient(135deg, #4f46e5 0%, #9333ea 100%);
-          -webkit-background-clip: text;
-          -webkit-text-fill-color: transparent;
-        }
-
-        .icon-wrapper {
-          width: 50px;
-          height: 50px;
-          border-radius: 12px;
-          display: flex;
-          align-items: center;
-          justify-content: center;
-          color: white;
-          font-size: 1.5rem;
-        }
-
-        .date-badge {
-          background: rgba(99, 102, 241, 0.1);
-          color: #4f46e5;
-          padding: 0.5rem 1rem;
-          border-radius: 2rem;
-          font-weight: 500;
-        }
-
-        .company-link {
-          color: #4f46e5;
-          text-decoration: none;
-          transition: all 0.3s ease;
-        }
-
-        .company-link:hover {
-          color: #9333ea;
-          transform: translateX(5px);
-        }
-
-        .link-arrow {
-          transition: transform 0.3s ease;
-        }
-
-        .company-link:hover .link-arrow {
-          transform: translateX(3px);
-        }
-
-        .progress-bar-container {
-          height: 6px;
-          background: rgba(99, 102, 241, 0.1);
-          border-radius: 3px;
-          overflow: hidden;
-        }
-
-        .progress-fill {
-          height: 100%;
-          background: linear-gradient(90deg, #6366f1, #a855f7);
-          border-radius: 3px;
-        }
-
-        .bullet-point {
-          width: 12px;
-          height: 12px;
-          background: #6366f1;
-          border-radius: 50%;
-          margin-top: 8px;
-          flex-shrink: 0;
-        }
-
-        .image-container {
-          position: relative;
-          min-height: 300px;
-        }
-
-        .image-overlay {
-          position: absolute;
-          top: 0;
-          left: 0;
-          right: 0;
-          bottom: 0;
-          background: linear-gradient(180deg, transparent, rgba(0, 0, 0, 0.1));
-        }
-      `}</style>
     </motion.div>
   );
 }
