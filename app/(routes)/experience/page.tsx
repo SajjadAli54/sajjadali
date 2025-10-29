@@ -86,7 +86,7 @@ function Experience() {
             <div className={styles.dateWrapper}>
               <motion.div className={styles.date} whileHover={{ scale: 1.05 }}>
                 <FiBriefcase className={styles.dateIcon} />
-                {job.startDate} — {job.endDate || "Present"}
+                {new Date(job.startDate).toDateString()} — {job.endDate ? new Date(job.endDate!).toDateString() : "Present"}
               </motion.div>
               <div className={styles.connector}></div>
             </div>

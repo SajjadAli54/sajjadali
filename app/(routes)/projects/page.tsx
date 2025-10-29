@@ -5,7 +5,6 @@ import { motion } from "framer-motion";
 import ProjectCard from "@/app/components/cards/ProjectCard";
 import Tags from "@components/Tags";
 import MyPagination from "@components/Pagination";
-import MyModal from "@components/modal/Modal";
 import SearchBox from "@components/search/SearchBox";
 import { paginate } from "@utils/index";
 import { fetchProjects } from "@services/projectService";
@@ -24,7 +23,6 @@ const Projects = () => {
   const [projects, setProjects] = useState<Project[]>(ref.current);
   const [currentPage, setCurrentPage] = useState(1);
   const [pageSize, setPageSize] = useState(MOBILE_PAGE_SIZE);
-  const [showModal, setShowModal] = useState(false);
   const [tags, setTags] = useState<Tag>({});
   const isMobile = useMediaQuery();
 
@@ -109,16 +107,6 @@ const Projects = () => {
       animate={{ opacity: 1 }}
       className="glass-container p-4 rounded-4"
     >
-      <MyModal
-        title="Delete Project"
-        subtitle="Are you sure?"
-        ok="Yes"
-        cancel="No"
-        show={showModal}
-        handleClose={() => setShowModal(false)}
-        handleYes={async () => {}}
-      />
-
       <SearchBox
         searchField={searchField}
         searchChange={(e) => setSearchField(e.target.value)}

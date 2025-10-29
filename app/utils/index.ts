@@ -1,15 +1,25 @@
 import slice from "lodash/slice";
 
-export const getDiffMonths = (startDate: string, endDate: string) => {
+
+export const getDiffMonths = (startDate: string, endDate?: string, organization: string = "") => {
   const start = new Date(startDate);
-  // const end = new Date(endDate);
-  const end = endDate ? new Date(endDate) : new Date(); // If no end date, use the current date
-  const diffInMonths =
-    (end.getFullYear() - start.getFullYear()) * 12 +
-    end.getMonth() -
-    start.getMonth();
-  return diffInMonths;
+  const end = endDate ? new Date(endDate) : new Date();
+  
+  let months = (end.getFullYear() - start.getFullYear()) * 12; 
+  months -= start.getMonth();  
+  months += end.getMonth(); 
+
+  months += 1
+
+  console.log("Organization:", organization);
+  console.log("Start Date:", start);
+  console.log("End Date:", end);
+  console.log("Months:", months);
+
+  console.log()
+  return months;
 };
+
 
 export function formatExperience(years: number, months: number) {
   const yearStr = years === 1 ? "1 year" : `${years} years`;

@@ -9,6 +9,8 @@ import Button from "react-bootstrap/Button";
 import { motion } from "framer-motion";
 
 import { jobs } from "@/app/data/jobs";
+import { personal } from "@/app/data/personal";
+
 import { useMediaQuery } from "@/app/hooks";
 import { formatExperience, getDiffMonths } from "@/app/utils";
 
@@ -16,14 +18,18 @@ function HeroSection() {
   const isMobile = useMediaQuery();
   const profileImageSrc = "/picofme.png";
 
-  const totalMonths = jobs.reduce((sum, job) => sum + getDiffMonths(job.startDate, job.endDate!), 0);
+  const totalMonths = jobs.reduce(
+    (sum, job) =>
+      sum + getDiffMonths(job.startDate, job.endDate!, job.companyName),
+    0
+  );
+  console.log(totalMonths);
   const years = Math.floor(totalMonths / 12);
   const months = totalMonths % 12;
 
   return (
     <section className="py-5 min-vh-100 d-flex align-items-center bg-light">
       <Row className="align-items-center g-5">
-        
         {/* === Profile Image === */}
         <Col lg={4} className="text-center">
           <motion.div
@@ -34,7 +40,7 @@ function HeroSection() {
             <div className="profile-image-wrapper position-relative">
               <Image
                 src={profileImageSrc}
-                alt="Sajjad Ali"
+                alt={personal.name}
                 className="profile-image rounded-circle shadow-lg"
                 width={isMobile ? 120 : 240}
                 height={isMobile ? 120 : 240}
@@ -52,25 +58,25 @@ function HeroSection() {
             animate={{ y: 0, opacity: 1 }}
             transition={{ delay: 0.3 }}
           >
-            <h1 className="text-gradient display-4 fw-bold mb-3">Sajjad Ali</h1>
+            <h1 className="text-gradient display-4 fw-bold mb-3">
+              {personal.name}
+            </h1>
             <h2 className="text-uppercase text-primary fs-4 mb-3">
-              Full Stack Developer
+              {personal.title}
             </h2>
 
             <div className="d-flex align-items-center gap-3 mb-3">
               <div className="accent-line"></div>
               <Link
-                href="https://badriconsultancy.com/"
+                href={personal.companyUrl}
                 target="_blank"
                 className="company-link text-decoration-none text-dark fw-medium"
               >
-                Badri Management Consultancy
+                {personal.company}
               </Link>
             </div>
 
-            <p className="text-muted lead mb-3">
-              I design and develop user-centric applications across web, mobile, and desktop platforms. I specialize in translating complex problems into seamless and performant solutions.
-            </p>
+            <p className="text-muted lead mb-3">{personal.description}</p>
 
             <p className="text-muted small mb-4">
               <span className="badge bg-primary-subtle text-primary px-3 py-2 rounded-pill">
@@ -81,14 +87,22 @@ function HeroSection() {
             <Nav className="d-flex flex-wrap gap-3">
               <motion.div whileHover={{ scale: 1.05 }}>
                 <Link href="/projects">
-                  <Button variant="primary" size="lg" className="cta-button shadow-sm px-4">
+                  <Button
+                    variant="primary"
+                    size="lg"
+                    className="cta-button shadow-sm px-4"
+                  >
                     View Projects
                   </Button>
                 </Link>
               </motion.div>
               <motion.div whileHover={{ scale: 1.05 }}>
                 <Link href="/contact">
-                  <Button variant="outline-primary" size="lg" className="cta-outline shadow-sm px-4">
+                  <Button
+                    variant="outline-primary"
+                    size="lg"
+                    className="cta-outline shadow-sm px-4"
+                  >
                     Get in Touch
                   </Button>
                 </Link>

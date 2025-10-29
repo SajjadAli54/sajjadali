@@ -38,7 +38,7 @@ const MyFooter = ({ badges }: { badges: BadgeProps[] }) => {
       <Container>
         <Row className="align-items-center text-center g-5">
           {/* Social Links */}
-          <Col md={6} className="order-md-1 order-2">
+          <Col className="order-md-1 order-2">
             <motion.div variants={itemVariants}>
               <h5 className="text-gradient mb-4">{"Let's Connect"}</h5>
               <div className="d-flex justify-content-center gap-3">
@@ -61,7 +61,7 @@ const MyFooter = ({ badges }: { badges: BadgeProps[] }) => {
           </Col>
 
           {/* Inspiration Quote */}
-          <Col md={6} className="order-md-2 order-1">
+          {/* <Col md={6} className="order-md-2 order-1">
             <motion.div variants={itemVariants}>
               <h5 className="text-gradient mb-4">Stay Inspired</h5>
               <motion.div
@@ -73,7 +73,7 @@ const MyFooter = ({ badges }: { badges: BadgeProps[] }) => {
                 </p>
               </motion.div>
             </motion.div>
-          </Col>
+          </Col> */}
         </Row>
 
         {/* Copyright */}

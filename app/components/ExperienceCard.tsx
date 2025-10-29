@@ -60,7 +60,7 @@ function ExperienceCard({
                   className="date-badge d-flex align-items-center gap-2"
                 >
                   <FiCalendar />
-                  {startDate} — {endDate || "Present"}
+                  {new Date(startDate).toString()} — {new Date(endDate!).toString() || "Present"}
                 </motion.div>
               </div>
 
