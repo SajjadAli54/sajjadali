@@ -32,7 +32,7 @@ const NavBar = () => {
       variants={navVariants}
       className="glass-navbar"
     >
-      <Navbar expand="lg" className="py-3">
+      <Navbar expand="lg">
         <Container>
           {/* Logo */}
           <Link href={routes.home} passHref legacyBehavior>
