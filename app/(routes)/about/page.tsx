@@ -166,13 +166,13 @@ export default function AboutPage() {
           </Row>
         </motion.div>
 
-        <motion.div
+        {/* <motion.div
           initial={{ opacity: 0 }}
           whileInView={{ opacity: 1 }}
           viewport={{ once: true }}
         >
           <ContactSection />
-        </motion.div>
+        </motion.div> */}
       </div>
       <style jsx global>{`
         .profile-image {

@@ -4,7 +4,7 @@ export const jobs = [
     image: "/badri.jpg",
     companyName: "Badri Management Consultancy",
     companyUrl: "https://badriconsultancy.com/",
-    startDate: "Nov 2024",
+    startDate: "Nov 4 2024",
     subtitle: "Building Financial & Actuarial Solutions for Global Clients.",
     duties: [
       "Design, develop, and enhance actuarial software tools for financial modelling, IFRS 17 reporting, and benchmarking analysis using modern Python and JavaScript frameworks.",
@@ -32,8 +32,8 @@ export const jobs = [
     title: "MERN Stack Developer",
     companyName: "Solspro",
     companyUrl: "https://sols-pro.com/",
-    startDate: "April 2024",
-    endDate: "Oct 2024",
+    startDate: "April 4 2024",
+    endDate: "Oct 4 2024",
     subtitle:
       "Led the development of dynamic web and mobile applications with a focus on user engagement and scalability.",
     duties: [
@@ -49,8 +49,8 @@ export const jobs = [
     title: "NORPART CONNECT Research",
     companyName: "Norwegian University of Science and Technology (NTNU)",
     companyUrl: "https://www.ntnu.edu/",
-    startDate: "August 2023",
-    endDate: "February 2024",
+    startDate: "August 8 2023",
+    endDate: "February 25 2024",
     subtitle:
       "Focused on advanced research methodologies and practical applications in data science and AI while experiencing international academic culture.",
     duties: [
