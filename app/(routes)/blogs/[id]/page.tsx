@@ -178,21 +178,22 @@ const BlogPost = () => {
 
       <style jsx global>{`
         .glass-container {
-          background: rgba(255, 255, 255, 0.9);
-          backdrop-filter: blur(10px);
-          border: 1px solid rgba(255, 255, 255, 0.3);
-          box-shadow: 0 8px 32px rgba(0, 0, 0, 0.1);
+          background: var(--card-bg);
+          backdrop-filter: blur(16px);
+          border: 1px solid var(--border);
+          box-shadow: var(--shadow);
+          color: var(--foreground);
         }
 
         .text-gradient {
-          background: linear-gradient(135deg, #4f46e5 0%, #9333ea 100%);
+          background: linear-gradient(135deg, var(--primary), var(--accent));
           -webkit-background-clip: text;
           -webkit-text-fill-color: transparent;
         }
 
         .author-card {
-          background: rgba(99, 102, 241, 0.05);
-          border: 1px solid rgba(99, 102, 241, 0.1);
+          background: var(--surface-soft);
+          border: 1px solid var(--border);
         }
 
         .reaction-badge {
@@ -200,13 +201,14 @@ const BlogPost = () => {
           align-items: center;
           gap: 0.5rem;
           padding: 0.5rem 1rem;
-          background: rgba(255, 255, 255, 0.8);
+          background: rgba(255, 255, 255, 0.08);
           border-radius: 2rem;
           backdrop-filter: blur(5px);
+          color: var(--foreground);
         }
 
         .btn-gradient {
-          background: linear-gradient(135deg, #6366f1 0%, #a855f7 100%);
+          background: linear-gradient(135deg, var(--primary), var(--accent));
           border: none;
           color: white;
           padding: 0.75rem 1.5rem;

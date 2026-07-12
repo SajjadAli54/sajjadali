@@ -2,7 +2,6 @@
 
 import { useState, useEffect } from "react";
 import { motion } from "framer-motion";
-import Container from "react-bootstrap/Container";
 import BlogCard from "@/app/components/cards/BlogCard";
 import { useMediaQuery } from "@/app/hooks";
 import Pagination from "@components/Pagination";
@@ -73,9 +72,18 @@ const Blogs = () => {
   };
 
   return (
-    <Container className="glass-container p-4 rounded-4 my-5">
-      <motion.div initial={{ opacity: 0 }} animate={{ opacity: 1 }}>
-        <SearchBox
+    <section className="page-section">
+      <div className="section-inner">
+        <div className="glass-panel p-4 rounded-4">
+          <motion.div initial={{ opacity: 0 }} animate={{ opacity: 1 }}>
+            <div className="section-heading text-center mb-4">
+              <span className="accent-line mb-3 d-block mx-auto"></span>
+              <h2 className="text-gradient">Latest Articles</h2>
+              <p className="section-subtitle">
+                Posts, insights, and technical writing from my blog feed.
+              </p>
+            </div>
+            <SearchBox
           searchField={searchQuery}
           searchChange={(e) => setSearchQuery(e.target.value)}
           placeholder="Search blog posts..."
@@ -127,14 +135,17 @@ const Blogs = () => {
             />
           </>
         )}
-      </motion.div>
+          </motion.div>
+        </div>
+      </div>
 
       <style jsx global>{`
         .glass-container {
-          background: rgba(255, 255, 255, 0.9);
-          backdrop-filter: blur(10px);
-          border: 1px solid rgba(255, 255, 255, 0.3);
-          box-shadow: 0 8px 32px rgba(0, 0, 0, 0.1);
+          background: var(--card-bg);
+          box-shadow: var(--shadow);
+          border: 1px solid var(--border);
+          backdrop-filter: blur(16px);
+          color: var(--foreground);
         }
 
         .grid-layout {
@@ -150,11 +161,12 @@ const Blogs = () => {
           flex-direction: column;
           align-items: center;
           justify-content: center;
+          color: var(--muted);
         }
 
         .empty-icon {
           font-size: 3rem;
-          color: #6b7280;
+          color: rgba(var(--border-rgb), 0.6);
           opacity: 0.5;
         }
 
@@ -164,7 +176,8 @@ const Blogs = () => {
           }
         }
       `}</style>
-    </Container>
+    </section>
+
   );
 };
 

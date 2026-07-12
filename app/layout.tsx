@@ -1,13 +1,12 @@
 import type { Metadata } from "next";
 import { Geist, Geist_Mono } from "next/font/google";
-import Container from "react-bootstrap/Container";
 
 import "./App.css";
 import "bootstrap/dist/css/bootstrap.min.css";
+import "./globals.css";
 
 import NavBar from "./NavBar";
 import Footer from "@components/Footer";
-
 import { badges } from "@data/badges";
 import Providers from "./providers";
 
@@ -41,8 +40,8 @@ export default function RootLayout({
       >
         <Providers>
           <NavBar />
-          <main className="p-5">
-            <Container>{children}</Container>
+          <main className="app-shell">
+            <div className="app-content">{children}</div>
           </main>
           <Footer badges={badges} />
         </Providers>

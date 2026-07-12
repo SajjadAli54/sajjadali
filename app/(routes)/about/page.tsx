@@ -1,6 +1,6 @@
 "use client";
 
-import { Container, Row, Col, Card, Image } from "react-bootstrap";
+import { Row, Col, Card, Image } from "react-bootstrap";
 import ContactSection from "./ContactSection";
 import { motion } from "framer-motion";
 import { FiGlobe, FiCode, FiCoffee } from "react-icons/fi";
@@ -16,8 +16,9 @@ export default function AboutPage() {
   };
 
   return (
-    <div className="gradient-background">
-      <Container className="py-5">
+    <section className="page-section">
+
+      <div className="section-inner">
         <motion.div
           initial="hidden"
           animate="visible"
@@ -172,26 +173,10 @@ export default function AboutPage() {
         >
           <ContactSection />
         </motion.div>
-      </Container>
-
+      </div>
       <style jsx global>{`
-        .gradient-background {
-          background: linear-gradient(150deg, #f8f9fa 0%, #e9ecef 100%);
-        }
-
-        .text-gradient {
-          background: linear-gradient(135deg, #4f46e5 0%, #9333ea 100%);
-          -webkit-background-clip: text;
-          -webkit-text-fill-color: transparent;
-        }
-
-        .profile-image-wrapper {
-          position: relative;
-          display: inline-block;
-        }
-
         .profile-image {
-          border: 4px solid white;
+          border: 4px solid var(--surface);
           position: relative;
           z-index: 1;
         }
@@ -202,18 +187,19 @@ export default function AboutPage() {
           left: -10px;
           right: -10px;
           bottom: -10px;
-          background: linear-gradient(45deg, #6366f155, #a855f755);
+          background: radial-gradient(circle, rgba(168, 85, 247, 0.18), transparent 55%);
           border-radius: 50%;
           filter: blur(25px);
           z-index: 0;
         }
 
         .glass-card {
-          background: rgba(255, 255, 255, 0.9);
-          backdrop-filter: blur(10px);
-          border: 1px solid rgba(255, 255, 255, 0.3);
+          background: var(--card-bg);
+          border: 1px solid var(--border);
+          backdrop-filter: blur(16px);
           border-radius: 1rem;
           transition: transform 0.3s ease;
+          box-shadow: var(--shadow);
         }
 
         .glass-card:hover {
@@ -223,7 +209,7 @@ export default function AboutPage() {
         .icon-wrapper {
           width: 50px;
           height: 50px;
-          background: linear-gradient(135deg, #6366f1 0%, #a855f7 100%);
+          background: linear-gradient(135deg, var(--primary), var(--accent));
           border-radius: 12px;
           display: flex;
           align-items: center;
@@ -243,8 +229,8 @@ export default function AboutPage() {
         }
 
         .tech-tag {
-          background: rgba(99, 102, 241, 0.1);
-          color: #4f46e5;
+          background: rgba(99, 102, 241, 0.08);
+          color: var(--foreground);
           padding: 0.25rem 0.75rem;
           border-radius: 1rem;
           font-size: 0.9em;
@@ -257,8 +243,8 @@ export default function AboutPage() {
         }
 
         .travel-badge {
-          border: 2px solid #6366f1;
-          color: #6366f1;
+          border: 2px solid var(--primary);
+          color: var(--primary);
           padding: 0.25rem 0.75rem;
           border-radius: 1rem;
           font-weight: 500;
@@ -279,7 +265,7 @@ export default function AboutPage() {
           content: "▹";
           position: absolute;
           left: 0;
-          color: #6366f1;
+          color: var(--primary);
         }
 
         .creative-grid {
@@ -291,12 +277,14 @@ export default function AboutPage() {
 
         .creative-item {
           padding: 0.5rem;
-          background: rgba(99, 102, 241, 0.1);
+          background: rgba(99, 102, 241, 0.08);
           border-radius: 0.5rem;
           text-align: center;
           font-weight: 500;
+          color: var(--foreground);
         }
       `}</style>
-    </div>
+    </section>
+
   );
 }

@@ -27,7 +27,7 @@ function EducationPage() {
   }
 
   return (
-    <div className="gradient-background">
+    <div className="bg-surface-soft">
       <Container className="py-5 position-relative">
         <motion.div
           initial={{ opacity: 0, y: 20 }}
@@ -148,38 +148,33 @@ function EducationPage() {
       </Container>
 
       <style jsx global>{`
-        .gradient-background {
-          background: linear-gradient(150deg, #f8f9fa 0%, #e9ecef 100%);
-          min-height: 100vh;
-        }
-
         .glass-card {
-          background: rgba(255, 255, 255, 0.9);
-          backdrop-filter: blur(10px);
+          background: var(--card-bg);
+          border: 1px solid var(--border);
+          backdrop-filter: blur(16px);
           border-radius: 12px;
-          box-shadow: 0 8px 32px rgba(0, 0, 0, 0.1);
-          border: 1px solid rgba(255, 255, 255, 0.3);
+          box-shadow: var(--shadow);
         }
 
         .text-gradient {
-          background: linear-gradient(135deg, #4f46e5 0%, #9333ea 100%);
+          background: linear-gradient(135deg, var(--primary), var(--accent));
           -webkit-background-clip: text;
           -webkit-text-fill-color: transparent;
         }
 
         .company-link {
-          color: #4f46e5 !important;
+          color: var(--primary) !important;
           transition: all 0.3s ease;
           font-weight: 500;
         }
 
         .company-link:hover {
-          color: #9333ea !important;
+          color: var(--accent) !important;
           text-decoration: underline;
         }
 
         .section-title {
-          color: #1e293b;
+          color: var(--foreground);
           font-size: 1.25rem;
           letter-spacing: -0.02em;
         }
@@ -187,7 +182,7 @@ function EducationPage() {
         .contribution-list .bullet-gradient {
           width: 24px;
           height: 24px;
-          background: linear-gradient(135deg, #6366f1 0%, #a855f7 100%);
+          background: linear-gradient(135deg, var(--primary), var(--accent));
           border-radius: 50%;
           display: flex;
           align-items: center;
@@ -204,7 +199,7 @@ function EducationPage() {
         }
 
         .duty-text {
-          color: #475569;
+          color: var(--muted);
           line-height: 1.6;
         }
 
@@ -218,7 +213,7 @@ function EducationPage() {
           background: linear-gradient(
             120deg,
             transparent,
-            rgba(255, 255, 255, 0.3),
+            rgba(255, 255, 255, 0.12),
             transparent
           );
           transition: 0.6s;
@@ -239,7 +234,7 @@ function EducationPage() {
           left: -3px;
           right: -3px;
           bottom: -3px;
-          background: linear-gradient(135deg, #6366f1 0%, #a855f7 100%);
+          background: linear-gradient(135deg, var(--primary), var(--accent));
           border-radius: 50%;
           z-index: -1;
           animation: rotate 6s linear infinite;

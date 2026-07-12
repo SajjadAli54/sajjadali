@@ -97,16 +97,17 @@ function EducationContainer() {
 
       <style jsx global>{`
         .glass-container {
-          background: rgba(255, 255, 255, 0.9);
-          backdrop-filter: blur(10px);
-          border: 1px solid rgba(255, 255, 255, 0.3);
-          box-shadow: 0 8px 32px rgba(0, 0, 0, 0.1);
+          background: var(--card-bg);
+          border: 1px solid var(--border);
+          box-shadow: var(--shadow);
+          backdrop-filter: blur(16px);
+          color: var(--foreground);
         }
 
         .tab-button {
           background: transparent !important;
           border: none !important;
-          color: #6c757d !important;
+          color: var(--muted) !important;
           font-weight: 500;
           padding: 1rem 2rem !important;
           position: relative;
@@ -115,13 +116,14 @@ function EducationContainer() {
         }
 
         .tab-button:hover {
-          color: #4f46e5 !important;
-          background: rgba(99, 102, 241, 0.1) !important;
+          color: var(--foreground) !important;
+          background: rgba(99, 102, 241, 0.08) !important;
         }
 
         .tab-button.active {
-          color: #4f46e5 !important;
-          background: rgba(99, 102, 241, 0.1) !important;
+          color: var(--foreground) !important;
+          background: rgba(99, 102, 241, 0.15) !important;
+          box-shadow: 0 8px 20px rgba(99, 102, 241, 0.12);
         }
 
         .active-indicator {
@@ -130,7 +132,7 @@ function EducationContainer() {
           left: 0;
           right: 0;
           height: 3px;
-          background: linear-gradient(90deg, #6366f1, #a855f7);
+          background: linear-gradient(90deg, var(--primary), var(--accent));
           border-radius: 2px;
         }
 

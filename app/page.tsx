@@ -1,8 +1,6 @@
 "use client";
 
 import { GoPackage, GoStack } from "react-icons/go";
-import { motion } from "framer-motion";
-
 import Row from "react-bootstrap/Row";
 import Col from "react-bootstrap/Col";
 
@@ -12,70 +10,65 @@ import { techItems } from "@data/tech-items";
 import projects from "./data/projects";
 
 import { useMediaQuery } from "./hooks";
-
-import "./globals.css";
-
 import HeroSection from "./components/home/hero";
 
 export default function Home() {
   const isMobile = useMediaQuery();
   const firstThreeProjects = projects.slice(0, 3);
-  
 
   return (
-    <div className="gradient-background">
-
+    <>
       <HeroSection />
 
-      {/* ========== Tech Stack Section ========== */}
-      <section className="py-5">
-        <motion.div
-          initial={{ opacity: 0 }}
-          whileInView={{ opacity: 1 }}
-          viewport={{ once: true }}
-        >
-          <div className="tech-stack-section text-center mb-5">
-            <div className="d-flex align-items-center justify-content-center gap-3 mb-4">
+      <section className="page-section">
+        <div className="section-inner">
+          <div className="section-heading">
+            {/* <span className="accent-line mb-3 d-block"></span> */}
+            <h2 className="text-gradient">What I build</h2>
+            <p>
+              Modern interfaces, scalable backend services, and polished
+              products built for growth, performance, and strong visual clarity.
+            </p>
+          </div>
+
+          <div className="glass-panel p-5">
+            <div className="d-flex align-items-center justify-content-center gap-3 mb-5 flex-column flex-md-row text-center text-md-start">
               <GoStack className="tech-stack-icon" />
-              <h2 className="text-gradient mb-0">Tech Stack</h2>
+              <div>
+                <h3 className="mb-1">Tech Stack</h3>
+                <p className="text-muted mb-0">
+                  A curated set of tools and frameworks I use every day.
+                </p>
+              </div>
             </div>
 
-            <Row className="g-5 align-items-center">
+            <Row className="g-4">
               <Col>
                 <TechStack techItems={techItems} isMobile={isMobile} />
               </Col>
             </Row>
           </div>
-        </motion.div>
+        </div>
       </section>
 
-      {/* ========== Projects Section ========== */}
-      <section className="py-5">
-        <motion.div
-          initial={{ opacity: 0 }}
-          whileInView={{ opacity: 1 }}
-          viewport={{ once: true }}
-        >
-          <div className="projects-section text-center mb-5">
-            <div className="d-flex align-items-center justify-content-center gap-3 mb-4">
-              <GoPackage className="projects-icon" />
-              <h2 className="text-gradient mb-0">Some of my projects</h2>
-            </div>
-
-            <p className="lead text-muted mb-5">
-              Here are some of the projects {"I've"} worked on. You can find more on my GitHub page.
+      <section className="page-section">
+        <div className="section-inner">
+          <div className="section-heading">
+            {/* <span className="accent-line mb-3 d-block"></span> */}
+            <h2 className="text-gradient">Selected Projects</h2>
+            <p>
+              Featured work with clean UI, meaningful interactions, and thoughtful
+              data flows.
             </p>
-
-            <Row className="g-5 justify-content-center">
-              {firstThreeProjects.map((project, index) => (
-                <Col key={index} className="mb-4">
-                  <ProjectCard project={project} />
-                </Col>
-              ))}
-            </Row>
           </div>
-        </motion.div>
+
+          <div className="section-grid">
+            {firstThreeProjects.map((project, index) => (
+              <ProjectCard key={index} project={project} />
+            ))}
+          </div>
+        </div>
       </section>
-    </div>
+    </>
   );
 }

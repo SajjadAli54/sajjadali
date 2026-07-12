@@ -99,22 +99,21 @@ function QuoteCard() {
 
       <style jsx global>{`
         .glass-quote-card {
-          background: rgba(255, 255, 255, 0.9);
-          backdrop-filter: blur(10px);
-          border: 1px solid rgba(255, 255, 255, 0.3);
-          box-shadow: 0 8px 32px rgba(0, 0, 0, 0.1);
-          // min-height: 300px;
+          background: var(--card-bg);
+          backdrop-filter: blur(14px);
+          border: 1px solid rgba(var(--border-rgb), 0.18);
+          box-shadow: 0 8px 32px rgba(15, 23, 42, 0.1);
         }
 
         .text-gradient {
-          background: linear-gradient(45deg, #6366f1, #a855f7);
+          background: linear-gradient(45deg, var(--primary), var(--accent));
           -webkit-background-clip: text;
           -webkit-text-fill-color: transparent;
         }
 
         .quote-icon {
           position: absolute;
-          opacity: 0.1;
+          opacity: 0.12;
         }
 
         .top-icon {
@@ -131,13 +130,13 @@ function QuoteCard() {
         .refresh-button {
           border: none;
           background: none;
-          color: #6366f1;
+          color: var(--primary);
           margin-top: 0.5rem;
           transition: color 0.3s ease;
         }
 
         .refresh-button:hover {
-          color: #a855f7;
+          color: var(--accent);
         }
 
         .skeleton-loader {
@@ -146,7 +145,7 @@ function QuoteCard() {
 
         .skeleton-line {
           height: 1.5rem;
-          background: rgba(0, 0, 0, 0.1);
+          background: rgba(var(--border-rgb), 0.12);
           border-radius: 4px;
           margin-bottom: 1rem;
           animation: pulse 1.5s infinite;
@@ -180,6 +179,7 @@ function QuoteCard() {
           line-height: 1.6;
           position: relative;
           z-index: 1;
+          color: var(--foreground);
         }
       `}</style>
     </motion.div>

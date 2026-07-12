@@ -21,7 +21,8 @@ function HeroSection() {
   const months = totalMonths % 12;
 
   return (
-    <section className="py-5 min-vh-100 d-flex align-items-center bg-light">
+    // <section className="hero-section py-5 min-vh-100 d-flex align-items-center">
+    <section className="page-section">
       <Row className="align-items-center g-5">
         
         {/* === Profile Image === */}
@@ -62,7 +63,7 @@ function HeroSection() {
               <Link
                 href="https://badriconsultancy.com/"
                 target="_blank"
-                className="company-link text-decoration-none text-dark fw-medium"
+                className="company-link text-decoration-none fw-medium"
               >
                 Badri Management Consultancy
               </Link>
@@ -73,7 +74,7 @@ function HeroSection() {
             </p>
 
             <p className="text-muted small mb-4">
-              <span className="badge bg-primary-subtle text-primary px-3 py-2 rounded-pill">
+              <span className="badge bg-surface-soft text-primary px-3 py-2 rounded-pill">
                 {formatExperience(years, months)} of experience
               </span>
             </p>
@@ -81,14 +82,14 @@ function HeroSection() {
             <Nav className="d-flex flex-wrap gap-3">
               <motion.div whileHover={{ scale: 1.05 }}>
                 <Link href="/projects">
-                  <Button variant="primary" size="lg" className="cta-button shadow-sm px-4">
+                  <Button size="lg" className="btn btn-gradient shadow-sm px-4">
                     View Projects
                   </Button>
                 </Link>
               </motion.div>
               <motion.div whileHover={{ scale: 1.05 }}>
                 <Link href="/contact">
-                  <Button variant="outline-primary" size="lg" className="cta-outline shadow-sm px-4">
+                  <Button size="lg" className="btn btn-soft shadow-sm px-4">
                     Get in Touch
                   </Button>
                 </Link>

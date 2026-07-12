@@ -1,29 +1,46 @@
-#tech-stack .card {
-    transition: transform 0.3s ease, box-shadow 0.3s ease;
+.tech-stack-container {
+    width: 100%;
+    margin: 0 auto;
   }
-  
-  #tech-stack .card:hover {
-    transform: translateY(-8px);
-    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+
+.tech-card-wrapper {
+    transition: transform 0.25s ease, box-shadow 0.25s ease;
   }
-  
-  #tech-stack .icon {
+
+.tech-card-wrapper:hover {
+    transform: translateY(-6px);
+    box-shadow: 0 18px 40px rgba(0, 0, 0, 0.12);
+  }
+
+.tech-card {
+    background: var(--card-bg);
+    border: 1px solid var(--border);
+    color: var(--foreground);
+}
+
+.tech-card .card-body {
+    background: transparent;
+}
+
+.tech-icon {
+    color: var(--primary);
+}
+
+.tech-item {
+    color: var(--foreground);
     display: inline-block;
-    width: 60px;
-    height: 60px;
-    text-align: center;
-    line-height: 60px;
-  }
-  
-  .card-title {
+    margin-bottom: 0.35rem;
+}
+
+.card-title {
     font-size: 1.5rem;
     font-weight: 600;
-  }
-  
-  .card-text {
+}
+
+.card-text {
     font-size: 1.1rem;
     line-height: 1.6;
-    color: #555;
-  }
-  
+    color: var(--muted);
+}
+
   

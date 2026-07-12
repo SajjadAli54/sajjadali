@@ -112,9 +112,10 @@ const MyCard: React.FC<MyCardProps> = ({
 
       <style jsx global>{`
         .glass-card {
-          background: rgba(255, 255, 255, 0.9);
-          backdrop-filter: blur(10px);
+          background: var(--card-bg);
+          backdrop-filter: blur(14px);
           transition: all 0.3s ease;
+          border: 1px solid rgba(var(--border-rgb), 0.16);
         }
 
         .image-container {
@@ -136,11 +137,7 @@ const MyCard: React.FC<MyCardProps> = ({
           left: 0;
           right: 0;
           height: 60%;
-          background: linear-gradient(
-            180deg,
-            transparent 0%,
-            rgba(0, 0, 0, 0.7) 100%
-          );
+          background: linear-gradient(180deg, transparent 0%, rgba(15, 23, 42, 0.72) 100%);
         }
 
         .card-header-content {
@@ -152,7 +149,7 @@ const MyCard: React.FC<MyCardProps> = ({
         }
 
         .company-link {
-          color: rgba(255, 255, 255, 0.8);
+          color: rgba(255, 255, 255, 0.84);
           text-decoration: none;
           display: flex;
           align-items: center;
@@ -171,7 +168,7 @@ const MyCard: React.FC<MyCardProps> = ({
         }
 
         .btn-gradient {
-          background: linear-gradient(135deg, #6366f1 0%, #a855f7 100%);
+          background: linear-gradient(135deg, var(--primary), var(--accent));
           border: none;
           border-radius: 0.75rem;
           padding: 0.75rem 1.5rem;

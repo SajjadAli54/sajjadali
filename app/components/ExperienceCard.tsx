@@ -132,14 +132,14 @@ function ExperienceCard({
 
       <style jsx global>{`
         .glass-card {
-          background: rgba(255, 255, 255, 0.9);
-          backdrop-filter: blur(10px);
+          background: var(--card-bg);
+          backdrop-filter: blur(16px);
           border-radius: 1.5rem;
-          border: 1px solid rgba(255, 255, 255, 0.3);
+          border: 1px solid var(--border);
         }
 
         .text-gradient {
-          background: linear-gradient(135deg, #4f46e5 0%, #9333ea 100%);
+          background: linear-gradient(135deg, var(--primary), var(--accent));
           -webkit-background-clip: text;
           -webkit-text-fill-color: transparent;
         }
@@ -153,24 +153,26 @@ function ExperienceCard({
           justify-content: center;
           color: white;
           font-size: 1.5rem;
+          background: linear-gradient(135deg, var(--primary), var(--accent));
         }
 
         .date-badge {
-          background: rgba(99, 102, 241, 0.1);
-          color: #4f46e5;
+          background: var(--surface-soft);
+          color: var(--primary);
           padding: 0.5rem 1rem;
           border-radius: 2rem;
           font-weight: 500;
+          border: 1px solid var(--border);
         }
 
         .company-link {
-          color: #4f46e5;
+          color: var(--primary);
           text-decoration: none;
           transition: all 0.3s ease;
         }
 
         .company-link:hover {
-          color: #9333ea;
+          color: var(--accent);
           transform: translateX(5px);
         }
 
@@ -191,14 +193,14 @@ function ExperienceCard({
 
         .progress-fill {
           height: 100%;
-          background: linear-gradient(90deg, #6366f1, #a855f7);
+          background: linear-gradient(90deg, var(--primary), var(--accent));
           border-radius: 3px;
         }
 
         .bullet-point {
           width: 12px;
           height: 12px;
-          background: #6366f1;
+          background: var(--primary);
           border-radius: 50%;
           margin-top: 8px;
           flex-shrink: 0;

@@ -90,7 +90,7 @@ export const Education = () => {
 
       <style jsx global>{`
         .text-gradient {
-          background: linear-gradient(135deg, #4f46e5 0%, #9333ea 100%);
+          background: linear-gradient(135deg, var(--primary), var(--accent));
           -webkit-background-clip: text;
           -webkit-text-fill-color: transparent;
         }
@@ -100,7 +100,7 @@ export const Education = () => {
           top: 50%;
           width: 25%;
           height: 2px;
-          background: linear-gradient(90deg, transparent, #6366f1, transparent);
+          background: linear-gradient(90deg, transparent, var(--primary), transparent);
         }
 
         .education-timeline {
@@ -113,12 +113,7 @@ export const Education = () => {
           left: 50%;
           width: 4px;
           height: 100%;
-          background: linear-gradient(
-            180deg,
-            #6366f1 0%,
-            #a855f7 50%,
-            #6366f1 100%
-          );
+          background: linear-gradient(180deg, var(--primary) 0%, var(--accent) 50%, var(--primary) 100%);
           transform: translateX(-50%);
           border-radius: 2px;
         }
@@ -144,29 +139,30 @@ export const Education = () => {
         }
 
         .date-box {
-          background: rgba(99, 102, 241, 0.1);
+          background: var(--surface-soft);
           padding: 1rem 1.5rem;
           border-radius: 1rem;
           display: inline-flex;
           align-items: center;
           gap: 12px;
           font-weight: 500;
-          color: #4f46e5;
+          color: var(--foreground);
           transition: all 0.3s ease;
           backdrop-filter: blur(5px);
           position: relative;
+          border: 1px solid var(--border);
         }
 
         .date-icon {
           font-size: 1.4rem;
-          color: #4f46e5;
+          color: var(--primary);
         }
 
         .duration-badge {
           position: absolute;
           bottom: -8px;
           right: -8px;
-          background: #4f46e5;
+          background: var(--primary);
           color: white;
           padding: 4px 12px;
           border-radius: 1rem;
@@ -178,7 +174,7 @@ export const Education = () => {
           position: absolute;
           width: 40px;
           height: 2px;
-          background: #6366f1;
+          background: var(--primary);
         }
 
         .timeline-item.left .timeline-connector {
@@ -200,8 +196,8 @@ export const Education = () => {
           position: absolute;
           width: 20px;
           height: 20px;
-          background: #6366f1;
-          border: 4px solid white;
+          background: var(--primary);
+          border: 4px solid var(--surface);
           border-radius: 50%;
           top: 50%;
           transform: translateY(-50%);
@@ -217,11 +213,12 @@ export const Education = () => {
         }
 
         .glass-card {
-          background: rgba(255, 255, 255, 0.9);
-          backdrop-filter: blur(10px);
+          background: var(--card-bg);
+          backdrop-filter: blur(16px);
           border-radius: 1.5rem;
-          border: 1px solid rgba(255, 255, 255, 0.3);
-          box-shadow: 0 8px 32px rgba(0, 0, 0, 0.1);
+          border: 1px solid var(--border);
+          box-shadow: var(--shadow);
+          color: var(--foreground);
         }
       `}</style>
     </div>

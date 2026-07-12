@@ -104,11 +104,20 @@ const Projects = () => {
   };
 
   return (
-    <motion.div
-      initial={{ opacity: 0 }}
-      animate={{ opacity: 1 }}
-      className="glass-container p-4 rounded-4"
-    >
+    <section className="page-section">
+      <div className="section-inner">
+        <motion.div
+          initial={{ opacity: 0 }}
+          animate={{ opacity: 1 }}
+          className="glass-panel p-4 rounded-4"
+        >
+          <div className="section-heading text-center mb-4">
+            <span className="accent-line mb-3 d-block mx-auto"></span>
+            <h2 className="text-gradient">Projects</h2>
+            <p className="section-subtitle">
+              Search, explore, and filter projects built for real users.
+            </p>
+          </div>
       <MyModal
         title="Delete Project"
         subtitle="Are you sure?"
@@ -179,10 +188,11 @@ const Projects = () => {
 
       <style jsx global>{`
         .glass-container {
-          background: rgba(255, 255, 255, 0.9);
-          backdrop-filter: blur(10px);
-          border: 1px solid rgba(255, 255, 255, 0.3);
-          box-shadow: 0 8px 32px rgba(0, 0, 0, 0.1);
+          background: var(--card-bg);
+          box-shadow: var(--shadow);
+          border: 1px solid var(--border);
+          backdrop-filter: blur(16px);
+          color: var(--foreground);
         }
 
         .grid-layout {
@@ -193,14 +203,16 @@ const Projects = () => {
         }
 
         .glass-tag {
-          background: rgba(99, 102, 241, 0.1);
-          border: 1px solid rgba(99, 102, 241, 0.2);
+          background: var(--surface-soft);
+          border: 1px solid rgba(var(--border-rgb), 0.2);
+          color: var(--foreground);
           transition: all 0.3s ease;
         }
 
         .glass-tag.active {
-          background: linear-gradient(135deg, #6366f1 0%, #a855f7 100%);
-          color: white;
+          background: linear-gradient(135deg, var(--primary), var(--accent));
+          color: #fff;
+          box-shadow: 0 12px 30px rgba(99, 102, 241, 0.18);
         }
 
         .empty-state {
@@ -209,11 +221,12 @@ const Projects = () => {
           flex-direction: column;
           align-items: center;
           justify-content: center;
+          color: var(--muted);
         }
 
         .empty-icon {
           font-size: 3rem;
-          color: #6b7280;
+          color: rgba(var(--border-rgb), 0.6);
           opacity: 0.5;
         }
 
@@ -224,7 +237,10 @@ const Projects = () => {
         }
       `}</style>
     </motion.div>
+      </div>
+    </section>
   );
+  
 };
 
 export default Projects;

@@ -80,10 +80,11 @@ const ProjectCard: React.FC<{ project: Project; className?: string }> = ({
 
       <style jsx global>{`
         .glass-card {
-          background: rgba(255, 255, 255, 0.9);
-          backdrop-filter: blur(10px);
+          background: var(--card-bg);
+          backdrop-filter: blur(14px);
           border-radius: 1.5rem;
           transition: all 0.3s ease;
+          border: 1px solid rgba(var(--border-rgb), 0.16);
         }
 
         .image-container {
@@ -105,17 +106,17 @@ const ProjectCard: React.FC<{ project: Project; className?: string }> = ({
           left: 0;
           right: 0;
           bottom: 0;
-          background: linear-gradient(transparent 60%, rgba(0, 0, 0, 0.1));
+          background: linear-gradient(180deg, transparent 60%, rgba(15, 23, 42, 0.22));
         }
 
         .text-gradient {
-          background: linear-gradient(135deg, #4f46e5 0%, #9333ea 100%);
+          background: linear-gradient(135deg, var(--primary), var(--accent));
           -webkit-background-clip: text;
           -webkit-text-fill-color: transparent;
         }
 
         .btn-gradient {
-          background: linear-gradient(135deg, #6366f1 0%, #a855f7 100%);
+          background: linear-gradient(135deg, var(--primary), var(--accent));
           border: none;
           color: white;
           padding: 0.75rem 1.5rem;
@@ -124,9 +125,9 @@ const ProjectCard: React.FC<{ project: Project; className?: string }> = ({
         }
 
         .btn-dark {
-          background: #1a1a1a;
-          border: none;
-          color: white;
+          background: rgba(var(--surface-rgb), 0.88);
+          border: 1px solid rgba(var(--border-rgb), 0.16);
+          color: var(--foreground);
           padding: 0.75rem 1.5rem;
           border-radius: 0.75rem;
           font-weight: 500;

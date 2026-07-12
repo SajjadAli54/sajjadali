@@ -5,12 +5,23 @@ import Link from "next/link";
 import { motion } from "framer-motion";
 import Navbar from "react-bootstrap/Navbar";
 import Nav from "react-bootstrap/Nav";
-import Container from "react-bootstrap/Container";
 import Offcanvas from "react-bootstrap/Offcanvas";
 import Image from "react-bootstrap/Image";
 import Button from "react-bootstrap/Button";
 import { FiMenu, FiX } from "react-icons/fi";
 import { routes, navLinks } from "@data/routes";
+
+
+// import { useState } from "react";
+// import Link from "next/link";
+// import { motion } from "framer-motion";
+// import Navbar from "react-bootstrap/Navbar";
+// import Nav from "react-bootstrap/Nav";
+// import Offcanvas from "react-bootstrap/Offcanvas";
+// import Image from "react-bootstrap/Image";
+// import Button from "react-bootstrap/Button";
+// import { FiMenu, FiX } from "react-icons/fi";
+// import { routes, navLinks } from "@data/routes";
 
 const NavBar = () => {
   const [showDrawer, setShowDrawer] = useState(false);
@@ -33,7 +44,7 @@ const NavBar = () => {
       className="glass-navbar"
     >
       <Navbar expand="lg" className="py-3">
-        <Container>
+        <div className="nav-inner">
           {/* Logo */}
           <Link href={routes.home} passHref legacyBehavior>
             <motion.div whileHover={{ scale: 1.05 }} whileTap={{ scale: 0.95 }}>
@@ -79,7 +90,7 @@ const NavBar = () => {
               ))}
             </Nav>
           </Navbar.Collapse>
-        </Container>
+        </div>
       </Navbar>
 
       {/* Mobile Offcanvas Menu */}
@@ -129,15 +140,24 @@ const NavBar = () => {
 
       <style jsx global>{`
         .glass-navbar {
-          background: rgba(255, 255, 255, 0.8);
-          backdrop-filter: blur(10px);
-          border-bottom: 1px solid rgba(255, 255, 255, 0.3);
-          box-shadow: 0 2px 15px rgba(0, 0, 0, 0.1);
+          background: rgba(var(--surface-rgb), 0.90);
+          backdrop-filter: blur(16px);
+          border-bottom: 1px solid rgba(var(--border-rgb), 0.18);
+          box-shadow: 0 14px 50px rgba(15, 23, 42, 0.08);
+        }
+
+        .nav-inner {
+          width: min(1160px, 100%);
+          margin: 0 auto;
+          display: flex;
+          align-items: center;
+          justify-content: space-between;
+          gap: 1rem;
         }
 
         .glass-offcanvas {
-          background: rgba(255, 255, 255, 0.9);
-          backdrop-filter: blur(10px);
+          background: rgba(var(--surface-rgb), 0.96);
+          backdrop-filter: blur(16px);
         }
 
         .logo-container {
@@ -155,7 +175,7 @@ const NavBar = () => {
           content: "";
           position: absolute;
           inset: -2px;
-          background: linear-gradient(45deg, #6366f1, #a855f7);
+          background: linear-gradient(45deg, var(--primary), var(--accent));
           border-radius: 50%;
           z-index: -1;
           opacity: 0;
@@ -167,7 +187,7 @@ const NavBar = () => {
         }
 
         .nav-link {
-          color: #1f2937 !important;
+          color: var(--foreground) !important;
           font-weight: 500;
           position: relative;
           padding: 0.5rem 0 !important;
@@ -180,7 +200,7 @@ const NavBar = () => {
           left: 0;
           width: 0;
           height: 2px;
-          background: linear-gradient(90deg, #6366f1, #a855f7);
+          background: linear-gradient(90deg, var(--primary), var(--accent));
           transition: width 0.3s ease;
         }
 
@@ -191,14 +211,14 @@ const NavBar = () => {
         .theme-toggle {
           border: none;
           background: none;
-          color: #1f2937;
+          color: var(--foreground);
           padding: 0.5rem;
           border-radius: 50%;
           transition: all 0.3s ease;
         }
 
         .text-gradient {
-          background: linear-gradient(45deg, #6366f1, #a855f7);
+          background: linear-gradient(45deg, var(--primary), var(--accent));
           -webkit-background-clip: text;
           -webkit-text-fill-color: transparent;
         }
@@ -207,4 +227,4 @@ const NavBar = () => {
   );
 };
 
-export default NavBar;
+export default NavBar

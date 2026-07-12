@@ -33,8 +33,9 @@ function Experience() {
 
   if (isMobile) {
     return (
-      <div className="container py-5">
-        <motion.h3
+      <section className="page-section">
+        <div className="section-inner">
+          <motion.h3
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
           className="text-gradient text-center mb-4 fw-bold display-6"
@@ -53,17 +54,19 @@ function Experience() {
             </motion.div>
           ))}
         </div>
-      </div>
+        </div>
+      </section>
     );
   }
 
   return (
-    <div className={`container py-5 ${styles.timelineContainer}`}>
-      <motion.h3
+    <section className="page-section">
+      <div className={`section-inner ${styles.timelineContainer}`}>
+        <motion.h3
         initial={{ opacity: 0 }}
         animate={{ opacity: 1 }}
-        className="text-gradient text-center mb-5 fw-bold display-4 position-relative"
-      >
+        className="text-gradient text-center mb-5 fw-bold display-4 position-relative">
+
         <div className={styles.titleLine}></div>
         Professional Journey
         <div className={styles.titleLine}></div>
@@ -102,6 +105,7 @@ function Experience() {
         ))}
       </div>
     </div>
+    </section>
   );
 }
 

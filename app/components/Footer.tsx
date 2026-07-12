@@ -3,7 +3,6 @@
 import { motion } from "framer-motion";
 import Row from "react-bootstrap/Row";
 import Col from "react-bootstrap/Col";
-import Container from "react-bootstrap/Container";
 import { IconType } from "react-icons";
 import { FiHeart } from "react-icons/fi";
 
@@ -35,7 +34,7 @@ const MyFooter = ({ badges }: { badges: BadgeProps[] }) => {
       viewport={{ once: true }}
       className="glass-footer py-5"
     >
-      <Container>
+      <div className="footer-inner">
         <Row className="align-items-center text-center g-5">
           {/* Social Links */}
           <Col md={6} className="order-md-1 order-2">
@@ -89,18 +88,18 @@ const MyFooter = ({ badges }: { badges: BadgeProps[] }) => {
             </motion.div>
           </Col>
         </Row>
-      </Container>
+      </div>
 
       <style jsx global>{`
         .glass-footer {
-          background: rgba(255, 255, 255, 0.8);
-          backdrop-filter: blur(10px);
-          border-top: 1px solid rgba(255, 255, 255, 0.3);
-          box-shadow: 0 -4px 30px rgba(0, 0, 0, 0.05);
+          background: var(--card-bg);
+          backdrop-filter: blur(16px);
+          border-top: 1px solid rgba(var(--border-rgb), 0.18);
+          box-shadow: 0 -4px 30px rgba(15, 23, 42, 0.08);
         }
 
         .text-gradient {
-          background: linear-gradient(45deg, #6366f1, #a855f7);
+          background: linear-gradient(45deg, var(--primary), var(--accent));
           -webkit-background-clip: text;
           -webkit-text-fill-color: transparent;
         }
@@ -111,21 +110,26 @@ const MyFooter = ({ badges }: { badges: BadgeProps[] }) => {
           display: flex;
           align-items: center;
           justify-content: center;
-          border-radius: 12px;
-          background: rgba(99, 102, 241, 0.1);
+          border-radius: 16px;
+          background: rgba(99, 102, 241, 0.12);
           transition: all 0.3s ease;
         }
 
         .social-icon:hover {
-          background: linear-gradient(45deg, #6366f1, #a855f7);
+          background: linear-gradient(45deg, var(--primary), var(--accent));
           color: white !important;
-          box-shadow: 0 4px 15px rgba(99, 102, 241, 0.3);
+          box-shadow: 0 4px 15px rgba(99, 102, 241, 0.24);
         }
 
         .quote-box {
-          background: rgba(255, 255, 255, 0.9);
-          border: 1px solid rgba(99, 102, 241, 0.1);
-          box-shadow: 0 4px 20px rgba(0, 0, 0, 0.05);
+          background: rgba(var(--surface-rgb), 0.9);
+          border: 1px solid rgba(var(--border-rgb), 0.12);
+          box-shadow: 0 4px 20px rgba(15, 23, 42, 0.06);
+        }
+
+        .footer-inner {
+          width: min(1120px, 100%);
+          margin: 0 auto;
         }
 
         .icon {
