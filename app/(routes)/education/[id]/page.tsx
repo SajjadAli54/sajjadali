@@ -2,7 +2,6 @@
 
 import { education } from "@/app/data/education";
 import { useParams } from "next/navigation";
-import { Container, Row, Col, Image } from "react-bootstrap";
 import { FaCalendarAlt, FaMapMarkerAlt, FaRocket } from "react-icons/fa";
 import { motion, useAnimate } from "framer-motion";
 import Tags from "@/app/components/Tags";
@@ -19,45 +18,36 @@ function EducationPage() {
 
   if (!edu) {
     return (
-      <Container className="py-5 text-center">
-        <h3 className="text-danger">Job not found</h3>
+      <section className="not-found-shell py-5 text-center">
+        <h3 className="text-danger">Education item not found</h3>
         <BackLink link="/education" page="Education" />
-      </Container>
+      </section>
     );
   }
 
   return (
-    <div className="bg-surface-soft">
-      <Container className="py-5 position-relative">
+    <section className="education-detail-shell bg-surface-soft py-5">
+      <div className="education-detail-inner">
         <motion.div
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.6 }}
+          className="education-hero"
         >
-          <Row className="mb-4 align-items-center">
-            <Col xs={12} md={3} className="text-center mb-3 mb-md-0">
-              <div className="image-wrapper position-relative">
-                <Image
-                  src={edu.image || "/placeholder.png"}
-                  roundedCircle
-                  fluid
-                  alt={edu.degree}
-                  className="company-logo"
-                  style={{
-                    width: "150px",
-                    height: "150px",
-                    objectFit: "cover",
-                    border: "3px solid #fff",
-                    boxShadow: "0 4px 15px rgba(0,0,0,0.1)",
-                  }}
-                  onError={(e) => {
-                    (e.target as HTMLImageElement).src = "/placeholder.png";
-                  }}
-                />
-                <div className="gradient-border"></div>
-              </div>
-            </Col>
-            <Col>
+          <div className="education-hero-meta">
+            <div className="image-wrapper position-relative">
+              <img
+                src={edu.image || "/placeholder.png"}
+                alt={edu.degree}
+                className="company-logo"
+                onError={(e) => {
+                  (e.target as HTMLImageElement).src = "/placeholder.png";
+                }}
+              />
+              <div className="gradient-border"></div>
+            </div>
+
+            <div className="education-hero-copy">
               <h2 className="fw-bold mb-3 text-gradient">{edu.degree}</h2>
               <p className="text-muted mb-1">
                 <FaMapMarkerAlt className="me-2 text-primary" />
@@ -70,14 +60,14 @@ function EducationPage() {
                   {edu.institution}
                 </a>
               </p>
-              <p className="text-muted">
+              <p className="text-muted mb-0">
                 <FaCalendarAlt className="me-2 text-primary" />
                 <span className="date-text">
                   {edu.startDate} — {edu.endDate || "Present"}
                 </span>
               </p>
-            </Col>
-          </Row>
+            </div>
+          </div>
         </motion.div>
 
         {/* Role Overview */}
@@ -145,14 +135,48 @@ function EducationPage() {
 
         {/* Back Button */}
         <BackLink link="/education" page="Education" />
-      </Container>
+      </div>
 
       <style jsx global>{`
+        .education-detail-shell {
+          width: min(1140px, 100%);
+          margin: 0 auto;
+        }
+
+        .education-detail-inner {
+          padding: 0 1.5rem;
+        }
+
+        .education-hero {
+          margin-bottom: 2rem;
+        }
+
+        .education-hero-meta {
+          display: grid;
+          grid-template-columns: auto 1fr;
+          gap: 2rem;
+          align-items: center;
+        }
+
+        .education-hero-copy {
+          min-width: 0;
+        }
+
+        .company-logo {
+          width: 150px;
+          height: 150px;
+          object-fit: cover;
+          border-radius: 50%;
+          border: 3px solid var(--surface);
+          box-shadow: 0 10px 30px rgba(0, 0, 0, 0.12);
+          display: block;
+        }
+
         .glass-card {
           background: var(--card-bg);
           border: 1px solid var(--border);
           backdrop-filter: blur(16px);
-          border-radius: 12px;
+          border-radius: 1.25rem;
           box-shadow: var(--shadow);
         }
 
@@ -179,6 +203,12 @@ function EducationPage() {
           letter-spacing: -0.02em;
         }
 
+        .contribution-list {
+          list-style: none;
+          padding: 0;
+          margin: 0;
+        }
+
         .contribution-list .bullet-gradient {
           width: 24px;
           height: 24px;
@@ -189,6 +219,10 @@ function EducationPage() {
           justify-content: center;
         }
 
+        .contribution-list .bullet-icon {
+          position: relative;
+        }
+
         .contribution-list .bullet-icon::after {
           content: "";
           position: absolute;
@@ -196,11 +230,14 @@ function EducationPage() {
           height: 28px;
           background: rgba(99, 102, 241, 0.1);
           border-radius: 50%;
+          top: -2px;
+          left: -2px;
+          z-index: -1;
         }
 
         .duty-text {
           color: var(--muted);
-          line-height: 1.6;
+          line-height: 1.75;
         }
 
         .back-button::before {
@@ -223,11 +260,6 @@ function EducationPage() {
           left: 100%;
         }
 
-        .image-wrapper {
-          display: inline-block;
-          position: relative;
-        }
-
         .gradient-border {
           position: absolute;
           top: -3px;
@@ -248,7 +280,22 @@ function EducationPage() {
             transform: rotate(360deg);
           }
         }
+
+        @media (max-width: 768px) {
+          .education-hero-meta {
+            grid-template-columns: 1fr;
+            text-align: center;
+          }
+
+          .education-hero-copy {
+            align-items: center;
+          }
+
+          .company-logo {
+            margin: 0 auto;
+          }
+        }
       `}</style>
-    </div>
+    </section>
   );
 }

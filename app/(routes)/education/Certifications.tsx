@@ -1,7 +1,6 @@
 import { motion } from "framer-motion";
 import CertificationCard from "@/app/components/cards/CertificationCard";
 import { certifications } from "@data/certifications";
-import { Container, Row, Col } from "react-bootstrap";
 
 export const Certifications = () => {
   const containerVariants = {
@@ -10,7 +9,7 @@ export const Certifications = () => {
       opacity: 1,
       transition: {
         staggerChildren: 0.1,
-        delayChildren: 0.2,
+        delayChildren: 0.15,
       },
     },
   };
@@ -21,7 +20,7 @@ export const Certifications = () => {
   };
 
   return (
-    <Container className="py-5 glass-container rounded-4">
+    <div className="certifications-shell py-5 glass-panel">
       <motion.h2
         className="text-gradient text-center mb-5 display-5 fw-bold"
         initial={{ opacity: 0 }}
@@ -37,29 +36,22 @@ export const Certifications = () => {
         whileInView="visible"
         viewport={{ once: true, margin: "0px 0px -100px 0px" }}
       >
-        <Row className="g-4 justify-content-center">
+        <div className="certification-list">
           {certifications.map((cert, index) => (
-            <Col
-              key={index}
-              xl={3}
-              lg={4}
-              md={6}
-              className="d-flex align-items-stretch"
-            >
-              <motion.div variants={itemVariants} className="w-100 h-100">
-                <CertificationCard certification={cert} className="h-100" />
-              </motion.div>
-            </Col>
+            <motion.div key={index} variants={itemVariants} className="certification-item">
+              <CertificationCard certification={cert} className="h-100" />
+            </motion.div>
           ))}
-        </Row>
+        </div>
       </motion.div>
 
       <style jsx global>{`
-        .glass-container {
+        .certifications-shell {
           background: var(--card-bg);
-          backdrop-filter: blur(16px);
           border: 1px solid var(--border);
           box-shadow: var(--shadow);
+          width: 100%;
+          padding: 2rem 2rem 2.5rem;
         }
 
         .text-gradient {
@@ -68,19 +60,22 @@ export const Certifications = () => {
           -webkit-text-fill-color: transparent;
         }
 
-        .certifications-grid {
+        .certification-list {
           display: grid;
-          grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-          gap: 2rem;
-          padding: 1rem;
+          grid-template-columns: 1fr;
+          gap: 1.5rem;
         }
 
-        @media (max-width: 768px) {
-          .certifications-grid {
-            grid-template-columns: 1fr;
+        @media (min-width: 900px) {
+          .certification-list {
+            grid-template-columns: 1fr 1fr;
           }
         }
+
+        .certification-item {
+          min-height: 100%;
+        }
       `}</style>
-    </Container>
+    </div>
   );
 };

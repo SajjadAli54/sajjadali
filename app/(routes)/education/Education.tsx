@@ -16,6 +16,7 @@ export const Education = () => {
       whileInView={{ opacity: 1, y: 0 }}
       viewport={{ once: true, margin: "0px 0px -100px 0px" }}
       transition={{ delay: index * 0.1 }}
+      className="education-card-wrapper"
     >
       <Card
         image={edu.image}
@@ -32,27 +33,28 @@ export const Education = () => {
 
   if (isMobile) {
     return (
-      <div className="container py-5">
+      <section className="education-section py-5">
         <motion.h3
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
-          className="text-gradient text-center mb-4 fw-bold display-6"
+          className="text-gradient education-heading mb-4 fw-bold display-6"
         >
           Academic Journey
         </motion.h3>
-        <div className="d-flex flex-column gap-4">
+
+        <div className="education-list">
           {education.map((edu, index) => renderCard(edu, index))}
         </div>
-      </div>
+      </section>
     );
   }
 
   return (
-    <div className="container py-5 position-relative">
+    <section className="education-section py-5">
       <motion.h3
         initial={{ opacity: 0 }}
         animate={{ opacity: 1 }}
-        className="text-gradient text-center mb-5 fw-bold display-4 position-relative"
+        className="text-gradient education-heading mb-5 fw-bold display-4 position-relative"
       >
         <div className="title-line"></div>
         Academic Journey
@@ -75,7 +77,7 @@ export const Education = () => {
               <motion.div className="date-box" whileHover={{ scale: 1.05 }}>
                 <FiCalendar className="date-icon" />
                 {edu.startDate} — {edu.endDate || "Present"}
-                <div className="duration-badge">{edu.endDate}</div>
+                <div className="duration-badge">{edu.endDate || "Present"}</div>
               </motion.div>
               <div className="timeline-connector"></div>
             </div>
@@ -89,6 +91,28 @@ export const Education = () => {
       </div>
 
       <style jsx global>{`
+        .education-section {
+          max-width: 1140px;
+          margin: 0 auto;
+          position: relative;
+          width: min(100%, 1140px);
+        }
+
+        .education-heading {
+          text-align: center;
+          margin: 0 auto 3rem;
+          max-width: 760px;
+        }
+
+        .education-list {
+          display: grid;
+          gap: 1.5rem;
+        }
+
+        .education-card-wrapper {
+          width: 100%;
+        }
+
         .text-gradient {
           background: linear-gradient(135deg, var(--primary), var(--accent));
           -webkit-background-clip: text;
@@ -101,6 +125,14 @@ export const Education = () => {
           width: 25%;
           height: 2px;
           background: linear-gradient(90deg, transparent, var(--primary), transparent);
+        }
+
+        .title-line:first-of-type {
+          left: 0;
+        }
+
+        .title-line:last-of-type {
+          right: 0;
         }
 
         .education-timeline {
@@ -124,6 +156,7 @@ export const Education = () => {
           display: flex;
           justify-content: space-between;
           position: relative;
+          gap: 1.5rem;
         }
 
         .timeline-item.left {
@@ -220,7 +253,41 @@ export const Education = () => {
           box-shadow: var(--shadow);
           color: var(--foreground);
         }
+
+        @media (max-width: 992px) {
+          .timeline-item,
+          .date-wrapper {
+            flex-direction: column;
+            align-items: stretch;
+          }
+
+          .date-wrapper {
+            padding: 0;
+          }
+
+          .timeline-item.left,
+          .timeline-item:not(.left) {
+            flex-direction: column;
+          }
+
+          .timeline-item.left .timeline-dot,
+          .timeline-item:not(.left) .timeline-dot {
+            left: 0;
+            right: auto;
+            position: relative;
+            transform: translateY(0);
+            margin: 1rem 0 0;
+          }
+
+          .timeline-line {
+            left: 10px;
+          }
+
+          .timeline-connector {
+            display: none;
+          }
+        }
       `}</style>
-    </div>
+    </section>
   );
 };
