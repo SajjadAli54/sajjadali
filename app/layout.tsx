@@ -1,6 +1,8 @@
 import type { Metadata } from "next";
 import { Geist, Geist_Mono } from "next/font/google";
 
+import { SpeedInsights } from '@vercel/speed-insights/next';
+
 import "./App.css";
 import "bootstrap/dist/css/bootstrap.min.css";
 import "./globals.css";
@@ -45,6 +47,7 @@ export default function RootLayout({
           </main>
           <Footer badges={badges} />
         </Providers>
+        <SpeedInsights />
       </body>
     </html>
   );
