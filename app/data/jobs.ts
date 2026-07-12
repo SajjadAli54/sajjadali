@@ -21,11 +21,6 @@ export const jobs = [
       "NestJS",
       "ReactJS",
       "NextJS",
-      "Apex Charts and PlotlyJS",
-      "PySide",
-      "PyInstaller",
-      "PyWebview",
-      "Electron",
     ],
   },
   {

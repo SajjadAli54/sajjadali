@@ -73,11 +73,11 @@ function HeroSection() {
               I design and develop user-centric applications across web, mobile, and desktop platforms. I specialize in translating complex problems into seamless and performant solutions.
             </p>
 
-            <p className="text-muted small mb-4">
-              <span className="badge bg-surface-soft text-primary px-3 py-2 rounded-pill">
+            {/* <p className="text-muted small mb-4"> */}
+              <span className="badge bg-surface-soft text-primary px-3 py-2 mb-4 shadow-sm d-inline-block">
                 {formatExperience(years, months)} of experience
               </span>
-            </p>
+            {/* </p> */}
 
             <Nav className="d-flex flex-wrap gap-3">
               <motion.div whileHover={{ scale: 1.05 }}>

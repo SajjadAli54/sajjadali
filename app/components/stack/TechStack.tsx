@@ -49,26 +49,24 @@ const TechStack = ({ techItems, isMobile }: Props) => {
           const { category, items, icon: Icon } = tech;
           return (
             <Col xs={12} sm={6} lg={4} key={`${currentPage}-${index}`}>
-              <div className="tech-card-wrapper">
-                <Card className="h-100 tech-card shadow-lg">
-                  <Card.Body className="d-flex flex-column align-items-center text-center p-4">
-                    <div className="icon-wrapper mb-4">
-                      <Icon className="tech-icon" size={60} />
-                    </div>
-                    <Card.Title className="mb-3 fw-bold text-gradient">
-                      {category}
-                    </Card.Title>
-                    <Card.Text className="text-muted flex-grow-1">
-                      {items.split(", ").map((item, i) => (
-                        <span key={i} className="tech-item">
-                          {item}
-                          {i < items.split(", ").length - 1 && " • "}
-                        </span>
-                      ))}
-                    </Card.Text>
-                  </Card.Body>
-                </Card>
-              </div>
+              <Card className="h-100 tech-card shadow-lg">
+                <Card.Body className="d-flex flex-column text-center p-2">
+                  <div className="icon-wrapper mb-4">
+                    <Icon className="tech-icon" color={tech.color} size={60} />
+                  </div>
+                  <Card.Title className="mb-3 fw-bold text-gradient">
+                    {category}
+                  </Card.Title>
+                  <Card.Text className="text-muted">
+                    {items.split(", ").map((item, i) => (
+                      <span key={i} className="badge bg-success text-dark me-1 mb-1">
+                        {item}
+                        {/* {i < items.split(", ").length - 1 && " • "} */}
+                      </span>
+                    ))}
+                  </Card.Text>
+                </Card.Body>
+              </Card>
             </Col>
           );
         })}
