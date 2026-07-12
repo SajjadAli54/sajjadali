@@ -1,7 +1,7 @@
 "use client";
 
 import { Row, Col, Card, Image } from "react-bootstrap";
-import ContactSection from "./ContactSection";
+// import ContactSection from "./ContactSection";
 import { motion } from "framer-motion";
 import { FiGlobe, FiCode, FiCoffee } from "react-icons/fi";
 
